@@ -16,6 +16,13 @@ const DEFAULTS: Record<string, string> = {
   bookingUrl: "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG",
   ceramicDepositUrl: "https://square.link/u/NwnNJRm7",
   wisetackUrl: "https://www.wisetack.com/",
+  // Per-section booking links (empty = use /book page)
+  bookingUrlFullDetail: "",
+  bookingUrlInterior: "",
+  bookingUrlExterior: "",
+  bookingUrlAddOns: "",
+  bookingUrlPaintCorrection: "",
+  bookingUrlHomeCta: "",
   hoursWeekday: "9:30 AM – 6:00 PM",
   hoursSaturday: "9:30 AM – 3:00 PM",
   hoursSunday: "Closed",

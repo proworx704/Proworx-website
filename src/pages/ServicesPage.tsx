@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig, useServices, useMemberships } from "@/hooks/useCms";
 
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
@@ -62,7 +63,7 @@ export function ServicesPage() {
               From quick maintenance washes to full paint corrections and ceramic coatings — we offer a complete range of professional detailing services, all mobile.
             </p>
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <Link to="/book">Build Your Package <ArrowRight className="size-5" /></Link>
+              <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
           </div>
         </div>
@@ -87,7 +88,7 @@ export function ServicesPage() {
                 ))}
               </ul>
               <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                <Link to="/book">Book Full Detail <ArrowRight className="size-4" /></Link>
+                <BookNowLink href={config.bookingUrlFullDetail || undefined}>Book Full Detail <ArrowRight className="size-4" /></BookNowLink>
               </Button>
             </div>
             <img src="/images/full-insideout.jpg" alt="Ferrari Roma full inside & out detail by ProWorx with van on-site" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
@@ -110,7 +111,7 @@ export function ServicesPage() {
               </div>
               <div className="mt-6">
                 <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                  <Link to="/book">Book Interior Detail <ArrowRight className="size-4" /></Link>
+                  <BookNowLink href={config.bookingUrlInterior || undefined}>Book Interior Detail <ArrowRight className="size-4" /></BookNowLink>
                 </Button>
               </div>
             </div>
@@ -130,7 +131,7 @@ export function ServicesPage() {
               </div>
               <div className="mt-6">
                 <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                  <Link to="/book">Book Exterior Detail <ArrowRight className="size-4" /></Link>
+                  <BookNowLink href={config.bookingUrlExterior || undefined}>Book Exterior Detail <ArrowRight className="size-4" /></BookNowLink>
                 </Button>
               </div>
             </div>
@@ -164,7 +165,7 @@ export function ServicesPage() {
             </div>
             <div className="mt-8 text-center">
               <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                <Link to="/book">Build Your Package <ArrowRight className="size-4" /></Link>
+                <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-4" /></BookNowLink>
               </Button>
             </div>
           </div>
@@ -248,7 +249,7 @@ export function ServicesPage() {
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">Call us for a free consultation. We'll recommend the perfect package for your vehicle.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <Link to="/book">Build Your Package <ArrowRight className="size-5" /></Link>
+              <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

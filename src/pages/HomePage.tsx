@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const SERVICES = [
@@ -136,9 +137,9 @@ export function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-                <Link to="/book">
+                <BookNowLink href={config.bookingUrlHomeCta || undefined}>
                   Build Your Detail Package <ArrowRight className="size-5" />
-                </Link>
+                </BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
                 <a href={config.phoneLink}><Phone className="size-5" /> Call {config.phone}</a>
@@ -419,7 +420,7 @@ export function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-                <Link to="/book">Book Your Detail <ArrowRight className="size-5" /></Link>
+                <BookNowLink href={config.bookingUrlHomeCta || undefined}>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

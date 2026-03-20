@@ -642,6 +642,16 @@ function ContactTab() {
         <EditableRow label="Facebook" value={config.facebookUrl || ""} onSave={(v) => handleSave("facebookUrl", v)} />
         <EditableRow label="Google Business" value={config.googleBusinessUrl || ""} onSave={(v) => handleSave("googleBusinessUrl", v)} />
       </Section>
+
+      <Section title="Book Now Buttons" icon={<ChevronRight className="size-5" />}>
+        <p className="text-xs text-muted-foreground mb-3">Set a custom checkout URL for each section's "Book Now" button. Leave blank to use the main booking widget page.</p>
+        <EditableRow label="Full Detail" value={config.bookingUrlFullDetail || ""} onSave={(v) => handleSave("bookingUrlFullDetail", v)} />
+        <EditableRow label="Interior Detail" value={config.bookingUrlInterior || ""} onSave={(v) => handleSave("bookingUrlInterior", v)} />
+        <EditableRow label="Exterior Detail" value={config.bookingUrlExterior || ""} onSave={(v) => handleSave("bookingUrlExterior", v)} />
+        <EditableRow label="Add-Ons / Package" value={config.bookingUrlAddOns || ""} onSave={(v) => handleSave("bookingUrlAddOns", v)} />
+        <EditableRow label="Paint Correction" value={config.bookingUrlPaintCorrection || ""} onSave={(v) => handleSave("bookingUrlPaintCorrection", v)} />
+        <EditableRow label="Home Page CTA" value={config.bookingUrlHomeCta || ""} onSave={(v) => handleSave("bookingUrlHomeCta", v)} />
+      </Section>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { ArrowRight, MapPin, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const AREAS = [
@@ -60,7 +60,7 @@ export function AreasPage() {
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">Give us a call — we may be able to accommodate locations beyond our standard service area.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <Link to="/book">Book Your Detail <ArrowRight className="size-5" /></Link>
+              <BookNowLink href={config.bookingUrlHomeCta || undefined}>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

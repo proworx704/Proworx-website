@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const STAGES = [
@@ -48,7 +48,7 @@ export function PaintCorrectionPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-                <Link to="/book">Get a Quote <ArrowRight className="size-5" /></Link>
+                <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Get a Quote <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
@@ -121,7 +121,7 @@ export function PaintCorrectionPage() {
             Contact us for a free paint assessment. We'll recommend the right level of correction for your vehicle.
           </p>
           <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-            <Link to="/book">Book Your Correction <ArrowRight className="size-5" /></Link>
+            <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Book Your Correction <ArrowRight className="size-5" /></BookNowLink>
           </Button>
         </div>
       </section>
