@@ -89,7 +89,9 @@ export function SiteFooter() {
                 { label: "Full Detail Packages", href: "/services" },
                 { label: "Paint Correction", href: "/paint-correction" },
                 { label: "Ceramic Coating", href: "/ceramic-coating" },
+                { label: "Boat Detailing", href: "/boat-detailing" },
                 { label: "Fleet Detailing", href: "/fleet" },
+                { label: "Maintenance Plans", href: "/maintenance" },
                 { label: "Build Your Package", href: "/book" },
               ].map((link) => (
                 <li key={link.label}>

@@ -13,6 +13,8 @@ import { BookingPage } from "./pages/BookingPage";
 import { AreasPage } from "./pages/AreasPage";
 import { ContactPage } from "./pages/ContactPage";
 import { FleetPage } from "./pages/FleetPage";
+import { BoatDetailingPage } from "./pages/BoatDetailingPage";
+import { MaintenancePage } from "./pages/MaintenancePage";
 import { AdminPage } from "./pages/AdminPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -38,6 +40,8 @@ function App() {
           <Route path="/ceramic-coating" element={<SiteLayout><CeramicCoatingPage /></SiteLayout>} />
           <Route path="/book" element={<SiteLayout><BookingPage /></SiteLayout>} />
           <Route path="/fleet" element={<SiteLayout><FleetPage /></SiteLayout>} />
+          <Route path="/boat-detailing" element={<SiteLayout><BoatDetailingPage /></SiteLayout>} />
+          <Route path="/maintenance" element={<SiteLayout><MaintenancePage /></SiteLayout>} />
           <Route path="/areas" element={<SiteLayout><AreasPage /></SiteLayout>} />
           <Route path="/contact" element={<SiteLayout><ContactPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
