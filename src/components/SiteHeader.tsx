@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Ceramic Coating", href: "/ceramic-coating" },
   { label: "Paint Correction", href: "/paint-correction" },
+  { label: "Fleet Detailing", href: "/fleet" },
   { label: "Areas We Serve", href: "/areas" },
   { label: "Contact", href: "/contact" },
 ];

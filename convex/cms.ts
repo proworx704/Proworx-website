@@ -183,6 +183,60 @@ export const updateStandardDetail = mutation({
   },
 });
 
+// ─── STANDARD INTERIOR / EXTERIOR ────────────────────────────────────────────
+
+export const getStandardInterior = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("standardInterior").first();
+  },
+});
+
+export const getStandardExterior = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("standardExterior").first();
+  },
+});
+
+export const updateStandardInterior = mutation({
+  args: {
+    name: v.optional(v.string()),
+    description: v.optional(v.string()),
+    features: v.optional(v.array(v.string())),
+    priceTiers: v.optional(v.array(v.object({ label: v.string(), duration: v.string(), price: v.string() }))),
+    notes: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, updates) => {
+    const existing = await ctx.db.query("standardInterior").first();
+    if (!existing) return;
+    const clean: Record<string, unknown> = {};
+    for (const [k, val] of Object.entries(updates)) {
+      if (val !== undefined) clean[k] = val;
+    }
+    await ctx.db.patch(existing._id, clean);
+  },
+});
+
+export const updateStandardExterior = mutation({
+  args: {
+    name: v.optional(v.string()),
+    description: v.optional(v.string()),
+    features: v.optional(v.array(v.string())),
+    priceTiers: v.optional(v.array(v.object({ label: v.string(), duration: v.string(), price: v.string() }))),
+    notes: v.optional(v.array(v.string())),
+  },
+  handler: async (ctx, updates) => {
+    const existing = await ctx.db.query("standardExterior").first();
+    if (!existing) return;
+    const clean: Record<string, unknown> = {};
+    for (const [k, val] of Object.entries(updates)) {
+      if (val !== undefined) clean[k] = val;
+    }
+    await ctx.db.patch(existing._id, clean);
+  },
+});
+
 // ─── MEMBERSHIPS ─────────────────────────────────────────────────────────────
 
 export const getMemberships = query({
@@ -258,8 +312,9 @@ export const checkAndSeed = mutation({
   returns: v.boolean(), // true if seeded, false if already had data
   handler: async (ctx) => {
     const existingConfig = await ctx.db.query("siteConfig").first();
-    if (existingConfig) return false;
+    const alreadySeeded = !!existingConfig;
 
+    if (!alreadySeeded) {
     // Seed siteConfig
     const configItems = [
       { key: "appName", value: "ProWorx Detailing" },
@@ -350,21 +405,189 @@ export const checkAndSeed = mutation({
     const membershipData = [
       {
         key: "clean", name: "Clean", price: 59, url: "https://square.link/u/TT4AvMOz", order: 0, popular: false,
-        features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Exterior window cleaning", "Quick interior vacuum & wipe", "Priority scheduling"],
+        features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Exterior window cleaning", "Tire dressing", "Priority scheduling"],
       },
       {
         key: "shield", name: "Shield", price: 99, url: "https://square.link/u/YDKzho6U", order: 1, popular: true,
-        features: ["Everything in Clean", "Full interior detail", "Quarterly ceramic wax", "Leather clean & condition", "Interior glass & surfaces", "Same-week priority"],
+        features: ["Everything in Clean", "Quick interior vacuum", "Interior wipe down", "Dashboard & console cleaning", "Same-week priority scheduling"],
       },
       {
-        key: "armor", name: "Armor", price: 149, url: "https://square.link/u/Ih4zVYZE", order: 2, popular: false,
-        features: ["Everything in Shield", "Annual 1-step paint correction", "Annual ceramic coating refresh", "Bi-annual engine bay detail", "UV protection", "Same-day priority", "10% off add-ons"],
+        key: "armor", name: "Armor", price: 159, url: "https://square.link/u/Ih4zVYZE", order: 2, popular: false,
+        features: ["Everything in Shield", "Full interior detail", "Wet coat ceramic protection (applied quarterly)", "Interior glass & all surfaces", "Same-day priority scheduling", "10% off all add-ons"],
       },
     ];
     for (const m of membershipData) {
       await ctx.db.insert("memberships", m);
     }
+    } // end if (!alreadySeeded)
 
+    // These seed independently — they check for existing data themselves
+    // Seed Standard Interior package
+    const existingInterior = await ctx.db.query("standardInterior").first();
+    if (!existingInterior) {
+      await ctx.db.insert("standardInterior", {
+        name: "Standard Interior Only",
+        description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
+        features: [
+          "Full interior vacuum (carpets, seats, crevices)",
+          "Wipe-down of all interior surfaces",
+          "Door panels, cupholders, center console, and vents",
+          "Interior glass cleaning",
+          "Light stain treatment (as applicable)",
+        ],
+        priceTiers: [
+          { label: "Coupe/Sedan", duration: "1 hr 45 min", price: "$127" },
+          { label: "Small SUV / Small Truck", duration: "2 hrs", price: "$144" },
+          { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 30 min", price: "$180" },
+          { label: "Van", duration: "3 hrs", price: "$216" },
+        ],
+        notes: [
+          "Pet Hair Fee: Additional time will be charged at base rate (required if present).",
+          "Condition: Extra time/cost may apply for neglected vehicles.",
+        ],
+      });
+    }
+
+    // Seed Standard Exterior package
+    const existingExterior = await ctx.db.query("standardExterior").first();
+    if (!existingExterior) {
+      await ctx.db.insert("standardExterior", {
+        name: "Standard Exterior Only",
+        description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection without paint correction.",
+        features: [
+          "Hand wash with foam pre-treatment",
+          "Wheels and tires cleaned and dressed",
+          "Exterior glass cleaned",
+          "Light spray wax for shine and short-term protection",
+          "Final quality inspection",
+        ],
+        priceTiers: [
+          { label: "Coupe/Sedan (4-door)", duration: "1 hr 30 min", price: "$103" },
+          { label: "Small SUV / Small Truck", duration: "1 hr 45 min", price: "$124" },
+          { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 15 min", price: "$144" },
+          { label: "Van", duration: "2 hrs", price: "$165" },
+        ],
+        notes: [
+          "Condition: Extra time/cost may apply for neglected vehicles.",
+        ],
+      });
+    }
+
+    // Seed photo slots
+    const photoSlots = [
+      // Home page
+      { slot: "homepage-hero", label: "Homepage Hero", page: "Home", staticPath: "/images/escalade-front.jpg" },
+      { slot: "homepage-about", label: "About Section", page: "Home", staticPath: "/images/porsche-van.jpg" },
+      { slot: "homepage-fleet", label: "Fleet Section", page: "Home", staticPath: "/images/fleet-real.jpg" },
+      { slot: "homepage-interior", label: "Interior Section", page: "Home", staticPath: "/images/vanquish-interior.jpg" },
+      { slot: "homepage-cta", label: "CTA / Why Choose Us", page: "Home", staticPath: "/images/ferrari-profile.jpg" },
+      { slot: "gallery-1", label: "Gallery — Corvette ZR1", page: "Gallery", staticPath: "/images/corvette-front.jpg" },
+      { slot: "gallery-2", label: "Gallery — Ferrari Roma", page: "Gallery", staticPath: "/images/ferrari-van.jpg" },
+      { slot: "gallery-3", label: "Gallery — Vanquish Interior", page: "Gallery", staticPath: "/images/vanquish-interior.jpg" },
+      { slot: "gallery-4", label: "Gallery — Escalade Ceramic", page: "Gallery", staticPath: "/images/escalade-rear.jpg" },
+      { slot: "gallery-5", label: "Gallery — Aston Martin", page: "Gallery", staticPath: "/images/aston-rear.jpg" },
+      { slot: "gallery-6", label: "Gallery — Range Rover", page: "Gallery", staticPath: "/images/rangerover-front.jpg" },
+      { slot: "gallery-7", label: "Gallery — Tesla", page: "Gallery", staticPath: "/images/tesla-bay.jpg" },
+      { slot: "gallery-8", label: "Gallery — Range Rover Interior", page: "Gallery", staticPath: "/images/rangerover-interior.jpg" },
+      { slot: "gallery-9", label: "Gallery — Mobile Setup", page: "Gallery", staticPath: "/images/mobile-tent.jpg" },
+      // Services
+      { slot: "services-hero", label: "Services Hero", page: "Services", staticPath: "/images/corvette-front.jpg" },
+      { slot: "services-standard", label: "Standard Detail", page: "Services", staticPath: "/images/full-insideout.jpg" },
+      { slot: "services-interior", label: "Interior Section", page: "Services", staticPath: "/images/rangerover-interior.jpg" },
+      { slot: "services-exterior", label: "Exterior Section", page: "Services", staticPath: "/images/porsche-foam.jpg" },
+      // Ceramic Coating
+      { slot: "ceramic-hero", label: "Ceramic Hero", page: "Ceramic Coating", staticPath: "/images/escalade-rear.jpg" },
+      { slot: "ceramic-why", label: "Why Ceramic Section", page: "Ceramic Coating", staticPath: "/images/aston-front.jpg" },
+      { slot: "ceramic-process", label: "Ceramic Process", page: "Ceramic Coating", staticPath: "/images/ferrari-side.jpg" },
+      // Paint Correction
+      { slot: "paint-hero", label: "Paint Correction Hero", page: "Paint Correction", staticPath: "/images/tesla-bay.jpg" },
+      { slot: "paint-results", label: "Paint Correction Results", page: "Paint Correction", staticPath: "/images/corvette-front.jpg" },
+      // Fleet
+      { slot: "fleet-hero", label: "Fleet Hero", page: "Fleet", staticPath: "/images/fleet-real.jpg" },
+      { slot: "fleet-process", label: "Fleet Process Section", page: "Fleet", staticPath: "/images/mobile-tent.jpg" },
+      // Service cards (homepage)
+      { slot: "card-full-detail", label: "Card — Full Detail", page: "Home", staticPath: "/images/ferrari-van.jpg" },
+      { slot: "card-ceramic", label: "Card — Ceramic Coating", page: "Home", staticPath: "/images/escalade-rear.jpg" },
+      { slot: "card-paint", label: "Card — Paint Correction", page: "Home", staticPath: "/images/corvette-rear.jpg" },
+      { slot: "card-exterior", label: "Card — Exterior Detail", page: "Home", staticPath: "/images/rangerover-front.jpg" },
+      { slot: "card-fleet", label: "Card — Fleet Detailing", page: "Home", staticPath: "/images/fleet-real.jpg" },
+      { slot: "card-ceramic-why", label: "Card — Ceramic Protection", page: "Home", staticPath: "/images/aston-front.jpg" },
+    ];
+    for (const ps of photoSlots) {
+      const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", ps.slot)).first();
+      if (!existing) await ctx.db.insert("sitePhotos", ps);
+    }
+
+    return !alreadySeeded;
+  },
+});
+
+// ─── PHOTO MANAGEMENT ────────────────────────────────────────────────────────
+
+export const generateUploadUrl = mutation({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.storage.generateUploadUrl();
+  },
+});
+
+export const getAllPhotos = query({
+  args: {},
+  handler: async (ctx) => {
+    const photos = await ctx.db.query("sitePhotos").collect();
+    const result = [];
+    for (const photo of photos) {
+      let url: string | null = null;
+      if (photo.storageId) {
+        url = await ctx.storage.getUrl(photo.storageId);
+      }
+      result.push({ ...photo, storageUrl: url });
+    }
+    // Sort by page then label
+    result.sort((a, b) => a.page.localeCompare(b.page) || a.label.localeCompare(b.label));
+    return result;
+  },
+});
+
+export const getPhoto = query({
+  args: { slot: v.string() },
+  handler: async (ctx, { slot }) => {
+    const photo = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
+    if (!photo) return null;
+    let url: string | null = null;
+    if (photo.storageId) {
+      url = await ctx.storage.getUrl(photo.storageId);
+    }
+    return { ...photo, storageUrl: url };
+  },
+});
+
+export const savePhoto = mutation({
+  args: {
+    slot: v.string(),
+    storageId: v.id("_storage"),
+  },
+  handler: async (ctx, { slot, storageId }) => {
+    const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
+    if (existing) {
+      // Delete old file from storage if it exists
+      if (existing.storageId) {
+        await ctx.storage.delete(existing.storageId);
+      }
+      await ctx.db.patch(existing._id, { storageId });
+    }
+    return true;
+  },
+});
+
+export const resetPhoto = mutation({
+  args: { slot: v.string() },
+  handler: async (ctx, { slot }) => {
+    const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
+    if (existing && existing.storageId) {
+      await ctx.storage.delete(existing.storageId);
+      await ctx.db.patch(existing._id, { storageId: undefined });
+    }
     return true;
   },
 });

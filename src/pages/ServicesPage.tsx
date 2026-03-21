@@ -2,7 +2,8 @@ import { ArrowRight, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Tru
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { useSiteConfig, useServices, useMemberships } from "@/hooks/useCms";
+import { CmsImg } from "@/components/CmsImg";
+import { useSiteConfig, useServices, useMemberships, useStandardInterior, useStandardExterior } from "@/hooks/useCms";
 
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
   return (
@@ -21,9 +22,98 @@ function ServiceRow({ service }: { service: { name: string; description: string;
   );
 }
 
+/** Package section with description, features, pricing tiers, and notes (matches old site layout) */
+function PackageSection({
+  pkg,
+  bookLabel,
+  bookHref,
+  photoSlot,
+  photoFallback,
+  imageAlt,
+  imageFirst,
+}: {
+  pkg: { name: string; description: string; features: string[]; priceTiers: { label: string; duration: string; price: string }[]; notes: string[] };
+  bookLabel: string;
+  bookHref?: string;
+  photoSlot: string;
+  photoFallback: string;
+  imageAlt: string;
+  imageFirst?: boolean;
+}) {
+  const imageEl = (
+    <CmsImg slot={photoSlot} fallback={photoFallback} alt={imageAlt} className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+  );
+
+  const content = (
+    <div>
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">{pkg.name}</h2>
+      <p className="text-muted-foreground leading-relaxed mb-5">{pkg.description}</p>
+
+      {/* What's Included */}
+      <div className="mb-5">
+        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">What's Included</p>
+        <ul className="space-y-2">
+          {pkg.features.map((f) => (
+            <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />{f}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Pricing by vehicle size */}
+      <div className="rounded-xl bg-card border border-border p-4 mb-5">
+        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing</p>
+        {pkg.priceTiers.map((tier) => (
+          <div key={tier.label} className="flex items-center justify-between py-2.5 border-b border-border/50 last:border-0">
+            <div>
+              <p className="text-sm font-medium">{tier.label}</p>
+              <p className="text-xs text-muted-foreground flex items-center gap-1">
+                <Clock className="size-3" />{tier.duration}
+              </p>
+            </div>
+            <p className="font-bold text-gold">{tier.price}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Notes */}
+      {pkg.notes.length > 0 && (
+        <div className="mb-5">
+          {pkg.notes.map((note) => (
+            <p key={note} className="text-xs text-muted-foreground italic mb-1">{note}</p>
+          ))}
+        </div>
+      )}
+
+      <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+        <BookNowLink href={bookHref}>{bookLabel} <ArrowRight className="size-4" /></BookNowLink>
+      </Button>
+    </div>
+  );
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+      {imageFirst ? (
+        <>
+          <div className="order-2 lg:order-1">{imageEl}</div>
+          <div className="order-1 lg:order-2">{content}</div>
+        </>
+      ) : (
+        <>
+          {content}
+          {imageEl}
+        </>
+      )}
+    </div>
+  );
+}
+
 export function ServicesPage() {
   const { config } = useSiteConfig();
   const { services, standardDetail } = useServices();
+  const { standardInterior } = useStandardInterior();
+  const { standardExterior } = useStandardExterior();
   const { memberships } = useMemberships();
 
   const interiorPackages = services?.interiorPackages ?? [];
@@ -40,6 +130,32 @@ export function ServicesPage() {
     features: ["All Standard Exterior services", "All Standard Interior services", "Unified final quality inspection"],
   };
 
+  const si = standardInterior ?? {
+    name: "Standard Interior Only",
+    description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
+    features: ["Full interior vacuum (carpets, seats, crevices)", "Wipe-down of all interior surfaces", "Door panels, cupholders, center console, and vents", "Interior glass cleaning", "Light stain treatment (as applicable)"],
+    priceTiers: [
+      { label: "Coupe/Sedan", duration: "1 hr 45 min", price: "$127" },
+      { label: "Small SUV / Small Truck", duration: "2 hrs", price: "$144" },
+      { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 30 min", price: "$180" },
+      { label: "Van", duration: "3 hrs", price: "$216" },
+    ],
+    notes: ["Pet Hair Fee: Additional time will be charged at base rate (required if present).", "Condition: Extra time/cost may apply for neglected vehicles."],
+  };
+
+  const se = standardExterior ?? {
+    name: "Standard Exterior Only",
+    description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection without paint correction.",
+    features: ["Hand wash with foam pre-treatment", "Wheels and tires cleaned and dressed", "Exterior glass cleaned", "Light spray wax for shine and short-term protection", "Final quality inspection"],
+    priceTiers: [
+      { label: "Coupe/Sedan (4-door)", duration: "1 hr 30 min", price: "$103" },
+      { label: "Small SUV / Small Truck", duration: "1 hr 45 min", price: "$124" },
+      { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 15 min", price: "$144" },
+      { label: "Van", duration: "2 hrs", price: "$165" },
+    ],
+    notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
+  };
+
   // Build membership plan display data
   const membershipPlans = (memberships ?? []).map((m) => ({
     ...m,
@@ -51,7 +167,7 @@ export function ServicesPage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/corvette-front.jpg" alt="Black Corvette ZR1 detailed by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="services-hero" fallback="/images/corvette-front.jpg" alt="Black Corvette ZR1 detailed by ProWorx" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
         </div>
         <div className="container">
@@ -69,7 +185,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* 1. Full Detail */}
+      {/* 1. Full Detail (Inside & Out) */}
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -91,52 +207,43 @@ export function ServicesPage() {
                 <BookNowLink href={config.bookingUrlFullDetail || undefined}>Book Full Detail <ArrowRight className="size-4" /></BookNowLink>
               </Button>
             </div>
-            <img src="/images/full-insideout.jpg" alt="Ferrari Roma full inside & out detail by ProWorx with van on-site" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <CmsImg slot="services-standard" fallback="/images/full-insideout.jpg" alt="Ferrari Roma full inside & out detail by ProWorx with van on-site" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
           </div>
         </div>
       </section>
 
-      {/* 2. Interior Only */}
+      {/* 2. Standard Interior Only */}
       <section className="py-20 md:py-28 bg-card/50">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div className="order-2 lg:order-1">
-              <img src="/images/rangerover-interior.jpg" alt="Range Rover interior detail — pristine white leather seats" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
-            </div>
-            <div className="order-1 lg:order-2">
-              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Interior Only</p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Interior Services</h2>
-              <div className="rounded-2xl bg-card border border-border p-5">
-                {interiorPackages.map((s) => <ServiceRow key={s._id} service={s} />)}
-              </div>
-              <div className="mt-6">
-                <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                  <BookNowLink href={config.bookingUrlInterior || undefined}>Book Interior Detail <ArrowRight className="size-4" /></BookNowLink>
-                </Button>
-              </div>
-            </div>
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Interior Only</p>
           </div>
+          <PackageSection
+            pkg={si}
+            bookLabel="Book Interior Detail"
+            bookHref={config.bookingUrlInterior || undefined}
+            photoSlot="services-interior"
+            photoFallback="/images/rangerover-interior.jpg"
+            imageAlt="Interior detail by ProWorx"
+            imageFirst
+          />
         </div>
       </section>
 
-      {/* 3. Exterior Only */}
+      {/* 3. Standard Exterior Only */}
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div>
-              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Exterior Only</p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Exterior Services</h2>
-              <div className="rounded-2xl bg-card border border-border p-5">
-                {exteriorPackages.map((s) => <ServiceRow key={s._id} service={s} />)}
-              </div>
-              <div className="mt-6">
-                <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                  <BookNowLink href={config.bookingUrlExterior || undefined}>Book Exterior Detail <ArrowRight className="size-4" /></BookNowLink>
-                </Button>
-              </div>
-            </div>
-            <img src="/images/porsche-foam.jpg" alt="White Porsche Boxster covered in foam — exterior detail by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Exterior Only</p>
           </div>
+          <PackageSection
+            pkg={se}
+            bookLabel="Book Exterior Detail"
+            bookHref={config.bookingUrlExterior || undefined}
+            photoSlot="services-exterior"
+            photoFallback="/images/porsche-foam.jpg"
+            imageAlt="White Porsche covered in foam — exterior detail by ProWorx"
+          />
         </div>
       </section>
 
@@ -150,13 +257,15 @@ export function ServicesPage() {
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Enhance any service with these add-ons for the ultimate finish.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Interior add-ons: interiorPackages + interiorAddons combined */}
               <div className="rounded-2xl bg-card border border-border p-5">
                 <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">Interior Add-ons</p>
-                {interiorAddons.map((s) => <ServiceRow key={s._id} service={s} />)}
+                {[...interiorPackages, ...interiorAddons].map((s) => <ServiceRow key={s._id} service={s} />)}
               </div>
+              {/* Exterior add-ons: exteriorPackages + exteriorAddons combined */}
               <div className="rounded-2xl bg-card border border-border p-5">
                 <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">Exterior Add-ons</p>
-                {exteriorAddons.map((s) => <ServiceRow key={s._id} service={s} />)}
+                {[...exteriorPackages, ...exteriorAddons].map((s) => <ServiceRow key={s._id} service={s} />)}
               </div>
               <div className="rounded-2xl bg-card border border-border p-5 md:col-span-2 lg:col-span-1">
                 <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">Ceramic Add-ons</p>
@@ -181,14 +290,14 @@ export function ServicesPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: <Sparkles className="size-6" />, title: "Paint Correction", desc: "Remove swirls, scratches & oxidation", link: "/paint-correction", image: "/images/corvette-rear.jpg" },
-              { icon: <Shield className="size-6" />, title: "Ceramic Coating", desc: "GYEON certified, up to 10-year protection", link: "/ceramic-coating", image: "/images/escalade-rear.jpg" },
-              { icon: <Truck className="size-6" />, title: "Fleet Detailing", desc: "Volume pricing for business vehicles", link: "https://www.proworxdetailing.com/fleet-detailing-services", external: true, image: "/images/fleet-real.jpg" },
-            ].map((s) => {
-              const inner = (
+              { icon: <Sparkles className="size-6" />, title: "Paint Correction", desc: "Remove swirls, scratches & oxidation", link: "/paint-correction", slot: "card-paint", fallback: "/images/corvette-rear.jpg" },
+              { icon: <Shield className="size-6" />, title: "Ceramic Coating", desc: "GYEON certified, up to 10-year protection", link: "/ceramic-coating", slot: "card-ceramic", fallback: "/images/escalade-rear.jpg" },
+              { icon: <Truck className="size-6" />, title: "Fleet Detailing", desc: "Volume pricing for business vehicles", link: "/fleet", slot: "fleet-hero", fallback: "/images/fleet-real.jpg" },
+            ].map((s) => (
+              <Link key={s.title} to={s.link}>
                 <div className="group rounded-2xl overflow-hidden bg-card border border-border hover:border-gold/30 transition-all h-full">
                   <div className="relative h-40 overflow-hidden">
-                    <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <CmsImg slot={s.slot} fallback={s.fallback} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                   </div>
                   <div className="p-6">
@@ -200,13 +309,8 @@ export function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              );
-              return s.external ? (
-                <a key={s.title} href={s.link} target="_blank" rel="noopener noreferrer">{inner}</a>
-              ) : (
-                <Link key={s.title} to={s.link}>{inner}</Link>
-              );
-            })}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

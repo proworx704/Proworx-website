@@ -15,6 +15,9 @@ const DEFAULTS: Record<string, string> = {
   giftCardsUrl: "https://app.squareup.com/gift/KAXAX104TMA6W/order",
   bookingUrl: "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG",
   ceramicDepositUrl: "https://square.link/u/NwnNJRm7",
+  ceramicDeposit1yr: "",
+  ceramicDeposit3yr: "",
+  ceramicDeposit10yr: "",
   wisetackUrl: "https://www.wisetack.com/",
   // Per-section booking links (empty = use /book page)
   bookingUrlFullDetail: "",
@@ -81,6 +84,22 @@ export function useServices() {
 }
 
 /**
+ * Hook: returns the Standard Interior package
+ */
+export function useStandardInterior() {
+  const data = useQuery(api.cms.getStandardInterior);
+  return { standardInterior: data ?? null, isLoading: data === undefined };
+}
+
+/**
+ * Hook: returns the Standard Exterior package
+ */
+export function useStandardExterior() {
+  const data = useQuery(api.cms.getStandardExterior);
+  return { standardExterior: data ?? null, isLoading: data === undefined };
+}
+
+/**
  * Hook: returns membership plans
  */
 export function useMemberships() {
@@ -89,4 +108,24 @@ export function useMemberships() {
     return { memberships: null, isLoading: true };
   }
   return { memberships, isLoading: false };
+}
+
+/**
+ * Hook: returns the URL for a photo slot.
+ * If a custom photo was uploaded, returns the Convex storage URL.
+ * Otherwise falls back to the static path.
+ */
+export function usePhoto(slot: string, fallbackPath?: string): string {
+  const photo = useQuery(api.cms.getPhoto, { slot });
+  if (photo?.storageUrl) return photo.storageUrl;
+  if (photo?.staticPath) return photo.staticPath;
+  return fallbackPath ?? "";
+}
+
+/**
+ * Hook: returns all photo slots (for admin panel)
+ */
+export function useAllPhotos() {
+  const photos = useQuery(api.cms.getAllPhotos);
+  return { photos: photos ?? null, isLoading: photos === undefined };
 }

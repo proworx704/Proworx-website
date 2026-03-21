@@ -1,29 +1,36 @@
 import { ArrowRight, CheckCircle2, Phone, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const PACKAGES = [
   {
-    name: "Ceramic Wax",
-    protection: "12 Months",
-    priceFrom: "$540",
+    name: "GYEON Q² One EVO",
+    protection: "1 Year",
+    priceFrom: "$499",
+    deposit: "~$150",
+    configKey: "ceramicDeposit1yr",
     features: [
-      "Single-layer ceramic wax application",
-      "Hydrophobic protection",
-      "UV protection",
+      "Prep wash & decontamination",
+      "Light prep polish (paint preparation)",
+      "Single-layer GYEON Q² One EVO application",
+      "Hydrophobic protection & UV shield",
       "Enhanced gloss & depth",
-      "Easier maintenance washing",
+      "1-year manufacturer warranty",
     ],
     popular: false,
   },
   {
-    name: "Q² Flash Coating",
+    name: "GYEON Q² Pure EVO",
     protection: "3 Years",
-    priceFrom: "$1,200",
+    priceFrom: "$899",
+    deposit: "~$270",
+    configKey: "ceramicDeposit3yr",
     features: [
-      "GYEON Q² Flash professional coating",
-      "1-step paint enhancement polish included",
-      "Superior chemical resistance",
+      "Prep wash & decontamination",
+      "Light prep polish (paint preparation)",
+      "GYEON Q² Pure EVO professional coating",
+      "Superior chemical & UV resistance",
       "Extreme hydrophobic properties",
       "3-year manufacturer warranty",
       "Annual inspection included",
@@ -31,12 +38,15 @@ const PACKAGES = [
     popular: true,
   },
   {
-    name: "Q² Flash EVO",
+    name: "GYEON Q² Flash EVO",
     protection: "10 Years",
-    priceFrom: "$2,370",
+    priceFrom: "$1,599",
+    deposit: "~$480",
+    configKey: "ceramicDeposit10yr",
     features: [
+      "Prep wash & decontamination",
+      "Light prep polish (paint preparation)",
       "GYEON Q² Flash EVO top-tier coating",
-      "Multi-stage paint correction included",
       "Maximum hardness & scratch resistance",
       "Self-cleaning hydrophobic effect",
       "10-year manufacturer warranty",
@@ -48,30 +58,36 @@ const PACKAGES = [
 
 export function CeramicCoatingPage() {
   const { config } = useSiteConfig();
+
+  const getDepositUrl = (configKey: string) => {
+    const url = config[configKey];
+    return url || config.ceramicDepositUrl;
+  };
+
   return (
     <div className="flex-1 flex flex-col">
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/escalade-rear.jpg" alt="Cadillac Escalade ceramic coating reflections under hex lights" className="w-full h-full object-cover" />
+          <CmsImg slot="ceramic-hero" fallback="/images/escalade-rear.jpg" alt="Cadillac Escalade ceramic coating reflections under hex lights" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6 backdrop-blur-sm">
               <Shield className="size-3.5" />
-              Gyeon & IGL Certified Installer
+              Gyeon Certified Installer
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6">
               Professional <span className="text-gradient-gold">Ceramic Coating</span> in Charlotte, NC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Protect your investment with professional-grade GYEON ceramic coatings. Up to 10 years of protection with a brilliant, self-cleaning finish. We're a certified installer — your coating comes with a manufacturer warranty.
+              True ceramic protection for your vehicle — not wax, not sealant. Professional-grade GYEON ceramic coatings with up to 10 years of protection and a manufacturer warranty. Reserve your spot with just 30% down.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-                <a href={config.ceramicDepositUrl} target="_blank" rel="noopener noreferrer">
-                  Reserve with $100 Deposit <ArrowRight className="size-5" />
+                <a href="#packages">
+                  Reserve with 30% Down <ArrowRight className="size-5" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -83,12 +99,12 @@ export function CeramicCoatingPage() {
       </section>
 
       {/* Packages */}
-      <section className="py-20 md:py-28">
+      <section id="packages" className="py-20 md:py-28">
         <div className="container">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Coating Packages</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              All products are professional-grade GYEON. Pricing varies by vehicle size.
+              All true ceramic coatings — professional-grade GYEON products applied by a certified installer. Each package includes a prep cleaning & light prep polish. Pricing varies by vehicle size.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -97,7 +113,8 @@ export function CeramicCoatingPage() {
                 {pkg.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <h3 className="font-bold text-xl mb-1">{pkg.name}</h3>
                 <p className="text-gold text-sm font-medium mb-2">{pkg.protection} Protection</p>
-                <p className="text-2xl font-black mb-5">{pkg.priceFrom}<span className="text-sm font-normal text-muted-foreground">+</span></p>
+                <p className="text-2xl font-black mb-1">{pkg.priceFrom}<span className="text-sm font-normal text-muted-foreground">+</span></p>
+                <p className="text-xs text-muted-foreground mb-5">30% deposit ({pkg.deposit}) to reserve</p>
                 <ul className="space-y-2.5 flex-1 mb-6">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm">
@@ -107,22 +124,48 @@ export function CeramicCoatingPage() {
                   ))}
                 </ul>
                 <Button className={pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={config.ceramicDepositUrl} target="_blank" rel="noopener noreferrer">Reserve Now <ArrowRight className="size-4" /></a>
+                  <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">Reserve with 30% Down <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-8">
-            $100 deposit required to book. Deposit is applied to your final service total.
+            30% deposit required to book. Deposit is applied to your final service total. Need paint correction? Add it from our <a href="/paint-correction" className="text-gold hover:underline">Paint Correction</a> page.
           </p>
         </div>
       </section>
 
-      {/* What you get with image */}
-      <section className="py-20 md:py-28 bg-card/50">
+      {/* What each package includes */}
+      <section className="py-16 md:py-20 bg-card/50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-center">What's Included in Every Package</h2>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                { title: "Prep Cleaning", desc: "Full exterior wash, clay bar decontamination, and iron removal to ensure a perfectly clean surface before coating." },
+                { title: "Light Prep Polish", desc: "A single-step machine polish to prep the paint surface. This is not for correction — it creates the ideal bonding surface for the ceramic coating." },
+                { title: "Ceramic Application", desc: "Professional hand-applied GYEON ceramic coating with proper cure time. Each layer is inspected under LED lighting for full coverage." },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl bg-card border border-border p-5">
+                  <h3 className="font-bold text-sm text-gold mb-2">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 rounded-xl bg-gold/5 border border-gold/20 p-5 text-center">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">Need paint correction?</span> If your vehicle has swirl marks, scratches, or oxidation, add a paint correction service before your coating for the best results. Paint correction is available as a separate service — <a href="/paint-correction" className="text-gold hover:underline">view packages here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Ceramic Coating with image */}
+      <section className="py-20 md:py-28">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <img src="/images/aston-front.jpg" alt="Ceramic coated Aston Martin by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <CmsImg slot="ceramic-why" fallback="/images/aston-front.jpg" alt="Ceramic coated Aston Martin by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
             <div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Why Ceramic Coating?</h2>
               <div className="space-y-4">
@@ -166,7 +209,7 @@ export function CeramicCoatingPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/ferrari-side.jpg" alt="Ferrari Roma ceramic coated by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="ceramic-process" fallback="/images/ferrari-side.jpg" alt="Ferrari Roma ceramic coated by ProWorx" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container text-center">
@@ -178,7 +221,7 @@ export function CeramicCoatingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <a href={config.ceramicDepositUrl} target="_blank" rel="noopener noreferrer">Reserve with $100 Deposit <ArrowRight className="size-5" /></a>
+              <a href="#packages">Reserve with 30% Down <ArrowRight className="size-5" /></a>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> Call for a Free Consultation</a>

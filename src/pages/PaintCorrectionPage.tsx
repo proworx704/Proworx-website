@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const STAGES = [
@@ -31,7 +32,7 @@ export function PaintCorrectionPage() {
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/tesla-bay.jpg" alt="Tesla in ProWorx detailing bay for paint correction" className="w-full h-full object-cover" />
+          <CmsImg slot="paint-hero" fallback="/images/tesla-bay.jpg" alt="Tesla in ProWorx detailing bay for paint correction" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
@@ -106,7 +107,7 @@ export function PaintCorrectionPage() {
                 ))}
               </div>
             </div>
-            <img src="/images/corvette-front.jpg" alt="Corvette ZR1 mirror finish after paint correction by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <CmsImg slot="paint-results" fallback="/images/corvette-front.jpg" alt="Corvette ZR1 mirror finish after paint correction by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
           </div>
         </div>
       </section>

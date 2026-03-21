@@ -15,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const SERVICES = [
@@ -24,20 +25,23 @@ const SERVICES = [
     description: "Interior and exterior detailing tailored to your vehicle. From basic maintenance washes to comprehensive full details.",
     href: "/services",
     image: "/images/ferrari-van.jpg",
+    slot: "card-full-detail",
   },
   {
     icon: <Sparkles className="size-6" />,
     title: "Paint Correction",
     description: "Remove swirl marks, scratches, and oxidation. Restore your vehicle's paint to a flawless, showroom finish.",
     href: "/paint-correction",
-    image: "/images/escalade-rear.jpg",
+    image: "/images/corvette-rear.jpg",
+    slot: "card-paint",
   },
   {
     icon: <Shield className="size-6" />,
     title: "Ceramic Coating",
     description: "Gyeon & IGL certified ceramic coating installation. Years of protection with a brilliant, hydrophobic finish.",
     href: "/ceramic-coating",
-    image: "/images/corvette-rear.jpg",
+    image: "/images/escalade-rear.jpg",
+    slot: "card-ceramic",
   },
   {
     icon: <Droplets className="size-6" />,
@@ -45,14 +49,15 @@ const SERVICES = [
     description: "Keep your vehicle looking its best year-round with our monthly detailing membership program.",
     href: "/services#memberships",
     image: "/images/rangerover-front.jpg",
+    slot: "card-exterior",
   },
   {
     icon: <Truck className="size-6" />,
     title: "Fleet Detailing",
     description: "Professional fleet detailing services with volume pricing. Keep your business vehicles looking sharp.",
-    href: "https://www.proworxdetailing.com/fleet-detailing-services",
-    external: true,
+    href: "/fleet",
     image: "/images/fleet-real.jpg",
+    slot: "card-fleet",
   },
   {
     icon: <Award className="size-6" />,
@@ -61,6 +66,7 @@ const SERVICES = [
     href: "__giftcards__",
     external: true,
     image: "/images/aston-front.jpg",
+    slot: "card-ceramic-why",
   },
 ];
 
@@ -104,8 +110,9 @@ export function HomePage() {
       {/* ─── HERO with background image ─── */}
       <section className="relative flex items-center min-h-[85vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img
-            src="/images/escalade-front.jpg"
+          <CmsImg
+            slot="homepage-hero"
+            fallback="/images/escalade-front.jpg"
             alt="Cadillac Escalade under hex lights after ceramic coating by ProWorx Detailing"
             className="w-full h-full object-cover"
           />
@@ -162,8 +169,9 @@ export function HomePage() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="relative">
-              <img
-                src="/images/porsche-van.jpg"
+              <CmsImg
+                slot="homepage-about"
+                fallback="/images/porsche-van.jpg"
                 alt="ProWorx Detailing van on-site with Porsche Cayenne Turbo GT"
                 className="rounded-2xl w-full aspect-[4/3] object-cover shadow-2xl"
               />
@@ -215,8 +223,9 @@ export function HomePage() {
               const inner = (
                 <div className="group relative overflow-hidden rounded-2xl bg-card border border-border transition-all hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image}
+                    <CmsImg
+                      slot={service.slot}
+                      fallback={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -268,9 +277,9 @@ export function HomePage() {
               </ul>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                  <a href="https://www.proworxdetailing.com/fleet-detailing-services" target="_blank" rel="noopener noreferrer">
+                  <Link to="/fleet">
                     Learn About Fleet Pricing <ArrowRight className="size-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button variant="outline" className="border-gold/30 text-gold hover:bg-gold/10" asChild>
                   <a href={config.phoneLink}><Phone className="size-4" /> {config.phone}</a>
@@ -278,13 +287,15 @@ export function HomePage() {
               </div>
             </div>
             <div className="space-y-5">
-              <img
-                src="/images/fleet-real.jpg"
+              <CmsImg
+                slot="homepage-fleet"
+                fallback="/images/fleet-real.jpg"
                 alt="Fleet vehicle detailed on-site by ProWorx with van in background"
                 className="rounded-2xl w-full aspect-[3/2] object-cover shadow-xl"
               />
-              <img
-                src="/images/vanquish-interior.jpg"
+              <CmsImg
+                slot="homepage-interior"
+                fallback="/images/vanquish-interior.jpg"
                 alt="Aston Martin Vanquish interior detailed by ProWorx — quilted blue leather"
                 className="rounded-2xl w-full aspect-[3/2] object-cover shadow-xl"
               />
@@ -305,18 +316,18 @@ export function HomePage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
             {[
-              { src: "/images/corvette-front.jpg", alt: "Black Corvette ZR1 paint correction", label: "Corvette ZR1" },
-              { src: "/images/ferrari-van.jpg", alt: "Red Ferrari Roma with ProWorx van", label: "Ferrari Roma" },
-              { src: "/images/vanquish-interior.jpg", alt: "Aston Martin Vanquish interior detail", label: "Aston Martin Interior" },
-              { src: "/images/escalade-rear.jpg", alt: "Cadillac Escalade ceramic coating", label: "Escalade Ceramic Coating" },
-              { src: "/images/aston-rear.jpg", alt: "Blue Aston Martin detailed by ProWorx", label: "Aston Martin" },
-              { src: "/images/rangerover-front.jpg", alt: "Range Rover Sport full detail", label: "Range Rover Sport" },
-              { src: "/images/tesla-bay.jpg", alt: "Tesla in ProWorx detailing bay", label: "Tesla Model S" },
-              { src: "/images/rangerover-interior.jpg", alt: "Range Rover interior detail — pristine white leather", label: "Range Rover Interior" },
-              { src: "/images/mobile-tent.jpg", alt: "ProWorx mobile detailing setup with inflatable tent", label: "Mobile Setup" },
+              { slot: "gallery-1", fallback: "/images/corvette-front.jpg", alt: "Black Corvette ZR1 paint correction", label: "Corvette ZR1" },
+              { slot: "gallery-2", fallback: "/images/ferrari-van.jpg", alt: "Red Ferrari Roma with ProWorx van", label: "Ferrari Roma" },
+              { slot: "gallery-3", fallback: "/images/vanquish-interior.jpg", alt: "Aston Martin Vanquish interior detail", label: "Aston Martin Interior" },
+              { slot: "gallery-4", fallback: "/images/escalade-rear.jpg", alt: "Cadillac Escalade ceramic coating", label: "Escalade Ceramic Coating" },
+              { slot: "gallery-5", fallback: "/images/aston-rear.jpg", alt: "Blue Aston Martin detailed by ProWorx", label: "Aston Martin" },
+              { slot: "gallery-6", fallback: "/images/rangerover-front.jpg", alt: "Range Rover Sport full detail", label: "Range Rover Sport" },
+              { slot: "gallery-7", fallback: "/images/tesla-bay.jpg", alt: "Tesla in ProWorx detailing bay", label: "Tesla Model S" },
+              { slot: "gallery-8", fallback: "/images/rangerover-interior.jpg", alt: "Range Rover interior detail — pristine white leather", label: "Range Rover Interior" },
+              { slot: "gallery-9", fallback: "/images/mobile-tent.jpg", alt: "ProWorx mobile detailing setup with inflatable tent", label: "Mobile Setup" },
             ].map((photo, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
-                <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <CmsImg slot={photo.slot} fallback={photo.fallback} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-white text-sm font-semibold">{photo.label}</p>
@@ -407,7 +418,7 @@ export function HomePage() {
       {/* ─── CTA ─── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src="/images/ferrari-profile.jpg" alt="Ferrari Roma detailed by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="homepage-cta" fallback="/images/ferrari-profile.jpg" alt="Ferrari Roma detailed by ProWorx" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container">

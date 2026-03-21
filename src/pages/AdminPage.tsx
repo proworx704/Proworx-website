@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import {
   Lock, Phone, Clock, DollarSign, Image, Star, LogOut, Settings, Save, Plus, Trash2,
   Pencil, X, Check, Link2, ChevronRight, LayoutDashboard, GripVertical, Loader2,
+  Upload, RotateCcw, Camera,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -116,7 +117,7 @@ function EditableRow({ label, value, onSave }: { label: string; value: string; o
 }
 
 // ─── TAB NAVIGATION ──────────────────────────────────────────────────────────
-type Tab = "overview" | "contact" | "services" | "memberships";
+type Tab = "overview" | "contact" | "services" | "memberships" | "photos";
 
 function TabNav({ active, onChange }: { active: Tab; onChange: (t: Tab) => void }) {
   const tabs: Array<{ id: Tab; label: string; icon: React.ReactNode }> = [
@@ -124,6 +125,7 @@ function TabNav({ active, onChange }: { active: Tab; onChange: (t: Tab) => void 
     { id: "contact", label: "Contact & Links", icon: <Settings className="size-4" /> },
     { id: "services", label: "Services", icon: <Star className="size-4" /> },
     { id: "memberships", label: "Memberships", icon: <DollarSign className="size-4" /> },
+    { id: "photos", label: "Photos", icon: <Camera className="size-4" /> },
   ];
   return (
     <div className="flex gap-1 overflow-x-auto pb-1">
@@ -508,7 +510,7 @@ function OverviewTab() {
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: "Pages", value: "7" },
+          { label: "Pages", value: "8" },
           { label: "Photos", value: "20+" },
           { label: "Services", value: `${allServices?.length ?? "..."}` },
           { label: "Memberships", value: `${memberships?.length ?? "..."}` },
@@ -570,6 +572,7 @@ function OverviewTab() {
             { name: "Services", path: "/services" },
             { name: "Ceramic Coating", path: "/ceramic-coating" },
             { name: "Paint Correction", path: "/paint-correction" },
+            { name: "Fleet Detailing", path: "/fleet" },
             { name: "Book Now", path: "/book" },
             { name: "Areas We Serve", path: "/areas" },
             { name: "Contact", path: "/contact" },
@@ -632,9 +635,16 @@ function ContactTab() {
 
       <Section title="Booking & Payments" icon={<Link2 className="size-5" />}>
         <EditableRow label="Booking URL" value={config.bookingUrl || ""} onSave={(v) => handleSave("bookingUrl", v)} />
-        <EditableRow label="Ceramic Deposit" value={config.ceramicDepositUrl || ""} onSave={(v) => handleSave("ceramicDepositUrl", v)} />
+        <EditableRow label="Ceramic Deposit (default)" value={config.ceramicDepositUrl || ""} onSave={(v) => handleSave("ceramicDepositUrl", v)} />
         <EditableRow label="Gift Cards" value={config.giftCardsUrl || ""} onSave={(v) => handleSave("giftCardsUrl", v)} />
         <EditableRow label="Wisetack" value={config.wisetackUrl || ""} onSave={(v) => handleSave("wisetackUrl", v)} />
+      </Section>
+
+      <Section title="Ceramic Deposit Links (30%)" icon={<Link2 className="size-5" />}>
+        <p className="text-xs text-muted-foreground mb-3">Set a separate 30% deposit link for each ceramic package. Leave blank to use the default deposit link above.</p>
+        <EditableRow label="1-Year (Q² One EVO)" value={config.ceramicDeposit1yr || ""} onSave={(v) => handleSave("ceramicDeposit1yr", v)} />
+        <EditableRow label="3-Year (Q² Pure EVO)" value={config.ceramicDeposit3yr || ""} onSave={(v) => handleSave("ceramicDeposit3yr", v)} />
+        <EditableRow label="10-Year (Q² Flash EVO)" value={config.ceramicDeposit10yr || ""} onSave={(v) => handleSave("ceramicDeposit10yr", v)} />
       </Section>
 
       <Section title="Social Media" icon={<Link2 className="size-5" />}>
@@ -682,6 +692,152 @@ function MembershipsTab() {
       <p className="text-sm text-muted-foreground mb-4">Click the edit icon on any plan to update its name, price, features, or Square payment link.</p>
       <MembershipEditor />
     </Section>
+  );
+}
+
+// ─── PHOTO UPLOAD CARD ──────────────────────────────────────────────────────
+function PhotoCard({ photo }: { photo: { _id: Id<"sitePhotos">; slot: string; label: string; page: string; storageId?: string; staticPath: string; storageUrl: string | null } }) {
+  const generateUploadUrl = useMutation(api.cms.generateUploadUrl);
+  const savePhoto = useMutation(api.cms.savePhoto);
+  const resetPhoto = useMutation(api.cms.resetPhoto);
+  const [uploading, setUploading] = useState(false);
+  const isCustom = !!photo.storageUrl;
+  const displayUrl = photo.storageUrl || photo.staticPath;
+
+  const handleUpload = async () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = async () => {
+      const file = input.files?.[0];
+      if (!file) return;
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error("File too large (max 10 MB)");
+        return;
+      }
+      setUploading(true);
+      try {
+        const uploadUrl = await generateUploadUrl();
+        const result = await fetch(uploadUrl, {
+          method: "POST",
+          headers: { "Content-Type": file.type },
+          body: file,
+        });
+        const { storageId } = await result.json();
+        await savePhoto({ slot: photo.slot, storageId });
+        toast.success(`Updated ${photo.label}`);
+      } catch (e) {
+        console.error(e);
+        toast.error("Upload failed");
+      } finally {
+        setUploading(false);
+      }
+    };
+    input.click();
+  };
+
+  const handleReset = async () => {
+    try {
+      await resetPhoto({ slot: photo.slot });
+      toast.success(`Reset ${photo.label} to default`);
+    } catch {
+      toast.error("Reset failed");
+    }
+  };
+
+  return (
+    <div className="group relative rounded-xl overflow-hidden bg-card border border-border">
+      <div className="aspect-[4/3] relative">
+        <img src={displayUrl} alt={photo.label} className="w-full h-full object-cover" />
+        {/* Overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+          <Button
+            size="sm"
+            className="bg-gold text-gold-foreground hover:bg-gold/90"
+            onClick={handleUpload}
+            disabled={uploading}
+          >
+            {uploading ? <Loader2 className="size-4 animate-spin mr-1" /> : <Upload className="size-4 mr-1" />}
+            {uploading ? "Uploading…" : "Change Photo"}
+          </Button>
+          {isCustom && (
+            <Button
+              size="sm"
+              variant="outline"
+              className="border-white/30 text-white hover:bg-white/20"
+              onClick={handleReset}
+            >
+              <RotateCcw className="size-4 mr-1" /> Reset
+            </Button>
+          )}
+        </div>
+        {/* Custom badge */}
+        {isCustom && (
+          <span className="absolute top-2 right-2 bg-gold text-gold-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">CUSTOM</span>
+        )}
+      </div>
+      <div className="px-3 py-2.5">
+        <p className="text-sm font-medium truncate">{photo.label}</p>
+        <p className="text-xs text-muted-foreground">{photo.page}</p>
+      </div>
+    </div>
+  );
+}
+
+// ─── PHOTOS TAB ─────────────────────────────────────────────────────────────
+function PhotosTab() {
+  const allPhotos = useQuery(api.cms.getAllPhotos);
+  const [filterPage, setFilterPage] = useState<string>("all");
+
+  if (!allPhotos) return <div className="flex items-center justify-center py-20"><Loader2 className="size-6 animate-spin text-gold" /></div>;
+
+  // Get unique pages for filter
+  const pages = [...new Set(allPhotos.map((p) => p.page))].sort();
+  const filtered = filterPage === "all" ? allPhotos : allPhotos.filter((p) => p.page === filterPage);
+
+  return (
+    <div className="space-y-6">
+      <Section title="Site Photos" icon={<Camera className="size-5" />}>
+        <p className="text-sm text-muted-foreground mb-4">
+          Hover any photo and click *Change Photo* to upload a replacement. Click *Reset* to restore the original.
+        </p>
+
+        {/* Page filter */}
+        <div className="flex gap-1.5 flex-wrap mb-5">
+          <button
+            type="button"
+            onClick={() => setFilterPage("all")}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+              filterPage === "all" ? "bg-gold text-gold-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            All ({allPhotos.length})
+          </button>
+          {pages.map((page) => {
+            const count = allPhotos.filter((p) => p.page === page).length;
+            return (
+              <button
+                key={page}
+                type="button"
+                onClick={() => setFilterPage(page)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                  filterPage === page ? "bg-gold text-gold-foreground" : "bg-muted text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {page} ({count})
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Photo grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {filtered.map((photo) => (
+            <PhotoCard key={photo._id} photo={photo as any} />
+          ))}
+        </div>
+      </Section>
+    </div>
   );
 }
 
@@ -738,6 +894,7 @@ function AdminDashboard() {
         {tab === "contact" && <ContactTab />}
         {tab === "services" && <ServicesTab />}
         {tab === "memberships" && <MembershipsTab />}
+        {tab === "photos" && <PhotosTab />}
       </div>
     </div>
   );
