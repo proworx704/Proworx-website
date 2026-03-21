@@ -1,4 +1,5 @@
 import { ArrowRight, Building2, Car, CheckCircle2, Clock, Phone, Shield, Truck, Users } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
@@ -88,10 +89,15 @@ export function FleetPage() {
 
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Fleet Detailing"
+        description="On-site mobile fleet detailing for businesses in Charlotte, NC. Volume pricing, flexible scheduling, and professional results. Keep your fleet looking sharp."
+        keywords="fleet detailing Charlotte NC, commercial vehicle detailing, business fleet washing, on-site fleet cleaning, corporate car detailing"
+      />
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="fleet-hero" fallback="/images/fleet-real.jpg" alt="ProWorx fleet detailing on-site service" className="w-full h-full object-cover" />
+          <CmsImg slot="fleet-hero" fallback="/images/fleet-real.jpg" alt="ProWorx fleet detailing on-site service" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">

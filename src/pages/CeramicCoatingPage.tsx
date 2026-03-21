@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Phone, Shield } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
@@ -66,10 +67,15 @@ export function CeramicCoatingPage() {
 
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Ceramic Coating"
+        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. 1-year, 3-year & 10-year protection packages. Professional paint correction included. Mobile service — we come to you."
+        keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost"
+      />
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="ceramic-hero" fallback="/images/escalade-rear.jpg" alt="Cadillac Escalade ceramic coating reflections under hex lights" className="w-full h-full object-cover" />
+          <CmsImg slot="ceramic-hero" fallback="/images/escalade-rear.jpg" alt="Cadillac Escalade ceramic coating reflections under hex lights" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">

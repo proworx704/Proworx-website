@@ -1,10 +1,16 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
 
 export function ContactPage() {
   const { config } = useSiteConfig();
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Contact Us"
+        description="Contact ProWorx Mobile Detailing in Charlotte, NC. Call (980) 272-1903 or email detailing@proworxdetailing.com. Mon-Fri 9:30AM-6PM, Sat 9:30AM-3PM."
+        keywords="contact ProWorx detailing, auto detailing phone Charlotte, mobile detailing appointment, car detailing contact"
+      />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gold/5 via-transparent to-transparent" />
         <div className="container">

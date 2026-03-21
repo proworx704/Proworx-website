@@ -1,4 +1,5 @@
 import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig } from "@/hooks/useCms";
@@ -22,6 +23,11 @@ export function AreasPage() {
   const { config } = useSiteConfig();
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Service Areas"
+        description="ProWorx Mobile Detailing serves Charlotte, Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe, Fort Mill & surrounding areas. We come to you!"
+        keywords="mobile detailing near me, auto detailing Waxhaw NC, car detailing Matthews NC, Indian Trail detailing, Mint Hill car wash, Pineville auto detail"
+      />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gold/5 via-transparent to-transparent" />
         <div className="container">

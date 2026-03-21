@@ -42,7 +42,7 @@ export function usePhotoUrl(slot: string, fallback: string): string {
  * Drop-in replacement for <img> that reads from CMS photo slots.
  * Usage: <CmsImg slot="homepage-hero" fallback="/images/escalade-front.jpg" alt="..." className="..." />
  */
-export function CmsImg({ slot, fallback, ...props }: { slot: string; fallback: string } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">) {
+export function CmsImg({ slot, fallback, loading = "lazy", ...props }: { slot: string; fallback: string } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">) {
   const url = usePhotoUrl(slot, fallback);
-  return <img src={url} {...props} />;
+  return <img src={url} loading={loading} {...props} />;
 }

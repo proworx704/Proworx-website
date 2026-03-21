@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { PageSEO } from "@/components/PageSEO";
 
 const SERVICES = [
   {
@@ -107,6 +108,11 @@ export function HomePage() {
 
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="ProWorx Detailing | Premium Mobile Auto Detailing Charlotte NC"
+        description="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. 5-star rated with 52 Google reviews. Gyeon & IGL certified. We come to you! Call (980) 272-1903."
+        keywords="mobile detailing Charlotte NC, paint correction Charlotte, ceramic coating Charlotte NC, auto detailing Waxhaw NC, car detailing near me, mobile car wash Charlotte"
+      />
       {/* ─── HERO with background image ─── */}
       <section className="relative flex items-center min-h-[85vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -115,6 +121,7 @@ export function HomePage() {
             fallback="/images/escalade-front.jpg"
             alt="Cadillac Escalade under hex lights after ceramic coating by ProWorx Detailing"
             className="w-full h-full object-cover"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

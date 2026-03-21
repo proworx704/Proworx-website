@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Truck } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
@@ -164,10 +165,15 @@ export function ServicesPage() {
 
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Auto Detailing Services"
+        description="Full detail, interior cleaning, exterior wash, paint correction, ceramic coating & add-on services in Charlotte, NC. Mobile — we come to you. View packages & pricing."
+        keywords="auto detailing services Charlotte NC, car interior cleaning, exterior detail, mobile car wash pricing, paint correction packages"
+      />
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="services-hero" fallback="/images/corvette-front.jpg" alt="Black Corvette ZR1 detailed by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="services-hero" fallback="/images/corvette-front.jpg" alt="Black Corvette ZR1 detailed by ProWorx" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
         </div>
         <div className="container">

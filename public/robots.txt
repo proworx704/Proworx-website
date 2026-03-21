@@ -1,0 +1,6 @@
+# ProWorx Mobile Detailing — robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://proworxdetailing.com/sitemap.xml

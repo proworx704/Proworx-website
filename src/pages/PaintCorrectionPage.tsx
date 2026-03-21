@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
@@ -29,10 +30,15 @@ export function PaintCorrectionPage() {
   const { config } = useSiteConfig();
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Paint Correction"
+        description="Professional multi-stage paint correction in Charlotte, NC. Remove swirls, scratches & oxidation. Restore your vehicle's showroom finish. Mobile service available."
+        keywords="paint correction Charlotte NC, swirl removal, scratch removal Charlotte, paint restoration, multi-stage paint correction near me"
+      />
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="paint-hero" fallback="/images/tesla-bay.jpg" alt="Tesla in ProWorx detailing bay for paint correction" className="w-full h-full object-cover" />
+          <CmsImg slot="paint-hero" fallback="/images/tesla-bay.jpg" alt="Tesla in ProWorx detailing bay for paint correction" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">

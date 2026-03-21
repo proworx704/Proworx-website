@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
@@ -6,6 +7,11 @@ export function BookingPage() {
   const { config } = useSiteConfig();
   return (
     <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Book an Appointment"
+        description="Book your mobile auto detailing appointment with ProWorx in Charlotte, NC. Call (980) 272-1903 or book online. Same-week availability."
+        keywords="book auto detailing Charlotte, schedule car detail, mobile detailing appointment, car wash booking Charlotte NC"
+      />
       {/* Header */}
       <section className="py-10 md:py-14">
         <div className="container">
