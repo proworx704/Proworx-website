@@ -2,6 +2,6 @@ node_modules/
 dist/
 .env.local
 bun.lockb
-convex/_generated/
+# convex/_generated/ — included in repo for Vercel builds
 tmp/
 *.tar.gz
