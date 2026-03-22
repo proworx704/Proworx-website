@@ -1,10 +1,28 @@
-import { Phone } from "lucide-react";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Phone, ArrowRight, ExternalLink } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
+const BOOKING_APP = "https://preview-proworx-booking-8ee2b7c6.viktor.space";
+
 export function BookingPage() {
   const { config } = useSiteConfig();
+  const [searchParams] = useSearchParams();
+
+  // Build booking URL with any query params forwarded
+  const params = searchParams.toString();
+  const bookingUrl = params ? `${BOOKING_APP}/book?${params}` : `${BOOKING_APP}/book`;
+
+  // Auto-redirect after a short delay so users see the page
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.location.href = bookingUrl;
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [bookingUrl]);
+
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
@@ -12,36 +30,39 @@ export function BookingPage() {
         description="Book your mobile auto detailing appointment with ProWorx in Charlotte, NC. Call (980) 272-1903 or book online. Same-week availability."
         keywords="book auto detailing Charlotte, schedule car detail, mobile detailing appointment, car wash booking Charlotte NC"
       />
-      {/* Header */}
-      <section className="py-10 md:py-14">
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-2">
-                Build Your <span className="text-gradient-gold">Detail Package</span>
-              </h1>
-              <p className="text-muted-foreground">
-                Select your services below and book your appointment. We come to you!
-              </p>
+      <section className="py-20 md:py-32">
+        <div className="container text-center">
+          <div className="max-w-lg mx-auto">
+            <div className="size-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6">
+              <ExternalLink className="size-8 text-gold" />
             </div>
-            <Button variant="outline" className="border-gold/30 text-gold hover:bg-gold/10 shrink-0" asChild>
-              <a href={config.phoneLink}><Phone className="size-4" /> Call {config.phone}</a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Embedded Square Booking Widget */}
-      <section className="flex-1 pb-8">
-        <div className="container h-full">
-          <div className="rounded-2xl border border-border overflow-hidden bg-white" style={{ minHeight: "80vh" }}>
-            <iframe
-              src={config.bookingUrl}
-              title="Book an appointment with ProWorx Detailing"
-              width="100%"
-              style={{ minHeight: "80vh", height: "100%", border: "none" }}
-              allow="payment"
-            />
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-4">
+              Opening <span className="text-gradient-gold">Booking System</span>…
+            </h1>
+            <p className="text-muted-foreground mb-8">
+              You're being redirected to our booking app. If it doesn't open automatically, click the button below.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button
+                size="lg"
+                className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold"
+                asChild
+              >
+                <a href={bookingUrl}>
+                  Open Booking <ArrowRight className="size-5" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10"
+                asChild
+              >
+                <a href={config.phoneLink}>
+                  <Phone className="size-5" /> Call {config.phone}
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

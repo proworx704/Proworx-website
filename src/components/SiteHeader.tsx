@@ -86,9 +86,9 @@ export function SiteHeader() {
                 className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
                 asChild
               >
-                <Link to="/book">
+                <a href="https://preview-proworx-booking-8ee2b7c6.viktor.space/book" target="_blank" rel="noopener noreferrer">
                   Book Now
-                </Link>
+                </a>
               </Button>
               <button
                 type="button"

@@ -318,7 +318,7 @@ export function BoatDetailingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <BookNowLink>Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
+              <BookNowLink href="https://preview-proworx-booking-8ee2b7c6.viktor.space/book?service=boat-wash-detail">Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

@@ -572,7 +572,9 @@ function OverviewTab() {
             { name: "Services", path: "/services" },
             { name: "Ceramic Coating", path: "/ceramic-coating" },
             { name: "Paint Correction", path: "/paint-correction" },
+            { name: "Boat Detailing", path: "/boat-detailing" },
             { name: "Fleet Detailing", path: "/fleet" },
+            { name: "Maintenance Plans", path: "/maintenance" },
             { name: "Book Now", path: "/book" },
             { name: "Areas We Serve", path: "/areas" },
             { name: "Contact", path: "/contact" },
@@ -660,6 +662,8 @@ function ContactTab() {
         <EditableRow label="Exterior Detail" value={config.bookingUrlExterior || ""} onSave={(v) => handleSave("bookingUrlExterior", v)} />
         <EditableRow label="Add-Ons / Package" value={config.bookingUrlAddOns || ""} onSave={(v) => handleSave("bookingUrlAddOns", v)} />
         <EditableRow label="Paint Correction" value={config.bookingUrlPaintCorrection || ""} onSave={(v) => handleSave("bookingUrlPaintCorrection", v)} />
+        <EditableRow label="Boat Detailing" value={config.bookingUrlBoat || ""} onSave={(v) => handleSave("bookingUrlBoat", v)} />
+        <EditableRow label="Maintenance / Membership" value={config.bookingUrlMaintenance || ""} onSave={(v) => handleSave("bookingUrlMaintenance", v)} />
         <EditableRow label="Home Page CTA" value={config.bookingUrlHomeCta || ""} onSave={(v) => handleSave("bookingUrlHomeCta", v)} />
       </Section>
     </div>

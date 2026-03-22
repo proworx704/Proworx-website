@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-
 /**
- * Smart booking link — if a custom URL is set, opens externally;
- * otherwise links to the internal /book page with the Square widget.
+ * Smart booking link — opens the booking app with deep-linked service.
+ * If a custom URL is provided, uses that; otherwise links to the booking app.
  */
+
+const BOOKING_APP = "https://preview-proworx-booking-8ee2b7c6.viktor.space";
+
 export function BookNowLink({
   href,
   children,
@@ -13,19 +14,26 @@ export function BookNowLink({
   children: React.ReactNode;
   className?: string;
 }) {
-  // If a custom URL is provided, open it externally
+  // If a custom URL is provided, open it
   if (href) {
+    // If it starts with http, open externally; otherwise treat as booking app path
+    const isExternal = href.startsWith("http");
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      <a
+        href={isExternal ? href : `${BOOKING_APP}${href}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
         {children}
       </a>
     );
   }
 
-  // Default: link to internal /book page
+  // Default: link to booking app
   return (
-    <Link to="/book" className={className}>
+    <a href={`${BOOKING_APP}/book`} target="_blank" rel="noopener noreferrer" className={className}>
       {children}
-    </Link>
+    </a>
   );
 }

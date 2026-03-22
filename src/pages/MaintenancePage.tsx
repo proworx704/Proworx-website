@@ -11,16 +11,16 @@ const MEMBERSHIP_PLANS = [
     name: "Clean",
     price: "59",
     icon: <Droplets className="size-6" />,
-    tagline: "Essential upkeep",
-    description: "A monthly exterior refresh designed to keep your vehicle clean and presentable between full details.",
+    tagline: "Exterior only",
+    description: "A monthly exterior refresh to keep your vehicle looking sharp between full details.",
     features: [
-      "Monthly exterior wash",
+      "Monthly exterior hand wash",
       "Tire & wheel cleaning",
       "Exterior windows",
       "Door jambs cleaned",
-      "Quick vacuum",
+      "Tire shine & dressing",
     ],
-    ideal: "Drivers who want a consistently clean vehicle without the full detail commitment.",
+    ideal: "Drivers who want a consistently clean exterior without the full detail commitment.",
     popular: false,
   },
   {
@@ -28,17 +28,17 @@ const MEMBERSHIP_PLANS = [
     name: "Shield",
     price: "99",
     icon: <Shield className="size-6" />,
-    tagline: "Full interior + exterior",
-    description: "Our most popular plan — a complete inside and out detail every month with paint protection included.",
+    tagline: "Interior only",
+    description: "Our most popular plan — a thorough interior detail every month to keep your cabin fresh and clean.",
     features: [
-      "Everything in Clean",
-      "Full interior detail",
+      "Monthly interior detail",
+      "Full vacuum & wipe-down",
       "Dashboard & console detail",
-      "Paint sealant application",
-      "Tire shine & dressing",
+      "Leather / vinyl conditioning",
+      "Interior windows",
       "Air freshener",
     ],
-    ideal: "Daily drivers and families who want their vehicle looking and feeling fresh every month.",
+    ideal: "Daily drivers and families who want a fresh, clean interior every month.",
     popular: true,
   },
   {
@@ -46,16 +46,17 @@ const MEMBERSHIP_PLANS = [
     name: "Armor",
     price: "159",
     icon: <Sparkles className="size-6" />,
-    tagline: "The ultimate protection",
-    description: "Our premium tier — deep cleaning, leather and surface conditioning, paint enhancement, engine bay service, and ceramic top-up every month.",
+    tagline: "Inside & out + ceramic protection",
+    description: "The complete package — full interior and exterior detail every month with ceramic wet-coat protection to keep your paint sealed and shining.",
     features: [
-      "Everything in Shield",
-      "Deep clean & condition all surfaces",
-      "Compound & polish (light enhancement)",
-      "Engine bay cleaning",
-      "Ceramic coating top-up",
+      "Full inside & out detail",
+      "Everything in Exterior + Interior",
+      "Ceramic wet-coat protection",
+      "Paint sealant refresh",
+      "Tire shine & trim dressing",
+      "Priority scheduling",
     ],
-    ideal: "Enthusiasts, luxury vehicle owners, and anyone who demands the absolute best care for their vehicle.",
+    ideal: "Enthusiasts and luxury vehicle owners who want the ultimate monthly care with ceramic protection.",
     popular: false,
   },
 ];
@@ -104,6 +105,32 @@ export function MaintenancePage() {
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Already a Member Banner ── */}
+      <section className="py-0">
+        <div className="container">
+          <div className="-mt-8 mb-0 relative z-10 max-w-3xl mx-auto rounded-2xl border-2 border-gold/40 bg-gradient-to-r from-card to-card/80 backdrop-blur p-6 shadow-lg">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex items-center gap-3 flex-1">
+                <div className="size-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center shrink-0">
+                  <CalendarCheck className="size-6" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-lg">Already a member?</h2>
+                  <p className="text-sm text-muted-foreground">
+                    Book your monthly maintenance visit — no charge, it's included in your plan.
+                  </p>
+                </div>
+              </div>
+              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" size="lg" asChild>
+                <a href="https://preview-proworx-booking-8ee2b7c6.viktor.space/book?category=membership">
+                  Book Here <ArrowRight className="size-5" />
+                </a>
               </Button>
             </div>
           </div>
@@ -249,20 +276,19 @@ export function MaintenancePage() {
                   </thead>
                   <tbody>
                     {[
-                      { feature: "Monthly exterior wash", clean: true, shield: true, armor: true },
-                      { feature: "Tire & wheel cleaning", clean: true, shield: true, armor: true },
-                      { feature: "Exterior windows", clean: true, shield: true, armor: true },
-                      { feature: "Door jambs", clean: true, shield: true, armor: true },
-                      { feature: "Quick vacuum", clean: true, shield: true, armor: true },
+                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true },
+                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true },
+                      { feature: "Exterior windows", clean: true, shield: false, armor: true },
+                      { feature: "Door jambs", clean: true, shield: false, armor: true },
+                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true },
                       { feature: "Full interior detail", clean: false, shield: true, armor: true },
                       { feature: "Dashboard & console detail", clean: false, shield: true, armor: true },
-                      { feature: "Paint sealant", clean: false, shield: true, armor: true },
-                      { feature: "Tire shine & dressing", clean: false, shield: true, armor: true },
+                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true },
+                      { feature: "Interior windows", clean: false, shield: true, armor: true },
                       { feature: "Air freshener", clean: false, shield: true, armor: true },
-                      { feature: "Deep clean & condition", clean: false, shield: false, armor: true },
-                      { feature: "Compound & polish", clean: false, shield: false, armor: true },
-                      { feature: "Engine bay cleaning", clean: false, shield: false, armor: true },
-                      { feature: "Ceramic top-up", clean: false, shield: false, armor: true },
+                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true },
+                      { feature: "Paint sealant refresh", clean: false, shield: false, armor: true },
+                      { feature: "Priority scheduling", clean: false, shield: false, armor: true },
                     ].map((row) => (
                       <tr key={row.feature} className="border-b border-border/50 last:border-0">
                         <td className="p-4 text-muted-foreground">{row.feature}</td>
