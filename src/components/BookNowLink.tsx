@@ -1,9 +1,8 @@
 /**
- * Smart booking link — opens the booking app with deep-linked service.
- * If a custom URL is provided, uses that; otherwise links to the booking app.
+ * Smart booking link — opens the booking page.
+ * Uses the local /book path (proxied via Vercel rewrites to the booking app)
+ * so customers stay on proworxdetailing.com.
  */
-
-const BOOKING_APP = "https://proworx-booking-8ee2b7c6.viktor.space";
 
 export function BookNowLink({
   href,
@@ -14,25 +13,27 @@ export function BookNowLink({
   children: React.ReactNode;
   className?: string;
 }) {
-  // If a custom URL is provided, open it
+  // If a custom URL is provided
   if (href) {
-    // If it starts with http, open externally; otherwise treat as booking app path
     const isExternal = href.startsWith("http");
+    if (isExternal) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+          {children}
+        </a>
+      );
+    }
+    // Relative path like /book?service=... — keep on same domain
     return (
-      <a
-        href={isExternal ? href : `${BOOKING_APP}${href}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
+      <a href={href} className={className}>
         {children}
       </a>
     );
   }
 
-  // Default: link to booking app
+  // Default: link to /book (proxied to booking app)
   return (
-    <a href={`${BOOKING_APP}/book`} target="_blank" rel="noopener noreferrer" className={className}>
+    <a href="/book" className={className}>
       {children}
     </a>
   );

@@ -1,13 +1,31 @@
 {
   "rewrites": [
     {
-      "source": "/((?!assets/|images/|sitemap\\.xml|robots\\.txt|site\\.webmanifest|favicon.*|apple-touch-icon.*).*)",
+      "source": "/book",
+      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/book"
+    },
+    {
+      "source": "/booking-assets/:path*",
+      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/booking-assets/:path*"
+    },
+    {
+      "source": "/manifest.json",
+      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/manifest.json"
+    },
+    {
+      "source": "/((?!assets/|images/|booking-assets/|sitemap\\.xml|robots\\.txt|site\\.webmanifest|manifest\\.json|favicon.*|apple-touch-icon.*).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/booking-assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]

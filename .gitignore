@@ -5,3 +5,9 @@ bun.lockb
 # convex/_generated/ — included in repo for Vercel builds
 tmp/
 *.tar.gz
+
+dist_bak/
+dist_bak2/
+dist_old/
+dist_old2/
+dist_old_redeploy/
