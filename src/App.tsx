@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { PhotoProvider } from "./components/CmsImg";
@@ -33,6 +34,7 @@ function App() {
       <ThemeProvider defaultTheme="dark" switchable={false}>
         <PhotoProvider>
         <Toaster />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<SiteLayout><HomePage /></SiteLayout>} />
           <Route path="/services" element={<SiteLayout><ServicesPage /></SiteLayout>} />

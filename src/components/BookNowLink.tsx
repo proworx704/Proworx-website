@@ -3,7 +3,7 @@
  * If a custom URL is provided, uses that; otherwise links to the booking app.
  */
 
-const BOOKING_APP = "https://preview-proworx-booking-8ee2b7c6.viktor.space";
+const BOOKING_APP = "https://proworx-booking-8ee2b7c6.viktor.space";
 
 export function BookNowLink({
   href,

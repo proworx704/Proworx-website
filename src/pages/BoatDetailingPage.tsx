@@ -9,6 +9,7 @@ import { useSiteConfig } from "@/hooks/useCms";
 const BOAT_SERVICES = [
   {
     name: "Basic Boat Wash",
+    slug: "boat-basic-wash",
     description: "Exterior hand wash, rinse, and dry. Ideal for routine upkeep between deep cleans.",
     tiers: [
       { label: "Up to 20 ft", price: "$250" },
@@ -19,6 +20,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Interior Detail",
+    slug: "boat-interior",
     description: "Deep clean of all interior surfaces — seats, cushions, compartments, cup holders, dash, and floor. Restore your cabin to like-new condition.",
     tiers: [
       { label: "Up to 20 ft", price: "$350" },
@@ -29,6 +31,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Exterior Detail + Wax",
+    slug: "boat-exterior-wax",
     description: "Full exterior wash, decontamination, and hand wax application for lasting shine and UV protection on the water.",
     tiers: [
       { label: "Up to 20 ft", price: "$450" },
@@ -39,6 +42,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Full Boat Detail",
+    slug: "boat-full-detail",
     description: "The works — comprehensive interior deep clean plus exterior wash, decontamination, and wax. Top-to-bottom restoration.",
     tiers: [
       { label: "Up to 20 ft", price: "$600" },
@@ -50,6 +54,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Oxidation Removal",
+    slug: "boat-oxidation",
     description: "Machine compound and polish to remove oxidation, chalking, and heavy water spots from gelcoat and fiberglass surfaces.",
     tiers: [
       { label: "Up to 20 ft", price: "$375" },
@@ -90,9 +95,16 @@ const CERAMIC_PACKAGES = [
 const ADDONS = [
   { name: "Interior Boat Ceramic", desc: "Ceramic protection for interior surfaces — vinyl, leather, and plastics stay protected from UV and stains." },
   { name: "Hull Cleaning", desc: "Below-waterline cleaning to remove algae, barnacles, and buildup. Keep your hull smooth and efficient." },
-  { name: "Trailer Detail", desc: "Full clean and dress of your boat trailer — rinse, degrease, and protect. $75." },
-  { name: "Teak Cleaning", desc: "Restore natural teak wood surfaces with deep cleaning and brightening treatment." },
-  { name: "Metal Polish", desc: "Hand polish stainless steel, aluminum, and chrome hardware to a mirror finish." },
+  { name: "Trailer Detail", desc: "Full clean and dress of your boat trailer — rinse, degrease, and protect. Starting at $75." },
+  { name: "Teak Cleaning & Seal", desc: "Clean, brighten, and seal teak wood surfaces for lasting protection and natural beauty." },
+  { name: "Metal & Brightwork Polish", desc: "Hand polish stainless steel, aluminum, and chrome hardware to a mirror finish." },
+  { name: "Canvas & Cushion Cleaning", desc: "Deep clean Bimini tops, boat covers, and seat cushions — remove dirt, salt, and mildew stains." },
+  { name: "Mildew & Odor Treatment", desc: "Professional mold and mildew removal with anti-microbial treatment. Eliminates musty odors from compartments and upholstery." },
+  { name: "Engine / Outboard Detail", desc: "Clean, degrease, and dress the engine compartment or outboard motor. Restore a like-new look." },
+  { name: "Non-Skid Deck Deep Clean", desc: "Scrub and restore textured non-skid deck surfaces — remove ground-in stains, scuffs, and grime." },
+  { name: "Water Spot Removal", desc: "Remove hard water mineral deposits from gelcoat, glass, and metal using specialized compounds." },
+  { name: "Vinyl Seat Restoration", desc: "Deep clean, condition, and UV-protect all vinyl seating. Restores color and prevents cracking." },
+  { name: "Glass & Windshield Sealant", desc: "Hydrophobic ceramic sealant for all glass — repels water, salt spray, and makes cleaning easier." },
 ];
 
 export function BoatDetailingPage() {
@@ -109,7 +121,7 @@ export function BoatDetailingPage() {
       {/* ── Hero ── */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="boat-hero" fallback="/images/ferrari-van.jpg" alt="ProWorx mobile boat detailing service" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="boat-hero" fallback="/images/boat-hero.webp" alt="ProWorx mobile boat detailing service" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
@@ -168,6 +180,26 @@ export function BoatDetailingPage() {
         </div>
       </section>
 
+      {/* ── Boat Image Showcase ── */}
+      <section className="py-0">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt-4 mb-0 max-w-5xl mx-auto">
+            <div className="rounded-xl overflow-hidden aspect-[4/3]">
+              <img src="/images/boat-hero.webp" alt="Professional boat detailing at dock" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3]">
+              <img src="/images/boat-wash.webp" alt="Hand washing boat hull" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3]">
+              <img src="/images/boat-interior.webp" alt="Detailed boat interior cockpit" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3]">
+              <img src="/images/boat-exterior.webp" alt="Freshly detailed boat on trailer" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Detailing Services + Pricing ── */}
       <section id="services" className="py-20 md:py-28 bg-card/50">
         <div className="container">
@@ -182,9 +214,14 @@ export function BoatDetailingPage() {
             {BOAT_SERVICES.map((svc) => (
               <div key={svc.name} className={`rounded-2xl bg-card border p-6 md:p-7 ${svc.popular ? "border-gold shadow-lg shadow-gold/10 relative" : "border-border"}`}>
                 {svc.popular && <div className="absolute -top-3 left-6 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
-                <div className="mb-4">
-                  <h3 className="font-bold text-lg md:text-xl">{svc.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-1">{svc.description}</p>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg md:text-xl">{svc.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mt-1">{svc.description}</p>
+                  </div>
+                  <Button size="sm" className={svc.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" : "bg-muted text-foreground hover:bg-muted/80 font-semibold shrink-0"} asChild>
+                    <BookNowLink href={`/book?service=${svc.slug}`}>Book Now <ArrowRight className="size-3.5" /></BookNowLink>
+                  </Button>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {svc.tiers.map((tier) => (
@@ -306,7 +343,7 @@ export function BoatDetailingPage() {
       {/* ── CTA ── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="boat-cta" fallback="/images/porsche-van.jpg" alt="ProWorx mobile detailing van" className="w-full h-full object-cover" />
+          <CmsImg slot="boat-cta" fallback="/images/boat-exterior.webp" alt="Freshly detailed boat on trailer" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container text-center">
@@ -318,7 +355,7 @@ export function BoatDetailingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <BookNowLink href="https://preview-proworx-booking-8ee2b7c6.viktor.space/book?service=boat-wash-detail">Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
+              <BookNowLink href="/book?category=boatDetailing">Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

@@ -22,6 +22,7 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Drivers who want a consistently clean exterior without the full detail commitment.",
     popular: false,
+    subscribeUrl: "https://square.link/u/muLgbWnt",
   },
   {
     key: "shield",
@@ -29,7 +30,7 @@ const MEMBERSHIP_PLANS = [
     price: "99",
     icon: <Shield className="size-6" />,
     tagline: "Interior only",
-    description: "Our most popular plan — a thorough interior detail every month to keep your cabin fresh and clean.",
+    description: "A thorough interior detail every month to keep your cabin fresh and clean.",
     features: [
       "Monthly interior detail",
       "Full vacuum & wipe-down",
@@ -39,7 +40,8 @@ const MEMBERSHIP_PLANS = [
       "Air freshener",
     ],
     ideal: "Daily drivers and families who want a fresh, clean interior every month.",
-    popular: true,
+    popular: false,
+    subscribeUrl: "https://square.link/u/sg602s1T",
   },
   {
     key: "armor",
@@ -47,17 +49,17 @@ const MEMBERSHIP_PLANS = [
     price: "159",
     icon: <Sparkles className="size-6" />,
     tagline: "Inside & out + ceramic protection",
-    description: "The complete package — full interior and exterior detail every month with ceramic wet-coat protection to keep your paint sealed and shining.",
+    description: "The complete package — full interior and exterior detail every month with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
     features: [
       "Full inside & out detail",
       "Everything in Exterior + Interior",
       "Ceramic wet-coat protection",
-      "Paint sealant refresh",
       "Tire shine & trim dressing",
-      "Priority scheduling",
+      "10% off on add-on services",
     ],
     ideal: "Enthusiasts and luxury vehicle owners who want the ultimate monthly care with ceramic protection.",
-    popular: false,
+    popular: true,
+    subscribeUrl: "https://square.link/u/lrKmsud2",
   },
 ];
 
@@ -128,7 +130,7 @@ export function MaintenancePage() {
                 </div>
               </div>
               <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" size="lg" asChild>
-                <a href="https://preview-proworx-booking-8ee2b7c6.viktor.space/book?category=membership">
+                <a href="/book?category=membership">
                   Book Here <ArrowRight className="size-5" />
                 </a>
               </Button>
@@ -197,7 +199,7 @@ export function MaintenancePage() {
                   <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
                 </div>
                 <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={config.phoneLink}>Subscribe Now <ArrowRight className="size-4" /></a>
+                  <a href={plan.subscribeUrl} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
             ))}
@@ -270,8 +272,8 @@ export function MaintenancePage() {
                     <tr className="border-b border-border">
                       <th className="text-left p-4 font-semibold">Feature</th>
                       <th className="p-4 font-semibold text-center">Clean<br/><span className="text-gold font-normal text-xs">$59/mo</span></th>
-                      <th className="p-4 font-semibold text-center bg-gold/5">Shield<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
-                      <th className="p-4 font-semibold text-center">Armor<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
+                      <th className="p-4 font-semibold text-center">Shield<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
+                      <th className="p-4 font-semibold text-center bg-gold/5">Armor<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -287,14 +289,13 @@ export function MaintenancePage() {
                       { feature: "Interior windows", clean: false, shield: true, armor: true },
                       { feature: "Air freshener", clean: false, shield: true, armor: true },
                       { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true },
-                      { feature: "Paint sealant refresh", clean: false, shield: false, armor: true },
-                      { feature: "Priority scheduling", clean: false, shield: false, armor: true },
+                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true },
                     ].map((row) => (
                       <tr key={row.feature} className="border-b border-border/50 last:border-0">
                         <td className="p-4 text-muted-foreground">{row.feature}</td>
                         <td className="p-4 text-center">{row.clean ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center bg-gold/5">{row.shield ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center">{row.armor ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                        <td className="p-4 text-center">{row.shield ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                        <td className="p-4 text-center bg-gold/5">{row.armor ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -320,7 +321,7 @@ export function MaintenancePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <a href={config.phoneLink}>Subscribe Now <ArrowRight className="size-5" /></a>
+              <a href="#plans">View Plans <ArrowRight className="size-5" /></a>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> Call for Questions</a>
