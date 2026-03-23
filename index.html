@@ -6,6 +6,13 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#D4A853" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://superb-emu-421.convex.cloud" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>ProWorx Detailing | Premium Mobile Auto Detailing Charlotte NC</title>
     <meta name="description" content="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. 5-star rated with 52 Google reviews. Gyeon & IGL certified. We come to you! Call (980) 272-1903." />
     <meta name="keywords" content="mobile detailing Charlotte NC, paint correction Charlotte, ceramic coating Charlotte NC, auto detailing Waxhaw NC, car detailing near me, mobile car wash Charlotte, interior detailing Charlotte NC" />
@@ -94,7 +101,26 @@
         "reviewCount": "52"
       },
       "priceRange": "$$",
-      "sameAs": []
+      "sameAs": [
+        "https://www.instagram.com/proworxdetailing/",
+        "https://www.facebook.com/proworxdetailing",
+        "https://g.page/proworxdetailing"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ProWorx Mobile Detailing",
+      "url": "https://proworxdetailing.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://proworxdetailing.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 
@@ -125,9 +151,59 @@
       }
     }
     </script>
+    <!-- Structured Data: Reviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "ProWorx Mobile Detailing",
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Jordin Thompson"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Karen was absolutely amazing! The interior of my car was in rough shape and it now looks immaculate! There were several deep stains from my toddler's various milk spills and fruit pouch mishaps and those are all gone now! Would absolutely recommend ProWorx!"
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Corey Wilde"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Tyler and his team are best in class. They service all our vehicles (including an old classic) with such care and professionalism. He's always punctual for appointments and very up front on pricing and service options."
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Misti McGaha"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "On time, great attention to detail and excellent customer service! I feel like I have a new car! Highly recommend!"
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Frank Tatum"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Great job on 2019 Volvo. Looks like new inside and outside. Great experience."
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "John"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Been using Tyler's detail membership service for a few years now. Tyler details both of my cars each month. Excellent attention to detail as you would expect. Highly recommend!"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding:40px;text-align:center;font-family:sans-serif;">
+        <h1>ProWorx Mobile Detailing</h1>
+        <p>Premium mobile auto detailing, paint correction &amp; ceramic coating in Charlotte, NC.</p>
+        <p>Call us: <a href="tel:+19802721903">(980) 272-1903</a></p>
+        <p>Email: <a href="mailto:detailing@proworxdetailing.com">detailing@proworxdetailing.com</a></p>
+        <p>4321 Overbecks Ln, Waxhaw, NC 28173</p>
+        <p><a href="https://proworxdetailing.com/services">Our Services</a> | <a href="https://proworxdetailing.com/contact">Contact Us</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

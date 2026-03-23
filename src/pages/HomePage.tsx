@@ -121,6 +121,13 @@ export function HomePage() {
         title="ProWorx Detailing | Premium Mobile Auto Detailing Charlotte NC"
         description="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. 5-star rated with 52 Google reviews. Gyeon & IGL certified. We come to you! Call (980) 272-1903."
         keywords="mobile detailing Charlotte NC, paint correction Charlotte, ceramic coating Charlotte NC, auto detailing Waxhaw NC, car detailing near me, mobile car wash Charlotte"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" }
+          ]
+        }}
       />
       {/* ─── HERO with background image ─── */}
       <section className="relative flex items-center min-h-[85vh] overflow-hidden">

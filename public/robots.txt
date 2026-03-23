@@ -1,6 +1,35 @@
 # ProWorx Mobile Detailing — robots.txt
+
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 Disallow: /admin
+Allow: /images/
 
+# Googlebot — full access
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Allow: /images/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Bingbot — full access
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Allow: /images/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemap location
 Sitemap: https://proworxdetailing.com/sitemap.xml
+
+# Host
+Host: https://proworxdetailing.com

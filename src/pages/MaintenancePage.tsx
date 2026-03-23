@@ -79,6 +79,25 @@ export function MaintenancePage() {
         title="Maintenance Plans"
         description="Monthly auto detailing maintenance plans in Charlotte, NC. From $59/mo — exterior wash, interior detail, paint sealant, ceramic top-up & more. Mobile service, cancel anytime."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Maintenance Plans", "item": "https://proworxdetailing.com/maintenance" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three monthly detailing plans: Clean ($59/mo for exterior wash), Shield ($99/mo for interior detail), and Armor ($159/mo for full detail with ceramic wet-coat protection). All plans include mobile service and can be canceled anytime." }},
+                { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }}
+              ]
+            }
+          ]
+        }}
       />
 
       {/* ── Hero ── */}

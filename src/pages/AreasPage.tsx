@@ -27,6 +27,14 @@ export function AreasPage() {
         title="Service Areas"
         description="ProWorx Mobile Detailing serves Charlotte, Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe, Fort Mill & surrounding areas. We come to you!"
         keywords="mobile detailing near me, auto detailing Waxhaw NC, car detailing Matthews NC, Indian Trail detailing, Mint Hill car wash, Pineville auto detail"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://proworxdetailing.com/areas" }
+          ]
+        }}
       />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gold/5 via-transparent to-transparent" />

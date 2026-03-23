@@ -34,6 +34,26 @@ export function PaintCorrectionPage() {
         title="Paint Correction"
         description="Professional multi-stage paint correction in Charlotte, NC. Remove swirls, scratches & oxidation. Restore your vehicle's showroom finish. Mobile service available."
         keywords="paint correction Charlotte NC, swirl removal, scratch removal Charlotte, paint restoration, multi-stage paint correction near me"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Paint Correction", "item": "https://proworxdetailing.com/paint-correction" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "What is paint correction?", "acceptedAnswer": { "@type": "Answer", "text": "Paint correction is a multi-stage machine polishing process that removes surface imperfections like swirl marks, light scratches, water spots, and oxidation from your vehicle's clear coat. It restores the paint to a smooth, glossy, showroom-like finish." }},
+                { "@type": "Question", "name": "What are the different levels of paint correction?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three levels: 1-Step Enhancement Polish (60-70% defect removal for light swirls), 2-Step Paint Correction (85-95% removal for moderate damage), and Multi-Stage Correction (95-99% removal for severely damaged paint)." }},
+                { "@type": "Question", "name": "Should I get paint correction before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if your paint has swirls, scratches, or oxidation, paint correction before ceramic coating ensures the best results. Ceramic coating locks in whatever the paint looks like — so correcting first means you're protecting a flawless finish." }}
+              ]
+            }
+          ]
+        }}
       />
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">

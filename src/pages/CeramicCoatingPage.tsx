@@ -71,6 +71,27 @@ export function CeramicCoatingPage() {
         title="Ceramic Coating"
         description="Gyeon & IGL certified ceramic coating in Charlotte, NC. 1-year, 3-year & 10-year protection packages. Professional paint correction included. Mobile service — we come to you."
         keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://proworxdetailing.com/ceramic-coating" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "What is ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating is a liquid polymer applied to your vehicle's exterior that creates a permanent or semi-permanent bond with the paint. It provides hydrophobic protection, UV resistance, chemical resistance, and enhanced gloss. Unlike wax or sealants, ceramic coatings last years, not weeks." }},
+                { "@type": "Question", "name": "How much does ceramic coating cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three GYEON ceramic coating packages: Q² One EVO (1-year protection) starting at $499, Q² Pure EVO (3-year protection) starting at $899, and Q² Flash EVO (10-year protection) starting at $1,599. Reserve with just 30% down." }},
+                { "@type": "Question", "name": "How long does ceramic coating last?", "acceptedAnswer": { "@type": "Answer", "text": "Depending on the package, ProWorx ceramic coatings last 1, 3, or 10 years. All packages come with a GYEON manufacturer warranty and annual inspections from a certified installer." }},
+                { "@type": "Question", "name": "Is ProWorx a certified ceramic coating installer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, ProWorx is a certified GYEON and IGL ceramic coating installer. All coatings are applied by trained professionals with proper prep work and curing procedures." }}
+              ]
+            }
+          ]
+        }}
       />
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">

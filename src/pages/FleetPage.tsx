@@ -93,6 +93,25 @@ export function FleetPage() {
         title="Fleet Detailing"
         description="On-site mobile fleet detailing for businesses in Charlotte, NC. Volume pricing, flexible scheduling, and professional results. Keep your fleet looking sharp."
         keywords="fleet detailing Charlotte NC, commercial vehicle detailing, business fleet washing, on-site fleet cleaning, corporate car detailing"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet Detailing", "item": "https://proworxdetailing.com/fleet" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "Does ProWorx offer fleet detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx provides on-site mobile fleet detailing in Charlotte, NC with volume pricing. We offer tiered discounts: 10% off for 2-5 vehicles, 15% off for 6-15 vehicles, and 20% off for 16-30 vehicles. Custom enterprise pricing available for 31+ vehicles." }},
+                { "@type": "Question", "name": "How does fleet detailing scheduling work?", "acceptedAnswer": { "@type": "Answer", "text": "We offer flexible scheduling — weekly, biweekly, or monthly service plans. Our mobile team arrives at your lot and details vehicles on-site with zero downtime for your business." }}
+              ]
+            }
+          ]
+        }}
       />
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">

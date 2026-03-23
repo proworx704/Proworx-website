@@ -116,6 +116,26 @@ export function BoatDetailingPage() {
         title="Boat Detailing"
         description="Professional mobile boat detailing in Charlotte, NC. Interior, exterior, oxidation removal & marine ceramic coating. We come to you — dockside or driveway. View pricing by boat size."
         keywords="boat detailing Charlotte NC, mobile boat detailing, boat wash near me, marine ceramic coating, boat oxidation removal, boat detail pricing"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Boat Detailing", "item": "https://proworxdetailing.com/boat-detailing" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "Does ProWorx offer mobile boat detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx provides professional mobile boat detailing in Charlotte, NC. We come to your dock, driveway, or storage lot with our fully self-contained mobile setup. Services include basic wash, interior detail, exterior detail with wax, full boat detail, oxidation removal, and marine ceramic coating." }},
+                { "@type": "Question", "name": "How much does boat detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "Boat detailing is priced by boat length. For example, a full boat detail starts at $600 for boats up to 20 ft, $775 for 21-25 ft, $950 for 26-30 ft, and $1,150 for 31-35 ft. Contact us for larger vessels." }},
+                { "@type": "Question", "name": "Do you offer ceramic coating for boats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer marine ceramic coating packages with 2-year and 5-year protection options. Prices range from $800-$2,250 depending on boat size and package selected." }}
+              ]
+            }
+          ]
+        }}
       />
 
       {/* ── Hero ── */}

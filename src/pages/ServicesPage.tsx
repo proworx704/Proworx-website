@@ -169,6 +169,26 @@ export function ServicesPage() {
         title="Auto Detailing Services"
         description="Full detail, interior cleaning, exterior wash, paint correction, ceramic coating & add-on services in Charlotte, NC. Mobile — we come to you. View packages & pricing."
         keywords="auto detailing services Charlotte NC, car interior cleaning, exterior detail, mobile car wash pricing, paint correction packages"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://proworxdetailing.com/services" }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers full interior and exterior detailing, paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC." }},
+                { "@type": "Question", "name": "How much does a full detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Full detail pricing starts based on vehicle size: Coupe/Sedan, Small SUV/Truck, 3rd Row SUV/Off-Road Truck, and Van categories. Contact us for an exact quote based on your vehicle." }},
+                { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Clean ($59/mo exterior), Shield ($99/mo interior), and Armor ($159/mo full detail with ceramic protection). Cancel anytime." }}
+              ]
+            }
+          ]
+        }}
       />
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">

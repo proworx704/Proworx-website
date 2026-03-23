@@ -29,6 +29,14 @@ export function BookingPage() {
         title="Book an Appointment"
         description="Book your mobile auto detailing appointment with ProWorx in Charlotte, NC. Call (980) 272-1903 or book online. Same-week availability."
         keywords="book auto detailing Charlotte, schedule car detail, mobile detailing appointment, car wash booking Charlotte NC"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Book Now", "item": "https://proworxdetailing.com/book" }
+          ]
+        }}
       />
       <section className="py-20 md:py-32">
         <div className="container text-center">

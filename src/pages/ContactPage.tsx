@@ -10,6 +10,14 @@ export function ContactPage() {
         title="Contact Us"
         description="Contact ProWorx Mobile Detailing in Charlotte, NC. Call (980) 272-1903 or email detailing@proworxdetailing.com. Mon-Fri 9:30AM-6PM, Sat 9:30AM-3PM."
         keywords="contact ProWorx detailing, auto detailing phone Charlotte, mobile detailing appointment, car detailing contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://proworxdetailing.com/contact" }
+          ]
+        }}
       />
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-gold/5 via-transparent to-transparent" />
