@@ -11,3 +11,4 @@ dist_bak2/
 dist_old/
 dist_old2/
 dist_old_redeploy/
+node_modules

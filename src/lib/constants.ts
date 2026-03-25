@@ -14,9 +14,9 @@ export const BOOKING_URL = SQUARE_BOOKING_URL;
 
 // Square Payment Links
 export const MEMBERSHIP_LINKS = {
-  clean: { url: "https://square.link/u/TT4AvMOz", price: 59, name: "Clean" },
-  shield: { url: "https://square.link/u/YDKzho6U", price: 99, name: "Shield" },
-  armor: { url: "https://square.link/u/Ih4zVYZE", price: 149, name: "Armor" },
+  clean: { url: "https://square.link/u/muLgbWnt", price: 59, name: "Exterior Only" },
+  shield: { url: "https://square.link/u/sg602s1T", price: 99, name: "Interior Only" },
+  armor: { url: "https://square.link/u/lrKmsud2", price: 159, name: "Full Inside & Out" },
 };
 
 export const CERAMIC_DEPOSIT_URL = "https://square.link/u/NwnNJRm7";

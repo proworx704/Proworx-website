@@ -184,7 +184,7 @@ export function ServicesPage() {
               "mainEntity": [
                 { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers full interior and exterior detailing, paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC." }},
                 { "@type": "Question", "name": "How much does a full detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Full detail pricing starts based on vehicle size: Coupe/Sedan, Small SUV/Truck, 3rd Row SUV/Off-Road Truck, and Van categories. Contact us for an exact quote based on your vehicle." }},
-                { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Clean ($59/mo exterior), Shield ($99/mo interior), and Armor ($159/mo full detail with ceramic protection). Cancel anytime." }}
+                { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Exterior Only ($59/mo), Interior Only ($99/mo), and Full Inside & Out ($159/mo with ceramic protection). Cancel anytime." }}
               ]
             }
           ]

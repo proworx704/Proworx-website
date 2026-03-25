@@ -8,10 +8,10 @@ import { useSiteConfig } from "@/hooks/useCms";
 const MEMBERSHIP_PLANS = [
   {
     key: "clean",
-    name: "Clean",
+    name: "Exterior Only",
     price: "59",
     icon: <Droplets className="size-6" />,
-    tagline: "Exterior only",
+    tagline: "Monthly exterior care",
     description: "A monthly exterior refresh to keep your vehicle looking sharp between full details.",
     features: [
       "Monthly exterior hand wash",
@@ -26,10 +26,10 @@ const MEMBERSHIP_PLANS = [
   },
   {
     key: "shield",
-    name: "Shield",
+    name: "Interior Only",
     price: "99",
     icon: <Shield className="size-6" />,
-    tagline: "Interior only",
+    tagline: "Monthly interior care",
     description: "A thorough interior detail every month to keep your cabin fresh and clean.",
     features: [
       "Monthly interior detail",
@@ -45,10 +45,10 @@ const MEMBERSHIP_PLANS = [
   },
   {
     key: "armor",
-    name: "Armor",
+    name: "Full Inside & Out",
     price: "159",
     icon: <Sparkles className="size-6" />,
-    tagline: "Inside & out + ceramic protection",
+    tagline: "Complete detail + ceramic protection",
     description: "The complete package — full interior and exterior detail every month with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
     features: [
       "Full inside & out detail",
@@ -66,7 +66,7 @@ const MEMBERSHIP_PLANS = [
 const WHO_ITS_FOR = [
   { icon: <Star className="size-5" />, title: "Existing Clients", desc: "You've had a full detail or ceramic coating — now keep it maintained professionally every month." },
   { icon: <CalendarCheck className="size-5" />, title: "Busy Professionals", desc: "No time to wash and detail yourself? We come to you on a set schedule — one less thing to think about." },
-  { icon: <Shield className="size-5" />, title: "Ceramic Coating Owners", desc: "Ceramic coatings need proper maintenance. Our Armor plan includes a ceramic top-up every visit." },
+  { icon: <Shield className="size-5" />, title: "Ceramic Coating Owners", desc: "Ceramic coatings need proper maintenance. Our Full Inside & Out plan includes a ceramic top-up every visit." },
   { icon: <Clock className="size-5" />, title: "Anyone Who Hates Car Washes", desc: "Automated car washes damage your paint. Our hand wash and professional products keep your finish safe." },
 ];
 
@@ -92,7 +92,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three monthly detailing plans: Clean ($59/mo for exterior wash), Shield ($99/mo for interior detail), and Armor ($159/mo for full detail with ceramic wet-coat protection). All plans include mobile service and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three monthly detailing plans: Exterior Only ($59/mo for exterior wash), Interior Only ($99/mo for interior detail), and Full Inside & Out ($159/mo for full detail with ceramic wet-coat protection). All plans include mobile service and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }}
               ]
             }
@@ -174,7 +174,7 @@ export function MaintenancePage() {
                 { title: "Always Presentable", desc: "No more scrambling before road trips or client meetings. Your vehicle is always clean and ready to go." },
                 { title: "Save vs. One-Off Details", desc: "Monthly plans cost significantly less than booking individual details. Consistent care at a better price." },
                 { title: "We Come to You", desc: "Mobile service at your home or office. No drop-offs, no waiting rooms — just a clean car when you get back." },
-                { title: "Extend Coating Life", desc: "Ceramic coatings last longer with proper maintenance. Our Armor plan includes a ceramic top-up every visit." },
+                { title: "Extend Coating Life", desc: "Ceramic coatings last longer with proper maintenance. Our Full Inside & Out plan includes a ceramic top-up every visit." },
                 { title: "Cancel Anytime", desc: "No contracts, no commitments. Keep your plan as long as it makes sense for you." },
               ].map((item) => (
                 <div key={item.title} className="rounded-xl bg-card border border-border p-5">
@@ -290,9 +290,9 @@ export function MaintenancePage() {
                   <thead>
                     <tr className="border-b border-border">
                       <th className="text-left p-4 font-semibold">Feature</th>
-                      <th className="p-4 font-semibold text-center">Clean<br/><span className="text-gold font-normal text-xs">$59/mo</span></th>
-                      <th className="p-4 font-semibold text-center">Shield<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
-                      <th className="p-4 font-semibold text-center bg-gold/5">Armor<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
+                      <th className="p-4 font-semibold text-center">Exterior Only<br/><span className="text-gold font-normal text-xs">$59/mo</span></th>
+                      <th className="p-4 font-semibold text-center">Interior Only<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
+                      <th className="p-4 font-semibold text-center bg-gold/5">Full Inside &amp; Out<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
                     </tr>
                   </thead>
                   <tbody>
