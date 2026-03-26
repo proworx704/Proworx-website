@@ -5,7 +5,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
-const BOOKING_APP = "https://proworx-booking-8ee2b7c6.viktor.space";
+const BOOKING_APP = "https://book.proworxdetailing.com";
 
 export function BookingPage() {
   const { config } = useSiteConfig();
