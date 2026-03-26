@@ -2,9 +2,19 @@
  * Smart booking link — opens the booking app directly.
  * Links to book.proworxdetailing.com to avoid Safe Browsing cache issues
  * with the /book proxy route.
+ * Also rewrites any legacy viktor.space URLs stored in the CMS.
  */
 
 const BOOKING_APP = "https://book.proworxdetailing.com";
+const LEGACY_BOOKING_PATTERN = /https?:\/\/proworx-booking[^/]*\.viktor\.space/;
+
+function normalizeBookingUrl(url: string): string {
+  // Rewrite any legacy viktor.space booking URLs to production domain
+  if (LEGACY_BOOKING_PATTERN.test(url)) {
+    return url.replace(LEGACY_BOOKING_PATTERN, BOOKING_APP);
+  }
+  return url;
+}
 
 export function BookNowLink({
   href,
@@ -19,16 +29,16 @@ export function BookNowLink({
   if (href) {
     const isExternal = href.startsWith("http");
     if (isExternal) {
+      const safeUrl = normalizeBookingUrl(href);
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        <a href={safeUrl} className={className}>
           {children}
         </a>
       );
     }
     // Relative path like /book?service=... — rewrite to booking app domain
-    const bookPath = href.startsWith("/book") ? href.replace(/^\/book/, "/book") : href;
     return (
-      <a href={`${BOOKING_APP}${bookPath}`} className={className}>
+      <a href={`${BOOKING_APP}${href}`} className={className}>
         {children}
       </a>
     );
