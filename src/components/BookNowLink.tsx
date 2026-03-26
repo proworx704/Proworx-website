@@ -1,8 +1,10 @@
 /**
- * Smart booking link — opens the booking page.
- * Uses the local /book path (proxied via Vercel rewrites to the booking app)
- * so customers stay on proworxdetailing.com.
+ * Smart booking link — opens the booking app directly.
+ * Links to book.proworxdetailing.com to avoid Safe Browsing cache issues
+ * with the /book proxy route.
  */
+
+const BOOKING_APP = "https://book.proworxdetailing.com";
 
 export function BookNowLink({
   href,
@@ -23,17 +25,18 @@ export function BookNowLink({
         </a>
       );
     }
-    // Relative path like /book?service=... — keep on same domain
+    // Relative path like /book?service=... — rewrite to booking app domain
+    const bookPath = href.startsWith("/book") ? href.replace(/^\/book/, "/book") : href;
     return (
-      <a href={href} className={className}>
+      <a href={`${BOOKING_APP}${bookPath}`} className={className}>
         {children}
       </a>
     );
   }
 
-  // Default: link to /book (proxied to booking app)
+  // Default: link directly to booking app
   return (
-    <a href="/book" className={className}>
+    <a href={`${BOOKING_APP}/book`} className={className}>
       {children}
     </a>
   );

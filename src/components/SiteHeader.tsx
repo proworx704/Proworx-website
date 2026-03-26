@@ -86,7 +86,7 @@ export function SiteHeader() {
                 className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
                 asChild
               >
-                <a href="/book">
+                <a href="https://book.proworxdetailing.com/book">
                   Book Now
                 </a>
               </Button>
