@@ -2,15 +2,15 @@
   "rewrites": [
     {
       "source": "/book",
-      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/book"
+      "destination": "https://book.proworxdetailing.com/book"
     },
     {
       "source": "/booking-assets/:path*",
-      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/booking-assets/:path*"
+      "destination": "https://book.proworxdetailing.com/booking-assets/:path*"
     },
     {
       "source": "/manifest.json",
-      "destination": "https://proworx-booking-8ee2b7c6.viktor.space/manifest.json"
+      "destination": "https://book.proworxdetailing.com/manifest.json"
     },
     {
       "source": "/((?!assets/|images/|booking-assets/|sitemap\\.xml|robots\\.txt|site\\.webmanifest|manifest\\.json|favicon.*|apple-touch-icon.*).*)",
