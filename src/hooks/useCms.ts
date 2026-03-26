@@ -8,7 +8,7 @@ const DEFAULTS: Record<string, string> = {
   phone: "(980) 272-1903",
   phoneLink: "tel:+19802721903",
   email: "detailing@proworxdetailing.com",
-  address: "4321 Overbecks Ln, Waxhaw, NC 28173",
+  address: "3008 Collaroy Rd, Waxhaw, NC 28173",
   instagramUrl: "https://www.instagram.com/proworxdetailing/",
   facebookUrl: "https://www.facebook.com/proworxdetailing",
   googleBusinessUrl: "https://g.page/proworxdetailing",
