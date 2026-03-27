@@ -55,6 +55,7 @@ const schema = defineSchema({
     page: v.string(),         // page name for grouping "Home"
     storageId: v.optional(v.id("_storage")),  // Convex file storage
     staticPath: v.string(),   // fallback static path "/images/escalade-front.jpg"
+    focalY: v.optional(v.number()),  // 0-100: vertical focal point for object-position (50 = center, 0 = top, 100 = bottom)
   }).index("by_slot", ["slot"]).index("by_page", ["page"]),
 
   // Membership plans

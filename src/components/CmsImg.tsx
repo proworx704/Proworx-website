@@ -2,7 +2,8 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { createContext, useContext, useMemo } from "react";
 
-type PhotoMap = Record<string, string>;
+type PhotoEntry = { url: string; focalY?: number };
+type PhotoMap = Record<string, PhotoEntry>;
 
 const PhotoContext = createContext<PhotoMap>({});
 
@@ -17,7 +18,10 @@ export function PhotoProvider({ children }: { children: React.ReactNode }) {
     const map: PhotoMap = {};
     if (allPhotos) {
       for (const p of allPhotos) {
-        map[p.slot] = p.storageUrl || p.staticPath;
+        map[p.slot] = {
+          url: p.storageUrl || p.staticPath,
+          focalY: (p as Record<string, unknown>).focalY as number | undefined,
+        };
       }
     }
     return map;
@@ -35,14 +39,47 @@ export function PhotoProvider({ children }: { children: React.ReactNode }) {
  */
 export function usePhotoUrl(slot: string, fallback: string): string {
   const map = useContext(PhotoContext);
-  return map[slot] || fallback;
+  return map[slot]?.url || fallback;
+}
+
+/**
+ * Get the focal-Y percentage for a photo slot.
+ * Returns the DB value if set, otherwise undefined.
+ */
+export function usePhotoFocalY(slot: string): number | undefined {
+  const map = useContext(PhotoContext);
+  return map[slot]?.focalY;
 }
 
 /**
  * Drop-in replacement for <img> that reads from CMS photo slots.
- * Usage: <CmsImg slot="homepage-hero" fallback="/images/escalade-front.jpg" alt="..." className="..." />
+ * Applies focal-point cropping via object-position when the image uses object-cover.
+ *
+ * Priority: DB focalY > prop focalY > 50% (center)
+ *
+ * Usage: <CmsImg slot="homepage-hero" fallback="/images/escalade-front.jpg" alt="..." focalY={25} />
  */
-export function CmsImg({ slot, fallback, loading = "lazy", ...props }: { slot: string; fallback: string } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">) {
+export function CmsImg({
+  slot,
+  fallback,
+  loading = "lazy",
+  focalY: focalYProp,
+  style,
+  ...props
+}: {
+  slot: string;
+  fallback: string;
+  focalY?: number;
+} & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">) {
   const url = usePhotoUrl(slot, fallback);
-  return <img src={url} loading={loading} {...props} />;
+  const dbFocalY = usePhotoFocalY(slot);
+  const focalY = dbFocalY ?? focalYProp ?? 50;
+  return (
+    <img
+      src={url}
+      loading={loading}
+      style={{ objectPosition: `center ${focalY}%`, ...style }}
+      {...props}
+    />
+  );
 }

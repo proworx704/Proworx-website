@@ -591,3 +591,14 @@ export const resetPhoto = mutation({
     return true;
   },
 });
+
+export const setPhotoFocalY = mutation({
+  args: { slot: v.string(), focalY: v.number() },
+  handler: async (ctx, { slot, focalY }) => {
+    const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
+    if (existing) {
+      await ctx.db.patch(existing._id, { focalY: Math.max(0, Math.min(100, focalY)) });
+    }
+    return true;
+  },
+});

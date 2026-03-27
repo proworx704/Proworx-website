@@ -700,13 +700,19 @@ function MembershipsTab() {
 }
 
 // ─── PHOTO UPLOAD CARD ──────────────────────────────────────────────────────
-function PhotoCard({ photo }: { photo: { _id: Id<"sitePhotos">; slot: string; label: string; page: string; storageId?: string; staticPath: string; storageUrl: string | null } }) {
+function PhotoCard({ photo }: { photo: { _id: Id<"sitePhotos">; slot: string; label: string; page: string; storageId?: string; staticPath: string; storageUrl: string | null; focalY?: number } }) {
   const generateUploadUrl = useMutation(api.cms.generateUploadUrl);
   const savePhoto = useMutation(api.cms.savePhoto);
   const resetPhoto = useMutation(api.cms.resetPhoto);
+  const setFocalY = useMutation(api.cms.setPhotoFocalY);
   const [uploading, setUploading] = useState(false);
+  const [adjusting, setAdjusting] = useState(false);
+  const [localFocalY, setLocalFocalY] = useState(photo.focalY ?? 50);
   const isCustom = !!photo.storageUrl;
   const displayUrl = photo.storageUrl || photo.staticPath;
+
+  // Sync local state when photo updates
+  useEffect(() => { setLocalFocalY(photo.focalY ?? 50); }, [photo.focalY]);
 
   const handleUpload = async () => {
     const input = document.createElement("input");
@@ -749,37 +755,94 @@ function PhotoCard({ photo }: { photo: { _id: Id<"sitePhotos">; slot: string; la
     }
   };
 
+  const handleSaveFocalY = async () => {
+    try {
+      await setFocalY({ slot: photo.slot, focalY: localFocalY });
+      setAdjusting(false);
+      toast.success(`Saved crop position for ${photo.label}`);
+    } catch {
+      toast.error("Failed to save position");
+    }
+  };
+
   return (
     <div className="group relative rounded-xl overflow-hidden bg-card border border-border">
-      <div className="aspect-[4/3] relative">
-        <img src={displayUrl} alt={photo.label} className="w-full h-full object-cover" />
-        {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
-          <Button
-            size="sm"
-            className="bg-gold text-gold-foreground hover:bg-gold/90"
-            onClick={handleUpload}
-            disabled={uploading}
-          >
-            {uploading ? <Loader2 className="size-4 animate-spin mr-1" /> : <Upload className="size-4 mr-1" />}
-            {uploading ? "Uploading…" : "Change Photo"}
-          </Button>
-          {isCustom && (
+      {/* Image preview — uses the live focal-Y so you can preview while adjusting */}
+      <div className="aspect-[4/3] relative overflow-hidden">
+        <img
+          src={displayUrl}
+          alt={photo.label}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: `center ${localFocalY}%` }}
+        />
+        {/* Overlay on hover (hidden when adjusting) */}
+        {!adjusting && (
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                className="bg-gold text-gold-foreground hover:bg-gold/90"
+                onClick={handleUpload}
+                disabled={uploading}
+              >
+                {uploading ? <Loader2 className="size-4 animate-spin mr-1" /> : <Upload className="size-4 mr-1" />}
+                {uploading ? "Uploading…" : "Change Photo"}
+              </Button>
+              {isCustom && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/20"
+                  onClick={handleReset}
+                >
+                  <RotateCcw className="size-4 mr-1" /> Reset
+                </Button>
+              )}
+            </div>
             <Button
               size="sm"
               variant="outline"
               className="border-white/30 text-white hover:bg-white/20"
-              onClick={handleReset}
+              onClick={() => setAdjusting(true)}
             >
-              <RotateCcw className="size-4 mr-1" /> Reset
+              <GripVertical className="size-4 mr-1" /> Adjust Crop
             </Button>
-          )}
-        </div>
+          </div>
+        )}
         {/* Custom badge */}
-        {isCustom && (
+        {isCustom && !adjusting && (
           <span className="absolute top-2 right-2 bg-gold text-gold-foreground text-[10px] font-bold px-2 py-0.5 rounded-full">CUSTOM</span>
         )}
       </div>
+
+      {/* Crop adjuster panel */}
+      {adjusting && (
+        <div className="p-3 bg-muted/80 border-t border-border space-y-2">
+          <p className="text-xs font-semibold text-center">Drag slider to reposition</p>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-muted-foreground w-6 text-right">Top</span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              value={localFocalY}
+              onChange={(e) => setLocalFocalY(Number(e.target.value))}
+              className="flex-1 accent-[hsl(var(--gold))] h-2 cursor-pointer"
+            />
+            <span className="text-[10px] text-muted-foreground w-6">Btm</span>
+          </div>
+          <p className="text-[10px] text-muted-foreground text-center">{localFocalY}%</p>
+          <div className="flex gap-2">
+            <Button size="sm" className="flex-1 bg-gold text-gold-foreground hover:bg-gold/90" onClick={handleSaveFocalY}>
+              <Check className="size-3 mr-1" /> Save
+            </Button>
+            <Button size="sm" variant="outline" className="flex-1" onClick={() => { setLocalFocalY(photo.focalY ?? 50); setAdjusting(false); }}>
+              <X className="size-3 mr-1" /> Cancel
+            </Button>
+          </div>
+        </div>
+      )}
+
       <div className="px-3 py-2.5">
         <p className="text-sm font-medium truncate">{photo.label}</p>
         <p className="text-xs text-muted-foreground">{photo.page}</p>
