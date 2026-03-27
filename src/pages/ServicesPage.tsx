@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
-import { useSiteConfig, useServices, useMemberships, useStandardInterior, useStandardExterior } from "@/hooks/useCms";
+import { useSiteConfig, useServices, useMemberships } from "@/hooks/useCms";
 
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
   return (
