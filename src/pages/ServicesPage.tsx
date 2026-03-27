@@ -211,30 +211,49 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* 1. Full Detail (Inside & Out) */}
+      {/* 1. Full Detail (Inside & Out) — with pricing tiers */}
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div>
-              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Full Service</p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{sd.name}</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">{sd.description}</p>
-              <p className="text-sm text-muted-foreground mb-6 flex items-center gap-2">
-                <Clock className="size-4 text-gold" /> {sd.duration}
-              </p>
-              <ul className="space-y-2 mb-6">
-                {sd.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />{f}
-                  </li>
-                ))}
-              </ul>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                <BookNowLink href={config.bookingUrlFullDetail || undefined}>Book Full Detail <ArrowRight className="size-4" /></BookNowLink>
-              </Button>
-            </div>
-            <CmsImg slot="services-standard" fallback="/images/full-insideout.jpg" alt="Ferrari Roma full inside & out detail by ProWorx with van on-site" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Full Service</p>
           </div>
+          <PackageSection
+            pkg={{
+              name: sd.name,
+              description: sd.description,
+              features: sd.features,
+              priceTiers: si.priceTiers.map((intTier, i) => {
+                const extTier = se.priceTiers[i];
+                const intPrice = parseInt(intTier.price.replace(/[^0-9]/g, ""), 10) || 0;
+                const extPrice = extTier ? parseInt(extTier.price.replace(/[^0-9]/g, ""), 10) || 0 : 0;
+                // Parse and sum durations
+                const parseMins = (d: string) => {
+                  let mins = 0;
+                  const hMatch = d.match(/(\d+)\s*hr/);
+                  const mMatch = d.match(/(\d+)\s*min/);
+                  if (hMatch) mins += parseInt(hMatch[1], 10) * 60;
+                  if (mMatch) mins += parseInt(mMatch[1], 10);
+                  return mins;
+                };
+                const totalMins = parseMins(intTier.duration) + (extTier ? parseMins(extTier.duration) : 0);
+                const hrs = Math.floor(totalMins / 60);
+                const remainMins = totalMins % 60;
+                const combinedDuration = remainMins > 0 ? `${hrs} hr${hrs !== 1 ? "s" : ""} ${remainMins} min` : `${hrs} hr${hrs !== 1 ? "s" : ""}`;
+                return { label: intTier.label, duration: combinedDuration, price: `$${intPrice + extPrice}` };
+              }),
+              notes: [
+                ...new Set([
+                  ...(si.notes || []),
+                  ...(se.notes || []),
+                ]),
+              ],
+            }}
+            bookLabel="Book Full Detail"
+            bookHref={config.bookingUrlFullDetail || undefined}
+            photoSlot="services-standard"
+            photoFallback="/images/full-insideout.jpg"
+            imageAlt="Ferrari Roma full inside & out detail by ProWorx with van on-site"
+          />
         </div>
       </section>
 
