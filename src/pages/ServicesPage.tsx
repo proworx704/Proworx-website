@@ -23,98 +23,137 @@ function ServiceRow({ service }: { service: { name: string; description: string;
   );
 }
 
-/** Package section with description, features, pricing tiers, and notes (matches old site layout) */
-function PackageSection({
-  pkg,
+/* ── Tier card used in the side-by-side package sections ────────────────── */
+function TierCard({
+  tier,
+  highlight,
   bookLabel,
   bookHref,
-  photoSlot,
-  photoFallback,
-  imageAlt,
-  imageFirst,
 }: {
-  pkg: { name: string; description: string; features: string[]; priceTiers: { label: string; duration: string; price: string }[]; notes: string[] };
+  tier: {
+    name: string;
+    badge?: string;
+    description: string;
+    features: string[];
+    priceTiers: { label: string; duration: string; price: string }[];
+    notes?: string[];
+  };
+  highlight?: boolean;
   bookLabel: string;
   bookHref?: string;
-  photoSlot: string;
-  photoFallback: string;
-  imageAlt: string;
-  imageFirst?: boolean;
 }) {
-  const imageEl = (
-    <CmsImg slot={photoSlot} fallback={photoFallback} alt={imageAlt} className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
-  );
-
-  const content = (
-    <div>
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">{pkg.name}</h2>
-      <p className="text-muted-foreground leading-relaxed mb-5">{pkg.description}</p>
+  return (
+    <div className={`rounded-2xl bg-card border p-6 flex flex-col relative ${highlight ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
+      {tier.badge && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full whitespace-nowrap">
+          {tier.badge}
+        </div>
+      )}
+      <h3 className="font-bold text-xl mb-2">{tier.name}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{tier.description}</p>
 
       {/* What's Included */}
-      <div className="mb-5">
-        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">What's Included</p>
-        <ul className="space-y-2">
-          {pkg.features.map((f) => (
+      <div className="mb-4">
+        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-2">What's Included</p>
+        <ul className="space-y-1.5">
+          {tier.features.map((f) => (
             <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />{f}
+              <CheckCircle2 className="size-3.5 text-gold mt-0.5 shrink-0" />{f}
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Pricing by vehicle size */}
-      <div className="rounded-xl bg-card border border-border p-4 mb-5">
-        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing</p>
-        {pkg.priceTiers.map((tier) => (
-          <div key={tier.label} className="flex items-center justify-between py-2.5 border-b border-border/50 last:border-0">
+      {/* Pricing by vehicle */}
+      <div className="rounded-xl bg-muted/50 border border-border/50 p-3 mb-4 flex-1">
+        <p className="text-xs font-bold text-gold uppercase tracking-widest mb-2">Pricing</p>
+        {tier.priceTiers.map((t) => (
+          <div key={t.label} className="flex items-center justify-between py-2 border-b border-border/30 last:border-0">
             <div>
-              <p className="text-sm font-medium">{tier.label}</p>
-              <p className="text-xs text-muted-foreground flex items-center gap-1">
-                <Clock className="size-3" />{tier.duration}
-              </p>
+              <p className="text-sm font-medium">{t.label}</p>
+              <p className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="size-3" />{t.duration}</p>
             </div>
-            <p className="font-bold text-gold">{tier.price}</p>
+            <p className="font-bold text-gold">{t.price}</p>
           </div>
         ))}
       </div>
 
       {/* Notes */}
-      {pkg.notes.length > 0 && (
-        <div className="mb-5">
-          {pkg.notes.map((note) => (
+      {tier.notes && tier.notes.length > 0 && (
+        <div className="mb-4">
+          {tier.notes.map((note) => (
             <p key={note} className="text-xs text-muted-foreground italic mb-1">{note}</p>
           ))}
         </div>
       )}
 
-      <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+      <Button className={highlight ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
         <BookNowLink href={bookHref}>{bookLabel} <ArrowRight className="size-4" /></BookNowLink>
       </Button>
     </div>
   );
+}
 
+/* ── Side-by-side tiered section for a service category ─────────────────── */
+function TieredPackageSection({
+  categoryLabel,
+  tiers,
+  bookLabel,
+  bookHref,
+  photoSlot,
+  photoFallback,
+  imageAlt,
+}: {
+  categoryLabel: string;
+  tiers: {
+    name: string;
+    badge?: string;
+    description: string;
+    features: string[];
+    priceTiers: { label: string; duration: string; price: string }[];
+    notes?: string[];
+    highlight?: boolean;
+  }[];
+  bookLabel: string;
+  bookHref?: string;
+  photoSlot: string;
+  photoFallback: string;
+  imageAlt: string;
+}) {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-      {imageFirst ? (
-        <>
-          <div className="order-2 lg:order-1">{imageEl}</div>
-          <div className="order-1 lg:order-2">{content}</div>
-        </>
-      ) : (
-        <>
-          {content}
-          {imageEl}
-        </>
-      )}
+    <div className="max-w-6xl mx-auto">
+      <div className="mb-8 text-center">
+        <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">{categoryLabel}</p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">Choose Your Level</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">Every tier includes a final quality inspection. Upgrade for enhanced protection and deeper cleaning.</p>
+      </div>
+
+      {/* Image */}
+      <div className="mb-10">
+        <CmsImg slot={photoSlot} fallback={photoFallback} alt={imageAlt} className="rounded-2xl w-full aspect-[21/9] object-cover shadow-xl" loading="eager" />
+      </div>
+
+      {/* Tier cards grid */}
+      <div className={`grid gap-6 ${tiers.length === 3 ? "md:grid-cols-3" : tiers.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : ""}`}>
+        {tiers.map((tier) => (
+          <TierCard
+            key={tier.name}
+            tier={tier}
+            highlight={tier.highlight}
+            bookLabel={bookLabel}
+            bookHref={bookHref}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
+/* ══════════════════════════════════════════════════════════════════════════ */
+
 export function ServicesPage() {
   const { config } = useSiteConfig();
-  const { services, standardDetail } = useServices();
-  const { standardInterior } = useStandardInterior();
-  const { standardExterior } = useStandardExterior();
+  const { services } = useServices();
   const { memberships } = useMemberships();
 
   const interiorPackages = services?.interiorPackages ?? [];
@@ -123,39 +162,166 @@ export function ServicesPage() {
   const exteriorAddons = services?.exteriorAddons ?? [];
   const ceramicAddons = services?.ceramicAddons ?? [];
 
-  const sd = standardDetail ?? {
-    name: "Standard Inside & Out",
-    description: "A full-vehicle refresh combining interior and exterior services into one streamlined appointment.",
-    price: "Price varies",
-    duration: "2 hr 30 min+",
-    features: ["All Standard Exterior services", "All Standard Interior services", "Unified final quality inspection"],
-  };
+  /* ── Inside & Out tiers ────────────────────────────────────────────── */
+  const insideOutTiers = [
+    {
+      name: "Standard Inside & Out",
+      description: "A full-vehicle refresh combining interior and exterior services into one streamlined appointment.",
+      features: [
+        "Full interior vacuum (carpets, seats, crevices)",
+        "Wipe-down of all interior surfaces",
+        "Interior glass cleaning",
+        "Hand wash with foam pre-treatment",
+        "Wheels & tires cleaned and dressed",
+        "Exterior glass cleaned",
+        "Light spray wax",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "2 hr 30 min", price: "$194" },
+        { label: "Small SUV / Small Truck", duration: "3 hrs", price: "$233" },
+        { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$271" },
+        { label: "Van", duration: "4 hrs", price: "$310" },
+      ],
+      notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+    {
+      name: "Premium Inside & Out",
+      badge: "Most Popular",
+      highlight: true,
+      description: "A deeper clean with premium interior care and enhanced exterior protection for a showroom finish.",
+      features: [
+        "Everything in Standard, plus:",
+        "Leather conditioning & UV protection",
+        "Steam clean all interior surfaces",
+        "Air freshener treatment",
+        "6-month paint sealant",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "3 hr 30 min", price: "$285" },
+        { label: "Small SUV / Small Truck", duration: "4 hrs", price: "$335" },
+        { label: "Large SUV / Off-Road Truck", duration: "4 hr 30 min", price: "$385" },
+        { label: "Van", duration: "5 hrs", price: "$435" },
+      ],
+      notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+    {
+      name: "Elite Inside & Out",
+      badge: "Best Protection",
+      description: "The ultimate detail — deep decontamination, full paint correction prep, and long-lasting ceramic protection.",
+      features: [
+        "Everything in Premium, plus:",
+        "Clay bar treatment",
+        "Iron decontamination",
+        "12-month ceramic wax",
+        "Exterior trim protectant",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "4 hr 30 min", price: "$399" },
+        { label: "Small SUV / Small Truck", duration: "5 hrs", price: "$465" },
+        { label: "Large SUV / Off-Road Truck", duration: "5 hr 30 min", price: "$535" },
+        { label: "Van", duration: "6 hrs", price: "$599" },
+      ],
+      notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+  ];
 
-  const si = standardInterior ?? {
-    name: "Standard Interior Only",
-    description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
-    features: ["Full interior vacuum (carpets, seats, crevices)", "Wipe-down of all interior surfaces", "Door panels, cupholders, center console, and vents", "Interior glass cleaning", "Light stain treatment (as applicable)"],
-    priceTiers: [
-      { label: "Coupe/Sedan", duration: "1 hr 45 min", price: "$127" },
-      { label: "Small SUV / Small Truck", duration: "2 hrs", price: "$144" },
-      { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 30 min", price: "$180" },
-      { label: "Van", duration: "3 hrs", price: "$216" },
-    ],
-    notes: ["Pet Hair Fee: Additional time will be charged at base rate (required if present).", "Condition: Extra time/cost may apply for neglected vehicles."],
-  };
+  /* ── Interior Only tiers ───────────────────────────────────────────── */
+  const interiorTiers = [
+    {
+      name: "Standard Interior",
+      description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
+      features: [
+        "Full interior vacuum (carpets, seats, crevices)",
+        "Wipe-down of all interior surfaces",
+        "Door panels, cupholders, center console & vents",
+        "Interior glass cleaning",
+        "Light stain treatment (as applicable)",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "1 hr 45 min", price: "$136" },
+        { label: "Small SUV / Small Truck", duration: "2 hrs", price: "$155" },
+        { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$194" },
+        { label: "Van", duration: "3 hrs", price: "$233" },
+      ],
+      notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+    {
+      name: "Premium Interior",
+      badge: "Recommended",
+      highlight: true,
+      description: "Deep interior care with leather conditioning, steam cleaning, and UV protection for a like-new cabin.",
+      features: [
+        "Everything in Standard Interior, plus:",
+        "Leather conditioning & UV protection",
+        "Steam clean all interior surfaces",
+        "Air freshener treatment",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "2 hr 30 min", price: "$210" },
+        { label: "Small SUV / Small Truck", duration: "3 hrs", price: "$245" },
+        { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$290" },
+        { label: "Van", duration: "4 hrs", price: "$335" },
+      ],
+      notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+  ];
 
-  const se = standardExterior ?? {
-    name: "Standard Exterior Only",
-    description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection without paint correction.",
-    features: ["Hand wash with foam pre-treatment", "Wheels and tires cleaned and dressed", "Exterior glass cleaned", "Light spray wax for shine and short-term protection", "Final quality inspection"],
-    priceTiers: [
-      { label: "Coupe/Sedan (4-door)", duration: "1 hr 30 min", price: "$103" },
-      { label: "Small SUV / Small Truck", duration: "1 hr 45 min", price: "$124" },
-      { label: "3rd Row SUV / Off-Road Truck", duration: "2 hrs 15 min", price: "$144" },
-      { label: "Van", duration: "2 hrs", price: "$165" },
-    ],
-    notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
-  };
+  /* ── Exterior Only tiers ───────────────────────────────────────────── */
+  const exteriorTiers = [
+    {
+      name: "Standard Exterior",
+      description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection.",
+      features: [
+        "Hand wash with foam pre-treatment",
+        "Wheels & tires cleaned and dressed",
+        "Exterior glass cleaned",
+        "Light spray wax for shine & short-term protection",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "1 hr 15 min", price: "$97" },
+        { label: "Small SUV / Small Truck", duration: "1 hr 30 min", price: "$117" },
+        { label: "Large SUV / Off-Road Truck", duration: "1 hr 45 min", price: "$136" },
+        { label: "Van", duration: "2 hrs", price: "$155" },
+      ],
+      notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+    {
+      name: "Premium Exterior",
+      badge: "Most Popular",
+      highlight: true,
+      description: "Full decontamination and a 6-month sealant for lasting protection and a deep, glossy finish.",
+      features: [
+        "Everything in Standard Exterior, plus:",
+        "Clay bar treatment",
+        "Iron decontamination",
+        "6-month paint sealant",
+        "Exterior trim protectant",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "2 hrs", price: "$175" },
+        { label: "Small SUV / Small Truck", duration: "2 hr 15 min", price: "$205" },
+        { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$240" },
+        { label: "Van", duration: "2 hr 45 min", price: "$275" },
+      ],
+      notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+    {
+      name: "Elite Exterior",
+      badge: "Best Protection",
+      description: "Premium decontamination with a 12-month ceramic wax for the ultimate long-lasting exterior shield.",
+      features: [
+        "Everything in Premium Exterior, plus:",
+        "Upgraded to 12-month ceramic wax",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "2 hr 15 min", price: "$225" },
+        { label: "Small SUV / Small Truck", duration: "2 hr 30 min", price: "$265" },
+        { label: "Large SUV / Off-Road Truck", duration: "2 hr 45 min", price: "$305" },
+        { label: "Van", duration: "3 hrs", price: "$345" },
+      ],
+      notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
+    },
+  ];
 
   // Build membership plan display data
   const membershipPlans = (memberships ?? []).map((m) => ({
@@ -182,14 +348,15 @@ export function ServicesPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers full interior and exterior detailing, paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC." }},
-                { "@type": "Question", "name": "How much does a full detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Full detail pricing starts based on vehicle size: Coupe/Sedan, Small SUV/Truck, 3rd Row SUV/Off-Road Truck, and Van categories. Contact us for an exact quote based on your vehicle." }},
+                { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers Standard, Premium, and Elite tiers for interior and exterior detailing, plus paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC." }},
+                { "@type": "Question", "name": "How much does a full detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out starts at $194 (Sedan). Premium starts at $285 with leather conditioning, steam cleaning, and 6-month sealant. Elite starts at $399 with clay bar, iron decontamination, and 12-month ceramic wax." }},
                 { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Exterior Only ($59/mo), Interior Only ($99/mo), and Full Inside & Out ($159/mo with ceramic protection). Cancel anytime." }}
               ]
             }
           ]
         }}
       />
+
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
@@ -211,44 +378,13 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* 1. Full Detail (Inside & Out) — with pricing tiers */}
+      {/* 1. Inside & Out — Standard / Premium / Elite */}
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="mb-8 text-center">
-            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Full Service</p>
-          </div>
-          <PackageSection
-            pkg={{
-              name: sd.name,
-              description: sd.description,
-              features: sd.features,
-              priceTiers: si.priceTiers.map((intTier, i) => {
-                const extTier = se.priceTiers[i];
-                const intPrice = parseInt(intTier.price.replace(/[^0-9]/g, ""), 10) || 0;
-                const extPrice = extTier ? parseInt(extTier.price.replace(/[^0-9]/g, ""), 10) || 0 : 0;
-                // Parse and sum durations
-                const parseMins = (d: string) => {
-                  let mins = 0;
-                  const hMatch = d.match(/(\d+)\s*hr/);
-                  const mMatch = d.match(/(\d+)\s*min/);
-                  if (hMatch) mins += parseInt(hMatch[1], 10) * 60;
-                  if (mMatch) mins += parseInt(mMatch[1], 10);
-                  return mins;
-                };
-                const totalMins = parseMins(intTier.duration) + (extTier ? parseMins(extTier.duration) : 0);
-                const hrs = Math.floor(totalMins / 60);
-                const remainMins = totalMins % 60;
-                const combinedDuration = remainMins > 0 ? `${hrs} hr${hrs !== 1 ? "s" : ""} ${remainMins} min` : `${hrs} hr${hrs !== 1 ? "s" : ""}`;
-                return { label: intTier.label, duration: combinedDuration, price: `$${intPrice + extPrice}` };
-              }),
-              notes: [
-                ...new Set([
-                  ...(si.notes || []),
-                  ...(se.notes || []),
-                ]),
-              ],
-            }}
-            bookLabel="Book Full Detail"
+          <TieredPackageSection
+            categoryLabel="Full Service"
+            tiers={insideOutTiers}
+            bookLabel="Book Inside & Out"
             bookHref={config.bookingUrlFullDetail || undefined}
             photoSlot="services-standard"
             photoFallback="/images/full-insideout.jpg"
@@ -257,32 +393,27 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* 2. Standard Interior Only */}
+      {/* 2. Interior Only — Standard / Premium */}
       <section className="py-20 md:py-28 bg-card/50">
         <div className="container">
-          <div className="mb-8 text-center">
-            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Interior Only</p>
-          </div>
-          <PackageSection
-            pkg={si}
+          <TieredPackageSection
+            categoryLabel="Interior Only"
+            tiers={interiorTiers}
             bookLabel="Book Interior Detail"
             bookHref={config.bookingUrlInterior || undefined}
             photoSlot="services-interior"
             photoFallback="/images/rangerover-interior.jpg"
             imageAlt="Interior detail by ProWorx"
-            imageFirst
           />
         </div>
       </section>
 
-      {/* 3. Standard Exterior Only */}
+      {/* 3. Exterior Only — Standard / Premium / Elite */}
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="mb-8 text-center">
-            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Exterior Only</p>
-          </div>
-          <PackageSection
-            pkg={se}
+          <TieredPackageSection
+            categoryLabel="Exterior Only"
+            tiers={exteriorTiers}
             bookLabel="Book Exterior Detail"
             bookHref={config.bookingUrlExterior || undefined}
             photoSlot="services-exterior"
@@ -301,13 +432,24 @@ export function ServicesPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Add-On Options</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Enhance any service with these add-ons for the ultimate finish.</p>
             </div>
+
+            {/* Hot Water Extraction highlight */}
+            <div className="rounded-2xl bg-card border border-gold/30 p-6 mb-8 max-w-2xl mx-auto text-center">
+              <div className="size-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold mx-auto mb-3">
+                <Droplets className="size-5" />
+              </div>
+              <h3 className="font-bold text-lg mb-1">Hot Water Extraction / Shampoo</h3>
+              <p className="text-sm text-muted-foreground mb-2">Deep clean seats & all carpeted areas with professional hot water extraction.</p>
+              <p className="font-bold text-gold text-xl">$100</p>
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Interior add-ons: interiorPackages + interiorAddons combined */}
+              {/* Interior add-ons */}
               <div className="rounded-2xl bg-card border border-border p-5">
                 <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">Interior Add-ons</p>
                 {[...interiorPackages, ...interiorAddons].map((s) => <ServiceRow key={s._id} service={s} />)}
               </div>
-              {/* Exterior add-ons: exteriorPackages + exteriorAddons combined */}
+              {/* Exterior add-ons */}
               <div className="rounded-2xl bg-card border border-border p-5">
                 <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">Exterior Add-ons</p>
                 {[...exteriorPackages, ...exteriorAddons].map((s) => <ServiceRow key={s._id} service={s} />)}
