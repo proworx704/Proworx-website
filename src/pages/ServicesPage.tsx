@@ -332,9 +332,9 @@ export function ServicesPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Auto Detailing Services"
-        description="Full detail, interior cleaning, exterior wash, paint correction, ceramic coating & add-on services in Charlotte, NC. Mobile — we come to you. View packages & pricing."
-        keywords="auto detailing services Charlotte NC, car interior cleaning, exterior detail, mobile car wash pricing, paint correction packages"
+        title="Auto Detailing Services & Pricing"
+        description="Mobile auto detailing in Charlotte, NC — Standard, Premium & Elite packages for interior, exterior & full details. Starting at $97. Ceramic coating, paint correction & monthly plans. We come to you!"
+        keywords="auto detailing services Charlotte NC, mobile detailing pricing, car interior cleaning Charlotte, exterior detail Waxhaw NC, mobile car wash pricing near me, paint correction packages Charlotte, ceramic coating Charlotte NC, auto detailing packages, car detail cost Charlotte"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -342,15 +342,17 @@ export function ServicesPage() {
               "@type": "BreadcrumbList",
               "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://proworxdetailing.com/services" }
+                { "@type": "ListItem", "position": 2, "name": "Services & Pricing", "item": "https://proworxdetailing.com/services" }
               ]
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers Standard, Premium, and Elite tiers for interior and exterior detailing, plus paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC." }},
-                { "@type": "Question", "name": "How much does a full detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out starts at $194 (Sedan). Premium starts at $285 with leather conditioning, steam cleaning, and 6-month sealant. Elite starts at $399 with clay bar, iron decontamination, and 12-month ceramic wax." }},
-                { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Exterior Only ($59/mo), Interior Only ($99/mo), and Full Inside & Out ($159/mo with ceramic protection). Cancel anytime." }}
+                { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers Standard, Premium, and Elite tiers for interior and exterior detailing, plus paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC and surrounding areas including Waxhaw, Matthews, Indian Trail, and Ballantyne." }},
+                { "@type": "Question", "name": "How much does a full detail cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out starts at $194 (Sedan) and includes full interior vacuum, surface wipe-down, hand wash, wheels & tires, and spray wax. Premium starts at $285 adding leather conditioning, steam cleaning, and 6-month sealant. Elite starts at $399 with clay bar, iron decontamination, and 12-month ceramic wax. SUV and Van pricing available on our services page." }},
+                { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Exterior Only ($59/mo), Interior Only ($99/mo), and Full Inside & Out ($159/mo with ceramic protection). All plans include scheduled monthly visits and can be canceled anytime." }},
+                { "@type": "Question", "name": "What areas do you serve for mobile detailing?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx Mobile Detailing serves Charlotte, NC and the surrounding areas including Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe, Ballantyne, Huntersville, Concord, Lake Norman, and Fort Mill, SC. We bring all equipment and water to your location." }},
+                { "@type": "Question", "name": "What is the difference between Standard, Premium, and Elite detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Standard covers the essentials: vacuum, wipe-down, hand wash, and spray wax. Premium adds leather conditioning, steam cleaning, air freshener, and a 6-month paint sealant. Elite includes everything in Premium plus clay bar treatment, iron decontamination, 12-month ceramic wax, and exterior trim protectant for the ultimate protection." }}
               ]
             }
           ]
