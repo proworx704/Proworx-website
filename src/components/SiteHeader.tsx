@@ -23,6 +23,14 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* Skip navigation link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-gold-foreground focus:rounded-md focus:font-semibold focus:text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
+      >
+        Skip to main content
+      </a>
+
       {/* Top bar with phone */}
       <div className="bg-gold/10 border-b border-gold/20">
         <div className="container">
@@ -86,8 +94,8 @@ export function SiteHeader() {
                 className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
                 asChild
               >
-                <a href="https://book.proworxdetailing.com/book">
-                  Book Now
+                <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">
+                  Book Now<span className="sr-only"> (opens in new tab)</span>
                 </a>
               </Button>
               <button

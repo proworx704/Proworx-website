@@ -10,6 +10,8 @@
     <meta name="theme-color" content="#D4A853" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://superb-emu-421.convex.cloud" />
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="/images/escalade-front.jpg" fetchpriority="high" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -124,7 +126,7 @@
     }
     </script>
 
-    <!-- Structured Data: Service offerings with tiered pricing -->
+    <!-- Structured Data: Service offerings -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -132,35 +134,21 @@
       "serviceType": "Auto Detailing",
       "provider": {
         "@type": "AutoRepair",
-        "name": "ProWorx Mobile Detailing",
-        "url": "https://proworxdetailing.com"
+        "name": "ProWorx Mobile Detailing"
       },
-      "areaServed": [
-        { "@type": "City", "name": "Charlotte", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-        { "@type": "City", "name": "Waxhaw", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-        { "@type": "City", "name": "Matthews", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-        { "@type": "City", "name": "Indian Trail", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-        { "@type": "City", "name": "Ballantyne", "containedInPlace": { "@type": "State", "name": "North Carolina" } }
-      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Charlotte",
+        "containedInPlace": { "@type": "State", "name": "North Carolina" }
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Auto Detailing Services",
         "itemListElement": [
-          {
-            "@type": "OfferCatalog",
-            "name": "Inside & Out Detailing",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Inside & Out", "description": "Full interior vacuum, wipe-down, hand wash, wheels & tires, spray wax." }, "priceSpecification": { "@type": "PriceSpecification", "price": "233", "priceCurrency": "USD", "unitText": "starting at (sedan)" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Inside & Out", "description": "Standard plus leather conditioning, steam cleaning, air freshener, and 6-month paint sealant." }, "priceSpecification": { "@type": "PriceSpecification", "price": "372", "priceCurrency": "USD", "unitText": "starting at (sedan)" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Elite Inside & Out", "description": "Premium plus clay bar, iron decontamination, 12-month ceramic wax, and trim protectant." }, "priceSpecification": { "@type": "PriceSpecification", "price": "464", "priceCurrency": "USD", "unitText": "starting at (sedan)" } }
-            ]
-          },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Detail", "description": "Full interior deep clean with vacuum, surface wipe-down, glass cleaning. Premium tier adds leather conditioning and steam cleaning." }, "priceSpecification": { "@type": "PriceSpecification", "price": "163", "priceCurrency": "USD", "unitText": "starting at (sedan)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Detail", "description": "Hand wash, wheel and tire cleaning, exterior glass, spray wax. Premium adds clay bar and 6-month sealant." }, "priceSpecification": { "@type": "PriceSpecification", "price": "117", "priceCurrency": "USD", "unitText": "starting at (sedan)" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic Coating", "description": "GYEON certified ceramic coating with 1-year, 3-year, and 10-year protection options." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Detail (Inside & Out)", "description": "Complete interior and exterior detail with paint decontamination, interior deep clean, and protection." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic Coating", "description": "Gyeon and IGL certified ceramic coating with 1-year, 3-year, and 10-year protection options." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Correction", "description": "Multi-stage paint correction to remove swirls, scratches, and oxidation." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fleet Detailing", "description": "On-site mobile detailing for commercial fleets with volume pricing." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Boat Detailing", "description": "Full marine detailing including wash, interior clean, oxidation removal, and hull protection." } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fleet Detailing", "description": "On-site mobile detailing for commercial fleets with volume pricing." } }
         ]
       }
     }

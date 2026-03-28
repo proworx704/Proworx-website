@@ -28,6 +28,7 @@ const SERVICES = [
     href: "/services",
     image: "/images/ferrari-van.jpg",
     slot: "card-full-detail",
+    imageAlt: "ProWorx van on-site with Ferrari during full detail service",
   },
   {
     icon: <Sparkles className="size-6" />,
@@ -36,6 +37,7 @@ const SERVICES = [
     href: "/paint-correction",
     image: "/images/corvette-rear.jpg",
     slot: "card-paint",
+    imageAlt: "Corvette rear showing mirror finish after paint correction by ProWorx",
   },
   {
     icon: <Shield className="size-6" />,
@@ -44,6 +46,7 @@ const SERVICES = [
     href: "/ceramic-coating",
     image: "/images/escalade-rear.jpg",
     slot: "card-ceramic",
+    imageAlt: "Cadillac Escalade with ceramic coating showing deep gloss and reflections",
   },
   {
     icon: <Droplets className="size-6" />,
@@ -52,6 +55,7 @@ const SERVICES = [
     href: "/services#memberships",
     image: "/images/rangerover-front.jpg",
     slot: "card-exterior",
+    imageAlt: "Range Rover freshly detailed by ProWorx maintenance plan",
   },
   {
     icon: <Truck className="size-6" />,
@@ -60,6 +64,7 @@ const SERVICES = [
     href: "/fleet",
     image: "/images/fleet-real.jpg",
     slot: "card-fleet",
+    imageAlt: "ProWorx detailing a fleet vehicle on-site at a business location",
   },
   {
     icon: <Anchor className="size-6" />,
@@ -68,6 +73,7 @@ const SERVICES = [
     href: "/boat-detailing",
     image: "/images/boat-exterior.webp",
     slot: "card-boat",
+    imageAlt: "Freshly detailed boat exterior by ProWorx marine detailing",
   },
   {
     icon: <Award className="size-6" />,
@@ -77,6 +83,7 @@ const SERVICES = [
     external: true,
     image: "/images/aston-front.jpg",
     slot: "card-ceramic-why",
+    imageAlt: "Aston Martin detailed by ProWorx — perfect gift card option",
   },
 ];
 
@@ -138,6 +145,7 @@ export function HomePage() {
             alt="Cadillac Escalade under hex lights after ceramic coating by ProWorx Detailing"
             className="w-full h-full object-cover"
             loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -249,7 +257,7 @@ export function HomePage() {
                     <CmsImg
                       slot={service.slot}
                       fallback={service.image}
-                      alt={service.title}
+                      alt={service.imageAlt || service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />

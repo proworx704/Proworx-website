@@ -22,7 +22,9 @@ function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      {children}
+      <main id="main-content">
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );
