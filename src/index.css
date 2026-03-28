@@ -58,12 +58,13 @@
   --sidebar-width-icon: 3rem;
 
   /* Blue accent - the ProWorx signature color */
-  --gold: oklch(0.68 0.15 240);
+  /* Darkened from 0.68 → 0.53 for WCAG AA contrast (4.5:1 with light foreground) */
+  --gold: oklch(0.53 0.15 240);
   --gold-foreground: oklch(0.98 0.005 260);
 
-  --primary: oklch(0.68 0.15 240);
+  --primary: oklch(0.53 0.15 240);
   --primary-foreground: oklch(0.98 0.005 260);
-  --sidebar-primary: oklch(0.68 0.15 240);
+  --sidebar-primary: oklch(0.53 0.15 240);
   --sidebar-primary-foreground: oklch(0.12 0.01 260);
 
   --success: var(--color-emerald-400);
@@ -73,7 +74,7 @@
   --info: var(--color-cyan-400);
   --info-foreground: var(--color-cyan-950);
 
-  --chart-1: oklch(0.68 0.15 240);
+  --chart-1: oklch(0.53 0.15 240);
   --chart-2: var(--color-orange-400);
   --chart-3: var(--color-cyan-400);
   --chart-4: var(--color-rose-400);
@@ -98,13 +99,13 @@
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.68 0.15 240);
+  --ring: oklch(0.53 0.15 240);
   --sidebar: oklch(0.1 0.005 260);
   --sidebar-foreground: oklch(0.95 0.005 260);
   --sidebar-accent: oklch(0.16 0.008 260);
   --sidebar-accent-foreground: oklch(0.95 0.005 260);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.68 0.15 240);
+  --sidebar-ring: oklch(0.53 0.15 240);
 }
 
 @layer base {

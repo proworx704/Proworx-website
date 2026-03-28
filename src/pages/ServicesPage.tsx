@@ -193,7 +193,7 @@ export function ServicesPage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="services-hero" fallback="/images/corvette-front.jpg" alt="Black Corvette ZR1 detailed by ProWorx" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="services-hero" fallback="/images/corvette-front.jpg" alt="Black Corvette ZR1 showcasing a flawless mirror finish after professional detailing by ProWorx" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
         </div>
         <div className="container">
