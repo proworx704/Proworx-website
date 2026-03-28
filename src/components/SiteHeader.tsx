@@ -60,12 +60,12 @@ export function SiteHeader() {
             >
               <img
                 src="/images/logo-horizontal.png"
-                alt={config.appName}
+                alt={`${config.appName} — premium mobile auto detailing in Charlotte, NC`}
                 className="h-9 w-auto hidden sm:block"
               />
               <img
                 src="/images/logo-icon.png"
-                alt={config.appName}
+                alt={`${config.appName} logo`}
                 className="h-9 w-9 rounded-lg sm:hidden"
               />
             </Link>

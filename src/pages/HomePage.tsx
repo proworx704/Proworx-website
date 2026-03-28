@@ -275,7 +275,7 @@ export function HomePage() {
                 </div>
               );
               return service.external ? (
-                <a key={service.title} href={href} target="_blank" rel="noopener noreferrer">{inner}</a>
+                <a key={service.title} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${service.title} (opens in new tab)`}>{inner}</a>
               ) : (
                 <Link key={service.title} to={href}>{inner}</Link>
               );
@@ -347,15 +347,15 @@ export function HomePage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
             {[
-              { slot: "gallery-1", fallback: "/images/corvette-front.jpg", alt: "Black Corvette ZR1 paint correction", label: "Corvette ZR1" },
-              { slot: "gallery-2", fallback: "/images/ferrari-van.jpg", alt: "Red Ferrari Roma with ProWorx van", label: "Ferrari Roma" },
-              { slot: "gallery-3", fallback: "/images/vanquish-interior.jpg", alt: "Aston Martin Vanquish interior detail", label: "Aston Martin Interior" },
-              { slot: "gallery-4", fallback: "/images/escalade-rear.jpg", alt: "Cadillac Escalade ceramic coating", label: "Escalade Ceramic Coating" },
-              { slot: "gallery-5", fallback: "/images/aston-rear.jpg", alt: "Blue Aston Martin detailed by ProWorx", label: "Aston Martin" },
-              { slot: "gallery-6", fallback: "/images/rangerover-front.jpg", alt: "Range Rover Sport full detail", label: "Range Rover Sport" },
-              { slot: "gallery-7", fallback: "/images/tesla-bay.jpg", alt: "Tesla in ProWorx detailing bay", label: "Tesla Model S" },
-              { slot: "gallery-8", fallback: "/images/rangerover-interior.jpg", alt: "Range Rover interior detail — pristine white leather", label: "Range Rover Interior" },
-              { slot: "gallery-9", fallback: "/images/mobile-tent.jpg", alt: "ProWorx mobile detailing setup with inflatable tent", label: "Mobile Setup" },
+              { slot: "gallery-1", fallback: "/images/corvette-front.jpg", alt: "Black Corvette ZR1 front view showing flawless paint after multi-stage correction by ProWorx", label: "Corvette ZR1" },
+              { slot: "gallery-2", fallback: "/images/ferrari-van.jpg", alt: "Red Ferrari Roma parked next to the ProWorx mobile detailing van during on-site service", label: "Ferrari Roma" },
+              { slot: "gallery-3", fallback: "/images/vanquish-interior.jpg", alt: "Aston Martin Vanquish quilted leather interior after deep cleaning and conditioning by ProWorx", label: "Aston Martin Interior" },
+              { slot: "gallery-4", fallback: "/images/escalade-rear.jpg", alt: "Cadillac Escalade rear showing mirror-like ceramic coating reflections under studio lighting", label: "Escalade Ceramic Coating" },
+              { slot: "gallery-5", fallback: "/images/aston-rear.jpg", alt: "Blue Aston Martin rear quarter panel gleaming after full exterior detail by ProWorx", label: "Aston Martin" },
+              { slot: "gallery-6", fallback: "/images/rangerover-front.jpg", alt: "White Range Rover Sport front view with showroom-quality finish after ProWorx full detail", label: "Range Rover Sport" },
+              { slot: "gallery-7", fallback: "/images/tesla-bay.jpg", alt: "Tesla Model S in the ProWorx detailing bay prepped for paint correction under bright work lights", label: "Tesla Model S" },
+              { slot: "gallery-8", fallback: "/images/rangerover-interior.jpg", alt: "Range Rover pristine white leather interior after thorough cleaning and protection by ProWorx", label: "Range Rover Interior" },
+              { slot: "gallery-9", fallback: "/images/mobile-tent.jpg", alt: "ProWorx inflatable detailing tent set up at a customer location for professional mobile service", label: "Mobile Setup" },
             ].map((photo, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
                 <CmsImg slot={photo.slot} fallback={photo.fallback} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -449,7 +449,7 @@ export function HomePage() {
       {/* ─── CTA ─── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="homepage-cta" fallback="/images/ferrari-profile.jpg" alt="Ferrari Roma detailed by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="homepage-cta" fallback="/images/ferrari-profile.jpg" alt="Ferrari Roma side profile with flawless paint finish after professional detailing by ProWorx" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container">
