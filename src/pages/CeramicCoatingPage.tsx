@@ -77,8 +77,8 @@ export function CeramicCoatingPage() {
             {
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://proworxdetailing.com/ceramic-coating" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://www.proworxdetailing.com/ceramic-coating" }
               ]
             },
             {

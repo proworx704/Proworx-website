@@ -85,8 +85,8 @@ export function MaintenancePage() {
             {
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Maintenance Plans", "item": "https://proworxdetailing.com/maintenance" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Maintenance Plans", "item": "https://www.proworxdetailing.com/maintenance" }
               ]
             },
             {

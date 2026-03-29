@@ -9,7 +9,7 @@ interface PageSEOProps {
   schema?: Record<string, unknown>;
 }
 
-const BASE_URL = "https://proworxdetailing.com";
+const BASE_URL = "https://www.proworxdetailing.com";
 
 export function PageSEO({ title, description, keywords, ogImage, schema }: PageSEOProps) {
   const { pathname } = useLocation();

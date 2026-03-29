@@ -29,7 +29,7 @@ Allow: /*.webp$
 Allow: /*.svg$
 
 # Sitemap location
-Sitemap: https://proworxdetailing.com/sitemap.xml
+Sitemap: https://www.proworxdetailing.com/sitemap.xml
 
 # Host
-Host: https://proworxdetailing.com
+Host: https://www.proworxdetailing.com

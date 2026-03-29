@@ -341,8 +341,8 @@ export function ServicesPage() {
             {
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Services & Pricing", "item": "https://proworxdetailing.com/services" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Services & Pricing", "item": "https://www.proworxdetailing.com/services" }
               ]
             },
             {

@@ -14,8 +14,8 @@ export function ContactPage() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://proworxdetailing.com/contact" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.proworxdetailing.com/contact" }
           ]
         }}
       />

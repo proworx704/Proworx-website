@@ -99,8 +99,8 @@ export function FleetPage() {
             {
               "@type": "BreadcrumbList",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://proworxdetailing.com/" },
-                { "@type": "ListItem", "position": 2, "name": "Fleet Detailing", "item": "https://proworxdetailing.com/fleet" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet Detailing", "item": "https://www.proworxdetailing.com/fleet" }
               ]
             },
             {
