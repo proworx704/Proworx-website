@@ -18,7 +18,7 @@ export interface BlogSection {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-often-should-you-detail-your-car",
-    title: "How Often Should You Detail Your Car? A Complete Guide",
+    title: "How Often Should You Detail Your Car?",
     excerpt:
       "Most car owners wait too long between details. Learn the recommended schedule based on your driving habits, environment, and vehicle type — plus how a maintenance plan saves you money long-term.",
     category: "Car Care Tips",
@@ -66,7 +66,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "ceramic-coating-vs-wax-which-is-better",
-    title: "Ceramic Coating vs. Wax: Which Is Better for Your Car?",
+    title: "Ceramic Coating vs. Wax: Which Is Better?",
     excerpt:
       "Wax gives you a beautiful shine that lasts weeks. Ceramic coating gives you protection that lasts years. Here's an honest comparison to help you decide which is right for your vehicle and budget.",
     category: "Paint Protection",
@@ -114,7 +114,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "what-is-paint-correction",
-    title: "What Is Paint Correction and Does Your Car Need It?",
+    title: "What Is Paint Correction?",
     excerpt:
       "Swirl marks, scratches, water spots, and oxidation — paint correction removes them all. Learn what the process involves, how it works, and when your vehicle actually needs it.",
     category: "Paint Protection",
@@ -170,7 +170,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "benefits-of-mobile-auto-detailing",
-    title: "The Benefits of Mobile Auto Detailing (And Why It's the Future)",
+    title: "Benefits of Mobile Auto Detailing",
     excerpt:
       "No drop-off. No waiting room. No rearranging your schedule. Mobile detailing brings the shop to your driveway — and the results are just as good (if not better). Here's why it's taking over.",
     category: "Industry Insights",
@@ -211,7 +211,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "how-to-maintain-your-car-between-details",
-    title: "How to Maintain Your Car Between Professional Details",
+    title: "How to Maintain Your Car Between Details",
     excerpt:
       "Your detail shouldn't start fading the day after. Here are the pro tips and common mistakes to avoid so your vehicle stays looking freshly detailed for weeks longer.",
     category: "Car Care Tips",
@@ -263,7 +263,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "is-ceramic-coating-worth-it",
-    title: "Is Ceramic Coating Worth It? An Honest Cost-Benefit Analysis",
+    title: "Is Ceramic Coating Worth It?",
     excerpt:
       "Ceramic coating isn't cheap — packages range from $499 to $2,499+. But when you break down the math over 3–10 years of ownership, it often pays for itself. Here's the real breakdown.",
     category: "Paint Protection",
@@ -320,7 +320,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "interior-detailing-what-to-expect",
-    title: "Interior Detailing: What's Actually Included and Why It Matters",
+    title: "Interior Detailing: What to Expect",
     excerpt:
       "A professional interior detail goes far beyond vacuuming. From steam cleaning and leather conditioning to odor treatment and UV protection — here's exactly what happens when we clean your car's interior.",
     category: "Car Care Tips",
@@ -370,7 +370,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "boat-detailing-guide",
-    title: "Boat Detailing 101: Protecting Your Investment on the Water",
+    title: "Boat Detailing 101: A Complete Guide",
     excerpt:
       "Your boat takes a beating from sun, salt, algae, and water. Professional marine detailing preserves its value and keeps it looking showroom-ready. Here's what every boat owner should know.",
     category: "Marine Care",
