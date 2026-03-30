@@ -17,6 +17,8 @@ import { FleetPage } from "./pages/FleetPage";
 import { BoatDetailingPage } from "./pages/BoatDetailingPage";
 import { MaintenancePage } from "./pages/MaintenancePage";
 import { AdminPage } from "./pages/AdminPage";
+import { BlogPage } from "./pages/BlogPage";
+import { BlogPostPage } from "./pages/BlogPostPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -48,6 +50,8 @@ function App() {
           <Route path="/maintenance" element={<SiteLayout><MaintenancePage /></SiteLayout>} />
           <Route path="/areas" element={<SiteLayout><AreasPage /></SiteLayout>} />
           <Route path="/contact" element={<SiteLayout><ContactPage /></SiteLayout>} />
+          <Route path="/blog" element={<SiteLayout><BlogPage /></SiteLayout>} />
+          <Route path="/blog/:slug" element={<SiteLayout><BlogPostPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -167,6 +167,9 @@ export function SiteFooter() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} ProWorx Mobile Detailing L.L.C. All rights reserved.</p>
             <div className="flex gap-4">
+              <Link to="/blog" className="hover:text-foreground transition-colors">
+                Blog
+              </Link>
               <Link to="/areas" className="hover:text-foreground transition-colors">
                 Areas We Serve
               </Link>

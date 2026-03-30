@@ -175,4 +175,88 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, oklch(0.68 0.15 240 / 30%), transparent);
   }
+
+  /* Blog article prose */
+  .prose-custom {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: oklch(0.8 0.005 260);
+  }
+  .prose-custom h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: oklch(0.95 0.005 260);
+    letter-spacing: -0.01em;
+  }
+  .prose-custom h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: oklch(0.9 0.005 260);
+  }
+  .prose-custom p {
+    margin-bottom: 1.25rem;
+  }
+  .prose-custom a {
+    color: oklch(0.65 0.15 240);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+  .prose-custom a:hover {
+    color: oklch(0.75 0.16 230);
+  }
+  .prose-custom strong {
+    color: oklch(0.95 0.005 260);
+    font-weight: 600;
+  }
+  .prose-custom em {
+    font-style: italic;
+  }
+  .prose-custom ul, .prose-custom ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+  }
+  .prose-custom ol {
+    list-style-type: decimal;
+  }
+  .prose-custom li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+  }
+  .prose-custom li::marker {
+    color: oklch(0.53 0.15 240);
+  }
+  .prose-custom table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid oklch(1 0 0 / 10%);
+  }
+  .prose-custom thead {
+    background: oklch(0.16 0.008 260);
+  }
+  .prose-custom th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: oklch(0.95 0.005 260);
+    border-bottom: 1px solid oklch(1 0 0 / 10%);
+  }
+  .prose-custom td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid oklch(1 0 0 / 6%);
+  }
+  .prose-custom tr:last-child td {
+    border-bottom: none;
+  }
 }
