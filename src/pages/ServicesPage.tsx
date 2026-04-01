@@ -166,6 +166,7 @@ export function ServicesPage() {
   const insideOutTiers = [
     {
       name: "Standard Inside & Out",
+      badge: "Best Value",
       description: "A full-vehicle refresh combining interior and exterior services into one streamlined appointment.",
       features: [
         "Full interior vacuum (carpets, seats, crevices)",
@@ -186,7 +187,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium I&O — Interior Focus",
-      badge: "Popular",
+      badge: "Interior Upgrade",
       highlight: true,
       description: "Standard Inside & Out plus interior-focused add-ons at 10% off — leather care, steam cleaning, and UV protection.",
       features: [
@@ -206,7 +207,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium I&O — Exterior Focus",
-      badge: "Popular",
+      badge: "Curb Appeal",
       description: "Standard Inside & Out plus exterior-focused add-ons at 10% off — decontamination, sealant, and trim restoration.",
       features: [
         "Everything in Standard, plus:",
@@ -249,6 +250,7 @@ export function ServicesPage() {
   const interiorTiers = [
     {
       name: "Standard Interior",
+      badge: "Best Value",
       description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
       features: [
         "Full interior vacuum (carpets, seats, crevices)",
@@ -310,6 +312,7 @@ export function ServicesPage() {
   const exteriorTiers = [
     {
       name: "Standard Exterior",
+      badge: "Best Value",
       description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection.",
       features: [
         "Hand wash with foam pre-treatment",
