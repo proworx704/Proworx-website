@@ -1,8 +1,21 @@
-import { ArrowRight, CheckCircle2, Phone, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone, Shield, X } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+
+const PRO_VS_CONSUMER = [
+  { feature: "Coating Type", pro: "SiO₂ professional-grade ceramic (GYEON / IGL)", consumer: "Spray-on SiO₂ sealant" },
+  { feature: "Application", pro: "Hand-applied panel by panel with LED inspection", consumer: "Spray & wipe by hand" },
+  { feature: "Surface Prep", pro: "Clay bar, iron decontamination & machine polish", consumer: "Basic wash (or none)" },
+  { feature: "Longevity", pro: "1–10 years depending on package", consumer: "1–3 months" },
+  { feature: "Hardness (9H)", pro: "True 9H hardness rating", consumer: "No measurable hardness" },
+  { feature: "Scratch Resistance", pro: "Significant scratch resistance", consumer: "Minimal" },
+  { feature: "Warranty", pro: "GYEON manufacturer warranty", consumer: "No warranty" },
+  { feature: "Certified Installer", pro: "Required — trained & certified", consumer: "Not applicable" },
+  { feature: "Hydrophobic Effect", pro: "Extreme water beading for years", consumer: "Moderate, fades in weeks" },
+  { feature: "Typical Cost", pro: "$499–$1,599+ (Charlotte area)", consumer: "$30–$80 (DIY)" },
+];
 
 const PACKAGES = [
   {
@@ -188,8 +201,64 @@ export function CeramicCoatingPage() {
         </div>
       </section>
 
-      {/* Why Ceramic Coating with image */}
+      {/* Professional vs Consumer Comparison */}
       <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Professional vs. Consumer-Grade Ceramic Coatings</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                Not all ceramic coatings are created equal. Here's how professional-grade GYEON and IGL coatings compare to consumer spray-on products you'll find at auto parts stores.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-card border border-border overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left p-4 font-bold bg-muted/50 w-[30%]">Feature</th>
+                      <th className="text-left p-4 font-bold bg-gold/10 text-gold w-[35%]">
+                        <div className="flex items-center gap-2">
+                          <Shield className="size-4" />
+                          Professional (ProWorx)
+                        </div>
+                      </th>
+                      <th className="text-left p-4 font-bold bg-muted/50 w-[35%]">Consumer Spray-On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PRO_VS_CONSUMER.map((row) => (
+                      <tr key={row.feature} className="border-b border-border/50">
+                        <td className="p-4 font-medium text-foreground">{row.feature}</td>
+                        <td className="p-4 bg-gold/5">
+                          <span className="flex items-start gap-2 text-foreground">
+                            <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
+                            {row.pro}
+                          </span>
+                        </td>
+                        <td className="p-4 text-muted-foreground">
+                          <span className="flex items-start gap-2">
+                            <X className="size-4 text-muted-foreground/50 mt-0.5 shrink-0" />
+                            {row.consumer}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="mt-6 rounded-xl bg-gold/5 border border-gold/20 p-5 text-center">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">Bottom line:</span> Consumer spray-ons are a temporary shine product — not true ceramic protection. Professional coatings from a certified installer like ProWorx create a permanent chemical bond with your paint, providing years of protection backed by a manufacturer warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Ceramic Coating with image */}
+      <section className="py-20 md:py-28 bg-card/50">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <CmsImg slot="ceramic-why" fallback="/images/aston-front.jpg" alt="Ceramic coated Aston Martin by ProWorx" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
