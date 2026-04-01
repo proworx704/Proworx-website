@@ -19,6 +19,9 @@ import { MaintenancePage } from "./pages/MaintenancePage";
 import { AdminPage } from "./pages/AdminPage";
 import { BlogPage } from "./pages/BlogPage";
 import { BlogPostPage } from "./pages/BlogPostPage";
+import { WaxhawPage } from "./pages/WaxhawPage";
+import { CeramicCoatingCharlottePage } from "./pages/CeramicCoatingCharlottePage";
+import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -52,6 +55,9 @@ function App() {
           <Route path="/contact" element={<SiteLayout><ContactPage /></SiteLayout>} />
           <Route path="/blog" element={<SiteLayout><BlogPage /></SiteLayout>} />
           <Route path="/blog/:slug" element={<SiteLayout><BlogPostPage /></SiteLayout>} />
+          <Route path="/waxhaw" element={<SiteLayout><WaxhawPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-charlotte-nc" element={<SiteLayout><CeramicCoatingCharlottePage /></SiteLayout>} />
+          <Route path="/mobile-detailing-cost" element={<SiteLayout><MobileDetailingCostPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
