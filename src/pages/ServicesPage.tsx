@@ -134,7 +134,7 @@ function TieredPackageSection({
       </div>
 
       {/* Tier cards grid */}
-      <div className={`grid gap-6 ${tiers.length === 3 ? "md:grid-cols-3" : tiers.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : ""}`}>
+      <div className={`grid gap-6 ${tiers.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : tiers.length === 3 ? "md:grid-cols-3" : tiers.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : ""}`}>
         {tiers.map((tier) => (
           <TierCard
             key={tier.name}
@@ -162,7 +162,7 @@ export function ServicesPage() {
   const exteriorAddons = services?.exteriorAddons ?? [];
   const ceramicAddons = services?.ceramicAddons ?? [];
 
-  /* ── Inside & Out tiers ────────────────────────────────────────────── */
+  /* ── Inside & Out tiers (4 tiers) ────────────────────────────────────── */
   const insideOutTiers = [
     {
       name: "Standard Inside & Out",
@@ -185,27 +185,46 @@ export function ServicesPage() {
       notes: ["Pet Hair Fee: Additional time charged at base rate.", "Condition: Extra time/cost may apply for neglected vehicles."],
     },
     {
-      name: "Premium Inside & Out",
-      badge: "Most Popular",
+      name: "Premium I&O — Interior Focus",
+      badge: "Popular",
       highlight: true,
-      description: "Everything in Standard plus bundled premium add-ons at 10% off — deeper interior care with lasting exterior protection.",
+      description: "Standard Inside & Out plus interior-focused add-ons at 10% off — leather care, steam cleaning, and UV protection.",
       features: [
         "Everything in Standard, plus:",
         "Leather deep clean & conditioning",
         "Steam cleaning (vents, plastics, crevices)",
         "Premium long-lasting fragrance",
-        "6-month paint sealant",
+        "UV protection for dashboard & plastics",
       ],
       priceTiers: [
-        { label: "Sedan", duration: "3 hr 30 min", price: "$346" },
-        { label: "Small SUV / Small Truck", duration: "4 hrs", price: "$382" },
-        { label: "Large SUV / Off-Road Truck", duration: "4 hr 30 min", price: "$418" },
-        { label: "Van", duration: "5 hrs", price: "$454" },
+        { label: "Sedan", duration: "3 hr 30 min", price: "$311" },
+        { label: "Small SUV / Small Truck", duration: "4 hrs", price: "$347" },
+        { label: "Large SUV / Off-Road Truck", duration: "4 hr 30 min", price: "$383" },
+        { label: "Van", duration: "5 hrs", price: "$419" },
       ],
-      notes: ["Bundled add-ons at 10% off.", "Pet Hair Fee: Additional time charged at base rate."],
+      notes: ["Interior add-ons bundled at 10% off.", "Pet Hair Fee: Additional time charged at base rate."],
     },
     {
-      name: "Elite Inside & Out",
+      name: "Premium I&O — Exterior Focus",
+      badge: "Popular",
+      description: "Standard Inside & Out plus exterior-focused add-ons at 10% off — decontamination, sealant, and trim restoration.",
+      features: [
+        "Everything in Standard, plus:",
+        "Clay bar treatment",
+        "Iron decontamination",
+        "6-month paint sealant",
+        "Trim restoration & protectant",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "3 hr 30 min", price: "$450" },
+        { label: "Small SUV / Small Truck", duration: "4 hrs", price: "$486" },
+        { label: "Large SUV / Off-Road Truck", duration: "4 hr 30 min", price: "$522" },
+        { label: "Van", duration: "5 hrs", price: "$558" },
+      ],
+      notes: ["Exterior add-ons bundled at 10% off.", "Pet Hair Fee: Additional time charged at base rate."],
+    },
+    {
+      name: "Elite Inside & Out — Ceramic",
       badge: "Best Protection",
       description: "The ultimate detail — ceramic upgrades throughout with all add-ons bundled at 15% off for maximum protection.",
       features: [
@@ -222,11 +241,11 @@ export function ServicesPage() {
         { label: "Large SUV / Off-Road Truck", duration: "6 hr 30 min", price: "$745" },
         { label: "Van", duration: "7 hrs", price: "$781" },
       ],
-      notes: ["Bundled add-ons at 15% off with ceramic upgrades.", "Pet Hair Fee: Additional time charged at base rate."],
+      notes: ["All add-ons bundled at 15% off with ceramic upgrades.", "Pet Hair Fee: Additional time charged at base rate."],
     },
   ];
 
-  /* ── Interior Only tiers ───────────────────────────────────────────── */
+  /* ── Interior Only tiers (3 tiers) ──────────────────────────────────── */
   const interiorTiers = [
     {
       name: "Standard Interior",
@@ -260,15 +279,34 @@ export function ServicesPage() {
       ],
       priceTiers: [
         { label: "Sedan", duration: "2 hr 45 min", price: "$258" },
-        { label: "Small SUV / Small Truck", duration: "3 hrs", price: "$274" },
-        { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$310" },
-        { label: "Van", duration: "4 hrs", price: "$346" },
+        { label: "Small SUV / Small Truck", duration: "3 hrs", price: "$275" },
+        { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$311" },
+        { label: "Van", duration: "4 hrs", price: "$347" },
       ],
       notes: ["Bundled add-ons at 10% off.", "Pet Hair Fee: Additional time charged at base rate."],
     },
+    {
+      name: "Elite Interior — Ceramic",
+      badge: "Best Protection",
+      description: "Standard Interior plus ceramic interior add-ons at 15% off — advanced fabric and leather protection with ceramic technology.",
+      features: [
+        "Everything in Standard Interior, plus:",
+        "Steam cleaning (vents, plastics, crevices)",
+        "Premium long-lasting fragrance",
+        "Fabric protection / weather guard",
+        "GYEON leather shield",
+      ],
+      priceTiers: [
+        { label: "Sedan", duration: "3 hr 30 min", price: "$314" },
+        { label: "Small SUV / Small Truck", duration: "3 hr 45 min", price: "$331" },
+        { label: "Large SUV / Off-Road Truck", duration: "4 hr 15 min", price: "$367" },
+        { label: "Van", duration: "4 hr 45 min", price: "$403" },
+      ],
+      notes: ["Ceramic add-ons bundled at 15% off.", "Pet Hair Fee: Additional time charged at base rate."],
+    },
   ];
 
-  /* ── Exterior Only tiers ───────────────────────────────────────────── */
+  /* ── Exterior Only tiers (3 tiers) ──────────────────────────────────── */
   const exteriorTiers = [
     {
       name: "Standard Exterior",
@@ -308,7 +346,7 @@ export function ServicesPage() {
       notes: ["Bundled add-ons at 10% off.", "Condition: Extra time/cost may apply for neglected vehicles."],
     },
     {
-      name: "Elite Exterior",
+      name: "Elite Exterior — Ceramic",
       badge: "Best Protection",
       description: "Standard Exterior plus all add-ons at 15% off with ceramic upgrades for the ultimate long-lasting exterior shield.",
       features: [
@@ -354,7 +392,7 @@ export function ServicesPage() {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "What auto detailing services does ProWorx offer?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers Standard, Premium, and Elite tiers for interior and exterior detailing, plus paint correction, ceramic coating, fleet detailing, boat detailing, and monthly maintenance plans. All services are mobile — we come to your location in Charlotte, NC and surrounding areas including Waxhaw, Matthews, Indian Trail, and Ballantyne." }},
-                { "@type": "Question", "name": "How much does a full detail cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out starts at $180 (Sedan) and includes full interior vacuum, surface wipe-down, hand wash, wheels & tires, and spray wax. Premium starts at $346 adding leather deep clean, steam cleaning, fragrance, and 6-month sealant (10% off bundled add-ons). Elite starts at $673 with clay bar, iron decontamination, ceramic upgrades, and 12-month ceramic wax (15% off bundled add-ons). SUV and Van pricing available on our services page." }},
+                { "@type": "Question", "name": "How much does a full detail cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out starts at $180 (Sedan) and includes full interior vacuum, surface wipe-down, hand wash, wheels & tires, and spray wax. Choose Premium Interior Focus (from $311) for leather care, steam cleaning, and UV protection, or Premium Exterior Focus (from $450) for clay bar, paint sealant, and trim restoration — both at 10% off bundled add-ons. Our Elite Ceramic package starts at $673 with full ceramic upgrades including GYEON Leather Shield, ceramic tire/trim, and 12-month ceramic wax at 15% off. SUV and Van pricing available on our services page." }},
                 { "@type": "Question", "name": "Do you offer monthly detailing plans?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer three monthly maintenance plans: Exterior Only ($59/mo), Interior Only ($99/mo), and Full Inside & Out ($159/mo with ceramic protection). All plans include scheduled monthly visits and can be canceled anytime." }},
                 { "@type": "Question", "name": "What areas do you serve for mobile detailing?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx Mobile Detailing serves Charlotte, NC and the surrounding areas including Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe, Ballantyne, Huntersville, Concord, Lake Norman, and Fort Mill, SC. We bring all equipment and water to your location." }},
                 { "@type": "Question", "name": "What is the difference between Standard, Premium, and Elite detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Standard covers the essentials: vacuum, wipe-down, hand wash, and spray wax. Premium bundles popular add-ons at 10% off — leather deep clean, steam cleaning, fragrance, and 6-month paint sealant. Elite bundles premium add-ons at 15% off with ceramic upgrades — clay bar, iron decontamination, fabric protection, GYEON leather shield, ceramic tire dressing, plastic & trim ceramic, and 12-month ceramic wax for maximum protection." }}
