@@ -2,6 +2,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSiteConfig } from "@/hooks/useCms";
+import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
 
 const NAV_LINKS = [
@@ -41,6 +42,7 @@ export function SiteHeader() {
             </span>
             <a
               href={config.phoneLink}
+              onClick={trackPhoneClick}
               className="flex items-center gap-1.5 text-gold font-medium hover:text-gold/80 transition-colors ml-auto sm:ml-0"
             >
               <Phone className="size-3.5" />
@@ -99,7 +101,7 @@ export function SiteHeader() {
                 className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
                 asChild
               >
-                <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">
+                <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer" onClick={() => trackBookNowConversion("https://book.proworxdetailing.com/book")}>
                   Book Now<span className="sr-only"> (opens in new tab)</span>
                 </a>
               </Button>
@@ -136,6 +138,7 @@ export function SiteHeader() {
               <div className="pt-3 px-3">
                 <a
                   href={config.phoneLink}
+                  onClick={trackPhoneClick}
                   className="flex items-center gap-2 text-gold font-medium"
                 >
                   <Phone className="size-4" />
