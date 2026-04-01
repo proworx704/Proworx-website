@@ -3,8 +3,10 @@
  * Links to book.proworxdetailing.com to avoid Safe Browsing cache issues
  * with the /book proxy route.
  * Also rewrites any legacy viktor.space URLs stored in the CMS.
- * Fires a GA4 'book_now_click' event for conversion tracking.
+ * Fires GA4 + Google Ads conversion events for tracking.
  */
+
+import { trackBookNowConversion } from "@/lib/tracking";
 
 const BOOKING_APP = "https://book.proworxdetailing.com";
 const LEGACY_BOOKING_PATTERN = /https?:\/\/proworx-booking[^/]*\.viktor\.space/;
@@ -15,17 +17,6 @@ function normalizeBookingUrl(url: string): string {
     return url.replace(LEGACY_BOOKING_PATTERN, BOOKING_APP);
   }
   return url;
-}
-
-/** Fire GA4 event when user clicks a booking link */
-function trackBookNowClick(destination: string) {
-  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
-    (window as any).gtag("event", "book_now_click", {
-      event_category: "engagement",
-      event_label: destination,
-      link_url: destination,
-    });
-  }
 }
 
 export function BookNowLink({
@@ -43,7 +34,7 @@ export function BookNowLink({
     if (isExternal) {
       const safeUrl = normalizeBookingUrl(href);
       return (
-        <a href={safeUrl} className={className} onClick={() => trackBookNowClick(safeUrl)}>
+        <a href={safeUrl} className={className} onClick={() => trackBookNowConversion(safeUrl)}>
           {children}
         </a>
       );
@@ -51,7 +42,7 @@ export function BookNowLink({
     // Relative path like /book?service=... — rewrite to booking app domain
     const fullUrl = `${BOOKING_APP}${href}`;
     return (
-      <a href={fullUrl} className={className} onClick={() => trackBookNowClick(fullUrl)}>
+      <a href={fullUrl} className={className} onClick={() => trackBookNowConversion(fullUrl)}>
         {children}
       </a>
     );
@@ -60,7 +51,7 @@ export function BookNowLink({
   // Default: link directly to booking app
   const defaultUrl = `${BOOKING_APP}/book`;
   return (
-    <a href={defaultUrl} className={className} onClick={() => trackBookNowClick(defaultUrl)}>
+    <a href={defaultUrl} className={className} onClick={() => trackBookNowConversion(defaultUrl)}>
       {children}
     </a>
   );
