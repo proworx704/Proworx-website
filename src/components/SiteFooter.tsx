@@ -1,6 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSiteConfig } from "@/hooks/useCms";
+import { trackPhoneClick } from "@/lib/tracking";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -118,6 +119,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href={config.phoneLink}
+                  onClick={trackPhoneClick}
                   className="flex items-start gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="size-4 mt-0.5 shrink-0 text-gold" />
