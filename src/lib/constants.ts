@@ -9,7 +9,7 @@ export const GOOGLE_BUSINESS_URL = "https://g.page/proworxdetailing";
 export const GIFT_CARDS_URL = "https://app.squareup.com/gift/KAXAX104TMA6W/order";
 
 // Square Online Booking Widget
-export const SQUARE_BOOKING_URL = "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG";
+export const SQUARE_BOOKING_URL = "https://book.proworxdetailing.com/book";
 export const BOOKING_URL = SQUARE_BOOKING_URL;
 
 // Square Payment Links

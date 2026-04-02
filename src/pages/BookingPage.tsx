@@ -4,13 +4,13 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
-const SQUARE_BOOKING = "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services";
+const BOOKING_APP = "https://book.proworxdetailing.com";
 
 export function BookingPage() {
   const { config } = useSiteConfig();
 
-  // Redirect to Square booking
-  const bookingUrl = SQUARE_BOOKING;
+  // Build booking URL
+  const bookingUrl = `${BOOKING_APP}/book`;
 
   // Auto-redirect after a short delay so users see the page
   useEffect(() => {

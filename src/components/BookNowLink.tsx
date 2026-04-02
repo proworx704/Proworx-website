@@ -1,11 +1,23 @@
 /**
- * Smart booking link — opens the Square booking page directly.
+ * Smart booking link — opens the booking app directly.
+ * Links to book.proworxdetailing.com to avoid Safe Browsing cache issues
+ * with the /book proxy route.
+ * Also rewrites any legacy viktor.space URLs stored in the CMS.
  * Fires GA4 + Google Ads + Meta Pixel conversion events for tracking.
  */
 
 import { trackBookNowConversion } from "@/lib/tracking";
 
-const SQUARE_BOOKING = "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services";
+const BOOKING_APP = "https://book.proworxdetailing.com";
+const LEGACY_BOOKING_PATTERN = /https?:\/\/proworx-booking[^/]*\.viktor\.space/;
+
+function normalizeBookingUrl(url: string): string {
+  // Rewrite any legacy viktor.space booking URLs to production domain
+  if (LEGACY_BOOKING_PATTERN.test(url)) {
+    return url.replace(LEGACY_BOOKING_PATTERN, BOOKING_APP);
+  }
+  return url;
+}
 
 export function BookNowLink({
   href,
@@ -20,23 +32,26 @@ export function BookNowLink({
   if (href) {
     const isExternal = href.startsWith("http");
     if (isExternal) {
+      const safeUrl = normalizeBookingUrl(href);
       return (
-        <a href={href} className={className} onClick={() => trackBookNowConversion(href)}>
+        <a href={safeUrl} className={className} onClick={() => trackBookNowConversion(safeUrl)}>
           {children}
         </a>
       );
     }
-    // Relative path — treat as Square booking
+    // Relative path like /book?service=... — rewrite to booking app domain
+    const fullUrl = `${BOOKING_APP}${href}`;
     return (
-      <a href={SQUARE_BOOKING} className={className} onClick={() => trackBookNowConversion(SQUARE_BOOKING)}>
+      <a href={fullUrl} className={className} onClick={() => trackBookNowConversion(fullUrl)}>
         {children}
       </a>
     );
   }
 
-  // Default: link to Square booking
+  // Default: link directly to booking app
+  const defaultUrl = `${BOOKING_APP}/book`;
   return (
-    <a href={SQUARE_BOOKING} className={className} onClick={() => trackBookNowConversion(SQUARE_BOOKING)}>
+    <a href={defaultUrl} className={className} onClick={() => trackBookNowConversion(defaultUrl)}>
       {children}
     </a>
   );

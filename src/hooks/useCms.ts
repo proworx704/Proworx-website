@@ -13,7 +13,7 @@ const DEFAULTS: Record<string, string> = {
   facebookUrl: "https://www.facebook.com/proworxdetailing",
   googleBusinessUrl: "https://g.page/proworxdetailing",
   giftCardsUrl: "https://app.squareup.com/gift/KAXAX104TMA6W/order",
-  bookingUrl: "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG",
+  bookingUrl: "https://book.proworxdetailing.com/book",
   ceramicDepositUrl: "https://square.link/u/NwnNJRm7",
   ceramicDeposit1yr: "",
   ceramicDeposit3yr: "",

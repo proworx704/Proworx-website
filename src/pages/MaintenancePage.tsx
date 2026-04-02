@@ -149,7 +149,7 @@ export function MaintenancePage() {
                 </div>
               </div>
               <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" size="lg" asChild>
-                <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services">
+                <a href="https://book.proworxdetailing.com/book?category=membership">
                   Book Here <ArrowRight className="size-5" />
                 </a>
               </Button>
