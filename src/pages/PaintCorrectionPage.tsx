@@ -8,18 +8,21 @@ import { useSiteConfig } from "@/hooks/useCms";
 const STAGES = [
   {
     title: "1-Step Enhancement Polish",
+    slug: "1-step-enhancement-polish",
     description: "Removes light swirls and minor imperfections. Restores depth and gloss for vehicles in good condition needing a refresh.",
     ideal: "Daily drivers with light swirl marks",
     improvement: "~60-70% defect removal",
   },
   {
     title: "2-Step Paint Correction",
+    slug: "2-step-paint-correction",
     description: "A compounding stage to remove deeper scratches and heavy swirl marks, followed by a fine polishing stage for a mirror-like finish.",
     ideal: "Vehicles with moderate paint damage",
     improvement: "~85-95% defect removal",
   },
   {
     title: "Multi-Stage Correction",
+    slug: "multi-stage-correction",
     description: "Our most thorough correction process with multiple cutting and polishing stages. Transforms neglected paint to showroom-quality perfection.",
     ideal: "Severely damaged or neglected paint",
     improvement: "~95-99% defect removal",
@@ -95,16 +98,23 @@ export function PaintCorrectionPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {STAGES.map((stage) => (
-              <div key={stage.title} className="rounded-2xl bg-card border border-border p-7 flex flex-col">
-                <h3 className="font-bold text-lg mb-3 text-gold">{stage.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{stage.description}</p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Ideal for:</strong> {stage.ideal}</span></div>
-                  <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Result:</strong> {stage.improvement}</span></div>
+            {STAGES.map((stage) => {
+              const widgetUrl = config[`widgetUrl:${stage.slug}`];
+              const bookUrl = widgetUrl || config.bookingUrlPaintCorrection || undefined;
+              return (
+                <div key={stage.title} className="rounded-2xl bg-card border border-border p-7 flex flex-col">
+                  <h3 className="font-bold text-lg mb-3 text-gold">{stage.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{stage.description}</p>
+                  <div className="space-y-2 text-sm mb-5">
+                    <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Ideal for:</strong> {stage.ideal}</span></div>
+                    <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Result:</strong> {stage.improvement}</span></div>
+                  </div>
+                  <Button size="sm" className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold mt-auto" asChild>
+                    <BookNowLink href={bookUrl}>Book Now <ArrowRight className="size-4" /></BookNowLink>
+                  </Button>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
