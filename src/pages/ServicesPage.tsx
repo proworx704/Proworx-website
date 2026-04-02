@@ -29,9 +29,11 @@ function TierCard({
   highlight,
   bookLabel,
   bookHref,
+  config,
 }: {
   tier: {
     name: string;
+    slug?: string;
     badge?: string;
     description: string;
     features: string[];
@@ -41,7 +43,10 @@ function TierCard({
   highlight?: boolean;
   bookLabel: string;
   bookHref?: string;
+  config?: Record<string, string>;
 }) {
+  // Per-service widget URL takes priority over section-level bookHref
+  const resolvedHref = (tier.slug && config?.[`widgetUrl:${tier.slug}`]) || bookHref;
   return (
     <div className={`rounded-2xl bg-card border p-6 flex flex-col relative ${highlight ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
       {tier.badge && (
@@ -88,7 +93,7 @@ function TierCard({
       )}
 
       <Button className={highlight ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-        <BookNowLink href={bookHref}>{bookLabel} <ArrowRight className="size-4" /></BookNowLink>
+        <BookNowLink href={resolvedHref}>{bookLabel} <ArrowRight className="size-4" /></BookNowLink>
       </Button>
     </div>
   );
@@ -103,10 +108,12 @@ function TieredPackageSection({
   photoSlot,
   photoFallback,
   imageAlt,
+  config,
 }: {
   categoryLabel: string;
   tiers: {
     name: string;
+    slug?: string;
     badge?: string;
     description: string;
     features: string[];
@@ -119,6 +126,7 @@ function TieredPackageSection({
   photoSlot: string;
   photoFallback: string;
   imageAlt: string;
+  config?: Record<string, string>;
 }) {
   return (
     <div className="max-w-6xl mx-auto">
@@ -142,6 +150,7 @@ function TieredPackageSection({
             highlight={tier.highlight}
             bookLabel={bookLabel}
             bookHref={bookHref}
+            config={config}
           />
         ))}
       </div>
@@ -166,6 +175,7 @@ export function ServicesPage() {
   const insideOutTiers = [
     {
       name: "Standard Inside & Out",
+      slug: "standard-inside-out",
       badge: "Best Value",
       description: "A full-vehicle refresh combining interior and exterior services into one streamlined appointment.",
       features: [
@@ -187,6 +197,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium I&O — Interior Focus",
+      slug: "premium-io-interior",
       badge: "Interior Upgrade",
       highlight: true,
       description: "Standard Inside & Out plus interior-focused add-ons at 10% off — leather care, steam cleaning, and UV protection.",
@@ -207,6 +218,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium I&O — Exterior Focus",
+      slug: "premium-io-exterior",
       badge: "Curb Appeal",
       description: "Standard Inside & Out plus exterior-focused add-ons at 10% off — decontamination, sealant, and trim restoration.",
       features: [
@@ -226,6 +238,7 @@ export function ServicesPage() {
     },
     {
       name: "Elite Inside & Out — Ceramic",
+      slug: "elite-inside-out",
       badge: "Best Protection",
       description: "The ultimate detail — ceramic upgrades throughout with all add-ons bundled at 15% off for maximum protection.",
       features: [
@@ -250,6 +263,7 @@ export function ServicesPage() {
   const interiorTiers = [
     {
       name: "Standard Interior",
+      slug: "standard-interior",
       badge: "Best Value",
       description: "A comprehensive interior reset for daily-driven vehicles, restoring cleanliness without heavy restoration services.",
       features: [
@@ -269,6 +283,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium Interior",
+      slug: "premium-interior",
       badge: "Recommended",
       highlight: true,
       description: "Standard Interior plus bundled premium add-ons at 10% off — deep care with leather conditioning, steam, and UV protection.",
@@ -289,6 +304,7 @@ export function ServicesPage() {
     },
     {
       name: "Elite Interior — Ceramic",
+      slug: "elite-interior",
       badge: "Best Protection",
       description: "Standard Interior plus ceramic interior add-ons at 15% off — advanced fabric and leather protection with ceramic technology.",
       features: [
@@ -313,6 +329,7 @@ export function ServicesPage() {
   const exteriorTiers = [
     {
       name: "Standard Exterior",
+      slug: "standard-exterior",
       badge: "Best Value",
       description: "Designed for well-maintained vehicles that need a professional exterior refresh and protection.",
       features: [
@@ -331,6 +348,7 @@ export function ServicesPage() {
     },
     {
       name: "Premium Exterior",
+      slug: "premium-exterior",
       badge: "Most Popular",
       highlight: true,
       description: "Standard Exterior plus bundled add-ons at 10% off — full decontamination with a 6-month sealant and trim restoration.",
@@ -351,6 +369,7 @@ export function ServicesPage() {
     },
     {
       name: "Elite Exterior — Ceramic",
+      slug: "elite-exterior",
       badge: "Best Protection",
       description: "Standard Exterior plus all add-ons at 15% off with ceramic upgrades for the ultimate long-lasting exterior shield.",
       features: [
@@ -438,6 +457,7 @@ export function ServicesPage() {
             photoSlot="services-standard"
             photoFallback="/images/full-insideout.jpg"
             imageAlt="Ferrari Roma full inside & out detail by ProWorx with van on-site"
+            config={config}
           />
         </div>
       </section>
@@ -453,6 +473,7 @@ export function ServicesPage() {
             photoSlot="services-interior"
             photoFallback="/images/rangerover-interior.jpg"
             imageAlt="Interior detail by ProWorx"
+            config={config}
           />
         </div>
       </section>
@@ -468,6 +489,7 @@ export function ServicesPage() {
             photoSlot="services-exterior"
             photoFallback="/images/porsche-foam.jpg"
             imageAlt="White Porsche covered in foam — exterior detail by ProWorx"
+            config={config}
           />
         </div>
       </section>

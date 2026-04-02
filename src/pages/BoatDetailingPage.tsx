@@ -9,7 +9,7 @@ import { useSiteConfig } from "@/hooks/useCms";
 const BOAT_SERVICES = [
   {
     name: "Basic Boat Wash",
-    slug: "boat-basic-wash",
+    slug: "basic-boat-wash",
     description: "Exterior hand wash, rinse, and dry. Ideal for routine upkeep between deep cleans.",
     tiers: [
       { label: "Up to 20 ft", price: "$250" },
@@ -20,7 +20,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Interior Detail",
-    slug: "boat-interior",
+    slug: "interior-boat-detail",
     description: "Deep clean of all interior surfaces — seats, cushions, compartments, cup holders, dash, and floor. Restore your cabin to like-new condition.",
     tiers: [
       { label: "Up to 20 ft", price: "$350" },
@@ -31,7 +31,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Exterior Detail + Wax",
-    slug: "boat-exterior-wax",
+    slug: "exterior-boat-detail",
     description: "Full exterior wash, decontamination, and hand wax application for lasting shine and UV protection on the water.",
     tiers: [
       { label: "Up to 20 ft", price: "$450" },
@@ -42,7 +42,7 @@ const BOAT_SERVICES = [
   },
   {
     name: "Full Boat Detail",
-    slug: "boat-full-detail",
+    slug: "full-boat-detail",
     description: "The works — comprehensive interior deep clean plus exterior wash, decontamination, and wax. Top-to-bottom restoration.",
     tiers: [
       { label: "Up to 20 ft", price: "$600" },
@@ -240,7 +240,7 @@ export function BoatDetailingPage() {
                     <p className="text-sm text-muted-foreground leading-relaxed mt-1">{svc.description}</p>
                   </div>
                   <Button size="sm" className={svc.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" : "bg-muted text-foreground hover:bg-muted/80 font-semibold shrink-0"} asChild>
-                    <BookNowLink href={`/book?service=${svc.slug}`}>Book Now <ArrowRight className="size-3.5" /></BookNowLink>
+                    <BookNowLink href={config[`widgetUrl:${svc.slug}`] || `/book?service=${svc.slug}`}>Book Now <ArrowRight className="size-3.5" /></BookNowLink>
                   </Button>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
