@@ -293,6 +293,7 @@ export function ServicesPage() {
       description: "Standard Interior plus ceramic interior add-ons at 15% off — advanced fabric and leather protection with ceramic technology.",
       features: [
         "Everything in Standard Interior, plus:",
+        "Hot water extraction / shampoo",
         "Steam cleaning (vents, plastics, crevices)",
         "Premium long-lasting fragrance",
         "Fabric protection / weather guard",
