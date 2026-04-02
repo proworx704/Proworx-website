@@ -1,19 +1,16 @@
 import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import { Phone, ArrowRight, ExternalLink } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
-const BOOKING_APP = "https://book.proworxdetailing.com";
+const SQUARE_BOOKING = "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services";
 
 export function BookingPage() {
   const { config } = useSiteConfig();
-  const [searchParams] = useSearchParams();
 
-  // Build booking URL with any query params forwarded
-  const params = searchParams.toString();
-  const bookingUrl = params ? `${BOOKING_APP}/book?${params}` : `${BOOKING_APP}/book`;
+  // Redirect to Square booking
+  const bookingUrl = SQUARE_BOOKING;
 
   // Auto-redirect after a short delay so users see the page
   useEffect(() => {

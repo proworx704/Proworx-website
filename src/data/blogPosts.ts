@@ -60,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>You can see swirl marks or scratches in direct sunlight</li>
 <li>Dashboard and trim look faded or chalky</li>
 </ul>
-<p>If any of these sound familiar, it's time. <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book a detail today</a> and we'll come to you — anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
+<p>If any of these sound familiar, it's time. <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">Book a detail today</a> and we'll come to you — anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
       },
     ],
   },
@@ -108,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
         body: `<p><strong>Choose wax if:</strong> You're on a tight budget, you enjoy waxing your car yourself as a hobby, or you're planning to sell the vehicle soon and just want it looking great for a few weeks.</p>
 <p><strong>Choose ceramic coating if:</strong> You want long-term protection, you hate re-waxing every month, your car sits outside, or you're investing in keeping the vehicle for years. The cost per year of a ceramic coating is often <em>less</em> than waxing monthly.</p>
 <p>Many of our clients start with a <a href="/services">full detail</a> to get the paint perfect, then add a ceramic coating for long-lasting protection. If your paint has swirl marks or scratches, <a href="/paint-correction">paint correction</a> before coating ensures you're locking in a flawless finish — not sealing in imperfections.</p>
-<p>Curious about pricing for your specific vehicle? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Get a quote</a> — we'll walk you through the options.</p>`,
+<p>Curious about pricing for your specific vehicle? <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">Get a quote</a> — we'll walk you through the options.</p>`,
       },
     ],
   },
@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "Paint Correction + Ceramic Coating: The Perfect Combo",
         body: `<p>Here's the thing most people don't realize: applying a ceramic coating to damaged paint just <em>locks in</em> the imperfections. That's why we always recommend paint correction <em>before</em> coating. You correct first, then protect.</p>
 <p>This combination gives you the absolute best result — a flawless, mirror-like finish protected for years. It's the single best investment you can make in your vehicle's appearance and value.</p>
-<p>Ready to see what your paint can really look like? <a href="/contact">Contact us</a> for a free assessment, or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a> today.</p>`,
+<p>Ready to see what your paint can really look like? <a href="/contact">Contact us</a> for a free assessment, or <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">book online</a> today.</p>`,
       },
     ],
   },
@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "Ready to Try Mobile Detailing?",
-        body: `<p>If you've never tried professional mobile detailing, you're in for a treat. Browse our <a href="/services">full detail packages</a> or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book your first appointment</a> online. We'll handle the rest — you just enjoy the results.</p>`,
+        body: `<p>If you've never tried professional mobile detailing, you're in for a treat. Browse our <a href="/services">full detail packages</a> or <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">book your first appointment</a> online. We'll handle the rest — you just enjoy the results.</p>`,
       },
     ],
   },
@@ -257,7 +257,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Consider a Maintenance Plan",
         body: `<p>The easiest way to keep your vehicle looking its best? Let us handle it. Our <a href="/maintenance">monthly maintenance plans</a> start at $59/month and include regular professional care so you never have to worry about it. We come to you on a regular schedule, keep your vehicle protected, and catch any issues before they become problems.</p>
-<p>Already a client? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book your next maintenance wash</a> and keep that shine going.</p>`,
+<p>Already a client? <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">Book your next maintenance wash</a> and keep that shine going.</p>`,
       },
     ],
   },
@@ -364,7 +364,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "Why Interior Detailing Matters for Your Health",
         body: `<p>Here's something most people don't think about: your car's interior is a <strong>breeding ground for bacteria</strong>. Studies have shown that the average steering wheel has more bacteria than a public toilet seat. Cup holders, door handles, and gear shifters aren't much better.</p>
 <p>Our steam cleaning process reaches 300°F+ and kills 99.9% of bacteria and allergens. If you have allergies, young kids, or just want a genuinely clean environment, professional interior detailing isn't a luxury — it's hygiene.</p>
-<p>Ready for a fresh interior? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book online</a> and we'll transform your car's cabin.</p>`,
+<p>Ready for a fresh interior? <a href="https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG/services" target="_blank" rel="noopener noreferrer">Book online</a> and we'll transform your car's cabin.</p>`,
       },
     ],
   },
