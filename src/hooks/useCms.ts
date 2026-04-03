@@ -37,6 +37,7 @@ const DEFAULTS: Record<string, string> = {
  */
 export function useSiteConfig() {
   const allConfig = useQuery(api.cms.getAllConfig);
+  const widgetUrls = useQuery(api.cms.getWidgetUrls);
   const seed = useMutation(api.cms.checkAndSeed);
   const seeded = useRef(false);
 
@@ -55,6 +56,13 @@ export function useSiteConfig() {
   const config: Record<string, string> = { ...DEFAULTS };
   for (const item of allConfig) {
     config[item.key] = item.value;
+  }
+  // Merge widget URLs from dedicated query (ensures all are included
+  // even if getAllConfig reactive subscription truncates large results)
+  if (widgetUrls) {
+    for (const w of widgetUrls) {
+      config[w.key] = w.value;
+    }
   }
   return { config, isLoading: false };
 }

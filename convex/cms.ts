@@ -602,3 +602,23 @@ export const setPhotoFocalY = mutation({
     return true;
   },
 });
+
+// Temporary: delete a siteConfig record by ID
+export const deleteConfigById = mutation({
+  args: { id: v.id("siteConfig") },
+  handler: async (ctx, { id }) => {
+    await ctx.db.delete(id);
+  },
+});
+
+// Separate query for widget URLs to avoid reactive query size limits
+export const getWidgetUrls = query({
+  args: {},
+  returns: v.array(v.object({ key: v.string(), value: v.string() })),
+  handler: async (ctx) => {
+    const all = await ctx.db.query("siteConfig").collect();
+    return all
+      .filter((r) => r.key.startsWith("widgetUrl:"))
+      .map((r) => ({ key: r.key, value: r.value }));
+  },
+});
