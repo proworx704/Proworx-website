@@ -604,3 +604,14 @@ export const setPhotoFocalY = mutation({
 });
 
 
+
+// Temporary stub - kept for backwards compat until Vercel deploys new bundle
+export const getWidgetUrls = query({
+  args: {},
+  handler: async (ctx) => {
+    const all = await ctx.db.query("siteConfig").collect();
+    return all
+      .filter((r: any) => r.key.startsWith("widgetUrl:"))
+      .map((r: any) => ({ key: r.key, value: r.value }));
+  },
+});

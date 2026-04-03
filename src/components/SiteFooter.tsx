@@ -96,7 +96,7 @@ export function SiteFooter() {
                 { label: "Boat Detailing", href: "/boat-detailing" },
                 { label: "Fleet Detailing", href: "/fleet" },
                 { label: "Maintenance Plans", href: "/maintenance" },
-                { label: "Build Your Package", href: "https://book.proworxdetailing.com/book" },
+                { label: "Build Your Package", href: config["widgetUrl:homepage-cta"] || config.bookingUrl },
               ].map((link) => (
                 <li key={link.label}>
                   <Link

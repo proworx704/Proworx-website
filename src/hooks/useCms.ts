@@ -40,6 +40,7 @@ const DEFAULTS: Record<string, string> = {
   "widgetUrl:interior-boat-detail": "https://book.squareup.com/appointments/0h1h4064nn0qpr/location/9VRKFJAZZM3HG/services",
   "widgetUrl:full-boat-detail": "https://book.squareup.com/appointments/jsboaz4gfhd8xt/location/9VRKFJAZZM3HG/services",
   "widgetUrl:exterior-boat-detail": "https://book.squareup.com/appointments/jtklllya08a78z/location/9VRKFJAZZM3HG",
+  "widgetUrl:boat-oxidation": "https://book.squareup.com/appointments/jtklllya08a78z/location/9VRKFJAZZM3HG",
   "widgetUrl:boat-ceramic-2yr": "https://book.squareup.com/appointments/8n6fmuooxsb1j9/location/9VRKFJAZZM3HG/services",
   "widgetUrl:boat-ceramic-5yr": "https://book.squareup.com/appointments/pvjjsw3dcl7yjj/location/9VRKFJAZZM3HG/services",
   // Membership widget URLs
