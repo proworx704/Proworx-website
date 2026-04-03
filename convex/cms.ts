@@ -614,11 +614,10 @@ export const deleteConfigById = mutation({
 // Separate query for widget URLs to avoid reactive query size limits
 export const getWidgetUrls = query({
   args: {},
-  returns: v.array(v.object({ key: v.string(), value: v.string() })),
   handler: async (ctx) => {
     const all = await ctx.db.query("siteConfig").collect();
     return all
-      .filter((r) => r.key.startsWith("widgetUrl:"))
-      .map((r) => ({ key: r.key, value: r.value }));
+      .filter((r: any) => r.key.startsWith("widgetUrl:"))
+      .map((r: any) => ({ key: r.key as string, value: r.value as string }));
   },
 });
