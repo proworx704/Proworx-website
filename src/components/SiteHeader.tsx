@@ -101,7 +101,7 @@ export function SiteHeader() {
                 className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
                 asChild
               >
-                <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer" onClick={() => trackBookNowConversion("https://book.proworxdetailing.com/book")}>
+                <a href={config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book"} target="_blank" rel="noopener noreferrer" onClick={() => trackBookNowConversion(config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book")}>
                   Book Now<span className="sr-only"> (opens in new tab)</span>
                 </a>
               </Button>

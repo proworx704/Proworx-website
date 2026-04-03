@@ -68,6 +68,7 @@ const BOAT_SERVICES = [
 const CERAMIC_PACKAGES = [
   {
     name: "Marine Ceramic — 2-Year",
+    slug: "boat-ceramic-2yr",
     protection: "2-Year Protection",
     description: "Professional marine-grade ceramic coating providing hydrophobic protection, UV resistance, and easy maintenance for two full seasons.",
     tiers: [
@@ -80,6 +81,7 @@ const CERAMIC_PACKAGES = [
   },
   {
     name: "Marine Ceramic — 5-Year",
+    slug: "boat-ceramic-5yr",
     protection: "5-Year Protection",
     description: "Our premium marine ceramic package — maximum durability against saltwater, UV, and the elements. Ideal for boats that stay in the water or see heavy use.",
     tiers: [
@@ -299,7 +301,7 @@ export function BoatDetailingPage() {
                   ))}
                 </ul>
                 <Button className={pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={config.phoneLink}>Get a Quote <ArrowRight className="size-4" /></a>
+                  <BookNowLink href={config[`widgetUrl:${pkg.slug}`] || undefined}>Book Now <ArrowRight className="size-4" /></BookNowLink>
                 </Button>
               </div>
             ))}
@@ -375,7 +377,7 @@ export function BoatDetailingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <BookNowLink href="/book?category=boatDetailing">Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
+              <BookNowLink href={config["widgetUrl:boat-detail-cta"] || undefined}>Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>

@@ -158,7 +158,7 @@ export function PaintCorrectionPage() {
             Contact us for a free paint assessment. We'll recommend the right level of correction for your vehicle.
           </p>
           <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-            <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Book Your Correction <ArrowRight className="size-5" /></BookNowLink>
+            <BookNowLink href={config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || undefined}>Book Your Correction <ArrowRight className="size-5" /></BookNowLink>
           </Button>
         </div>
       </section>

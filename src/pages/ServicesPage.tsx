@@ -440,7 +440,7 @@ export function ServicesPage() {
               From quick maintenance washes to full paint corrections and ceramic coatings — we offer a complete range of professional detailing services, all mobile.
             </p>
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
+              <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
           </div>
         </div>
@@ -532,7 +532,7 @@ export function ServicesPage() {
             </div>
             <div className="mt-8 text-center">
               <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
-                <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-4" /></BookNowLink>
+                <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-4" /></BookNowLink>
               </Button>
             </div>
           </div>
@@ -611,7 +611,7 @@ export function ServicesPage() {
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">Call us for a free consultation. We'll recommend the perfect package for your vehicle.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
-              <BookNowLink href={config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
+              <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
