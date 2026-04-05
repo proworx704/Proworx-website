@@ -61,6 +61,25 @@ const MEMBERSHIP_PLANS = [
     popular: true,
     subscribeUrl: "https://square.link/u/p1J5nKKA",
   },
+  {
+    key: "ceramic",
+    name: "Ceramic Maintenance",
+    price: "199",
+    icon: <Shield className="size-6" />,
+    tagline: "Premium ceramic care",
+    description: "Designed for ceramic coating owners — everything in Full I&O plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care. Includes 15% off all add-on services.",
+    features: [
+      "Full inside & out detail",
+      "Everything in Full I&O plan",
+      "GYEON ceramic top-coat refresh",
+      "Iron decontamination",
+      "Ceramic trim & plastic refresh",
+      "15% off on add-on services",
+    ],
+    ideal: "Ceramic coating owners who want professional-grade maintenance to maximize their coating's lifespan and performance.",
+    popular: false,
+    subscribeUrl: "",
+  },
 ];
 
 const WHO_ITS_FOR = [
@@ -77,8 +96,8 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Maintenance Plans"
-        description="Monthly auto detailing maintenance plans in Charlotte, NC. From $59/mo — exterior wash, interior detail, paint sealant, ceramic top-up & more. Mobile service, cancel anytime."
-        keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
+        description="Monthly auto detailing maintenance plans in Charlotte, NC. From $59/mo — exterior wash, interior detail, ceramic coating maintenance & more. 4 tiers, multiple billing frequencies. Mobile service, cancel anytime."
+        keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me, ceramic coating maintenance plan"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -92,7 +111,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three monthly detailing plans: Exterior Only ($59/mo for exterior wash), Interior Only ($99/mo for interior detail), and Full Inside & Out ($159/mo for full detail with ceramic wet-coat protection). All plans include mobile service and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers four monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), and Ceramic Maintenance ($199/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }}
               ]
             }
@@ -194,10 +213,10 @@ export function MaintenancePage() {
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Memberships</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Monthly Detailing Plans</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Three tiers to match your needs and budget. Every plan includes mobile service — we come to you.
+              Four tiers to match your needs and budget. Every plan includes mobile service — we come to you.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {MEMBERSHIP_PLANS.map((plan) => (
               <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
@@ -293,28 +312,34 @@ export function MaintenancePage() {
                       <th className="p-4 font-semibold text-center">Exterior Only<br/><span className="text-gold font-normal text-xs">$59/mo</span></th>
                       <th className="p-4 font-semibold text-center">Interior Only<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
                       <th className="p-4 font-semibold text-center bg-gold/5">Full Inside &amp; Out<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
+                      <th className="p-4 font-semibold text-center">Ceramic Maint.<br/><span className="text-gold font-normal text-xs">$199/mo</span></th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true },
-                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true },
-                      { feature: "Exterior windows", clean: true, shield: false, armor: true },
-                      { feature: "Door jambs", clean: true, shield: false, armor: true },
-                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true },
-                      { feature: "Full interior detail", clean: false, shield: true, armor: true },
-                      { feature: "Dashboard & console detail", clean: false, shield: true, armor: true },
-                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true },
-                      { feature: "Interior windows", clean: false, shield: true, armor: true },
-                      { feature: "Air freshener", clean: false, shield: true, armor: true },
-                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true },
-                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true },
+                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true, ceramic: true },
+                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true, ceramic: true },
+                      { feature: "Exterior windows", clean: true, shield: false, armor: true, ceramic: true },
+                      { feature: "Door jambs", clean: true, shield: false, armor: true, ceramic: true },
+                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true, ceramic: true },
+                      { feature: "Full interior detail", clean: false, shield: true, armor: true, ceramic: true },
+                      { feature: "Dashboard & console detail", clean: false, shield: true, armor: true, ceramic: true },
+                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true, ceramic: true },
+                      { feature: "Interior windows", clean: false, shield: true, armor: true, ceramic: true },
+                      { feature: "Air freshener", clean: false, shield: true, armor: true, ceramic: true },
+                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true, ceramic: true },
+                      { feature: "GYEON ceramic top-coat refresh", clean: false, shield: false, armor: false, ceramic: true },
+                      { feature: "Iron decontamination", clean: false, shield: false, armor: false, ceramic: true },
+                      { feature: "Ceramic trim & plastic refresh", clean: false, shield: false, armor: false, ceramic: true },
+                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramic: false },
+                      { feature: "15% off on add-on services", clean: false, shield: false, armor: false, ceramic: true },
                     ].map((row) => (
                       <tr key={row.feature} className="border-b border-border/50 last:border-0">
                         <td className="p-4 text-muted-foreground">{row.feature}</td>
                         <td className="p-4 text-center">{row.clean ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                         <td className="p-4 text-center">{row.shield ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                         <td className="p-4 text-center bg-gold/5">{row.armor ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                        <td className="p-4 text-center">{row.ceramic ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                       </tr>
                     ))}
                   </tbody>
