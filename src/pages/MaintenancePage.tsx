@@ -22,7 +22,7 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Drivers who want a consistently clean exterior without the full detail commitment.",
     popular: false,
-    subscribeUrl: "https://square.link/u/54XGORz0",
+    subscribeUrl: "https://square.link/u/sEoLc3Si",
   },
   {
     key: "shield",
@@ -41,7 +41,7 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Daily drivers and families who want a fresh, clean interior every month.",
     popular: false,
-    subscribeUrl: "https://square.link/u/DaeUhkOb",
+    subscribeUrl: "https://square.link/u/uXtjmNjj",
   },
   {
     key: "armor",
@@ -59,7 +59,7 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Enthusiasts and luxury vehicle owners who want the ultimate monthly care with ceramic protection.",
     popular: true,
-    subscribeUrl: "https://square.link/u/wJuv5fsT",
+    subscribeUrl: "https://square.link/u/p1J5nKKA",
   },
 ];
 
