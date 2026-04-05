@@ -95,8 +95,8 @@ export function MaintenancePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Maintenance Plans"
-        description="Monthly auto detailing maintenance plans in Charlotte, NC. From $59/mo — exterior wash, interior detail, ceramic coating maintenance & more. 4 tiers, multiple billing frequencies. Mobile service, cancel anytime."
+        title="Detailing Maintenance Plans — Charlotte, NC"
+        description="Monthly auto detailing plans in Charlotte, NC from $59/mo. 4 tiers: exterior, interior, full I&O, ceramic maintenance. Mobile service, cancel anytime."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me, ceramic coating maintenance plan"
         schema={{
           "@context": "https://schema.org",

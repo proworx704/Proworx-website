@@ -7,9 +7,9 @@ export function ContactPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Contact Us"
-        description="Contact ProWorx Mobile Detailing in Charlotte, NC. Call (980) 272-1903 or email detailing@proworxdetailing.com. Mon-Fri 9:30AM-6PM, Sat 9:30AM-3PM."
-        keywords="contact ProWorx detailing, auto detailing phone Charlotte, mobile detailing appointment, car detailing contact"
+        title="Contact ProWorx Detailing — Charlotte, NC"
+        description="Contact ProWorx Mobile Detailing — (980) 272-1903 or detailing@proworxdetailing.com. Mon–Fri 9:30AM–6PM, Sat 9:30AM–3PM. Charlotte, NC."
+        keywords="contact ProWorx detailing, auto detailing phone Charlotte, mobile detailing appointment, car detailing contact, Charlotte NC detailer phone"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

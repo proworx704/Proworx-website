@@ -24,9 +24,9 @@ export function AreasPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Service Areas"
-        description="ProWorx Mobile Detailing serves Charlotte, Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe, Fort Mill & surrounding areas. We come to you!"
-        keywords="mobile detailing near me, auto detailing Waxhaw NC, car detailing Matthews NC, Indian Trail detailing, Mint Hill car wash, Pineville auto detail"
+        title="Mobile Detailing Service Areas — Charlotte, NC"
+        description="ProWorx serves Charlotte, Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe & Fort Mill. Premium mobile detailing — we come to you!"
+        keywords="mobile detailing near me, auto detailing Waxhaw NC, car detailing Matthews NC, Indian Trail detailing, Mint Hill car wash, Pineville auto detail, Charlotte mobile car wash"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

@@ -90,9 +90,9 @@ export function FleetPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Fleet Detailing"
-        description="On-site mobile fleet detailing for businesses in Charlotte, NC. Volume pricing, flexible scheduling, and professional results. Keep your fleet looking sharp."
-        keywords="fleet detailing Charlotte NC, commercial vehicle detailing, business fleet washing, on-site fleet cleaning, corporate car detailing"
+        title="Fleet Detailing — Charlotte, NC"
+        description="On-site mobile fleet detailing in Charlotte, NC. Volume pricing, flexible scheduling & professional results for businesses."
+        keywords="fleet detailing Charlotte NC, commercial vehicle detailing, business fleet washing, on-site fleet cleaning, corporate car detailing, fleet car wash Charlotte"
         schema={{
           "@context": "https://schema.org",
           "@graph": [

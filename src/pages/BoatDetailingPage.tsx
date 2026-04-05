@@ -115,9 +115,9 @@ export function BoatDetailingPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Boat Detailing"
-        description="Professional mobile boat detailing in Charlotte, NC. Interior, exterior, oxidation removal & marine ceramic coating. We come to you — dockside or driveway. View pricing by boat size."
-        keywords="boat detailing Charlotte NC, mobile boat detailing, boat wash near me, marine ceramic coating, boat oxidation removal, boat detail pricing"
+        title="Boat Detailing — Charlotte, NC"
+        description="Mobile boat detailing in Charlotte, NC. Interior, exterior, oxidation removal & marine ceramic coating. Dockside or driveway — view pricing."
+        keywords="boat detailing Charlotte NC, mobile boat detailing, boat wash near me, marine ceramic coating, boat oxidation removal, boat detail pricing, Lake Norman boat detailing"
         schema={{
           "@context": "https://schema.org",
           "@graph": [

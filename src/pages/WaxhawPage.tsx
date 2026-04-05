@@ -31,7 +31,7 @@ export function WaxhawPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing in Waxhaw, NC"
-        description="ProWorx Mobile Detailing — Waxhaw's trusted auto detailer. Ceramic coating, paint correction & full detailing in Waxhaw, Marvin, Weddington & Wesley Chapel. We come to you!"
+        description="ProWorx — Waxhaw's trusted auto detailer. Ceramic coating, paint correction & full detailing in Waxhaw, Marvin, Weddington & Wesley Chapel."
         keywords="Waxhaw mobile detailing, Waxhaw ceramic coating, car detailing Waxhaw NC, mobile car wash Waxhaw, auto detailing near Waxhaw, Marvin NC detailing, Weddington car detailing"
         schema={{
           "@context": "https://schema.org",

@@ -20,21 +20,31 @@ export function BlogPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Detailing Tips & Guides"
-        description="Expert auto detailing tips, guides, and industry insights from ProWorx Mobile Detailing in Charlotte, NC. Learn about paint correction, ceramic coating, car care, and more."
+        title="Auto Detailing Tips & Guides — Charlotte, NC"
+        description="Expert detailing tips from ProWorx in Charlotte, NC. Guides on paint correction, ceramic coating, car care & more."
         keywords="auto detailing tips, car care guide, ceramic coating guide, paint correction tips, mobile detailing Charlotte NC, how to maintain car detail"
         schema={{
           "@context": "https://schema.org",
-          "@type": "Blog",
-          name: "ProWorx Detailing Blog",
-          description:
-            "Expert auto detailing tips, guides, and industry insights from ProWorx Mobile Detailing.",
-          url: "https://www.proworxdetailing.com/blog",
-          publisher: {
-            "@type": "LocalBusiness",
-            name: "ProWorx Mobile Detailing",
-            url: "https://www.proworxdetailing.com",
-          },
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.proworxdetailing.com/blog" }
+              ]
+            },
+            {
+              "@type": "Blog",
+              "name": "ProWorx Detailing Blog",
+              "description": "Expert auto detailing tips, guides, and industry insights from ProWorx Mobile Detailing.",
+              "url": "https://www.proworxdetailing.com/blog",
+              "publisher": {
+                "@type": "LocalBusiness",
+                "name": "ProWorx Mobile Detailing",
+                "url": "https://www.proworxdetailing.com"
+              }
+            }
+          ]
         }}
       />
 

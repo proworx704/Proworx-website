@@ -398,8 +398,8 @@ export function ServicesPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Auto Detailing Services & Pricing"
-        description="Mobile auto detailing in Charlotte, NC — Standard, Premium & Elite packages for interior, exterior & full details. Starting at $103. Ceramic coating, paint correction & monthly plans. We come to you!"
+        title="Auto Detailing Services & Pricing — Charlotte, NC"
+        description="Mobile auto detailing in Charlotte, NC. Interior, exterior & full detail packages from $103. Ceramic coating, paint correction & monthly plans."
         keywords="auto detailing services Charlotte NC, mobile detailing pricing, car interior cleaning Charlotte, exterior detail Waxhaw NC, mobile car wash pricing near me, paint correction packages Charlotte, ceramic coating Charlotte NC, auto detailing packages, car detail cost Charlotte"
         schema={{
           "@context": "https://schema.org",

@@ -81,9 +81,9 @@ export function CeramicCoatingPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. 1-year, 3-year & 10-year protection packages. Professional paint correction included. Mobile service — we come to you."
-        keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost"
+        title="Ceramic Coating — Charlotte, NC"
+        description="GYEON & IGL certified ceramic coating in Charlotte, NC. 1–10 year protection packages with paint correction included. Mobile service."
+        keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, ceramic coating near me"
         schema={{
           "@context": "https://schema.org",
           "@graph": [

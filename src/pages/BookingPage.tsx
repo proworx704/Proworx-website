@@ -23,9 +23,9 @@ export function BookingPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Book an Appointment"
+        title="Book Mobile Detailing — Charlotte, NC"
         description="Book your mobile auto detailing appointment with ProWorx in Charlotte, NC. Call (980) 272-1903 or book online. Same-week availability."
-        keywords="book auto detailing Charlotte, schedule car detail, mobile detailing appointment, car wash booking Charlotte NC"
+        keywords="book auto detailing Charlotte, schedule car detail, mobile detailing appointment, car wash booking Charlotte NC, book detailing online"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

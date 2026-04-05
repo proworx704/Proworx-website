@@ -13,7 +13,7 @@ export function MobileDetailingCostPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Cost in Charlotte, NC"
-        description="How much does mobile detailing cost in Charlotte, NC? Full pricing guide: interior from $163, exterior from $117, full details from $233. No hidden fees. See all packages & what's included."
+        description="How much does mobile detailing cost in Charlotte, NC? Interior from $163, exterior from $117, full details from $233. See all packages & pricing."
         keywords="how much does detailing cost Charlotte, mobile detailing cost Charlotte NC, car detailing prices Charlotte, auto detailing cost near me, mobile car wash pricing Charlotte, interior detailing cost, exterior detailing price"
         schema={{
           "@context": "https://schema.org",
