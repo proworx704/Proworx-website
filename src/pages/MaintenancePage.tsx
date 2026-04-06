@@ -210,18 +210,18 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Membership Plans ── */}
+      {/* ── Regular Membership Plans (3 tiers) ── */}
       <section id="plans" className="py-20 md:py-28 bg-card/50">
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Memberships</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Monthly Detailing Plans</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Four tiers to match your needs and budget. Every plan includes mobile service — we come to you.
+              Three tiers to match your needs and budget. Every plan includes mobile service — we come to you.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {MEMBERSHIP_PLANS.map((plan) => (
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {MEMBERSHIP_PLANS.filter((p) => p.key !== "ceramic").map((plan) => (
               <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
@@ -251,6 +251,58 @@ export function MaintenancePage() {
           </p>
         </div>
       </section>
+
+      {/* ── Ceramic Maintenance Membership (premium tier) ── */}
+      {(() => {
+        const ceramic = MEMBERSHIP_PLANS.find((p) => p.key === "ceramic")!;
+        return (
+          <section id="ceramic-membership" className="py-20 md:py-28">
+            <div className="container">
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-12">
+                  <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">For Ceramic Coating Owners</p>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Maintenance Membership</h2>
+                  <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                    Professional-grade care designed specifically for ceramic-coated vehicles. Keep your coating performing at its best.
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-card border border-gold/30 shadow-lg shadow-gold/5 p-8 md:p-10">
+                  <div className="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold">{ceramic.icon}</div>
+                        <div>
+                          <h3 className="font-bold text-2xl">{ceramic.name}</h3>
+                          <p className="text-sm text-muted-foreground">{ceramic.tagline}</p>
+                        </div>
+                      </div>
+                      <p className="text-4xl font-black mb-4">${ceramic.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+                      <p className="text-muted-foreground leading-relaxed mb-6">{ceramic.description}</p>
+                      <div className="rounded-lg bg-gold/5 border border-gold/20 px-4 py-3 mb-6">
+                        <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {ceramic.ideal}</p>
+                      </div>
+                      <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold w-full md:w-auto" asChild>
+                        <a href={config[ceramic.configKey] || ceramic.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
+                      </Button>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">What's Included</h4>
+                      <ul className="space-y-3">
+                        {ceramic.features.map((f) => (
+                          <li key={f} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="size-5 text-gold mt-0.5 shrink-0" />
+                            <span className="text-muted-foreground">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ── What Each Visit Looks Like ── */}
       <section className="py-20 md:py-28">
