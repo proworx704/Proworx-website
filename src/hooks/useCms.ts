@@ -51,7 +51,8 @@ const DEFAULTS: Record<string, string> = {
   "subscribeUrl:membership-exterior": "https://square.link/u/CP1LxyXc",
   "subscribeUrl:membership-interior": "https://square.link/u/ZIRVEmaf",
   "subscribeUrl:membership-full": "https://square.link/u/kuw5LL99",
-  "subscribeUrl:membership-ceramic": "",
+  "subscribeUrl:membership-ceramic-exterior": "https://square.link/u/VWcJFh5r",
+  "subscribeUrl:membership-ceramic-io": "https://square.link/u/wyQAUVPr",
 };
 
 /**

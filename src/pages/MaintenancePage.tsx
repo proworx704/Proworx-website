@@ -76,12 +76,33 @@ const MEMBERSHIP_PLANS = [
     configKey: "subscribeUrl:membership-full",
   },
   {
-    key: "ceramic",
-    name: "Ceramic Maintenance",
-    pricing: { biweekly: "100", monthly: "199", quarterly: "597", annually: "2,289" },
+    key: "ceramic-exterior",
+    name: "Ceramic Exterior",
+    pricing: { biweekly: "50", monthly: "100", quarterly: "300", annually: "1,150" },
+    icon: <Droplets className="size-6" />,
+    tagline: "Ceramic-grade exterior care",
+    description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
+    features: [
+      "Exterior hand wash",
+      "Tire & wheel cleaning",
+      "Door jambs cleaned",
+      "GYEON ceramic top-coat refresh",
+      "Ceramic trim & plastic refresh",
+      "Tire shine & dressing",
+      "10% off on add-on services",
+    ],
+    ideal: "Ceramic coating owners who want exterior-focused maintenance to protect their investment.",
+    popular: false,
+    subscribeUrl: "https://square.link/u/VWcJFh5r",
+    configKey: "subscribeUrl:membership-ceramic-exterior",
+  },
+  {
+    key: "ceramic-io",
+    name: "Ceramic Inside & Out",
+    pricing: { biweekly: "90", monthly: "180", quarterly: "540", annually: "2,070" },
     icon: <Shield className="size-6" />,
-    tagline: "Premium ceramic care",
-    description: "Designed for ceramic coating owners — everything in Full I&O plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care. Includes 15% off all add-on services.",
+    tagline: "The ultimate ceramic care",
+    description: "The complete package for ceramic coating owners — full I&O detail plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care.",
     features: [
       "Full inside & out detail",
       "Everything in Full I&O plan",
@@ -90,10 +111,10 @@ const MEMBERSHIP_PLANS = [
       "Ceramic trim & plastic refresh",
       "15% off on add-on services",
     ],
-    ideal: "Ceramic coating owners who want professional-grade maintenance to maximize their coating's lifespan and performance.",
-    popular: false,
-    subscribeUrl: "",
-    configKey: "subscribeUrl:membership-ceramic",
+    ideal: "Ceramic coating owners who want professional-grade full maintenance to maximize their coating's lifespan.",
+    popular: true,
+    subscribeUrl: "https://square.link/u/wyQAUVPr",
+    configKey: "subscribeUrl:membership-ceramic-io",
   },
 ];
 
@@ -113,7 +134,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $59/mo. 4 tiers: exterior, interior, full I&O, ceramic maintenance. Mobile service, cancel anytime."
+        description="Monthly auto detailing plans in Charlotte, NC from $59/mo. 5 tiers: exterior, interior, full I&O, ceramic exterior, ceramic I&O. Mobile service, cancel anytime."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me, ceramic coating maintenance plan"
         schema={{
           "@context": "https://schema.org",
@@ -128,7 +149,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers four monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), and Ceramic Maintenance ($199/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($100/mo), and Ceramic Inside & Out ($180/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }}
               ]
             }
@@ -261,7 +282,7 @@ export function MaintenancePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {MEMBERSHIP_PLANS.filter((p) => p.key !== "ceramic").map((plan) => (
+            {MEMBERSHIP_PLANS.filter((p) => !p.key.startsWith("ceramic")).map((plan) => (
               <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
@@ -298,13 +319,13 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Ceramic Maintenance Membership (premium tier) ── */}
+      {/* ── Ceramic Maintenance Membership (premium tiers) ── */}
       {(() => {
-        const ceramic = MEMBERSHIP_PLANS.find((p) => p.key === "ceramic")!;
+        const ceramicPlans = MEMBERSHIP_PLANS.filter((p) => p.key.startsWith("ceramic"));
         return (
           <section id="ceramic-membership" className="py-20 md:py-28">
             <div className="container">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-12">
                   <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">For Ceramic Coating Owners</p>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Maintenance Membership</h2>
@@ -312,40 +333,37 @@ export function MaintenancePage() {
                     Professional-grade care designed specifically for ceramic-coated vehicles. Keep your coating performing at its best.
                   </p>
                 </div>
-                <div className="rounded-2xl bg-card border border-gold/30 shadow-lg shadow-gold/5 p-8 md:p-10">
-                  <div className="grid md:grid-cols-2 gap-8 items-start">
-                    <div>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold">{ceramic.icon}</div>
-                        <div>
-                          <h3 className="font-bold text-2xl">{ceramic.name}</h3>
-                          <p className="text-sm text-muted-foreground">{ceramic.tagline}</p>
-                        </div>
-                      </div>
-                      <p className="text-4xl font-black mb-1">${ceramic.pricing[frequency]}<span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span></p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {ceramicPlans.map((plan) => (
+                    <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-gold/30 shadow-md shadow-gold/5"}`}>
+                      {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
+                      <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
+                      <h3 className="font-bold text-xl mb-0.5">{plan.name}</h3>
+                      <p className="text-xs text-muted-foreground mb-2">{plan.tagline}</p>
+                      <p className="text-3xl font-black mb-2">
+                        ${plan.pricing[frequency]}
+                        <span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span>
+                      </p>
                       {frequency === "annually" && (
-                        <p className="text-xs text-emerald-400 font-medium mb-3">Save vs. monthly billing</p>
+                        <p className="text-xs text-emerald-400 font-medium -mt-1 mb-2">Save vs. monthly billing</p>
                       )}
-                      <p className="text-muted-foreground leading-relaxed mb-6">{ceramic.description}</p>
-                      <div className="rounded-lg bg-gold/5 border border-gold/20 px-4 py-3 mb-6">
-                        <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {ceramic.ideal}</p>
-                      </div>
-                      <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold w-full md:w-auto" asChild>
-                        <a href={config[ceramic.configKey] || ceramic.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
-                      </Button>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">What's Included</h4>
-                      <ul className="space-y-3">
-                        {ceramic.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5">
-                            <CheckCircle2 className="size-5 text-gold mt-0.5 shrink-0" />
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">{plan.description}</p>
+                      <ul className="space-y-2.5 flex-1 mb-4">
+                        {plan.features.map((f) => (
+                          <li key={f} className="flex items-start gap-2 text-sm">
+                            <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
                             <span className="text-muted-foreground">{f}</span>
                           </li>
                         ))}
                       </ul>
+                      <div className="rounded-lg bg-gold/5 border border-gold/20 px-3 py-2 mb-5">
+                        <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
+                      </div>
+                      <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                        <a href={config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
+                      </Button>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
