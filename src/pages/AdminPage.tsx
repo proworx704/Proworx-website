@@ -649,6 +649,14 @@ function ContactTab() {
         <EditableRow label="10-Year (Q² Flash EVO)" value={config.ceramicDeposit10yr || ""} onSave={(v) => handleSave("ceramicDeposit10yr", v)} />
       </Section>
 
+      <Section title="Membership Subscribe Links" icon={<DollarSign className="size-5" />}>
+        <p className="text-xs text-muted-foreground mb-3">Set the Square checkout link for each membership plan's "Subscribe Now" button on the Services and Maintenance pages. These are the yearly subscription links.</p>
+        <EditableRow label="Exterior Only" value={config["subscribeUrl:membership-exterior"] || ""} onSave={(v) => handleSave("subscribeUrl:membership-exterior", v)} />
+        <EditableRow label="Interior Only" value={config["subscribeUrl:membership-interior"] || ""} onSave={(v) => handleSave("subscribeUrl:membership-interior", v)} />
+        <EditableRow label="Full Inside & Out" value={config["subscribeUrl:membership-full"] || ""} onSave={(v) => handleSave("subscribeUrl:membership-full", v)} />
+        <EditableRow label="Ceramic Maintenance" value={config["subscribeUrl:membership-ceramic"] || ""} onSave={(v) => handleSave("subscribeUrl:membership-ceramic", v)} />
+      </Section>
+
       <Section title="Social Media" icon={<Link2 className="size-5" />}>
         <EditableRow label="Instagram" value={config.instagramUrl || ""} onSave={(v) => handleSave("instagramUrl", v)} />
         <EditableRow label="Facebook" value={config.facebookUrl || ""} onSave={(v) => handleSave("facebookUrl", v)} />

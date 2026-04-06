@@ -47,6 +47,11 @@ const DEFAULTS: Record<string, string> = {
   "widgetUrl:membership-exterior": "https://book.squareup.com/appointments/k9hzdqnwzz6xit/location/9VRKFJAZZM3HG/services",
   "widgetUrl:membership-interior": "https://book.squareup.com/appointments/pfgwty61hdrtyg/location/9VRKFJAZZM3HG/services",
   "widgetUrl:membership-full": "https://book.squareup.com/appointments/a7at1x9xg9nqij/location/9VRKFJAZZM3HG/services",
+  // Membership subscribe/checkout URLs (yearly subscription links)
+  "subscribeUrl:membership-exterior": "https://square.link/u/CP1LxyXc",
+  "subscribeUrl:membership-interior": "https://square.link/u/ZIRVEmaf",
+  "subscribeUrl:membership-full": "https://square.link/u/kuw5LL99",
+  "subscribeUrl:membership-ceramic": "",
 };
 
 /**

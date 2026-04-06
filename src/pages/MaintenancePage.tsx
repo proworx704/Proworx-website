@@ -22,7 +22,8 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Drivers who want a consistently clean exterior without the full detail commitment.",
     popular: false,
-    subscribeUrl: "https://square.link/u/sEoLc3Si",
+    subscribeUrl: "https://square.link/u/CP1LxyXc",
+    configKey: "subscribeUrl:membership-exterior",
   },
   {
     key: "shield",
@@ -41,7 +42,8 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Daily drivers and families who want a fresh, clean interior every month.",
     popular: false,
-    subscribeUrl: "https://square.link/u/uXtjmNjj",
+    subscribeUrl: "https://square.link/u/ZIRVEmaf",
+    configKey: "subscribeUrl:membership-interior",
   },
   {
     key: "armor",
@@ -59,7 +61,8 @@ const MEMBERSHIP_PLANS = [
     ],
     ideal: "Enthusiasts and luxury vehicle owners who want the ultimate monthly care with ceramic protection.",
     popular: true,
-    subscribeUrl: "https://square.link/u/p1J5nKKA",
+    subscribeUrl: "https://square.link/u/kuw5LL99",
+    configKey: "subscribeUrl:membership-full",
   },
   {
     key: "ceramic",
@@ -79,6 +82,7 @@ const MEMBERSHIP_PLANS = [
     ideal: "Ceramic coating owners who want professional-grade maintenance to maximize their coating's lifespan and performance.",
     popular: false,
     subscribeUrl: "",
+    configKey: "subscribeUrl:membership-ceramic",
   },
 ];
 
@@ -237,7 +241,7 @@ export function MaintenancePage() {
                   <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
                 </div>
                 <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={plan.subscribeUrl} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
+                  <a href={config[plan.configKey] || plan.subscribeUrl || "#plans"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
             ))}

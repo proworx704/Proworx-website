@@ -389,9 +389,18 @@ export function ServicesPage() {
     },
   ];
 
+  // Map membership key → siteConfig subscribe URL key
+  const subscribeKeyMap: Record<string, string> = {
+    clean: "subscribeUrl:membership-exterior",
+    shield: "subscribeUrl:membership-interior",
+    armor: "subscribeUrl:membership-full",
+    ceramic: "subscribeUrl:membership-ceramic",
+  };
+
   // Build membership plan display data
   const membershipPlans = (memberships ?? []).map((m) => ({
     ...m,
+    url: config[subscribeKeyMap[m.key] ?? ""] || m.url,
     icon: m.key === "clean" ? <Droplets className="size-6" /> : m.key === "shield" ? <Shield className="size-6" /> : <Sparkles className="size-6" />,
   }));
 
