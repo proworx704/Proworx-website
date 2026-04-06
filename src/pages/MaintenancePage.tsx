@@ -1,20 +1,31 @@
 import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Star } from "lucide-react";
+import { useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+
+/* ── Billing Frequencies ── */
+type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
+
+const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: string }[] = [
+  { key: "biweekly", label: "Biweekly", suffix: "/2 wks" },
+  { key: "monthly", label: "Monthly", suffix: "/mo" },
+  { key: "quarterly", label: "Quarterly", suffix: "/qtr" },
+  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 4%" },
+];
 
 /* ── Membership Tiers ── */
 const MEMBERSHIP_PLANS = [
   {
     key: "clean",
     name: "Exterior Only",
-    price: "59",
+    pricing: { biweekly: "30", monthly: "59", quarterly: "177", annually: "679" },
     icon: <Droplets className="size-6" />,
-    tagline: "Monthly exterior care",
-    description: "A monthly exterior refresh to keep your vehicle looking sharp between full details.",
+    tagline: "Exterior care on your schedule",
+    description: "A regular exterior refresh to keep your vehicle looking sharp between full details.",
     features: [
-      "Monthly exterior hand wash",
+      "Exterior hand wash",
       "Tire & wheel cleaning",
       "Exterior windows",
       "Door jambs cleaned",
@@ -28,19 +39,19 @@ const MEMBERSHIP_PLANS = [
   {
     key: "shield",
     name: "Interior Only",
-    price: "99",
+    pricing: { biweekly: "50", monthly: "99", quarterly: "297", annually: "1,139" },
     icon: <Shield className="size-6" />,
-    tagline: "Monthly interior care",
-    description: "A thorough interior detail every month to keep your cabin fresh and clean.",
+    tagline: "Interior care on your schedule",
+    description: "A thorough interior detail on your chosen schedule to keep your cabin fresh and clean.",
     features: [
-      "Monthly interior detail",
+      "Full interior detail",
       "Full vacuum & wipe-down",
       "Dashboard & console detail",
       "Leather / vinyl conditioning",
       "Interior windows",
       "Air freshener",
     ],
-    ideal: "Daily drivers and families who want a fresh, clean interior every month.",
+    ideal: "Daily drivers and families who want a fresh, clean interior.",
     popular: false,
     subscribeUrl: "https://square.link/u/ZIRVEmaf",
     configKey: "subscribeUrl:membership-interior",
@@ -48,10 +59,10 @@ const MEMBERSHIP_PLANS = [
   {
     key: "armor",
     name: "Full Inside & Out",
-    price: "159",
+    pricing: { biweekly: "80", monthly: "159", quarterly: "477", annually: "1,829" },
     icon: <Sparkles className="size-6" />,
     tagline: "Complete detail + ceramic protection",
-    description: "The complete package — full interior and exterior detail every month with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
+    description: "The complete package — full interior and exterior detail with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
     features: [
       "Full inside & out detail",
       "Everything in Exterior + Interior",
@@ -59,7 +70,7 @@ const MEMBERSHIP_PLANS = [
       "Tire shine & trim dressing",
       "10% off on add-on services",
     ],
-    ideal: "Enthusiasts and luxury vehicle owners who want the ultimate monthly care with ceramic protection.",
+    ideal: "Enthusiasts and luxury vehicle owners who want the ultimate care with ceramic protection.",
     popular: true,
     subscribeUrl: "https://square.link/u/kuw5LL99",
     configKey: "subscribeUrl:membership-full",
@@ -67,7 +78,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic",
     name: "Ceramic Maintenance",
-    price: "199",
+    pricing: { biweekly: "100", monthly: "199", quarterly: "597", annually: "2,289" },
     icon: <Shield className="size-6" />,
     tagline: "Premium ceramic care",
     description: "Designed for ceramic coating owners — everything in Full I&O plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care. Includes 15% off all add-on services.",
@@ -95,6 +106,8 @@ const WHO_ITS_FOR = [
 
 export function MaintenancePage() {
   const { config } = useSiteConfig();
+  const [frequency, setFrequency] = useState<Frequency>("monthly");
+  const freq = FREQUENCIES.find((f) => f.key === frequency)!;
 
   return (
     <div className="flex-1 flex flex-col">
@@ -213,13 +226,40 @@ export function MaintenancePage() {
       {/* ── Regular Membership Plans (3 tiers) ── */}
       <section id="plans" className="py-20 md:py-28 bg-card/50">
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Memberships</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Monthly Detailing Plans</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Detailing Plans</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Three tiers to match your needs and budget. Every plan includes mobile service — we come to you.
             </p>
           </div>
+
+          {/* ── Frequency Toggle ── */}
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex items-center rounded-xl bg-card border border-border p-1 gap-0.5">
+              {FREQUENCIES.map((f) => (
+                <button
+                  key={f.key}
+                  onClick={() => setFrequency(f.key)}
+                  className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                    frequency === f.key
+                      ? "bg-gold text-gold-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {f.label}
+                  {f.badge && (
+                    <span className={`absolute -top-2.5 -right-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none ${
+                      frequency === f.key ? "bg-emerald-500 text-white" : "bg-emerald-500/20 text-emerald-400"
+                    }`}>
+                      {f.badge}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {MEMBERSHIP_PLANS.filter((p) => p.key !== "ceramic").map((plan) => (
               <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
@@ -227,7 +267,13 @@ export function MaintenancePage() {
                 <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
                 <h3 className="font-bold text-xl mb-0.5">{plan.name}</h3>
                 <p className="text-xs text-muted-foreground mb-2">{plan.tagline}</p>
-                <p className="text-3xl font-black mb-2">${plan.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+                <p className="text-3xl font-black mb-2">
+                  ${plan.pricing[frequency]}
+                  <span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span>
+                </p>
+                {frequency === "annually" && (
+                  <p className="text-xs text-emerald-400 font-medium -mt-1 mb-2">Save vs. monthly billing</p>
+                )}
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">{plan.description}</p>
                 <ul className="space-y-2.5 flex-1 mb-4">
                   {plan.features.map((f) => (
@@ -247,7 +293,7 @@ export function MaintenancePage() {
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-8">
-            All plans are billed monthly. No long-term contracts — cancel anytime with no penalty.
+            All plans can be billed biweekly, monthly, quarterly, or annually. No long-term contracts — cancel anytime with no penalty.
           </p>
         </div>
       </section>
@@ -276,7 +322,10 @@ export function MaintenancePage() {
                           <p className="text-sm text-muted-foreground">{ceramic.tagline}</p>
                         </div>
                       </div>
-                      <p className="text-4xl font-black mb-4">${ceramic.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+                      <p className="text-4xl font-black mb-1">${ceramic.pricing[frequency]}<span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span></p>
+                      {frequency === "annually" && (
+                        <p className="text-xs text-emerald-400 font-medium mb-3">Save vs. monthly billing</p>
+                      )}
                       <p className="text-muted-foreground leading-relaxed mb-6">{ceramic.description}</p>
                       <div className="rounded-lg bg-gold/5 border border-gold/20 px-4 py-3 mb-6">
                         <p className="text-sm text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {ceramic.ideal}</p>
@@ -365,10 +414,11 @@ export function MaintenancePage() {
                   <thead>
                     <tr className="border-b border-border">
                       <th className="text-left p-4 font-semibold">Feature</th>
-                      <th className="p-4 font-semibold text-center">Exterior Only<br/><span className="text-gold font-normal text-xs">$59/mo</span></th>
-                      <th className="p-4 font-semibold text-center">Interior Only<br/><span className="text-gold font-normal text-xs">$99/mo</span></th>
-                      <th className="p-4 font-semibold text-center bg-gold/5">Full Inside &amp; Out<br/><span className="text-gold font-normal text-xs">$159/mo</span></th>
-                      <th className="p-4 font-semibold text-center">Ceramic Maint.<br/><span className="text-gold font-normal text-xs">$199/mo</span></th>
+                      {MEMBERSHIP_PLANS.map((plan) => (
+                        <th key={plan.key} className={`p-4 font-semibold text-center ${plan.popular ? "bg-gold/5" : ""}`}>
+                          {plan.name}<br/><span className="text-gold font-normal text-xs">${plan.pricing[frequency]}{freq.suffix}</span>
+                        </th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
