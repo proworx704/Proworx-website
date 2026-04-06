@@ -150,8 +150,28 @@ export function MaintenancePage() {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($100/mo), and Ceramic Inside & Out ($180/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
-                { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }}
+                { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }},
+                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($100/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($180/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
+                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, quarterly, or annually. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
               ]
+            },
+            {
+              "@type": "Service",
+              "name": "ProWorx Maintenance Plans",
+              "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
+              "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
+              "description": "Monthly mobile detailing maintenance plans with 5 tiers from $59/mo to $180/mo. Professional hand wash, interior detail, ceramic coating maintenance, and more.",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Maintenance Plans",
+                "itemListElement": [
+                  { "@type": "Offer", "name": "Exterior Only", "price": "59", "priceCurrency": "USD", "unitText": "month", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
+                  { "@type": "Offer", "name": "Interior Only", "price": "99", "priceCurrency": "USD", "unitText": "month", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
+                  { "@type": "Offer", "name": "Full Inside & Out", "price": "159", "priceCurrency": "USD", "unitText": "month", "description": "Complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
+                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "100", "priceCurrency": "USD", "unitText": "month", "description": "Professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
+                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "180", "priceCurrency": "USD", "unitText": "month", "description": "Full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
+                ]
+              }
             }
           ]
         }}
@@ -441,29 +461,30 @@ export function MaintenancePage() {
                   </thead>
                   <tbody>
                     {[
-                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true, ceramic: true },
-                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true, ceramic: true },
-                      { feature: "Exterior windows", clean: true, shield: false, armor: true, ceramic: true },
-                      { feature: "Door jambs", clean: true, shield: false, armor: true, ceramic: true },
-                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true, ceramic: true },
-                      { feature: "Full interior detail", clean: false, shield: true, armor: true, ceramic: true },
-                      { feature: "Dashboard & console detail", clean: false, shield: true, armor: true, ceramic: true },
-                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true, ceramic: true },
-                      { feature: "Interior windows", clean: false, shield: true, armor: true, ceramic: true },
-                      { feature: "Air freshener", clean: false, shield: true, armor: true, ceramic: true },
-                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true, ceramic: true },
-                      { feature: "GYEON ceramic top-coat refresh", clean: false, shield: false, armor: false, ceramic: true },
-                      { feature: "Iron decontamination", clean: false, shield: false, armor: false, ceramic: true },
-                      { feature: "Ceramic trim & plastic refresh", clean: false, shield: false, armor: false, ceramic: true },
-                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramic: false },
-                      { feature: "15% off on add-on services", clean: false, shield: false, armor: false, ceramic: true },
+                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
+                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
+                      { feature: "Exterior windows", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
+                      { feature: "Door jambs", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
+                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
+                      { feature: "Full interior detail", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "Dashboard & console detail", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "Interior windows", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "Air freshener", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true, ceramicExt: false, ceramicIo: true },
+                      { feature: "GYEON ceramic top-coat refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
+                      { feature: "Iron decontamination", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
+                      { feature: "Ceramic trim & plastic refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
+                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramicExt: true, ceramicIo: false },
+                      { feature: "15% off on add-on services", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
                     ].map((row) => (
                       <tr key={row.feature} className="border-b border-border/50 last:border-0">
                         <td className="p-4 text-muted-foreground">{row.feature}</td>
                         <td className="p-4 text-center">{row.clean ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                         <td className="p-4 text-center">{row.shield ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                         <td className="p-4 text-center bg-gold/5">{row.armor ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center">{row.ceramic ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                        <td className="p-4 text-center">{row.ceramicExt ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                        <td className="p-4 text-center">{row.ceramicIo ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
                       </tr>
                     ))}
                   </tbody>
