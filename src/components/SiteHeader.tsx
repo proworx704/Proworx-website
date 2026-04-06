@@ -68,13 +68,16 @@ export function SiteHeader() {
                 height={36}
                 className="h-9 w-auto hidden sm:block"
               />
-              <img
-                src="/images/logo-icon.png"
-                alt={`${config.appName} logo`}
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-lg sm:hidden"
-              />
+              <picture>
+                <source type="image/webp" srcSet="/images/logo-icon-72.webp" />
+                <img
+                  src="/images/logo-icon-72.png"
+                  alt={`${config.appName} logo`}
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-lg sm:hidden"
+                />
+              </picture>
             </Link>
 
             {/* Desktop nav */}

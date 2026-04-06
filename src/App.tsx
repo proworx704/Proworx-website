@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
@@ -22,6 +22,7 @@ import { BlogPostPage } from "./pages/BlogPostPage";
 import { WaxhawPage } from "./pages/WaxhawPage";
 import { CeramicCoatingCharlottePage } from "./pages/CeramicCoatingCharlottePage";
 import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,7 +60,7 @@ function App() {
           <Route path="/ceramic-coating-charlotte-nc" element={<SiteLayout><CeramicCoatingCharlottePage /></SiteLayout>} />
           <Route path="/mobile-detailing-cost" element={<SiteLayout><MobileDetailingCostPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
       </PhotoProvider>
       </ThemeProvider>

@@ -10,7 +10,8 @@
     <meta name="theme-color" content="#D4A853" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://superb-emu-421.convex.cloud" />
-    <!-- Preload hero image for faster LCP -->
+    <!-- Preload hero image for faster LCP (WebP with JPG fallback) -->
+    <link rel="preload" as="image" href="/images/escalade-front-1200w.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/images/escalade-front.jpg" fetchpriority="high" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -71,10 +72,12 @@
       src="https://www.facebook.com/tr?id=717926283758981&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- Fonts -->
+    <!-- Fonts (loaded async to avoid render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" /></noscript>
 
     <!-- Structured Data: Local Business -->
     <script type="application/ld+json">
