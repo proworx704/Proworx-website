@@ -2,6 +2,7 @@ import { ArrowRight, Building2, Car, CheckCircle2, Clock, Phone, Shield, Truck, 
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
+import { useObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const FLEET_TIERS = [
@@ -86,6 +87,7 @@ const INDUSTRIES = [
 
 export function FleetPage() {
   const { config } = useSiteConfig();
+  const { href: emailHref } = useObfuscatedEmail(config.email);
 
   return (
     <div className="flex-1 flex flex-col">
@@ -305,7 +307,7 @@ export function FleetPage() {
               <a href={config.phoneLink}>Get a Fleet Quote <Phone className="size-5" /></a>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
-              <a href={`mailto:${config.email}`}>Email Us <ArrowRight className="size-5" /></a>
+              <a href={emailHref}>Email Us <ArrowRight className="size-5" /></a>
             </Button>
           </div>
         </div>

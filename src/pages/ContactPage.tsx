@@ -1,14 +1,16 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
+import { useObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { useSiteConfig } from "@/hooks/useCms";
 
 export function ContactPage() {
   const { config } = useSiteConfig();
+  const { href: emailHref, display: emailDisplay } = useObfuscatedEmail(config.email);
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Contact ProWorx Detailing — Charlotte, NC"
-        description="Contact ProWorx Mobile Detailing — (980) 272-1903 or detailing@proworxdetailing.com. Mon–Fri 9:30AM–6PM, Sat 9:30AM–3PM. Charlotte, NC."
+        description="Contact ProWorx Mobile Detailing — (980) 272-1903. Mon–Fri 9:30AM–6PM, Sat 9:30AM–3PM. Charlotte, NC. Call or email for a free quote."
         keywords="contact ProWorx detailing, auto detailing phone Charlotte, mobile detailing appointment, car detailing contact, Charlotte NC detailer phone"
         schema={{
           "@context": "https://schema.org",
@@ -43,12 +45,12 @@ export function ContactPage() {
               <h2 className="font-bold text-lg mb-1">Phone</h2>
               <p className="text-gold font-medium">{config.phone}</p>
             </a>
-            <a href={`mailto:${config.email}`} className="rounded-2xl bg-card border border-border p-7 text-center hover:border-gold/30 transition-colors group">
+            <a href={emailHref} className="rounded-2xl bg-card border border-border p-7 text-center hover:border-gold/30 transition-colors group">
               <div className="size-14 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
                 <Mail className="size-6" />
               </div>
               <h2 className="font-bold text-lg mb-1">Email</h2>
-              <p className="text-gold font-medium text-sm">{config.email}</p>
+              <p className="text-gold font-medium text-sm">{emailDisplay}</p>
             </a>
             <div className="rounded-2xl bg-card border border-border p-7 text-center">
               <div className="size-14 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-4">

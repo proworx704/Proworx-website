@@ -1,0 +1,2 @@
+# ProWorx Mobile Detailing does not serve programmatic ads.
+# This file exists to prevent 404 errors from ad verification crawlers.

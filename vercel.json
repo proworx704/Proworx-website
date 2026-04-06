@@ -5,7 +5,7 @@
       "destination": "https://book.proworxdetailing.com/booking-assets/:path*"
     },
     {
-      "source": "/((?!assets/|images/|booking-assets/|sitemap\\.xml|robots\\.txt|site\\.webmanifest|manifest\\.json|favicon.*|apple-touch-icon.*).*)",
+      "source": "/((?!assets/|images/|booking-assets/|sitemap\\.xml|robots\\.txt|ads\\.txt|site\\.webmanifest|manifest\\.json|favicon.*|apple-touch-icon.*).*)",
       "destination": "/index.html"
     }
   ],
@@ -58,6 +58,13 @@
       "source": "/robots.txt",
       "headers": [
         { "key": "Content-Type", "value": "text/plain" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/ads.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     },

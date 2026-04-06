@@ -1,5 +1,6 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick } from "@/lib/tracking";
 
@@ -35,6 +36,7 @@ function GoogleIcon({ className }: { className?: string }) {
 
 export function SiteFooter() {
   const { config } = useSiteConfig();
+  const { href: emailHref, display: emailDisplay } = useObfuscatedEmail(config.email);
 
   return (
     <footer className="border-t border-border bg-card">
@@ -128,11 +130,11 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href={`mailto:${config.email}`}
+                  href={emailHref}
                   className="flex items-start gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="size-4 mt-0.5 shrink-0 text-gold" />
-                  {config.email}
+                  {emailDisplay}
                 </a>
               </li>
               <li>
