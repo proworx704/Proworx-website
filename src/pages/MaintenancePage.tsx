@@ -475,7 +475,7 @@ export function MaintenancePage() {
                       { feature: "GYEON ceramic top-coat refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
                       { feature: "Iron decontamination", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
                       { feature: "Ceramic trim & plastic refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
-                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramicExt: true, ceramicIo: false },
+                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
                       { feature: "15% off on add-on services", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
                     ].map((row) => (
                       <tr key={row.feature} className="border-b border-border/50 last:border-0">
