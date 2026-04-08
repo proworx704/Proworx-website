@@ -13,7 +13,7 @@ export function MobileDetailingCostPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Cost in Charlotte, NC"
-        description="How much does mobile detailing cost in Charlotte, NC? Interior from $163, exterior from $117, full details from $233. See all packages & pricing."
+        description="How much does mobile detailing cost in Charlotte, NC? Interior from $144, exterior from $103, full details from $206. See all packages & pricing."
         keywords="how much does detailing cost Charlotte, mobile detailing cost Charlotte NC, car detailing prices Charlotte, auto detailing cost near me, mobile car wash pricing Charlotte, interior detailing cost, exterior detailing price"
         schema={{
           "@context": "https://schema.org",
@@ -29,12 +29,12 @@ export function MobileDetailingCostPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $117 for a standard exterior detail (sedan) to $603+ for an elite full inside & out detail (van). ProWorx offers Standard, Premium, and Elite tiers. Standard Inside & Out starts at $233, Premium at $372, and Elite at $464 for sedans. Pricing varies by vehicle size." }},
-                { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $163 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Premium Interior starts at $271 and adds leather conditioning, steam cleaning, and UV protection." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $103 for a standard exterior detail (sedan) to $577+ for an elite full inside & out detail (van). ProWorx offers Standard, Premium, and Elite tiers. Standard Inside & Out starts at $206, Premium at $288, and Elite at $453 for sedans. Pricing varies by vehicle size." }},
+                { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $144 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Premium Interior starts at $227 and adds leather conditioning, steam cleaning, and UV protection." }},
                 { "@type": "Question", "name": "Is mobile detailing more expensive than going to a shop?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Mobile detailing saves you the time and hassle of driving to a shop and waiting. ProWorx brings professional-grade equipment and products directly to your location. Our pricing is competitive with Charlotte-area detail shops, plus you get the convenience of service at your home or office." }},
                 { "@type": "Question", "name": "Do I need to tip my mobile detailer?", "acceptedAnswer": { "@type": "Answer", "text": "Tipping is not required but always appreciated. If you're happy with the service, 15-20% is a common tip for auto detailing services. You can also leave a Google review — that helps us just as much!" }},
                 { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard, Premium, or Elite. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction ($100), ceramic wax, or pet hair removal." }},
-                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $233 (sedan), $279 (small SUV/truck), $325 (large SUV/truck), and $372 (van). This reflects the additional time and materials needed for larger vehicles." }}
+                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $206 (sedan), $247 (small SUV/truck), $288 (large SUV/truck), and $330 (van). This reflects the additional time and materials needed for larger vehicles." }}
               ]
             }
           ]
@@ -55,7 +55,7 @@ export function MobileDetailingCostPage() {
               Cost?
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $117 for exterior and $163 for interior.
+              Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $103 for exterior and $144 for interior.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -80,10 +80,10 @@ export function MobileDetailingCostPage() {
           </div>
           <div className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { label: "Exterior Detail", from: "$117", time: "1 hr 15 min", tier: "Standard" },
-              { label: "Interior Detail", from: "$163", time: "1 hr 45 min", tier: "Standard" },
-              { label: "Full Inside & Out", from: "$233", time: "2 hr 30 min", tier: "Standard" },
-              { label: "Premium Full Detail", from: "$372", time: "4 hrs", tier: "Premium" },
+              { label: "Exterior Detail", from: "$103", time: "1 hr 15 min", tier: "Standard" },
+              { label: "Interior Detail", from: "$144", time: "1 hr 45 min", tier: "Standard" },
+              { label: "Full Inside & Out", from: "$206", time: "2 hr 30 min", tier: "Standard" },
+              { label: "Premium Full Detail", from: "$288", time: "4 hrs", tier: "Premium" },
             ].map((item) => (
               <div key={item.label} className="rounded-2xl bg-card border border-border p-6 text-center hover:border-gold/30 transition-colors">
                 <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-2">{item.tier}</p>
@@ -120,10 +120,10 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$233", premium: "$372", elite: "$464" },
-                        { size: "Small SUV / Small Truck", standard: "$279", premium: "$418", elite: "$511" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$325", premium: "$464", elite: "$557" },
-                        { size: "Van", standard: "$372", premium: "$511", elite: "$603" },
+                        { size: "Sedan", standard: "$206", premium: "$288", elite: "$453" },
+                        { size: "Small SUV / Small Truck", standard: "$247", premium: "$330", elite: "$494" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$288", premium: "$371", elite: "$535" },
+                        { size: "Van", standard: "$330", premium: "$412", elite: "$577" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
@@ -155,10 +155,10 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$163", premium: "$271" },
-                        { size: "Small SUV / Small Truck", standard: "$186", premium: "$302" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$233", premium: "$348" },
-                        { size: "Van", standard: "$279", premium: "$395" },
+                        { size: "Sedan", standard: "$144", premium: "$227" },
+                        { size: "Small SUV / Small Truck", standard: "$165", premium: "$247" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$206", premium: "$288" },
+                        { size: "Van", standard: "$247", premium: "$330" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
@@ -190,10 +190,10 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$117", premium: "$225", elite: "$256" },
-                        { size: "Small SUV / Small Truck", standard: "$140", premium: "$248", elite: "$279" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$163", premium: "$279", elite: "$310" },
-                        { size: "Van", standard: "$186", premium: "$302", elite: "$333" },
+                        { size: "Sedan", standard: "$103", premium: "$206", elite: "$268" },
+                        { size: "Small SUV / Small Truck", standard: "$124", premium: "$227", elite: "$288" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$144", premium: "$247", elite: "$309" },
+                        { size: "Van", standard: "$165", premium: "$268", elite: "$330" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
