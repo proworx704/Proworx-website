@@ -1,7 +1,6 @@
 import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
-import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
 /* ── helpers ─────────────────────────────────────────────────────────── */
