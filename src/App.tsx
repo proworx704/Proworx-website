@@ -22,6 +22,7 @@ import { BlogPostPage } from "./pages/BlogPostPage";
 import { WaxhawPage } from "./pages/WaxhawPage";
 import { CeramicCoatingCharlottePage } from "./pages/CeramicCoatingCharlottePage";
 import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
+import { MenuPage } from "./pages/MenuPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -59,6 +60,7 @@ function App() {
           <Route path="/waxhaw" element={<SiteLayout><WaxhawPage /></SiteLayout>} />
           <Route path="/ceramic-coating-charlotte-nc" element={<SiteLayout><CeramicCoatingCharlottePage /></SiteLayout>} />
           <Route path="/mobile-detailing-cost" element={<SiteLayout><MobileDetailingCostPage /></SiteLayout>} />
+          <Route path="/menu" element={<SiteLayout><MenuPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
