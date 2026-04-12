@@ -134,7 +134,10 @@ export function MenuPage() {
   // Other widgets
   const bookMain = bookStdIO; // fallback for "Build Your Package" CTAs
   const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || `${SQ}/14i1e4shwem0qb${LOC}`;
-  const bookCeramic = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
+  const ceramicFallback = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
+  const bookCeramic1yr = config.ceramicDeposit1yr || ceramicFallback;
+  const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
+  const bookCeramic10yr = config.ceramicDeposit10yr || ceramicFallback;
   const subExterior = config["subscribeUrl:membership-exterior"] || "https://square.link/u/CP1LxyXc";
   const subInterior = config["subscribeUrl:membership-interior"] || "https://square.link/u/ZIRVEmaf";
   const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
@@ -569,6 +572,7 @@ export function MenuPage() {
                 protection: "1-Year",
                 price: "$499",
                 deposit: "~$150",
+                depositUrl: bookCeramic1yr,
                 features: [
                   "Prep wash & decontamination",
                   "Light prep polish",
@@ -582,6 +586,7 @@ export function MenuPage() {
                 protection: "3-Year",
                 price: "$899",
                 deposit: "~$270",
+                depositUrl: bookCeramic3yr,
                 popular: true,
                 features: [
                   "Prep wash & decontamination",
@@ -596,6 +601,7 @@ export function MenuPage() {
                 protection: "10-Year",
                 price: "$1,599",
                 deposit: "~$480",
+                depositUrl: bookCeramic10yr,
                 features: [
                   "Prep wash & decontamination",
                   "Light prep polish",
@@ -626,7 +632,7 @@ export function MenuPage() {
                     </li>
                   ))}
                 </ul>
-                <BookBtn href={bookCeramic}>Reserve with 30% Down <ArrowRight className="size-4" /></BookBtn>
+                <BookBtn href={pkg.depositUrl}>Reserve with 30% Down <ArrowRight className="size-4" /></BookBtn>
               </div>
             ))}
           </div>
