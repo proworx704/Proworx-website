@@ -111,9 +111,29 @@ function TierCard({
 export function MenuPage() {
   const { config } = useSiteConfig();
 
-  /* Booking URLs — same sources as the main site */
-  const bookMain = config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || "https://book.squareup.com/appointments/3462dsfn0cvfuh/location/9VRKFJAZZM3HG/services";
-  const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || "https://book.squareup.com/appointments/14i1e4shwem0qb/location/9VRKFJAZZM3HG/services";
+  /* Booking URLs — each tier links to its own Square booking widget */
+  const SQ = "https://book.squareup.com/appointments";
+  const LOC = "/location/9VRKFJAZZM3HG/services";
+
+  // Inside & Out widgets
+  const bookStdIO    = config["widgetUrl:homepage-cta"] || `${SQ}/3462dsfn0cvfuh${LOC}`;
+  const bookPremIOInt = `${SQ}/3rqy3ybteuq0h5${LOC}`;
+  const bookPremIOExt = `${SQ}/4shmxw5hsatfu3${LOC}`;
+  const bookEliteIO   = `${SQ}/m7bilxz8z549j1${LOC}`;
+
+  // Interior Only widgets
+  const bookStdInt   = `${SQ}/3s57oeuq7958xd${LOC}`;
+  const bookPremInt  = `${SQ}/hacox5veazvkdw${LOC}`;
+  const bookEliteInt = `${SQ}/vm4n9e5q56f6vl${LOC}`;
+
+  // Exterior Only widgets
+  const bookStdExt   = `${SQ}/hayrfl98qvan4m${LOC}`;
+  const bookPremExt  = `${SQ}/g96s66gqbeinpo${LOC}`;
+  const bookEliteExt = `${SQ}/ve9f9u6kfgnpaw${LOC}`;
+
+  // Other widgets
+  const bookMain = bookStdIO; // fallback for "Build Your Package" CTAs
+  const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || `${SQ}/14i1e4shwem0qb${LOC}`;
   const bookCeramic = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
   const subExterior = config["subscribeUrl:membership-exterior"] || "https://square.link/u/CP1LxyXc";
   const subInterior = config["subscribeUrl:membership-interior"] || "https://square.link/u/ZIRVEmaf";
@@ -217,7 +237,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "3h 30m", price: "$247" },
                 { label: "Van", duration: "4h", price: "$288" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookStdIO}
             />
             <TierCard
               name="Premium I&O — Interior Focus"
@@ -237,7 +257,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "4h 30m", price: "$378" },
                 { label: "Van", duration: "5h", price: "$419" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookPremIOInt}
             />
             <TierCard
               name="Premium I&O — Exterior Focus"
@@ -256,7 +276,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "4h 30m", price: "$517" },
                 { label: "Van", duration: "5h", price: "$558" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookPremIOExt}
             />
             <TierCard
               name="Elite Inside & Out — Ceramic"
@@ -276,7 +296,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "6h 30m", price: "$740" },
                 { label: "Van", duration: "7h", price: "$781" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookEliteIO}
             />
           </div>
           <p className="text-[10px] text-muted-foreground/60 mt-3">Pet Hair Fee: Additional time charged at base rate. Condition surcharge may apply for neglected vehicles.</p>
@@ -309,7 +329,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "2h 30m", price: "$165" },
                 { label: "Van", duration: "3h", price: "$206" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookStdInt}
             />
             <TierCard
               name="Premium Interior"
@@ -329,7 +349,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "3h 45m", price: "$296" },
                 { label: "Van", duration: "4h 15m", price: "$337" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookPremInt}
             />
             <TierCard
               name="Elite Interior — Ceramic"
@@ -349,7 +369,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "4h 15m", price: "$352" },
                 { label: "Van", duration: "4h 45m", price: "$393" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookEliteInt}
             />
           </div>
         </Section>
@@ -380,7 +400,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "1h 45m", price: "$144" },
                 { label: "Van", duration: "2h", price: "$165" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookStdExt}
             />
             <TierCard
               name="Premium Exterior"
@@ -400,7 +420,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "3h", price: "$414" },
                 { label: "Van", duration: "3h 15m", price: "$435" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookPremExt}
             />
             <TierCard
               name="Elite Exterior — Ceramic"
@@ -419,7 +439,7 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "3h 20m", price: "$450" },
                 { label: "Van", duration: "3h 35m", price: "$471" },
               ]}
-              bookHref={bookMain}
+              bookHref={bookEliteExt}
             />
           </div>
         </Section>
