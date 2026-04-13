@@ -22,36 +22,36 @@ import { PageSEO } from "@/components/PageSEO";
 
 const SERVICES = [
   {
-    icon: <Car className="size-6" />,
-    title: "Full Detail Packages",
-    description: "Interior and exterior detailing tailored to your vehicle. From basic maintenance washes to comprehensive full details.",
-    href: "/services",
-    image: "/images/ferrari-van.jpg",
-    slot: "card-full-detail",
-    imageAlt: "ProWorx van on-site with Ferrari during full detail service",
-  },
-  {
-    icon: <Sparkles className="size-6" />,
-    title: "Paint Correction",
-    description: "Remove swirl marks, scratches, and oxidation. Restore your vehicle's paint to a flawless, showroom finish.",
-    href: "/paint-correction",
-    image: "/images/corvette-rear.jpg",
-    slot: "card-paint",
-    imageAlt: "Corvette rear showing mirror finish after paint correction by ProWorx",
-  },
-  {
     icon: <Shield className="size-6" />,
     title: "Ceramic Coating",
-    description: "Gyeon & IGL certified ceramic coating installation. Years of protection with a brilliant, hydrophobic finish.",
+    description: "GYEON & IGL certified ceramic coating installation. Professional-grade 1-year to 10-year protection with a brilliant, hydrophobic finish.",
     href: "/ceramic-coating",
     image: "/images/escalade-rear.jpg",
     slot: "card-ceramic",
     imageAlt: "Cadillac Escalade with ceramic coating showing deep gloss and reflections",
   },
   {
+    icon: <Sparkles className="size-6" />,
+    title: "Paint Correction",
+    description: "Remove swirl marks, scratches, and oxidation. Multi-stage correction to restore your vehicle's paint to a flawless, showroom finish.",
+    href: "/paint-correction",
+    image: "/images/corvette-rear.jpg",
+    slot: "card-paint",
+    imageAlt: "Corvette rear showing mirror finish after paint correction by ProWorx",
+  },
+  {
+    icon: <Car className="size-6" />,
+    title: "Full Detail Packages",
+    description: "Interior and exterior detailing tailored to your vehicle. From standard maintenance to elite full details.",
+    href: "/services",
+    image: "/images/ferrari-van.jpg",
+    slot: "card-full-detail",
+    imageAlt: "ProWorx van on-site with Ferrari during full detail service",
+  },
+  {
     icon: <Droplets className="size-6" />,
     title: "Maintenance Plans",
-    description: "Keep your vehicle looking its best year-round with our monthly detailing membership program.",
+    description: "Keep your vehicle looking its best year-round with our biweekly, monthly, or quarterly detailing membership program.",
     href: "/services#memberships",
     image: "/images/rangerover-front.jpg",
     slot: "card-exterior",
@@ -125,9 +125,9 @@ export function HomePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="ProWorx Detailing | Mobile Auto Detailing Charlotte NC"
-        description="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. 5-star rated. Gyeon & IGL certified. We come to you! (980) 272-1903"
-        keywords="mobile detailing Charlotte NC, paint correction Charlotte, ceramic coating Charlotte NC, auto detailing Waxhaw NC, car detailing near me, mobile car wash Charlotte"
+        title="ProWorx Detailing | Ceramic Coating & Paint Protection Charlotte NC"
+        description="Charlotte's GYEON & IGL certified ceramic coating specialists. Professional paint correction, ceramic coating packages from 1-year to 10-year protection, and premium detailing. 5-star rated. (980) 272-1903"
+        keywords="ceramic coating Charlotte NC, paint correction Charlotte NC, ceramic coating near me, GYEON certified installer Charlotte, auto detailing Charlotte NC, paint protection Charlotte, mobile detailing Charlotte"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -154,23 +154,23 @@ export function HomePage() {
         <div className="container py-20 md:py-28">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6 backdrop-blur-sm">
-              <Star className="size-3.5 fill-gold" />
-              5.0 Stars — 52 Google Reviews
+              <Shield className="size-3.5" />
+              GYEON & IGL Certified — 5.0 Stars (52 Reviews)
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6">
-              Premium Mobile{" "}
-              <span className="text-gradient-gold">Auto Detailing</span>{" "}
-              <span className="text-muted-foreground">&amp;</span>{" "}
+              Charlotte's Certified{" "}
               <span className="text-gradient-gold">Ceramic Coating</span>{" "}
+              <span className="text-muted-foreground">&amp;</span>{" "}
+              <span className="text-gradient-gold">Paint Protection</span>{" "}
               <br className="hidden md:block" />
-              in Charlotte, NC
+              Specialists
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Charlotte's trusted mobile detailing experts. Gyeon &amp; IGL certified.
-              We bring the detail shop to you — 12+ years of experience
-              and over 50 five-star reviews.
+              GYEON &amp; IGL certified ceramic coating installers with 12+ years of experience.
+              Professional paint correction, 1 to 10-year ceramic protection packages,
+              and premium detailing — mobile or drop-off. 50+ five-star reviews.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -185,7 +185,7 @@ export function HomePage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["We Come to You", "Gyeon & IGL Certified", "Eco-Friendly Products", "12+ Years Experience"].map((item) => (
+              {["1–10 Year Ceramic Protection", "GYEON & IGL Certified", "Mobile & Drop-Off", "12+ Years Experience"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
                 </div>
@@ -212,12 +212,12 @@ export function HomePage() {
             </div>
             <div>
               <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">About ProWorx</p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Unparalleled Excellence in Auto Detailing</h2>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Charlotte's Ceramic Coating &amp; Paint Protection Experts</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Welcome to ProWorx Detailing — your premier choice for auto detailing excellence in Charlotte, NC! We take pride in providing top-notch automotive care, specializing in a range of services tailored to meet your vehicle's unique needs.
+                ProWorx Detailing is Charlotte's trusted GYEON &amp; IGL certified ceramic coating specialist. We deliver professional-grade paint protection with packages ranging from 1-year to 10-year ceramic coatings, precision multi-stage paint correction, and premium full detailing services.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                We provide meticulous mobile detailing, advanced paint correction, and flawless installation of premium ceramic coatings such as Gyeon and IGL. As certified installers, we ensure your vehicle receives the best protection and lasting shine.
+                Whether you're protecting a brand-new vehicle or restoring one that's lost its luster, our certified installers ensure flawless results every time. We offer both convenient mobile service and drop-off options across the Charlotte metro area.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -242,9 +242,9 @@ export function HomePage() {
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Our Services</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Professional Detailing Services</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Ceramic Coating, Paint Correction &amp; Detailing</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              From maintenance washes to full ceramic coating installations — we offer a complete range of detailing services for every vehicle.
+              From certified ceramic coating installation to precision paint correction and full details — complete automotive protection for every vehicle.
             </p>
           </div>
 
@@ -374,12 +374,12 @@ export function HomePage() {
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Why ProWorx</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Charlotte's Trusted Detailing Experts</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Charlotte's Certified Ceramic Coating Specialists</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
             {[
-              { icon: <Truck className="size-8" />, label: "Mobile Service", sub: "We Come to You" },
-              { icon: <Award className="size-8" />, label: "Certified", sub: "Gyeon & IGL" },
+              { icon: <Shield className="size-8" />, label: "Certified Installers", sub: "GYEON & IGL" },
+              { icon: <Truck className="size-8" />, label: "Mobile & Drop-Off", sub: "We Come to You" },
               { icon: <Clock className="size-8" />, label: "12+ Years", sub: "Experience" },
               { icon: <Star className="size-8" />, label: "5.0 Stars", sub: "52 Google Reviews" },
             ].map((item) => (
@@ -455,10 +455,10 @@ export function HomePage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-5">
-              Ready for a <span className="text-gradient-gold">Showroom Finish</span>?
+              Ready to <span className="text-gradient-gold">Protect Your Investment</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Book your mobile detail today and experience the ProWorx difference. We come to you, wherever you are in the Charlotte area.
+              Get a free ceramic coating consultation or book your detail today. Professional paint protection and detailing — mobile or drop-off across Charlotte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
