@@ -25,7 +25,13 @@ import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
 import { MenuPage } from "./pages/MenuPage";
 import { CeramicCoatingVsWaxPage } from "./pages/CeramicCoatingVsWaxPage";
 import { GyeonCertifiedCharlottePage } from "./pages/GyeonCertifiedCharlottePage";
-import { CeramicCoatingMatthewsPage } from "./pages/CeramicCoatingMatthewsPage";
+import { CeramicCoatingBallantynePage } from "./pages/CeramicCoatingBallantynePage";
+import { CeramicCoatingWeddingtonPage } from "./pages/CeramicCoatingWeddingtonPage";
+import { CeramicCoatingMarvinPage } from "./pages/CeramicCoatingMarvinPage";
+import { CeramicCoatingMyersParkPage } from "./pages/CeramicCoatingMyersParkPage";
+import { CeramicCoatingSouthParkPage } from "./pages/CeramicCoatingSouthParkPage";
+import { CeramicCoatingFortMillPage } from "./pages/CeramicCoatingFortMillPage";
+import { CeramicCoatingTegaCayPage } from "./pages/CeramicCoatingTegaCayPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -66,7 +72,13 @@ function App() {
           <Route path="/menu" element={<SiteLayout><MenuPage /></SiteLayout>} />
           <Route path="/ceramic-coating-vs-wax" element={<SiteLayout><CeramicCoatingVsWaxPage /></SiteLayout>} />
           <Route path="/gyeon-certified-installer-charlotte" element={<SiteLayout><GyeonCertifiedCharlottePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-matthews-nc" element={<SiteLayout><CeramicCoatingMatthewsPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-ballantyne-nc" element={<SiteLayout><CeramicCoatingBallantynePage /></SiteLayout>} />
+          <Route path="/ceramic-coating-weddington-nc" element={<SiteLayout><CeramicCoatingWeddingtonPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-marvin-nc" element={<SiteLayout><CeramicCoatingMarvinPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-myers-park-charlotte" element={<SiteLayout><CeramicCoatingMyersParkPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-southpark-charlotte" element={<SiteLayout><CeramicCoatingSouthParkPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-fort-mill-sc" element={<SiteLayout><CeramicCoatingFortMillPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-tega-cay-sc" element={<SiteLayout><CeramicCoatingTegaCayPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>

@@ -11,23 +11,23 @@ const PACKAGES = [
   { name: "GYEON Q² Flash EVO", protection: "10-Year", price: "From $1,599", configKey: "ceramicDeposit10yr" },
 ];
 
-const NEARBY_AREAS = [
-  { name: "Matthews", distance: "~15 min from our Waxhaw location" },
-  { name: "Indian Trail", distance: "~10 min" },
-  { name: "Mint Hill", distance: "~20 min" },
-  { name: "Stallings", distance: "~12 min" },
-  { name: "Monroe", distance: "~15 min" },
-  { name: "Charlotte (Ballantyne)", distance: "~20 min" },
+const SERVICES = [
+  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1 to 10-year protection packages", link: "/ceramic-coating" },
+  { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches & oxidation", link: "/paint-correction" },
+  { title: "Full Detailing", desc: "Standard, Premium & Elite interior and exterior packages", link: "/services" },
+  { title: "Maintenance Plans", desc: "Biweekly, monthly or quarterly membership plans", link: "/maintenance" },
 ];
 
-const SERVICES_OFFERED = [
-  { title: "Ceramic Coating", desc: "GYEON & IGL certified installation — 1-year to 10-year protection packages", link: "/ceramic-coating" },
-  { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches, and oxidation before coating", link: "/paint-correction" },
-  { title: "Full Detailing", desc: "Standard, Premium, and Elite interior & exterior detail packages", link: "/services" },
-  { title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly membership to keep your vehicle looking perfect", link: "/maintenance" },
+const NEARBY = [
+  { name: "Fort Mill, SC", distance: "~20 min" },
+  { name: "Tega Cay, SC", distance: "~25 min" },
+  { name: "Waxhaw", distance: "Home base" },
+  { name: "Marvin", distance: "~5 min" },
+  { name: "Ballantyne", distance: "~20 min" },
+  { name: "Rock Hill, SC", distance: "~30 min" },
 ];
 
-export function CeramicCoatingMatthewsPage() {
+export function CeramicCoatingFortMillPage() {
   const { config } = useSiteConfig();
 
   const getDepositUrl = (configKey: string) => {
@@ -38,9 +38,9 @@ export function CeramicCoatingMatthewsPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Matthews NC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Matthews, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
-        keywords="ceramic coating Matthews NC, auto detailing Matthews NC, paint correction Matthews NC, ceramic coating near Matthews, car detailing Matthews North Carolina, GYEON ceramic coating Matthews, mobile detailing Matthews NC"
+        title="Ceramic Coating Fort Mill SC | GYEON Certified | ProWorx Detailing"
+        description="Professional ceramic coating in Fort Mill, SC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        keywords="ceramic coating Fort Mill SC, auto detailing Fort Mill SC, paint correction Fort Mill South Carolina, car detailing Fort Mill, ceramic coating near Fort Mill, GYEON ceramic coating Fort Mill, mobile detailing Fort Mill SC, ceramic coating York County SC"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -49,41 +49,26 @@ export function CeramicCoatingMatthewsPage() {
               "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
                 { "@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://www.proworxdetailing.com/ceramic-coating" },
-                { "@type": "ListItem", "position": 3, "name": "Matthews NC", "item": "https://www.proworxdetailing.com/ceramic-coating-matthews-nc" }
+                { "@type": "ListItem", "position": 3, "name": "Fort Mill SC", "item": "https://www.proworxdetailing.com/ceramic-coating-fort-mill-sc" }
               ]
             },
             {
               "@type": "LocalBusiness",
               "name": "ProWorx Detailing",
-              "description": "GYEON & IGL certified ceramic coating and auto detailing serving Matthews, NC. Mobile service and drop-off available.",
-              "url": "https://www.proworxdetailing.com/ceramic-coating-matthews-nc",
+              "description": "GYEON & IGL certified ceramic coating and auto detailing serving Fort Mill, SC. Mobile service and drop-off available.",
+              "url": "https://www.proworxdetailing.com/ceramic-coating-fort-mill-sc",
               "telephone": "+19802721903",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "3008 Collaroy Rd",
-                "addressLocality": "Waxhaw",
-                "addressRegion": "NC",
-                "postalCode": "28173",
-                "addressCountry": "US"
-              },
-              "areaServed": {
-                "@type": "City",
-                "name": "Matthews",
-                "containedInPlace": { "@type": "State", "name": "North Carolina" }
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "5.0",
-                "reviewCount": "52"
-              },
+              "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
+              "areaServed": { "@type": "City", "name": "Fort Mill", "containedInPlace": { "@type": "State", "name": "South Carolina" } },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "52" },
               "priceRange": "$499 - $1,599+"
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Is there a ceramic coating installer near Matthews NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is located in Waxhaw, about 15 minutes from Matthews. We offer both mobile service (we come to your home or office in Matthews) and drop-off at our Waxhaw location. We're GYEON & IGL certified with 52 five-star Google reviews." }},
-                { "@type": "Question", "name": "How much does ceramic coating cost in Matthews NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Matthews starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year protection (Q² Pure EVO), and $1,599 for 10-year protection (Q² Flash EVO). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." }},
-                { "@type": "Question", "name": "Does ProWorx do mobile ceramic coating in Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off options. For ceramic coating, drop-off is recommended for the best results (controlled environment), but we can accommodate mobile installations for certain packages. Call (980) 272-1903 to discuss your best option." }}
+                { "@type": "Question", "name": "Is there a ceramic coating installer near Fort Mill SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is located in Waxhaw, ~20 min from our Waxhaw location. We offer mobile service (we come to your Fort Mill home) and drop-off at our Waxhaw location. GYEON & IGL certified with 52 five-star Google reviews." } },
+                { "@type": "Question", "name": "How much does ceramic coating cost in Fort Mill?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Fort Mill starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), and $1,599 for 10-year (Q² Flash EVO). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." } },
+                { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in Fort Mill?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off. For ceramic coating, drop-off is recommended for best results, but we accommodate mobile installations. Call (980) 272-1903 to discuss options." } }
               ]
             }
           ]
@@ -93,12 +78,7 @@ export function CeramicCoatingMatthewsPage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg
-            slot="matthews-hero"
-            fallback="/images/tesla-bay.jpg"
-            alt="Professional ceramic coating service near Matthews NC by ProWorx Detailing"
-            className="w-full h-full object-cover"
-          />
+          <CmsImg slot="fort-mill-hero" fallback="/images/tesla-bay.jpg" alt="Professional ceramic coating near Fort Mill SC" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
@@ -106,14 +86,14 @@ export function CeramicCoatingMatthewsPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6">
               <MapPin className="size-3.5" />
-              Serving Matthews, NC & Surrounding Areas
+              Serving Fort Mill, SC & Surrounding Areas
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6">
               Ceramic Coating{" "}
-              <span className="text-gradient-gold">Matthews, NC</span>
+              <span className="text-gradient-gold">Fort Mill, SC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Professional ceramic coating and auto detailing for Matthews, NC residents. GYEON &amp; IGL certified installers with 12+ years experience and 52 five-star Google reviews. Mobile service or convenient drop-off — just 15 minutes away.
+              Professional ceramic coating for Fort Mill residents. GYEON &amp; IGL certified installers with 12+ years experience and 52 five-star reviews. Mobile service or convenient drop-off — ~20 min from our Waxhaw location.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -124,7 +104,7 @@ export function CeramicCoatingMatthewsPage() {
               </Button>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (52 Reviews)", "~15 Min from Matthews"].map((item) => (
+              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (52 Reviews)", "~20 min from Fort Mill"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
                 </div>
@@ -134,25 +114,25 @@ export function CeramicCoatingMatthewsPage() {
         </div>
       </section>
 
-      {/* Why Matthews Chooses ProWorx */}
+      {/* Why Section */}
       <section className="py-16 md:py-20">
         <div className="container">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Matthews NC</p>
+              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Fort Mill, SC</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Why Matthews Residents Choose ProWorx
+                Why Fort Mill Residents Choose ProWorx
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Matthews is home to some of Charlotte's most well-maintained vehicles — and their owners know the difference between a cheap ceramic spray and professional-grade protection. That's why they trust ProWorx.
+                Fort Mill is one of the fastest-growing affluent communities in the Charlotte metro — with neighborhoods like Baxter Village, Regent Park, and Springfield drawing professionals and families who bring their luxury vehicles across the state line. South Carolina residents especially benefit from ceramic coating's low-maintenance paint protection.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Located just 15 minutes south in Waxhaw, we offer both mobile ceramic coating service at your Matthews home or office, and drop-off service at our facility with professional lighting and climate control.
+                Fort Mill's booming growth means new vehicles, new homes, and owners who want to protect both. Whether you're in Baxter, Regent Park, or along the 77 corridor, our mobile ceramic coating service brings certified protection right to your Fort Mill driveway.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <Shield className="size-5" />, label: "Certified Installers", sub: "GYEON & IGL" },
-                  { icon: <Truck className="size-5" />, label: "Mobile Service", sub: "We come to Matthews" },
+                  { icon: <Truck className="size-5" />, label: "Mobile Service", sub: "We come to Fort Mill" },
                   { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "52 Google Reviews" },
                   { icon: <Clock className="size-5" />, label: "12+ Years", sub: "Experience" },
                 ].map((item) => (
@@ -166,22 +146,17 @@ export function CeramicCoatingMatthewsPage() {
                 ))}
               </div>
             </div>
-            <CmsImg
-              slot="matthews-about"
-              fallback="/images/porsche-van.jpg"
-              alt="ProWorx mobile detailing van serving Matthews NC customers"
-              className="rounded-2xl w-full aspect-[4/3] object-cover shadow-2xl"
-            />
+            <CmsImg slot="fort-mill-about" fallback="/images/porsche-van.jpg" alt="ProWorx mobile detailing serving Fort Mill SC" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-2xl" />
           </div>
         </div>
       </section>
 
-      {/* Ceramic Coating Packages */}
+      {/* Packages */}
       <section className="py-16 md:py-20 bg-card/50">
         <div className="container">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Packages</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages for Matthews</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages for Fort Mill</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               All packages include prep wash, clay bar decontamination, and light prep polish. 30% deposit to book.
             </p>
@@ -218,10 +193,10 @@ export function CeramicCoatingMatthewsPage() {
       <section className="py-16 md:py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">All Services Available in Matthews</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">All Services Available in Fort Mill</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-            {SERVICES_OFFERED.map((svc, i) => (
+            {SERVICES.map((svc, i) => (
               <Link key={i} to={svc.link} className="group rounded-2xl bg-card border border-border p-6 hover:border-gold/30 transition-colors">
                 <h3 className="font-bold text-lg mb-2 group-hover:text-gold transition-colors">{svc.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{svc.desc}</p>
@@ -238,13 +213,13 @@ export function CeramicCoatingMatthewsPage() {
       <section className="py-16 md:py-20 bg-card/50">
         <div className="container">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Service Areas Near Matthews</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Service Areas Near Fort Mill</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              We serve Matthews and the entire southeast Charlotte metro area.
+              We serve Fort Mill and the entire South Charlotte metro area.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-8">
-            {NEARBY_AREAS.map((area) => (
+            {NEARBY.map((area) => (
               <div key={area.name} className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-sm">
                 <MapPin className="size-3.5 text-gold" />
                 <span className="font-medium">{area.name}</span>
@@ -260,15 +235,37 @@ export function CeramicCoatingMatthewsPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* FAQ (visible) */}
       <section className="py-16 md:py-20">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3 text-center">FAQ</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions — Fort Mill</h2>
+            <div className="space-y-6">
+              {[
+                { q: "Do you offer ceramic coating in Fort Mill?", a: "Yes! ProWorx Detailing serves Fort Mill with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~20 min from our Waxhaw location. We're GYEON & IGL certified with 52 five-star Google reviews." },
+                { q: "How much does ceramic coating cost in Fort Mill?", a: "Professional ceramic coating in Fort Mill starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year protection (Q² Pure EVO), and $1,599 for 10-year protection (Q² Flash EVO). Pricing varies by vehicle size. We require a 30% deposit to book." },
+                { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough prep wash, clay bar decontamination, iron decontamination, and a light prep polish before coating application. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
+              ].map((item, i) => (
+                <div key={i} className="rounded-xl bg-card border border-border p-6">
+                  <h3 className="font-bold text-lg mb-2">{item.q}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 md:py-20 bg-card/50">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Ready to <span className="text-gradient-gold">Protect Your Vehicle</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Book a ceramic coating consultation with Charlotte's certified specialists. Mobile service to your Matthews home or drop-off at our Waxhaw facility.
+              Book a ceramic coating consultation with Charlotte's certified specialists. Mobile service to your Fort Mill home or drop-off at our Waxhaw facility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
