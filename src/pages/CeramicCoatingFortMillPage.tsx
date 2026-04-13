@@ -38,8 +38,8 @@ export function CeramicCoatingFortMillPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Fort Mill SC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Fort Mill, SC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Fort Mill SC"
+        description="Ceramic coating in Fort Mill, SC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Fort Mill SC, auto detailing Fort Mill SC, paint correction Fort Mill South Carolina, car detailing Fort Mill, ceramic coating near Fort Mill, GYEON ceramic coating Fort Mill, mobile detailing Fort Mill SC, ceramic coating York County SC"
         schema={{
           "@context": "https://schema.org",

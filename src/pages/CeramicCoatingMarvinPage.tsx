@@ -38,8 +38,8 @@ export function CeramicCoatingMarvinPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Marvin NC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Marvin, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Marvin NC"
+        description="Ceramic coating in Marvin, NC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Marvin NC, auto detailing Marvin NC, paint correction Marvin, car detailing Marvin NC, luxury car detailing Marvin, GYEON ceramic coating Marvin, mobile detailing Marvin NC, ceramic coating near Marvin"
         schema={{
           "@context": "https://schema.org",

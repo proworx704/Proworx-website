@@ -61,8 +61,8 @@ export function GyeonCertifiedCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="GYEON Certified Installer Charlotte NC | ProWorx Detailing"
-        description="ProWorx is Charlotte's GYEON & IGL certified ceramic coating installer. Factory-trained, genuine products, manufacturer warranty up to 10 years. Book your coating today."
+        title="GYEON Certified Installer Charlotte NC"
+        description="Charlotte's GYEON & IGL certified ceramic coating installer. Factory-trained, genuine products, warranty up to 10 years."
         keywords="GYEON certified installer Charlotte, GYEON ceramic coating Charlotte NC, certified ceramic coating installer near me, IGL certified installer Charlotte, GYEON Q2 Pure EVO, GYEON Q2 Flash EVO, professional ceramic coating Charlotte"
         schema={{
           "@context": "https://schema.org",

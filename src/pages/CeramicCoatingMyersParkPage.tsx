@@ -38,8 +38,8 @@ export function CeramicCoatingMyersParkPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Myers Park Charlotte | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Myers Park, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Myers Park Charlotte"
+        description="Ceramic coating in Myers Park, Charlotte by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Myers Park Charlotte, auto detailing Myers Park, paint correction Myers Park Charlotte NC, car detailing Myers Park, luxury car detailing Charlotte NC, GYEON ceramic coating Myers Park, exotic car detailing Charlotte, ceramic coating uptown Charlotte"
         schema={{
           "@context": "https://schema.org",

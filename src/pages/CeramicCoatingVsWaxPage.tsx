@@ -42,8 +42,8 @@ export function CeramicCoatingVsWaxPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating vs Wax: Which Is Better for Your Car? | ProWorx Detailing"
-        description="Ceramic coating vs wax — which protects your car better? Compare longevity, cost, scratch resistance, and more. Charlotte's GYEON certified experts explain."
+        title="Ceramic Coating vs Wax: Which Is Better?"
+        description="Ceramic coating vs wax — compare longevity, cost, scratch resistance & more. Charlotte's GYEON certified experts break it down."
         keywords="ceramic coating vs wax, ceramic coating or wax, is ceramic coating worth it, ceramic coating vs wax vs sealant, ceramic coating benefits, wax vs ceramic coating car, paint protection comparison"
         schema={{
           "@context": "https://schema.org",

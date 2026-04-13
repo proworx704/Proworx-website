@@ -38,8 +38,8 @@ export function CeramicCoatingWeddingtonPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Weddington NC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Weddington, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Weddington NC"
+        description="Ceramic coating in Weddington, NC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Weddington NC, auto detailing Weddington, paint correction Weddington NC, car detailing Weddington, luxury car detailing Weddington, GYEON ceramic coating Weddington, mobile detailing Weddington NC, ceramic coating near Weddington"
         schema={{
           "@context": "https://schema.org",

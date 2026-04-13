@@ -38,8 +38,8 @@ export function CeramicCoatingTegaCayPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Tega Cay SC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Tega Cay, SC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Tega Cay SC"
+        description="Ceramic coating in Tega Cay, SC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Tega Cay SC, auto detailing Tega Cay, paint correction Tega Cay SC, car detailing Tega Cay South Carolina, ceramic coating Lake Wylie, GYEON ceramic coating Tega Cay, mobile detailing Tega Cay SC, boat ceramic coating Tega Cay"
         schema={{
           "@context": "https://schema.org",

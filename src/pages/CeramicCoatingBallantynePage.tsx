@@ -38,8 +38,8 @@ export function CeramicCoatingBallantynePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Ballantyne NC | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in Ballantyne, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating Ballantyne NC"
+        description="Ceramic coating in Ballantyne, NC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating Ballantyne NC, auto detailing Ballantyne, paint correction Ballantyne Charlotte, car detailing Ballantyne NC, ceramic coating south Charlotte, GYEON ceramic coating Ballantyne, mobile detailing Ballantyne NC, luxury car detailing Ballantyne"
         schema={{
           "@context": "https://schema.org",

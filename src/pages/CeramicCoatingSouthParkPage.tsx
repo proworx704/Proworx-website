@@ -38,8 +38,8 @@ export function CeramicCoatingSouthParkPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating SouthPark Charlotte | GYEON Certified | ProWorx Detailing"
-        description="Professional ceramic coating in SouthPark, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        title="Ceramic Coating SouthPark Charlotte"
+        description="Ceramic coating in SouthPark, Charlotte by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating SouthPark Charlotte, auto detailing SouthPark Charlotte NC, paint correction SouthPark, car detailing SouthPark Charlotte, luxury car detailing SouthPark, GYEON ceramic coating SouthPark, mobile detailing SouthPark Charlotte, ceramic coating near SouthPark"
         schema={{
           "@context": "https://schema.org",
