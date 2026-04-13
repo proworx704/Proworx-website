@@ -23,6 +23,9 @@ import { WaxhawPage } from "./pages/WaxhawPage";
 import { CeramicCoatingCharlottePage } from "./pages/CeramicCoatingCharlottePage";
 import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
 import { MenuPage } from "./pages/MenuPage";
+import { CeramicCoatingVsWaxPage } from "./pages/CeramicCoatingVsWaxPage";
+import { GyeonCertifiedCharlottePage } from "./pages/GyeonCertifiedCharlottePage";
+import { CeramicCoatingMatthewsPage } from "./pages/CeramicCoatingMatthewsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -61,6 +64,9 @@ function App() {
           <Route path="/ceramic-coating-charlotte-nc" element={<SiteLayout><CeramicCoatingCharlottePage /></SiteLayout>} />
           <Route path="/mobile-detailing-cost" element={<SiteLayout><MobileDetailingCostPage /></SiteLayout>} />
           <Route path="/menu" element={<SiteLayout><MenuPage /></SiteLayout>} />
+          <Route path="/ceramic-coating-vs-wax" element={<SiteLayout><CeramicCoatingVsWaxPage /></SiteLayout>} />
+          <Route path="/gyeon-certified-installer-charlotte" element={<SiteLayout><GyeonCertifiedCharlottePage /></SiteLayout>} />
+          <Route path="/ceramic-coating-matthews-nc" element={<SiteLayout><CeramicCoatingMatthewsPage /></SiteLayout>} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>

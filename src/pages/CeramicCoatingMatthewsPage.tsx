@@ -1,0 +1,286 @@
+import { ArrowRight, CheckCircle2, Clock, MapPin, Phone, Shield, Star, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
+import { PageSEO } from "@/components/PageSEO";
+import { Button } from "@/components/ui/button";
+import { CmsImg } from "@/components/CmsImg";
+import { useSiteConfig } from "@/hooks/useCms";
+
+const PACKAGES = [
+  { name: "GYEON Q² One EVO", protection: "1-Year", price: "From $499", configKey: "ceramicDeposit1yr" },
+  { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "From $899", popular: true, configKey: "ceramicDeposit3yr" },
+  { name: "GYEON Q² Flash EVO", protection: "10-Year", price: "From $1,599", configKey: "ceramicDeposit10yr" },
+];
+
+const NEARBY_AREAS = [
+  { name: "Matthews", distance: "~15 min from our Waxhaw location" },
+  { name: "Indian Trail", distance: "~10 min" },
+  { name: "Mint Hill", distance: "~20 min" },
+  { name: "Stallings", distance: "~12 min" },
+  { name: "Monroe", distance: "~15 min" },
+  { name: "Charlotte (Ballantyne)", distance: "~20 min" },
+];
+
+const SERVICES_OFFERED = [
+  { title: "Ceramic Coating", desc: "GYEON & IGL certified installation — 1-year to 10-year protection packages", link: "/ceramic-coating" },
+  { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches, and oxidation before coating", link: "/paint-correction" },
+  { title: "Full Detailing", desc: "Standard, Premium, and Elite interior & exterior detail packages", link: "/services" },
+  { title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly membership to keep your vehicle looking perfect", link: "/maintenance" },
+];
+
+export function CeramicCoatingMatthewsPage() {
+  const { config } = useSiteConfig();
+
+  const getDepositUrl = (configKey: string) => {
+    const url = config[configKey];
+    return url || config.ceramicDepositUrl;
+  };
+
+  return (
+    <div className="flex-1 flex flex-col">
+      <PageSEO
+        title="Ceramic Coating Matthews NC | GYEON Certified | ProWorx Detailing"
+        description="Professional ceramic coating in Matthews, NC by GYEON & IGL certified installers. Mobile service or drop-off. 1-year to 10-year protection from $499. 5-star rated. Call (980) 272-1903."
+        keywords="ceramic coating Matthews NC, auto detailing Matthews NC, paint correction Matthews NC, ceramic coating near Matthews, car detailing Matthews North Carolina, GYEON ceramic coating Matthews, mobile detailing Matthews NC"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.proworxdetailing.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Ceramic Coating", "item": "https://www.proworxdetailing.com/ceramic-coating" },
+                { "@type": "ListItem", "position": 3, "name": "Matthews NC", "item": "https://www.proworxdetailing.com/ceramic-coating-matthews-nc" }
+              ]
+            },
+            {
+              "@type": "LocalBusiness",
+              "name": "ProWorx Detailing",
+              "description": "GYEON & IGL certified ceramic coating and auto detailing serving Matthews, NC. Mobile service and drop-off available.",
+              "url": "https://www.proworxdetailing.com/ceramic-coating-matthews-nc",
+              "telephone": "+19802721903",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3008 Collaroy Rd",
+                "addressLocality": "Waxhaw",
+                "addressRegion": "NC",
+                "postalCode": "28173",
+                "addressCountry": "US"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Matthews",
+                "containedInPlace": { "@type": "State", "name": "North Carolina" }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "52"
+              },
+              "priceRange": "$499 - $1,599+"
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                { "@type": "Question", "name": "Is there a ceramic coating installer near Matthews NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is located in Waxhaw, about 15 minutes from Matthews. We offer both mobile service (we come to your home or office in Matthews) and drop-off at our Waxhaw location. We're GYEON & IGL certified with 52 five-star Google reviews." }},
+                { "@type": "Question", "name": "How much does ceramic coating cost in Matthews NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Matthews starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year protection (Q² Pure EVO), and $1,599 for 10-year protection (Q² Flash EVO). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." }},
+                { "@type": "Question", "name": "Does ProWorx do mobile ceramic coating in Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off options. For ceramic coating, drop-off is recommended for the best results (controlled environment), but we can accommodate mobile installations for certain packages. Call (980) 272-1903 to discuss your best option." }}
+              ]
+            }
+          ]
+        }}
+      />
+
+      {/* Hero */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <CmsImg
+            slot="matthews-hero"
+            fallback="/images/tesla-bay.jpg"
+            alt="Professional ceramic coating service near Matthews NC by ProWorx Detailing"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
+        <div className="container">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6">
+              <MapPin className="size-3.5" />
+              Serving Matthews, NC & Surrounding Areas
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6">
+              Ceramic Coating{" "}
+              <span className="text-gradient-gold">Matthews, NC</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
+              Professional ceramic coating and auto detailing for Matthews, NC residents. GYEON &amp; IGL certified installers with 12+ years experience and 52 five-star Google reviews. Mobile service or convenient drop-off — just 15 minutes away.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+                <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-5" /></Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
+                <a href={config.phoneLink}><Phone className="size-5" /> Call {config.phone}</a>
+              </Button>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (52 Reviews)", "~15 Min from Matthews"].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Matthews Chooses ProWorx */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Matthews NC</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Why Matthews Residents Choose ProWorx
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Matthews is home to some of Charlotte's most well-maintained vehicles — and their owners know the difference between a cheap ceramic spray and professional-grade protection. That's why they trust ProWorx.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Located just 15 minutes south in Waxhaw, we offer both mobile ceramic coating service at your Matthews home or office, and drop-off service at our facility with professional lighting and climate control.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: <Shield className="size-5" />, label: "Certified Installers", sub: "GYEON & IGL" },
+                  { icon: <Truck className="size-5" />, label: "Mobile Service", sub: "We come to Matthews" },
+                  { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "52 Google Reviews" },
+                  { icon: <Clock className="size-5" />, label: "12+ Years", sub: "Experience" },
+                ].map((item) => (
+                  <div key={item.label} className="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
+                    <div className="size-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">{item.icon}</div>
+                    <div>
+                      <h3 className="font-bold text-sm">{item.label}</h3>
+                      <p className="text-xs text-muted-foreground">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <CmsImg
+              slot="matthews-about"
+              fallback="/images/porsche-van.jpg"
+              alt="ProWorx mobile detailing van serving Matthews NC customers"
+              className="rounded-2xl w-full aspect-[4/3] object-cover shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Ceramic Coating Packages */}
+      <section className="py-16 md:py-20 bg-card/50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Packages</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages for Matthews</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              All packages include prep wash, clay bar decontamination, and light prep polish. 30% deposit to book.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {PACKAGES.map((pkg, i) => (
+              <div key={i} className={`rounded-2xl p-6 text-center ${pkg.popular ? "bg-gold/5 border-2 border-gold/30 relative" : "bg-card border border-border"}`}>
+                {pkg.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">
+                    Most Popular
+                  </div>
+                )}
+                <Shield className="size-8 text-gold mx-auto mb-3" />
+                <p className="text-sm font-semibold text-gold mb-1">{pkg.protection} Protection</p>
+                <h3 className="text-lg font-bold mb-1">{pkg.name}</h3>
+                <p className="text-2xl font-black text-gold mb-4">{pkg.price}</p>
+                <Button className={`w-full font-bold ${pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
+                  <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
+                    Book Now <ArrowRight className="size-4" />
+                  </a>
+                </Button>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button variant="outline" className="border-gold/30 text-gold hover:bg-gold/10" asChild>
+              <Link to="/ceramic-coating">View Full Package Details <ArrowRight className="size-4" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* All Services */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">All Services Available in Matthews</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            {SERVICES_OFFERED.map((svc, i) => (
+              <Link key={i} to={svc.link} className="group rounded-2xl bg-card border border-border p-6 hover:border-gold/30 transition-colors">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-gold transition-colors">{svc.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{svc.desc}</p>
+                <div className="mt-3 flex items-center gap-1 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  Learn More <ArrowRight className="size-3.5" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nearby Areas */}
+      <section className="py-16 md:py-20 bg-card/50">
+        <div className="container">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Service Areas Near Matthews</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              We serve Matthews and the entire southeast Charlotte metro area.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-8">
+            {NEARBY_AREAS.map((area) => (
+              <div key={area.name} className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-sm">
+                <MapPin className="size-3.5 text-gold" />
+                <span className="font-medium">{area.name}</span>
+                <span className="text-muted-foreground text-xs">({area.distance})</span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button variant="outline" className="border-gold/30 text-gold hover:bg-gold/10" asChild>
+              <Link to="/areas">View All Service Areas <ArrowRight className="size-4" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Ready to <span className="text-gradient-gold">Protect Your Vehicle</span>?
+            </h2>
+            <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
+              Book a ceramic coating consultation with Charlotte's certified specialists. Mobile service to your Matthews home or drop-off at our Waxhaw facility.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+                <Link to="/ceramic-coating">Book Your Coating <ArrowRight className="size-5" /></Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
+                <a href={config.phoneLink}><Phone className="size-5" /> Call {config.phone}</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
