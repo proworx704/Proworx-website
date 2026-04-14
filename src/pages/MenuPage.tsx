@@ -188,13 +188,14 @@ export function MenuPage() {
         <div className="container max-w-3xl">
           <nav className="flex overflow-x-auto gap-1 py-2 scrollbar-hide -mx-2 px-2">
             {NAV.map((n) => (
-              <a
+              <button
                 key={n.id}
-                href={`#${n.id}`}
+                type="button"
+                onClick={() => document.getElementById(n.id)?.scrollIntoView({ behavior: "smooth" })}
                 className="shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors whitespace-nowrap"
               >
                 {n.label}
-              </a>
+              </button>
             ))}
           </nav>
         </div>
