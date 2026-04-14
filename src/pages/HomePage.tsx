@@ -4,6 +4,7 @@ import {
   Award,
   Car,
   CheckCircle2,
+  ChevronDown,
   Clock,
   Droplets,
   MapPin,
@@ -445,6 +446,51 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+
+      {/* ─── FAQ ─── */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Everything you need to know about professional auto detailing and ceramic coating in Charlotte.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-3">
+            {FAQ_ITEMS.map((item, i) => (
+              <details key={i} className="group rounded-2xl bg-card border border-border overflow-hidden">
+                <summary className="flex items-center justify-between cursor-pointer px-6 py-5 text-left font-semibold text-sm md:text-base hover:bg-muted/50 transition-colors [&::-webkit-details-marker]:hidden">
+                  {item.question}
+                  <ChevronDown className="size-5 text-muted-foreground shrink-0 ml-4 transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="px-6 pb-5 text-sm md:text-base text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: item.answer }} />
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* FAQ Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ_ITEMS.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer.replace(/<[^>]*>/g, ""),
+              },
+            })),
+          }),
+        }}
+      />
 
       {/* ─── CTA ─── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
