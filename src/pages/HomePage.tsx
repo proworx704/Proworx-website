@@ -120,6 +120,49 @@ const AREAS = [
   "Pineville", "Ballantyne", "Monroe", "Fort Mill, SC", "Huntersville",
 ];
 
+const FAQ_ITEMS: { question: string; answer: string }[] = [
+  {
+    question: "How much does auto detailing cost in Charlotte NC?",
+    answer: "Professional auto detailing in Charlotte ranges from $150–$400 for a full interior and exterior detail, depending on vehicle size and condition. Paint correction starts at $300–$600 for single-stage, and ceramic coating packages range from $499–$2,499. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size and service level.",
+  },
+  {
+    question: "Is mobile detailing as good as a shop?",
+    answer: "Yes — professional mobile detailers bring the same equipment, products, and expertise to your location. At ProWorx, we\u2019re completely self-contained with our own water supply, power, and professional-grade tools. The main advantage of mobile is convenience: you don\u2019t have to drop off your car or arrange transportation.",
+  },
+  {
+    question: "How long does ceramic coating last?",
+    answer: "Professional ceramic coatings last 1–10+ years depending on the product and maintenance. Entry-level coatings like GYEON Q\u00b2 One EVO offer 1 year of protection, while premium options like GYEON Q\u00b2 Mohs EVO can last up to 10 years. <a href=\"/ceramic-coating\" class=\"text-gold hover:underline\">Learn more about ceramic coating</a>.",
+  },
+  {
+    question: "Is ceramic coating worth it?",
+    answer: "For most vehicle owners, yes. While the upfront cost is higher than wax ($499–$2,499 vs. $30–$80 per application), ceramic coating eliminates monthly waxing, dramatically reduces wash time, protects against UV damage and chemical etching, and preserves resale value. <a href=\"/blog/is-ceramic-coating-worth-it\" class=\"text-gold hover:underline\">Read our full breakdown</a>.",
+  },
+  {
+    question: "What\u2019s the difference between a car wash and a detail?",
+    answer: "A car wash removes surface dirt. A professional detail goes much deeper — decontaminating the paint, deep-cleaning the interior, conditioning leather, polishing surfaces, and applying protective coatings. A full detail typically takes 3–5 hours and includes services you simply can\u2019t get at a drive-through wash.",
+  },
+  {
+    question: "How often should I get my car detailed?",
+    answer: "We recommend a maintenance wash every 2–4 weeks, a full detail every 6 months, and annual paint correction or ceramic coating inspection. Our <a href=\"/maintenance\" class=\"text-gold hover:underline\">monthly maintenance plans</a> starting at $59/month handle the regular care automatically.",
+  },
+  {
+    question: "Do you detail Teslas and electric vehicles?",
+    answer: "Absolutely. We detail all electric vehicles including Tesla, Rivian, BMW iX, and more. EVs have specific care needs — Tesla\u2019s paint is notoriously thin and soft, requiring gentler polishing techniques. <a href=\"/blog/tesla-ev-detailing-guide\" class=\"text-gold hover:underline\">Read our full EV detailing guide</a>.",
+  },
+  {
+    question: "What areas do you serve in Charlotte?",
+    answer: "We serve the entire Charlotte metropolitan area including Waxhaw, Matthews, Mint Hill, Huntersville, Cornelius, Davidson, Mooresville, Fort Mill SC, Tega Cay SC, Indian Trail, Ballantyne, Myers Park, SouthPark, and surrounding communities. <a href=\"/areas\" class=\"text-gold hover:underline\">See all service areas</a>.",
+  },
+  {
+    question: "Can you remove swirl marks and scratches?",
+    answer: "Yes — that\u2019s what <a href=\"/paint-correction\" class=\"text-gold hover:underline\">paint correction</a> is for. Using machine polishing with specialized compounds, we remove swirl marks, light scratches, water spots, and oxidation from your clear coat. The result is a mirror-like, defect-free finish.",
+  },
+  {
+    question: "Do I need to be home during the detail?",
+    answer: "No. Many of our clients leave us a key or simply make sure the vehicle is accessible. We\u2019re fully self-contained — we bring our own water, power, and equipment, so we don\u2019t need access to your home\u2019s utilities.",
+  },
+];
+
 export function HomePage() {
   const { config } = useSiteConfig();
 
