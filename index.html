@@ -18,7 +18,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>ProWorx Detailing | Premium Mobile Auto Detailing Charlotte NC</title>
     <!-- Fallback meta description + canonical for crawlers that don't render JS; per-page overrides via PageSEO.tsx / React Helmet -->
-    <meta name="description" content="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. GYEON & IGL certified. 5-star rated with 53+ reviews. We come to you!" />
+    <meta name="description" content="Premium mobile auto detailing, paint correction & ceramic coating in Charlotte, NC. GYEON & IGL certified. 5-star rated with 55+ reviews. We come to you!" />
     <link rel="canonical" href="https://www.proworxdetailing.com/" />
 
     <!-- Open Graph -->
@@ -70,9 +70,6 @@
       fbq('init', '717926283758981');
       fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=717926283758981&ev=PageView&noscript=1"
-    /></noscript>
 
     <!-- Fonts (loaded async to avoid render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,7 +115,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "53",
+        "reviewCount": "55",
         "bestRating": "5",
         "worstRating": "1"
       },
@@ -221,6 +218,10 @@
     </script>
   </head>
   <body>
+    <!-- Meta Pixel noscript fallback (moved from <head> to fix HTML parse warning) -->
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=717926283758981&ev=PageView&noscript=1"
+    /></noscript>
     <div id="root"></div>
     <noscript>
       <div style="padding:40px;text-align:center;font-family:sans-serif;">
