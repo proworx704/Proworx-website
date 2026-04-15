@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteHeader } from "./components/SiteHeader";
@@ -6,40 +7,55 @@ import { PhotoProvider } from "./components/CmsImg";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Toaster } from "./components/ui/sonner";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
+// Homepage loaded eagerly (landing page — needs fast LCP)
 import { HomePage } from "./pages/HomePage";
-import { ServicesPage } from "./pages/ServicesPage";
-import { PaintCorrectionPage } from "./pages/PaintCorrectionPage";
-import { CeramicCoatingPage } from "./pages/CeramicCoatingPage";
-import { BookingPage } from "./pages/BookingPage";
-import { AreasPage } from "./pages/AreasPage";
-import { ContactPage } from "./pages/ContactPage";
-import { FleetPage } from "./pages/FleetPage";
-import { BoatDetailingPage } from "./pages/BoatDetailingPage";
-import { MaintenancePage } from "./pages/MaintenancePage";
-import { AdminPage } from "./pages/AdminPage";
-import { BlogPage } from "./pages/BlogPage";
-import { BlogPostPage } from "./pages/BlogPostPage";
-import { WaxhawPage } from "./pages/WaxhawPage";
-import { CeramicCoatingCharlottePage } from "./pages/CeramicCoatingCharlottePage";
-import { MobileDetailingCostPage } from "./pages/MobileDetailingCostPage";
-import { MenuPage } from "./pages/MenuPage";
-import { CeramicCoatingVsWaxPage } from "./pages/CeramicCoatingVsWaxPage";
-import { GyeonCertifiedCharlottePage } from "./pages/GyeonCertifiedCharlottePage";
-import { CeramicCoatingBallantynePage } from "./pages/CeramicCoatingBallantynePage";
-import { CeramicCoatingWeddingtonPage } from "./pages/CeramicCoatingWeddingtonPage";
-import { CeramicCoatingMarvinPage } from "./pages/CeramicCoatingMarvinPage";
-import { CeramicCoatingMyersParkPage } from "./pages/CeramicCoatingMyersParkPage";
-import { CeramicCoatingSouthParkPage } from "./pages/CeramicCoatingSouthParkPage";
-import { CeramicCoatingFortMillPage } from "./pages/CeramicCoatingFortMillPage";
-import { CeramicCoatingTegaCayPage } from "./pages/CeramicCoatingTegaCayPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
+
+// All other pages lazy-loaded (code splitting)
+const ServicesPage = lazy(() => import("./pages/ServicesPage").then(m => ({ default: m.ServicesPage })));
+const PaintCorrectionPage = lazy(() => import("./pages/PaintCorrectionPage").then(m => ({ default: m.PaintCorrectionPage })));
+const CeramicCoatingPage = lazy(() => import("./pages/CeramicCoatingPage").then(m => ({ default: m.CeramicCoatingPage })));
+const BookingPage = lazy(() => import("./pages/BookingPage").then(m => ({ default: m.BookingPage })));
+const AreasPage = lazy(() => import("./pages/AreasPage").then(m => ({ default: m.AreasPage })));
+const ContactPage = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
+const FleetPage = lazy(() => import("./pages/FleetPage").then(m => ({ default: m.FleetPage })));
+const BoatDetailingPage = lazy(() => import("./pages/BoatDetailingPage").then(m => ({ default: m.BoatDetailingPage })));
+const MaintenancePage = lazy(() => import("./pages/MaintenancePage").then(m => ({ default: m.MaintenancePage })));
+const AdminPage = lazy(() => import("./pages/AdminPage").then(m => ({ default: m.AdminPage })));
+const BlogPage = lazy(() => import("./pages/BlogPage").then(m => ({ default: m.BlogPage })));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage").then(m => ({ default: m.BlogPostPage })));
+const WaxhawPage = lazy(() => import("./pages/WaxhawPage").then(m => ({ default: m.WaxhawPage })));
+const CeramicCoatingCharlottePage = lazy(() => import("./pages/CeramicCoatingCharlottePage").then(m => ({ default: m.CeramicCoatingCharlottePage })));
+const MobileDetailingCostPage = lazy(() => import("./pages/MobileDetailingCostPage").then(m => ({ default: m.MobileDetailingCostPage })));
+const MenuPage = lazy(() => import("./pages/MenuPage").then(m => ({ default: m.MenuPage })));
+const CeramicCoatingVsWaxPage = lazy(() => import("./pages/CeramicCoatingVsWaxPage").then(m => ({ default: m.CeramicCoatingVsWaxPage })));
+const GyeonCertifiedCharlottePage = lazy(() => import("./pages/GyeonCertifiedCharlottePage").then(m => ({ default: m.GyeonCertifiedCharlottePage })));
+const CeramicCoatingBallantynePage = lazy(() => import("./pages/CeramicCoatingBallantynePage").then(m => ({ default: m.CeramicCoatingBallantynePage })));
+const CeramicCoatingWeddingtonPage = lazy(() => import("./pages/CeramicCoatingWeddingtonPage").then(m => ({ default: m.CeramicCoatingWeddingtonPage })));
+const CeramicCoatingMarvinPage = lazy(() => import("./pages/CeramicCoatingMarvinPage").then(m => ({ default: m.CeramicCoatingMarvinPage })));
+const CeramicCoatingMyersParkPage = lazy(() => import("./pages/CeramicCoatingMyersParkPage").then(m => ({ default: m.CeramicCoatingMyersParkPage })));
+const CeramicCoatingSouthParkPage = lazy(() => import("./pages/CeramicCoatingSouthParkPage").then(m => ({ default: m.CeramicCoatingSouthParkPage })));
+const CeramicCoatingFortMillPage = lazy(() => import("./pages/CeramicCoatingFortMillPage").then(m => ({ default: m.CeramicCoatingFortMillPage })));
+const CeramicCoatingTegaCayPage = lazy(() => import("./pages/CeramicCoatingTegaCayPage").then(m => ({ default: m.CeramicCoatingTegaCayPage })));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+
+/** Minimal loading spinner for lazy chunks */
+function PageLoader() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-gold/30 border-t-gold" />
+    </div>
+  );
+}
 
 function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main id="main-content">
-        {children}
+        <Suspense fallback={<PageLoader />}>
+          {children}
+        </Suspense>
       </main>
       <SiteFooter />
     </div>
@@ -79,7 +95,7 @@ function App() {
           <Route path="/ceramic-coating-southpark-charlotte" element={<SiteLayout><CeramicCoatingSouthParkPage /></SiteLayout>} />
           <Route path="/ceramic-coating-fort-mill-sc" element={<SiteLayout><CeramicCoatingFortMillPage /></SiteLayout>} />
           <Route path="/ceramic-coating-tega-cay-sc" element={<SiteLayout><CeramicCoatingTegaCayPage /></SiteLayout>} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
       </PhotoProvider>
