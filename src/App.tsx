@@ -37,6 +37,11 @@ const CeramicCoatingMyersParkPage = lazy(() => import("./pages/CeramicCoatingMye
 const CeramicCoatingSouthParkPage = lazy(() => import("./pages/CeramicCoatingSouthParkPage").then(m => ({ default: m.CeramicCoatingSouthParkPage })));
 const CeramicCoatingFortMillPage = lazy(() => import("./pages/CeramicCoatingFortMillPage").then(m => ({ default: m.CeramicCoatingFortMillPage })));
 const CeramicCoatingTegaCayPage = lazy(() => import("./pages/CeramicCoatingTegaCayPage").then(m => ({ default: m.CeramicCoatingTegaCayPage })));
+const PaintCorrectionCharlottePage = lazy(() => import("./pages/PaintCorrectionCharlottePage").then(m => ({ default: m.PaintCorrectionCharlottePage })));
+const MobileDetailingCharlottePage = lazy(() => import("./pages/MobileDetailingCharlottePage").then(m => ({ default: m.MobileDetailingCharlottePage })));
+const CarDetailingCharlottePage = lazy(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
+const BoatDetailingCharlottePage = lazy(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
+const CeramicCoatingIndianTrailPage = lazy(() => import("./pages/CeramicCoatingIndianTrailPage").then(m => ({ default: m.CeramicCoatingIndianTrailPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 /** Minimal loading spinner for lazy chunks */
@@ -95,6 +100,11 @@ function App() {
           <Route path="/ceramic-coating-southpark-charlotte" element={<SiteLayout><CeramicCoatingSouthParkPage /></SiteLayout>} />
           <Route path="/ceramic-coating-fort-mill-sc" element={<SiteLayout><CeramicCoatingFortMillPage /></SiteLayout>} />
           <Route path="/ceramic-coating-tega-cay-sc" element={<SiteLayout><CeramicCoatingTegaCayPage /></SiteLayout>} />
+          <Route path="/paint-correction-charlotte-nc" element={<SiteLayout><PaintCorrectionCharlottePage /></SiteLayout>} />
+          <Route path="/mobile-detailing-charlotte-nc" element={<SiteLayout><MobileDetailingCharlottePage /></SiteLayout>} />
+          <Route path="/car-detailing-charlotte-nc" element={<SiteLayout><CarDetailingCharlottePage /></SiteLayout>} />
+          <Route path="/boat-detailing-charlotte-nc" element={<SiteLayout><BoatDetailingCharlottePage /></SiteLayout>} />
+          <Route path="/ceramic-coating-indian-trail-nc" element={<SiteLayout><CeramicCoatingIndianTrailPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
