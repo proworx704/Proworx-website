@@ -535,6 +535,29 @@ export function HomePage() {
         }}
       />
 
+      {/* ─── SERVICE AREAS ─── */}
+      <section className="py-14 md:py-18">
+        <div className="container">
+          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto text-sm">
+            {[
+              { label: "Ceramic Coating Charlotte NC", href: "/ceramic-coating-charlotte-nc" },
+              { label: "Paint Correction Charlotte NC", href: "/paint-correction-charlotte-nc" },
+              { label: "Car Detailing Charlotte NC", href: "/car-detailing-charlotte-nc" },
+              { label: "Mobile Detailing Charlotte NC", href: "/mobile-detailing-charlotte-nc" },
+              { label: "Boat Detailing Charlotte NC", href: "/boat-detailing-charlotte-nc" },
+              { label: "Ceramic Coating Waxhaw", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Indian Trail", href: "/ceramic-coating-indian-trail-nc" },
+              { label: "GYEON Certified Charlotte", href: "/gyeon-certified-installer-charlotte" },
+              { label: "All Service Areas", href: "/areas" },
+            ].map((link) => (
+              <Link key={link.href} to={link.href} className="px-3 py-1.5 rounded-full border border-border/60 text-xs text-muted-foreground hover:border-gold/30 hover:text-foreground transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── CTA ─── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">

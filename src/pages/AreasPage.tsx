@@ -1,22 +1,40 @@
 import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const AREAS = [
-  { name: "Charlotte", state: "NC", description: "Our primary service area — covering all Charlotte neighborhoods including Ballantyne, SouthPark, Myers Park, Dilworth, NoDa, and uptown." },
-  { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities." },
-  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area." },
-  { name: "Indian Trail", state: "NC", description: "Serving Indian Trail, Sun Valley, and the surrounding Union County neighborhoods." },
-  { name: "Mint Hill", state: "NC", description: "Professional detailing services for Mint Hill and eastern Mecklenburg County." },
-  { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area." },
-  { name: "Ballantyne", state: "NC", description: "Premium detailing services for the Ballantyne community and surrounding areas." },
-  { name: "Monroe", state: "NC", description: "Serving Monroe and greater Union County with full mobile detailing." },
-  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors. Full service lineup available." },
-  { name: "Huntersville", state: "NC", description: "Serving Huntersville, Cornelius, and the Lake Norman area." },
-  { name: "Tega Cay", state: "SC", description: "Mobile detailing services available for Tega Cay and the surrounding lakeside communities." },
-  { name: "Stallings", state: "NC", description: "Full detailing services for Stallings residents and nearby communities." },
+  { name: "Charlotte", state: "NC", description: "Our primary service area — covering all Charlotte neighborhoods including Ballantyne, SouthPark, Myers Park, Dilworth, NoDa, and uptown.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-charlotte-nc" },
+    { label: "Paint Correction", href: "/paint-correction-charlotte-nc" },
+    { label: "Car Detailing", href: "/car-detailing-charlotte-nc" },
+    { label: "Mobile Detailing", href: "/mobile-detailing-charlotte-nc" },
+    { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
+  ]},
+  { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-waxhaw-nc" },
+    { label: "Mobile Detailing", href: "/waxhaw" },
+  ]},
+  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area.", pages: [] },
+  { name: "Indian Trail", state: "NC", description: "Serving Indian Trail, Sun Valley, and the surrounding Union County neighborhoods.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-indian-trail-nc" },
+  ]},
+  { name: "Mint Hill", state: "NC", description: "Professional detailing services for Mint Hill and eastern Mecklenburg County.", pages: [] },
+  { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area.", pages: [] },
+  { name: "Ballantyne", state: "NC", description: "Premium detailing services for the Ballantyne community and surrounding areas.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-ballantyne-nc" },
+  ]},
+  { name: "Monroe", state: "NC", description: "Serving Monroe and greater Union County with full mobile detailing.", pages: [] },
+  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors. Full service lineup available.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-fort-mill-sc" },
+  ]},
+  { name: "Huntersville", state: "NC", description: "Serving Huntersville, Cornelius, and the Lake Norman area.", pages: [] },
+  { name: "Tega Cay", state: "SC", description: "Mobile detailing services available for Tega Cay and the surrounding lakeside communities.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-tega-cay-sc" },
+  ]},
+  { name: "Stallings", state: "NC", description: "Full detailing services for Stallings residents and nearby communities.", pages: [] },
 ];
 
 export function AreasPage() {
@@ -62,6 +80,19 @@ export function AreasPage() {
                   <h2 className="font-bold text-lg">{area.name}, {area.state}</h2>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">{area.description}</p>
+                {area.pages && area.pages.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-border">
+                    {area.pages.map((page) => (
+                      <Link
+                        key={page.href}
+                        to={page.href}
+                        className="text-xs text-gold hover:text-gold/80 transition-colors font-medium"
+                      >
+                        {page.label} →
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>

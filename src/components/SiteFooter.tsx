@@ -146,12 +146,12 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Hours + Service Areas */}
           <div>
             <h3 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">
               Business Hours
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2.5 text-sm">
                 <Clock className="size-4 mt-0.5 shrink-0 text-gold" />
                 <div className="text-muted-foreground">
@@ -160,6 +160,28 @@ export function SiteFooter() {
                   <div>Sunday: {config.hoursSunday}</div>
                 </div>
               </li>
+            </ul>
+            <h3 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">
+              Service Areas
+            </h3>
+            <ul className="space-y-2.5">
+              {[
+                { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
+                { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc" },
+                { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc" },
+                { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc" },
+                { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc" },
+                { label: "All Areas We Serve", href: "/areas" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

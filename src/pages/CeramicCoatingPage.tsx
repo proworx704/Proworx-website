@@ -16,6 +16,7 @@ import {
   Star,
   X,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
@@ -788,6 +789,45 @@ export function CeramicCoatingPage() {
                 Prequalify Now <ArrowRight className="size-4" />
               </a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ SERVICE AREAS ═══════════ */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-center">Ceramic Coating Near You</h2>
+          <p className="text-muted-foreground text-center mb-8 max-w-xl mx-auto">We offer professional ceramic coating services across the greater Charlotte metro area.</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            {[
+              { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
+              { label: "Ceramic Coating Waxhaw", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Indian Trail", href: "/ceramic-coating-indian-trail-nc" },
+              { label: "Ceramic Coating Fort Mill", href: "/ceramic-coating-fort-mill-sc" },
+              { label: "Ceramic Coating Ballantyne", href: "/ceramic-coating-ballantyne-nc" },
+              { label: "Ceramic Coating Myers Park", href: "/ceramic-coating-myers-park-charlotte" },
+              { label: "Ceramic Coating SouthPark", href: "/ceramic-coating-southpark-charlotte" },
+              { label: "Ceramic Coating Tega Cay", href: "/ceramic-coating-tega-cay-sc" },
+              { label: "Ceramic Coating Weddington", href: "/ceramic-coating-weddington-nc" },
+              { label: "Ceramic Coating Marvin", href: "/ceramic-coating-marvin-nc" },
+            ].map((link) => (
+              <Link key={link.href} to={link.href} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-gold/40 hover:text-foreground transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mt-4 max-w-3xl mx-auto">
+            {[
+              { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc" },
+              { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc" },
+              { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc" },
+              { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc" },
+              { label: "GYEON Certified Installer", href: "/gyeon-certified-installer-charlotte" },
+            ].map((link) => (
+              <Link key={link.href} to={link.href} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-gold/40 hover:text-foreground transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

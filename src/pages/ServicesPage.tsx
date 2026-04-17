@@ -613,6 +613,34 @@ export function ServicesPage() {
         </div>
       </section>
 
+      {/* ═══════════ SERVICE AREAS ═══════════ */}
+      <section className="py-16 md:py-20 bg-card/50">
+        <div className="container">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-center">Detailing Services Near You</h2>
+          <p className="text-muted-foreground text-center mb-8 max-w-xl mx-auto">We bring our full detailing setup to you across the Charlotte metro area.</p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {[
+              { label: "Car Detailing Charlotte NC", href: "/car-detailing-charlotte-nc" },
+              { label: "Mobile Detailing Charlotte NC", href: "/mobile-detailing-charlotte-nc" },
+              { label: "Ceramic Coating Charlotte NC", href: "/ceramic-coating-charlotte-nc" },
+              { label: "Paint Correction Charlotte NC", href: "/paint-correction-charlotte-nc" },
+              { label: "Boat Detailing Charlotte NC", href: "/boat-detailing-charlotte-nc" },
+              { label: "Ceramic Coating Waxhaw NC", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Indian Trail NC", href: "/ceramic-coating-indian-trail-nc" },
+              { label: "Ceramic Coating Fort Mill SC", href: "/ceramic-coating-fort-mill-sc" },
+              { label: "Mobile Detailing Cost", href: "/mobile-detailing-cost" },
+              { label: "GYEON Certified Charlotte", href: "/gyeon-certified-installer-charlotte" },
+              { label: "Ceramic Coating vs Wax", href: "/ceramic-coating-vs-wax" },
+              { label: "All Service Areas", href: "/areas" },
+            ].map((link) => (
+              <Link key={link.href} to={link.href} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-gold/40 hover:text-foreground transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 md:py-28">
         <div className="container text-center">
