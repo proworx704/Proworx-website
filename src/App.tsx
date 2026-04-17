@@ -44,10 +44,11 @@ const BoatDetailingCharlottePage = lazy(() => import("./pages/BoatDetailingCharl
 const CeramicCoatingIndianTrailPage = lazy(() => import("./pages/CeramicCoatingIndianTrailPage").then(m => ({ default: m.CeramicCoatingIndianTrailPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
-/** Minimal loading spinner for lazy chunks */
+/** Minimal loading spinner for lazy chunks.
+ *  min-h keeps footer below the viewport during Suspense, preventing CLS. */
 function PageLoader() {
   return (
-    <div className="flex min-h-[60vh] items-center justify-center">
+    <div className="flex min-h-[calc(100dvh-6.5rem)] items-center justify-center">
       <div className="h-8 w-8 animate-spin rounded-full border-4 border-gold/30 border-t-gold" />
     </div>
   );
@@ -57,7 +58,7 @@ function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" className="flex-1">
         <Suspense fallback={<PageLoader />}>
           {children}
         </Suspense>
