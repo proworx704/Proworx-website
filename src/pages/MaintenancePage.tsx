@@ -165,11 +165,11 @@ export function MaintenancePage() {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
                 "itemListElement": [
-                  { "@type": "Offer", "name": "Exterior Only", "price": "60.77", "priceCurrency": "USD", "unitText": "month", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
-                  { "@type": "Offer", "name": "Interior Only", "price": "101.75", "priceCurrency": "USD", "unitText": "month", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
-                  { "@type": "Offer", "name": "Full Inside & Out", "price": "163.25", "priceCurrency": "USD", "unitText": "month", "description": "Complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
-                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "102.79", "priceCurrency": "USD", "unitText": "month", "description": "Professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
-                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "184.76", "priceCurrency": "USD", "unitText": "month", "description": "Full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
+                  { "@type": "Offer", "name": "Exterior Only", "price": "60.77", "priceCurrency": "USD", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
+                  { "@type": "Offer", "name": "Interior Only", "price": "101.75", "priceCurrency": "USD", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
+                  { "@type": "Offer", "name": "Full Inside & Out", "price": "163.25", "priceCurrency": "USD", "description": "Monthly complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
+                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "102.79", "priceCurrency": "USD", "description": "Monthly professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
+                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "184.76", "priceCurrency": "USD", "description": "Monthly full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
                 ]
               }
             }

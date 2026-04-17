@@ -625,7 +625,7 @@ export function ServicesPage() {
               { label: "Ceramic Coating Charlotte NC", href: "/ceramic-coating-charlotte-nc" },
               { label: "Paint Correction Charlotte NC", href: "/paint-correction-charlotte-nc" },
               { label: "Boat Detailing Charlotte NC", href: "/boat-detailing-charlotte-nc" },
-              { label: "Ceramic Coating Waxhaw NC", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Waxhaw NC", href: "/waxhaw" },
               { label: "Ceramic Coating Indian Trail NC", href: "/ceramic-coating-indian-trail-nc" },
               { label: "Ceramic Coating Fort Mill SC", href: "/ceramic-coating-fort-mill-sc" },
               { label: "Mobile Detailing Cost", href: "/mobile-detailing-cost" },

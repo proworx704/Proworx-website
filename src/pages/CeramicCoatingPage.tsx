@@ -801,7 +801,7 @@ export function CeramicCoatingPage() {
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {[
               { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
-              { label: "Ceramic Coating Waxhaw", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Waxhaw", href: "/waxhaw" },
               { label: "Ceramic Coating Indian Trail", href: "/ceramic-coating-indian-trail-nc" },
               { label: "Ceramic Coating Fort Mill", href: "/ceramic-coating-fort-mill-sc" },
               { label: "Ceramic Coating Ballantyne", href: "/ceramic-coating-ballantyne-nc" },

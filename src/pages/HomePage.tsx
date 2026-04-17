@@ -545,7 +545,7 @@ export function HomePage() {
               { label: "Car Detailing Charlotte NC", href: "/car-detailing-charlotte-nc" },
               { label: "Mobile Detailing Charlotte NC", href: "/mobile-detailing-charlotte-nc" },
               { label: "Boat Detailing Charlotte NC", href: "/boat-detailing-charlotte-nc" },
-              { label: "Ceramic Coating Waxhaw", href: "/ceramic-coating-waxhaw-nc" },
+              { label: "Ceramic Coating Waxhaw", href: "/waxhaw" },
               { label: "Ceramic Coating Indian Trail", href: "/ceramic-coating-indian-trail-nc" },
               { label: "GYEON Certified Charlotte", href: "/gyeon-certified-installer-charlotte" },
               { label: "All Service Areas", href: "/areas" },

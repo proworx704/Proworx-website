@@ -14,7 +14,7 @@ const AREAS = [
     { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
   ]},
   { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-waxhaw-nc" },
+    { label: "Ceramic Coating", href: "/waxhaw" },
     { label: "Mobile Detailing", href: "/waxhaw" },
   ]},
   { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area.", pages: [] },
