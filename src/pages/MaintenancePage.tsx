@@ -12,7 +12,7 @@ const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: stri
   { key: "biweekly", label: "Biweekly", suffix: "/2 wks" },
   { key: "monthly", label: "Monthly", suffix: "/mo" },
   { key: "quarterly", label: "Quarterly", suffix: "/qtr" },
-  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 4%" },
+  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 8%" },
 ];
 
 /* ── Membership Tiers ── */
@@ -20,7 +20,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "clean",
     name: "Exterior Only",
-    pricing: { biweekly: "30", monthly: "59", quarterly: "177", annually: "679" },
+    pricing: { biweekly: "30.38", monthly: "60.77", quarterly: "182.33", annually: "698.94" },
     icon: <Droplets className="size-6" />,
     tagline: "Exterior care on your schedule",
     description: "A regular exterior refresh to keep your vehicle looking sharp between full details.",
@@ -39,7 +39,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "shield",
     name: "Interior Only",
-    pricing: { biweekly: "50", monthly: "99", quarterly: "297", annually: "1,139" },
+    pricing: { biweekly: "50.87", monthly: "101.75", quarterly: "305.26", annually: "1,170.16" },
     icon: <Shield className="size-6" />,
     tagline: "Interior care on your schedule",
     description: "A thorough interior detail on your chosen schedule to keep your cabin fresh and clean.",
@@ -59,7 +59,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "armor",
     name: "Full Inside & Out",
-    pricing: { biweekly: "80", monthly: "159", quarterly: "477", annually: "1,829" },
+    pricing: { biweekly: "81.62", monthly: "163.25", quarterly: "489.77", annually: "1,877.48" },
     icon: <Sparkles className="size-6" />,
     tagline: "Complete detail + ceramic protection",
     description: "The complete package — full interior and exterior detail with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
@@ -78,7 +78,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-exterior",
     name: "Ceramic Exterior",
-    pricing: { biweekly: "50", monthly: "100", quarterly: "300", annually: "1,150" },
+    pricing: { biweekly: "51.39", monthly: "102.79", quarterly: "308.38", annually: "1,182.12" },
     icon: <Droplets className="size-6" />,
     tagline: "Ceramic-grade exterior care",
     description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
@@ -99,7 +99,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-io",
     name: "Ceramic Inside & Out",
-    pricing: { biweekly: "90", monthly: "180", quarterly: "540", annually: "2,070" },
+    pricing: { biweekly: "92.38", monthly: "184.76", quarterly: "554.29", annually: "2,124.81" },
     icon: <Shield className="size-6" />,
     tagline: "The ultimate ceramic care",
     description: "The complete package for ceramic coating owners — full I&O detail plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care.",
@@ -134,7 +134,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $59/mo. 5 tiers: exterior, interior, full I&O, ceramic exterior, ceramic I&O. Mobile service, cancel anytime."
+        description="Monthly auto detailing plans in Charlotte, NC from $60.77/mo. 5 tiers: exterior, interior, full I&O, ceramic exterior, ceramic I&O. Mobile service, cancel anytime."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me, ceramic coating maintenance plan"
         schema={{
           "@context": "https://schema.org",
@@ -149,9 +149,9 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($100/mo), and Ceramic Inside & Out ($180/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($60.77/mo), Interior Only ($101.75/mo), Full Inside & Out ($163.25/mo with ceramic wet-coat protection), Ceramic Exterior ($102.79/mo), and Ceramic Inside & Out ($184.76/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }},
-                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($100/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($180/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
+                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($102.79/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($184.76/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, quarterly, or annually. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
               ]
             },
@@ -160,16 +160,16 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans with 5 tiers from $59/mo to $180/mo. Professional hand wash, interior detail, ceramic coating maintenance, and more.",
+              "description": "Monthly mobile detailing maintenance plans with 5 tiers from $60.77/mo to $184.76/mo. Professional hand wash, interior detail, ceramic coating maintenance, and more.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
                 "itemListElement": [
-                  { "@type": "Offer", "name": "Exterior Only", "price": "59", "priceCurrency": "USD", "unitText": "month", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
-                  { "@type": "Offer", "name": "Interior Only", "price": "99", "priceCurrency": "USD", "unitText": "month", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
-                  { "@type": "Offer", "name": "Full Inside & Out", "price": "159", "priceCurrency": "USD", "unitText": "month", "description": "Complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
-                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "100", "priceCurrency": "USD", "unitText": "month", "description": "Professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
-                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "180", "priceCurrency": "USD", "unitText": "month", "description": "Full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
+                  { "@type": "Offer", "name": "Exterior Only", "price": "60.77", "priceCurrency": "USD", "unitText": "month", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
+                  { "@type": "Offer", "name": "Interior Only", "price": "101.75", "priceCurrency": "USD", "unitText": "month", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
+                  { "@type": "Offer", "name": "Full Inside & Out", "price": "163.25", "priceCurrency": "USD", "unitText": "month", "description": "Complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
+                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "102.79", "priceCurrency": "USD", "unitText": "month", "description": "Professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
+                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "184.76", "priceCurrency": "USD", "unitText": "month", "description": "Full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
                 ]
               }
             }
