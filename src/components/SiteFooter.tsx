@@ -59,28 +59,28 @@ export function SiteFooter() {
                 href={config.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="size-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
+                className="size-11 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
                 aria-label="Instagram (opens in new tab)"
               >
-                <InstagramIcon className="size-4" />
+                <InstagramIcon className="size-5" />
               </a>
               <a
                 href={config.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="size-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
+                className="size-11 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
                 aria-label="Facebook (opens in new tab)"
               >
-                <FacebookIcon className="size-4" />
+                <FacebookIcon className="size-5" />
               </a>
               <a
                 href={config.googleBusinessUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="size-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
+                className="size-11 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-gold hover:bg-gold/10 transition-colors"
                 aria-label="Google Business (opens in new tab)"
               >
-                <GoogleIcon className="size-4" />
+                <GoogleIcon className="size-5" />
               </a>
             </div>
           </div>
@@ -90,7 +90,7 @@ export function SiteFooter() {
             <h3 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">
               Services
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1">
               {[
                 { label: "Full Detail Packages", href: "/services" },
                 { label: "Paint Correction", href: "/paint-correction" },
@@ -103,7 +103,7 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-1.5"
                   >
                     {link.label}
                   </Link>
@@ -117,23 +117,23 @@ export function SiteFooter() {
             <h3 className="font-semibold text-sm uppercase tracking-wider text-gold mb-4">
               Contact
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               <li>
                 <a
                   href={config.phoneLink}
                   onClick={trackPhoneClick}
-                  className="flex items-start gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-1.5"
                 >
-                  <Phone className="size-4 mt-0.5 shrink-0 text-gold" />
+                  <Phone className="size-4 shrink-0 text-gold" />
                   {config.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={emailHref}
-                  className="flex items-start gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-1.5"
                 >
-                  <Mail className="size-4 mt-0.5 shrink-0 text-gold" />
+                  <Mail className="size-4 shrink-0 text-gold" />
                   {emailDisplay}
                 </a>
               </li>
@@ -192,14 +192,14 @@ export function SiteFooter() {
         <div className="container py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} ProWorx Mobile Detailing L.L.C. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link to="/blog" className="hover:text-foreground transition-colors">
+            <div className="flex gap-2">
+              <Link to="/blog" className="hover:text-foreground transition-colors min-h-[44px] flex items-center px-2 py-2">
                 Blog
               </Link>
-              <Link to="/areas" className="hover:text-foreground transition-colors">
+              <Link to="/areas" className="hover:text-foreground transition-colors min-h-[44px] flex items-center px-2 py-2">
                 Areas We Serve
               </Link>
-              <Link to="/contact" className="hover:text-foreground transition-colors">
+              <Link to="/contact" className="hover:text-foreground transition-colors min-h-[44px] flex items-center px-2 py-2">
                 Contact Us
               </Link>
             </div>

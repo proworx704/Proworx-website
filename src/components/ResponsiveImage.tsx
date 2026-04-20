@@ -16,17 +16,17 @@ interface ResponsiveImageProps extends React.ImgHTMLAttributes<HTMLImageElement>
   priority?: boolean;
 }
 
-export function ResponsiveImage({ src, alt, sizes, priority, ...rest }: ResponsiveImageProps) {
+export function ResponsiveImage({ src, alt, sizes, priority, width = 1200, height = 800, ...rest }: ResponsiveImageProps) {
   // Derive the base name and extension
   const lastDot = src.lastIndexOf(".");
-  if (lastDot === -1) return <img src={src} alt={alt} {...rest} />;
+  if (lastDot === -1) return <img src={src} alt={alt} width={width} height={height} {...rest} />;
 
   const base = src.slice(0, lastDot);
   const ext = src.slice(lastDot + 1);
 
   // Only generate srcSet for jpg/png images that have WebP variants
   const hasWebP = ext === "jpg" || ext === "jpeg" || ext === "png";
-  if (!hasWebP) return <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} decoding="async" {...rest} />;
+  if (!hasWebP) return <img src={src} alt={alt} width={width} height={height} loading={priority ? "eager" : "lazy"} decoding="async" {...rest} />;
 
   const webpSrcSet = `${base}-640w.webp 640w, ${base}-960w.webp 960w, ${base}-1200w.webp 1200w`;
   const defaultSizes = sizes || "(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw";
@@ -37,6 +37,8 @@ export function ResponsiveImage({ src, alt, sizes, priority, ...rest }: Responsi
       <img
         src={src}
         alt={alt}
+        width={width}
+        height={height}
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}
         fetchPriority={priority ? "high" : undefined}

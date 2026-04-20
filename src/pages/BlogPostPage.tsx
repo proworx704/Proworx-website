@@ -87,6 +87,8 @@ export function BlogPostPage() {
         <img
           src={post.image}
           alt={post.imageAlt}
+          width={1200}
+          height={800}
           className="w-full h-full object-cover"
           loading="eager"
         />
@@ -255,6 +257,8 @@ export function BlogPostPage() {
                     <img
                       src={rp.image}
                       alt={rp.imageAlt}
+                      width={1200}
+                      height={800}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />

@@ -73,6 +73,7 @@ function buildWebPSrcSet(src: string): string | null {
  * Drop-in replacement for <img> that reads from CMS photo slots.
  * Serves responsive WebP with JPG fallback for local images.
  * Applies focal-point cropping via object-position when the image uses object-cover.
+ * Includes default width/height (1200×800) to prevent CLS layout shift.
  *
  * Priority: DB focalY > prop focalY > 50% (center)
  *
@@ -86,6 +87,8 @@ export function CmsImg({
   focalY: focalYProp,
   sizes,
   style,
+  width = 1200,
+  height = 800,
   ...props
 }: {
   slot: string;
@@ -107,6 +110,8 @@ export function CmsImg({
         <source type="image/webp" srcSet={webpSrcSet} sizes={imgSizes} />
         <img
           src={url}
+          width={width}
+          height={height}
           loading={loading}
           fetchPriority={fetchPriority}
           decoding={loading === "eager" ? "sync" : "async"}
@@ -120,6 +125,8 @@ export function CmsImg({
   return (
     <img
       src={url}
+      width={width}
+      height={height}
       loading={loading}
       fetchPriority={fetchPriority}
       decoding={loading === "eager" ? "sync" : "async"}

@@ -43,7 +43,7 @@ export function SiteHeader() {
             <a
               href={config.phoneLink}
               onClick={trackPhoneClick}
-              className="flex items-center gap-1.5 text-gold font-medium hover:text-gold/80 transition-colors ml-auto sm:ml-0"
+              className="flex items-center gap-1.5 text-gold font-medium hover:text-gold/80 transition-colors ml-auto sm:ml-0 min-h-[44px] py-2"
             >
               <Phone className="size-3.5" />
               {config.phone}
@@ -64,8 +64,8 @@ export function SiteHeader() {
               <img
                 src="/images/logo-horizontal.png"
                 alt={`${config.appName} — premium mobile auto detailing in Charlotte, NC`}
-                width={121}
-                height={36}
+                width={242}
+                height={72}
                 className="h-9 w-auto hidden sm:block"
               />
               <picture>
@@ -81,12 +81,12 @@ export function SiteHeader() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-0.5">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  className={`px-3 py-2.5 min-h-[44px] flex items-center text-sm font-medium rounded-md transition-colors ${
                     location.pathname === link.href
                       ? "text-gold"
                       : "text-muted-foreground hover:text-foreground"
@@ -110,7 +110,7 @@ export function SiteHeader() {
               </Button>
               <button
                 type="button"
-                className="lg:hidden p-2 text-muted-foreground hover:text-foreground"
+                className="lg:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted-foreground hover:text-foreground"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
@@ -128,7 +128,7 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`block px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${
+                  className={`block px-3 py-3 min-h-[44px] flex items-center text-sm font-medium rounded-md transition-colors ${
                     location.pathname === link.href
                       ? "text-gold bg-gold/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -142,7 +142,7 @@ export function SiteHeader() {
                 <a
                   href={config.phoneLink}
                   onClick={trackPhoneClick}
-                  className="flex items-center gap-2 text-gold font-medium"
+                  className="flex items-center gap-2 text-gold font-medium min-h-[44px] py-2"
                 >
                   <Phone className="size-4" />
                   {config.phone}

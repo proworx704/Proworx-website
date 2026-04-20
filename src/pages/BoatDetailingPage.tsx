@@ -207,16 +207,16 @@ export function BoatDetailingPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 -mt-4 mb-0 max-w-5xl mx-auto">
             <div className="rounded-xl overflow-hidden aspect-[4/3]">
-              <img src="/images/boat-hero.webp" alt="Professional boat detailing at dock" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src="/images/boat-hero.webp" alt="Professional boat detailing at dock" width={1200} height={509} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3]">
-              <img src="/images/boat-wash.webp" alt="Hand washing boat hull" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src="/images/boat-wash.webp" alt="Hand washing boat hull" width={1200} height={669} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3]">
-              <img src="/images/boat-interior.webp" alt="Detailed boat interior cockpit" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src="/images/boat-interior.webp" alt="Detailed boat interior cockpit" width={1200} height={669} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3]">
-              <img src="/images/boat-exterior.webp" alt="Freshly detailed boat on trailer" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src="/images/boat-exterior.webp" alt="Freshly detailed boat on trailer" width={1200} height={669} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
           </div>
         </div>

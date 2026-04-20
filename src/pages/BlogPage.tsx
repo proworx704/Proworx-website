@@ -81,6 +81,8 @@ export function BlogPage() {
               <img
                 src={featured.image}
                 alt={featured.imageAlt}
+                width={1200}
+                height={800}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="eager"
               />
@@ -125,6 +127,8 @@ export function BlogPage() {
                   <img
                     src={post.image}
                     alt={post.imageAlt}
+                    width={1200}
+                    height={800}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
