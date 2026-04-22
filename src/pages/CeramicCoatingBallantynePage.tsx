@@ -4,6 +4,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
   { name: "GYEON Q² One EVO", protection: "1-Year", price: "From $499", configKey: "ceramicDeposit1yr" },
@@ -256,7 +257,7 @@ export function CeramicCoatingBallantynePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/ceramic-coating-ballantyne-nc" />
       {/* CTA */}
       <section className="py-16 md:py-20 bg-card/50">
         <div className="container">

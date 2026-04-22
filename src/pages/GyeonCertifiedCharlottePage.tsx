@@ -4,6 +4,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const GYEON_PRODUCTS = [
   {
@@ -251,7 +252,7 @@ export function GyeonCertifiedCharlottePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/gyeon-certified-installer-charlotte" />
       {/* CTA */}
       <section className="py-16 md:py-20">
         <div className="container">

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const BOAT_PACKAGES = [
   {
@@ -241,7 +242,7 @@ export function BoatDetailingCharlottePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/boat-detailing-charlotte-nc" />
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-card to-background" />

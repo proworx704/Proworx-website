@@ -4,6 +4,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const COST_BREAKDOWN = [
   { tier: "1-Year Protection", product: "GYEON Q² One EVO", price: "$499+", deposit: "~$150", best: "Daily drivers, lease vehicles, budget-conscious owners" },
@@ -239,7 +240,7 @@ export function CeramicCoatingCharlottePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/ceramic-coating-charlotte-nc" />
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">

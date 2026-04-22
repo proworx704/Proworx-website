@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
   { name: "Standard Detail", price: "From $179", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your car clean and fresh" },
@@ -250,7 +251,7 @@ export function MobileDetailingCharlottePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/mobile-detailing-charlotte-nc" />
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">

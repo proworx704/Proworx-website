@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const SERVICES = [
   { title: "Full Detailing", desc: "Standard, Premium & Elite interior + exterior packages from $179", link: "/services", icon: <Car className="size-5" /> },
@@ -230,7 +231,7 @@ export function CarDetailingCharlottePage() {
           </div>
         </div>
       </section>
-
+      <RelatedCharlotteServices currentPath="/car-detailing-charlotte-nc" />
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
