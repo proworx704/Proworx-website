@@ -60,13 +60,13 @@ export function CeramicCoatingMarvinPage() {
               "telephone": "+19802721903",
               "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
               "areaServed": { "@type": "City", "name": "Marvin", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "52" },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "56" },
               "priceRange": "$499 - $1,599+"
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Is there a ceramic coating installer near Marvin NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is located in Waxhaw, ~5 min from our Waxhaw location. We offer mobile service (we come to your Marvin home) and drop-off at our Waxhaw location. GYEON & IGL certified with 52 five-star Google reviews." } },
+                { "@type": "Question", "name": "Is there a ceramic coating installer near Marvin NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is located in Waxhaw, ~5 min from our Waxhaw location. We offer mobile service (we come to your Marvin home) and drop-off at our Waxhaw location. GYEON & IGL certified with 56 five-star Google reviews." } },
                 { "@type": "Question", "name": "How much does ceramic coating cost in Marvin?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Marvin starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), and $1,599 for 10-year (Q² Flash EVO). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." } },
                 { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in Marvin?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off. For ceramic coating, drop-off is recommended for best results, but we accommodate mobile installations. Call (980) 272-1903 to discuss options." } }
               ]
@@ -93,7 +93,7 @@ export function CeramicCoatingMarvinPage() {
               <span className="text-gradient-gold">Marvin, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Professional ceramic coating for Marvin residents. GYEON &amp; IGL certified installers with 12+ years experience and 52 five-star reviews. Mobile service or convenient drop-off — ~5 min from our Waxhaw location.
+              Professional ceramic coating for Marvin residents. GYEON &amp; IGL certified installers with 12+ years experience and 56 five-star reviews. Mobile service or convenient drop-off — ~5 min from our Waxhaw location.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -104,7 +104,7 @@ export function CeramicCoatingMarvinPage() {
               </Button>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (52 Reviews)", "~5 min from Marvin"].map((item) => (
+              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (56 Reviews)", "~5 min from Marvin"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
                 </div>
@@ -133,7 +133,7 @@ export function CeramicCoatingMarvinPage() {
                 {[
                   { icon: <Shield className="size-5" />, label: "Certified Installers", sub: "GYEON & IGL" },
                   { icon: <Truck className="size-5" />, label: "Mobile Service", sub: "We come to Marvin" },
-                  { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "52 Google Reviews" },
+                  { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "56 Google Reviews" },
                   { icon: <Clock className="size-5" />, label: "12+ Years", sub: "Experience" },
                 ].map((item) => (
                   <div key={item.label} className="p-4 rounded-xl bg-card border border-border flex items-start gap-3">
@@ -243,7 +243,7 @@ export function CeramicCoatingMarvinPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions — Marvin</h2>
             <div className="space-y-6">
               {[
-                { q: "Do you offer ceramic coating in Marvin?", a: "Yes! ProWorx Detailing serves Marvin with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~5 min from our Waxhaw location. We're GYEON & IGL certified with 52 five-star Google reviews." },
+                { q: "Do you offer ceramic coating in Marvin?", a: "Yes! ProWorx Detailing serves Marvin with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~5 min from our Waxhaw location. We're GYEON & IGL certified with 56 five-star Google reviews." },
                 { q: "How much does ceramic coating cost in Marvin?", a: "Professional ceramic coating in Marvin starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year protection (Q² Pure EVO), and $1,599 for 10-year protection (Q² Flash EVO). Pricing varies by vehicle size. We require a 30% deposit to book." },
                 { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough prep wash, clay bar decontamination, iron decontamination, and a light prep polish before coating application. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
               ].map((item, i) => (

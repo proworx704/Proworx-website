@@ -199,7 +199,7 @@ export function HomePage() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6 backdrop-blur-sm">
               <Shield className="size-3.5" />
-              GYEON & IGL Certified — 5.0 Stars (52 Reviews)
+              GYEON & IGL Certified — 5.0 Stars (56 Reviews)
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-6">
@@ -425,7 +425,7 @@ export function HomePage() {
               { icon: <Shield className="size-8" />, label: "Certified Installers", sub: "GYEON & IGL" },
               { icon: <Truck className="size-8" />, label: "Mobile & Drop-Off", sub: "We Come to You" },
               { icon: <Clock className="size-8" />, label: "12+ Years", sub: "Experience" },
-              { icon: <Star className="size-8" />, label: "5.0 Stars", sub: "52 Google Reviews" },
+              { icon: <Star className="size-8" />, label: "5.0 Stars", sub: "56 Google Reviews" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col items-center">
                 <div className="size-16 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-4">{item.icon}</div>
@@ -446,7 +446,7 @@ export function HomePage() {
             <div className="flex items-center justify-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => <Star key={i} className="size-5 fill-gold text-gold" />)}
             </div>
-            <p className="text-muted-foreground text-lg">5.0 Stars — 52 Reviews on Google</p>
+            <p className="text-muted-foreground text-lg">5.0 Stars — 56 Reviews on Google</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {REVIEWS.map((review, i) => (
