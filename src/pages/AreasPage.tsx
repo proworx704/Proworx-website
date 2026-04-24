@@ -13,27 +13,59 @@ const AREAS = [
     { label: "Mobile Detailing", href: "/mobile-detailing-charlotte-nc" },
     { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
   ]},
-  { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
-    { label: "Ceramic Coating", href: "/waxhaw" },
-    { label: "Mobile Detailing", href: "/waxhaw" },
+  { name: "South Charlotte", state: "NC", description: "Serving Providence, Rea Road, Arboretum, and all South Charlotte's affluent neighborhoods.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-south-charlotte-nc" },
   ]},
-  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area.", pages: [] },
-  { name: "Indian Trail", state: "NC", description: "Serving Indian Trail, Sun Valley, and the surrounding Union County neighborhoods.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-indian-trail-nc" },
-  ]},
-  { name: "Mint Hill", state: "NC", description: "Professional detailing services for Mint Hill and eastern Mecklenburg County.", pages: [] },
-  { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area.", pages: [] },
-  { name: "Ballantyne", state: "NC", description: "Premium detailing services for the Ballantyne community and surrounding areas.", pages: [
+  { name: "Ballantyne", state: "NC", description: "Premium detailing services for the Ballantyne community and surrounding South Charlotte areas.", pages: [
     { label: "Ceramic Coating", href: "/ceramic-coating-ballantyne-nc" },
   ]},
-  { name: "Monroe", state: "NC", description: "Serving Monroe and greater Union County with full mobile detailing.", pages: [] },
+  { name: "Myers Park", state: "NC", description: "Charlotte's most prestigious neighborhood — luxury vehicle detailing and ceramic coating.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-myers-park-charlotte" },
+  ]},
+  { name: "SouthPark", state: "NC", description: "Serving the SouthPark area with premium detailing and certified ceramic coating.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-southpark-charlotte" },
+  ]},
+  { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
+    { label: "Ceramic Coating", href: "/waxhaw" },
+  ]},
+  { name: "Weddington", state: "NC", description: "Premium detailing for Weddington's executive neighborhoods.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-weddington-nc" },
+  ]},
+  { name: "Marvin", state: "NC", description: "Serving Marvin with certified ceramic coating and full detailing services.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-marvin-nc" },
+  ]},
   { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors. Full service lineup available.", pages: [
     { label: "Ceramic Coating", href: "/ceramic-coating-fort-mill-sc" },
   ]},
-  { name: "Huntersville", state: "NC", description: "Serving Huntersville, Cornelius, and the Lake Norman area.", pages: [] },
-  { name: "Tega Cay", state: "SC", description: "Mobile detailing services available for Tega Cay and the surrounding lakeside communities.", pages: [
+  { name: "Indian Land", state: "SC", description: "Serving Sun City, Highway 521 corridor, and all Indian Land communities.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-indian-land-sc" },
+  ]},
+  { name: "Tega Cay", state: "SC", description: "Mobile detailing services for Tega Cay and the surrounding lakeside communities.", pages: [
     { label: "Ceramic Coating", href: "/ceramic-coating-tega-cay-sc" },
   ]},
+  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-matthews-nc" },
+  ]},
+  { name: "Indian Trail", state: "NC", description: "Serving Indian Trail, Sun Valley, and the surrounding Union County neighborhoods.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-indian-trail-nc" },
+  ]},
+  { name: "Mint Hill", state: "NC", description: "Professional detailing services for Mint Hill and eastern Mecklenburg County.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-mint-hill-nc" },
+  ]},
+  { name: "Huntersville", state: "NC", description: "Serving Huntersville, Birkdale Village, and the Lake Norman gateway.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-huntersville-nc" },
+  ]},
+  { name: "Cornelius", state: "NC", description: "Lake Norman waterfront community — premium detailing and ceramic coating.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-cornelius-nc" },
+  ]},
+  { name: "Davidson", state: "NC", description: "Lake Norman's premier address — luxury vehicle care and certified coatings.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-davidson-nc" },
+  ]},
+  { name: "Harrisburg", state: "NC", description: "Serving Harrisburg and northeast Charlotte with full mobile detailing.", pages: [
+    { label: "Ceramic Coating", href: "/ceramic-coating-harrisburg-nc" },
+  ]},
+  { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area.", pages: [] },
+  { name: "Monroe", state: "NC", description: "Serving Monroe and greater Union County with full mobile detailing.", pages: [] },
   { name: "Stallings", state: "NC", description: "Full detailing services for Stallings residents and nearby communities.", pages: [] },
 ];
 
@@ -43,8 +75,8 @@ export function AreasPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Service Areas — Charlotte, NC"
-        description="ProWorx serves Charlotte, Waxhaw, Matthews, Indian Trail, Mint Hill, Pineville, Monroe & Fort Mill. Premium mobile detailing — we come to you!"
-        keywords="mobile detailing near me, auto detailing Waxhaw NC, car detailing Matthews NC, Indian Trail detailing, Mint Hill car wash, Pineville auto detail, Charlotte mobile car wash"
+        description="ProWorx serves Charlotte, Ballantyne, Myers Park, South Charlotte, Fort Mill, Matthews, Davidson, Huntersville & all surrounding areas. Premium mobile detailing & ceramic coating — we come to you!"
+        keywords="mobile detailing near me, auto detailing Charlotte NC, car detailing Ballantyne NC, Myers Park detailing, South Charlotte auto detail, Fort Mill detailing, Matthews car detailing, ceramic coating near me Charlotte, Lake Norman auto detailing"
         schema={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
