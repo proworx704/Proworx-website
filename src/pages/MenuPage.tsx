@@ -236,10 +236,10 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 30m", price: "$165" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$206" },
-                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$247" },
-                { label: "Van", duration: "4h", price: "$288" },
+                { label: "Sedan", duration: "2h 30m", price: "$258" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$309" },
+                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$361" },
+                { label: "Van", duration: "4h", price: "$412" },
               ]}
               bookHref={bookStdIO}
             />
@@ -256,10 +256,10 @@ export function MenuPage() {
                 "UV protection for dashboard & plastics",
               ]}
               prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$296" },
-                { label: "Sm SUV/Truck", duration: "4h", price: "$337" },
-                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$378" },
-                { label: "Van", duration: "5h", price: "$419" },
+                { label: "Sedan", duration: "3h 30m", price: "$392" },
+                { label: "Sm SUV/Truck", duration: "4h", price: "$444" },
+                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$495" },
+                { label: "Van", duration: "5h", price: "$547" },
               ]}
               bookHref={bookPremIOInt}
             />
@@ -275,10 +275,10 @@ export function MenuPage() {
                 "Trim restoration & protectant",
               ]}
               prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$435" },
-                { label: "Sm SUV/Truck", duration: "4h", price: "$476" },
-                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$517" },
-                { label: "Van", duration: "5h", price: "$558" },
+                { label: "Sedan", duration: "3h 30m", price: "$536" },
+                { label: "Sm SUV/Truck", duration: "4h", price: "$587" },
+                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$639" },
+                { label: "Van", duration: "5h", price: "$690" },
               ]}
               bookHref={bookPremIOExt}
             />
@@ -295,10 +295,10 @@ export function MenuPage() {
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "5h 30m", price: "$658" },
-                { label: "Sm SUV/Truck", duration: "6h", price: "$699" },
-                { label: "Lg SUV/Truck", duration: "6h 30m", price: "$740" },
-                { label: "Van", duration: "7h", price: "$781" },
+                { label: "Sedan", duration: "5h 30m", price: "$783" },
+                { label: "Sm SUV/Truck", duration: "6h", price: "$835" },
+                { label: "Lg SUV/Truck", duration: "6h 30m", price: "$886" },
+                { label: "Van", duration: "7h", price: "$937" },
               ]}
               bookHref={bookEliteIO}
             />
@@ -328,10 +328,10 @@ export function MenuPage() {
                 "Light stain treatment (as applicable)",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 45m", price: "$124" },
-                { label: "Sm SUV/Truck", duration: "2h", price: "$144" },
-                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$165" },
-                { label: "Van", duration: "3h", price: "$206" },
+                { label: "Sedan", duration: "1h 45m", price: "$181" },
+                { label: "Sm SUV/Truck", duration: "2h", price: "$206" },
+                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$258" },
+                { label: "Van", duration: "3h", price: "$309" },
               ]}
               bookHref={bookStdInt}
             />
@@ -348,10 +348,10 @@ export function MenuPage() {
                 "UV protection for dashboard & plastics",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 55m", price: "$255" },
-                { label: "Sm SUV/Truck", duration: "3h 15m", price: "$275" },
-                { label: "Lg SUV/Truck", duration: "3h 45m", price: "$296" },
-                { label: "Van", duration: "4h 15m", price: "$337" },
+                { label: "Sedan", duration: "2h 55m", price: "$315" },
+                { label: "Sm SUV/Truck", duration: "3h 15m", price: "$341" },
+                { label: "Lg SUV/Truck", duration: "3h 45m", price: "$392" },
+                { label: "Van", duration: "4h 15m", price: "$444" },
               ]}
               bookHref={bookPremInt}
             />
@@ -368,10 +368,10 @@ export function MenuPage() {
                 "GYEON leather shield",
               ]}
               prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$311" },
-                { label: "Sm SUV/Truck", duration: "3h 45m", price: "$331" },
-                { label: "Lg SUV/Truck", duration: "4h 15m", price: "$352" },
-                { label: "Van", duration: "4h 45m", price: "$393" },
+                { label: "Sedan", duration: "3h 30m", price: "$461" },
+                { label: "Sm SUV/Truck", duration: "3h 45m", price: "$486" },
+                { label: "Lg SUV/Truck", duration: "4h 15m", price: "$538" },
+                { label: "Van", duration: "4h 45m", price: "$589" },
               ]}
               bookHref={bookEliteInt}
             />
@@ -399,10 +399,10 @@ export function MenuPage() {
                 "Light spray wax for shine & short-term protection",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 15m", price: "$103" },
-                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$124" },
-                { label: "Lg SUV/Truck", duration: "1h 45m", price: "$144" },
-                { label: "Van", duration: "2h", price: "$165" },
+                { label: "Sedan", duration: "1h 15m", price: "$129" },
+                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$155" },
+                { label: "Lg SUV/Truck", duration: "1h 45m", price: "$181" },
+                { label: "Van", duration: "2h", price: "$206" },
               ]}
               bookHref={bookStdExt}
             />
@@ -419,10 +419,10 @@ export function MenuPage() {
                 "Trim restoration & protectant",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 25m", price: "$373" },
-                { label: "Sm SUV/Truck", duration: "2h 40m", price: "$394" },
-                { label: "Lg SUV/Truck", duration: "3h", price: "$414" },
-                { label: "Van", duration: "3h 15m", price: "$435" },
+                { label: "Sedan", duration: "2h 25m", price: "$407" },
+                { label: "Sm SUV/Truck", duration: "2h 40m", price: "$433" },
+                { label: "Lg SUV/Truck", duration: "3h", price: "$459" },
+                { label: "Van", duration: "3h 15m", price: "$484" },
               ]}
               bookHref={bookPremExt}
             />
@@ -438,10 +438,10 @@ export function MenuPage() {
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 45m", price: "$409" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$430" },
-                { label: "Lg SUV/Truck", duration: "3h 20m", price: "$450" },
-                { label: "Van", duration: "3h 35m", price: "$471" },
+                { label: "Sedan", duration: "2h 45m", price: "$462" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$487" },
+                { label: "Lg SUV/Truck", duration: "3h 20m", price: "$513" },
+                { label: "Van", duration: "3h 35m", price: "$539" },
               ]}
               bookHref={bookEliteExt}
             />
@@ -511,9 +511,9 @@ export function MenuPage() {
                 defect: "~60–70% Defect Removal",
                 desc: "Removes light swirls and minor imperfections. Restores depth and gloss for vehicles in good condition.",
                 prices: [
-                  { label: "Compact 2-Door", price: "$550" },
-                  { label: "Midsize Sedan", price: "$700" },
-                  { label: "SUV / Truck", price: "$900" },
+                  { label: "Compact 2-Door", price: "$618" },
+                  { label: "Midsize Sedan", price: "$824" },
+                  { label: "SUV / Truck", price: "$1,030" },
                 ],
               },
               {
@@ -521,9 +521,9 @@ export function MenuPage() {
                 defect: "~85–95% Defect Removal",
                 desc: "Compounding stage to remove deeper scratches and heavy swirl marks, followed by fine polish for a mirror finish.",
                 prices: [
-                  { label: "Compact 2-Door", price: "$1,000" },
-                  { label: "Midsize Sedan", price: "$1,200" },
-                  { label: "SUV / Truck", price: "$1,400" },
+                  { label: "Compact 2-Door", price: "$1,030" },
+                  { label: "Midsize Sedan", price: "$1,236" },
+                  { label: "SUV / Truck", price: "$1,442" },
                 ],
                 popular: true,
               },
@@ -533,8 +533,8 @@ export function MenuPage() {
                 desc: "Our most thorough correction process with multiple cutting and polishing stages. Transforms neglected paint to showroom quality.",
                 prices: [
                   { label: "Compact 2-Door", price: "$1,700" },
-                  { label: "Midsize Sedan", price: "$2,000" },
-                  { label: "SUV / Truck", price: "$2,400" },
+                  { label: "Midsize Sedan", price: "$2,060" },
+                  { label: "SUV / Truck", price: "$2,472" },
                 ],
               },
             ].map((pkg) => (
