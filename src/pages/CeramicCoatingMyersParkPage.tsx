@@ -15,7 +15,7 @@ const PACKAGES = [
 const SERVICES = [
   { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1 to 10-year protection packages", link: "/ceramic-coating" },
   { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches & oxidation", link: "/paint-correction" },
-  { title: "Full Detailing", desc: "Standard, Premium & Elite interior and exterior packages", link: "/services" },
+  { title: "Full Detailing", desc: "Standard & Ceramic interior and exterior packages", link: "/services" },
   { title: "Maintenance Plans", desc: "Biweekly, monthly or quarterly membership plans", link: "/maintenance" },
 ];
 

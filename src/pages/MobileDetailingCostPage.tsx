@@ -29,11 +29,11 @@ export function MobileDetailingCostPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $129 for a standard exterior detail (sedan) to $937+ for an elite full inside & out detail (van). ProWorx offers Standard, Premium, and Elite tiers. Standard Inside & Out starts at $258, Premium at $392, and Elite at $783 for sedans. Pricing varies by vehicle size." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $129 for a standard exterior detail (sedan) to $735 for an elite ceramic full inside & out detail (van). ProWorx offers Standard and Ceramic tiers. Standard Inside & Out starts at $258 and Elite Inside & Out — Ceramic starts at $581 for sedans. Add-ons are available on all packages. Pricing varies by vehicle size." }},
                 { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $181 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Ceramic Interior starts at $300 and adds fabric protection and GYEON leather shield at 15% off. Add-ons like shampooing, steam cleaning, and pet hair removal are available on any package." }},
                 { "@type": "Question", "name": "Is mobile detailing more expensive than going to a shop?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Mobile detailing saves you the time and hassle of driving to a shop and waiting. ProWorx brings professional-grade equipment and products directly to your location. Our pricing is competitive with Charlotte-area detail shops, plus you get the convenience of service at your home or office." }},
                 { "@type": "Question", "name": "Do I need to tip my mobile detailer?", "acceptedAnswer": { "@type": "Answer", "text": "Tipping is not required but always appreciated. If you're happy with the service, 15-20% is a common tip for auto detailing services. You can also leave a Google review — that helps us just as much!" }},
-                { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard, Premium, or Elite. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction ($100), ceramic wax, or pet hair removal." }},
+                { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard or Ceramic. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction ($100), ceramic wax, or pet hair removal." }},
                 { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $258 (sedan), $309 (small SUV/truck), $361 (large SUV/truck), and $412 (van). This reflects the additional time and materials needed for larger vehicles." }}
               ]
             }
@@ -83,7 +83,7 @@ export function MobileDetailingCostPage() {
               { label: "Exterior Detail", from: "$129", time: "1 hr 15 min", tier: "Standard" },
               { label: "Interior Detail", from: "$181", time: "1 hr 45 min", tier: "Standard" },
               { label: "Full Inside & Out", from: "$258", time: "2 hr 30 min", tier: "Standard" },
-              { label: "Premium Full Detail", from: "$392", time: "4 hrs", tier: "Premium" },
+              { label: "Elite Ceramic I&O", from: "$581", time: "5 hr 15 min", tier: "Ceramic" },
             ].map((item) => (
               <div key={item.label} className="rounded-2xl bg-card border border-border p-6 text-center hover:border-gold/30 transition-colors">
                 <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-2">{item.tier}</p>
@@ -114,22 +114,20 @@ export function MobileDetailingCostPage() {
                       <tr className="border-b border-border bg-muted/50">
                         <th className="text-left p-4 font-bold">Vehicle Size</th>
                         <th className="text-left p-4 font-bold">Standard</th>
-                        <th className="text-left p-4 font-bold">Premium</th>
-                        <th className="text-left p-4 font-bold">Elite</th>
+                        <th className="text-left p-4 font-bold">Elite Ceramic</th>
                       </tr>
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$258", premium: "$392", elite: "$783" },
-                        { size: "Small SUV / Small Truck", standard: "$309", premium: "$444", elite: "$835" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$361", premium: "$495", elite: "$886" },
-                        { size: "Van", standard: "$412", premium: "$547", elite: "$937" },
+                        { size: "Sedan", standard: "$258", ceramic: "$581" },
+                        { size: "Small SUV / Small Truck", standard: "$309", ceramic: "$632" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$361", ceramic: "$684" },
+                        { size: "Van", standard: "$412", ceramic: "$735" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
                           <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.premium}</td>
-                          <td className="p-4 text-muted-foreground">{row.elite}</td>
+                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -150,20 +148,20 @@ export function MobileDetailingCostPage() {
                       <tr className="border-b border-border bg-muted/50">
                         <th className="text-left p-4 font-bold">Vehicle Size</th>
                         <th className="text-left p-4 font-bold">Standard</th>
-                        <th className="text-left p-4 font-bold">Premium</th>
+                        <th className="text-left p-4 font-bold">Ceramic</th>
                       </tr>
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$181", premium: "$315" },
-                        { size: "Small SUV / Small Truck", standard: "$206", premium: "$341" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$258", premium: "$392" },
-                        { size: "Van", standard: "$309", premium: "$444" },
+                        { size: "Sedan", standard: "$181", ceramic: "$300" },
+                        { size: "Small SUV / Small Truck", standard: "$206", ceramic: "$325" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$258", ceramic: "$377" },
+                        { size: "Van", standard: "$309", ceramic: "$428" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
                           <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.premium}</td>
+                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -184,22 +182,20 @@ export function MobileDetailingCostPage() {
                       <tr className="border-b border-border bg-muted/50">
                         <th className="text-left p-4 font-bold">Vehicle Size</th>
                         <th className="text-left p-4 font-bold">Standard</th>
-                        <th className="text-left p-4 font-bold">Premium</th>
-                        <th className="text-left p-4 font-bold">Elite</th>
+                        <th className="text-left p-4 font-bold">Ceramic</th>
                       </tr>
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$129", premium: "$407", elite: "$462" },
-                        { size: "Small SUV / Small Truck", standard: "$155", premium: "$433", elite: "$487" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$181", premium: "$459", elite: "$513" },
-                        { size: "Van", standard: "$206", premium: "$484", elite: "$539" },
+                        { size: "Sedan", standard: "$129", ceramic: "$333" },
+                        { size: "Small SUV / Small Truck", standard: "$155", ceramic: "$359" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$181", ceramic: "$385" },
+                        { size: "Van", standard: "$206", ceramic: "$410" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
                           <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.premium}</td>
-                          <td className="p-4 text-muted-foreground">{row.elite}</td>
+                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -242,7 +238,7 @@ export function MobileDetailingCostPage() {
               <div className="space-y-4">
                 {[
                   { title: "Vehicle Size", desc: "Sedans are the base price. SUVs, trucks, and vans require more time and materials, so pricing increases by $25–$155 depending on the service." },
-                  { title: "Service Tier", desc: "Standard covers the essentials. Premium adds leather conditioning, steam cleaning & 6-month sealant. Elite includes clay bar, iron decontamination & 12-month ceramic wax." },
+                  { title: "Service Tier", desc: "Standard covers the essentials. Ceramic packages add ceramic protection products (fabric guard, leather shield, ceramic wax, trim ceramic) bundled at 15% off. Add-ons like shampooing, steam cleaning, and clay bar are available on any package." },
                   { title: "Vehicle Condition", desc: "Heavily soiled, pet hair, or neglected interiors may require extra time, charged at the base hourly rate. We'll always discuss this before starting." },
                   { title: "Add-On Services", desc: "Hot water extraction ($100), ceramic add-ons, headlight restoration, and other enhancements can be added to any base package." },
                   { title: "No Hidden Fees", desc: "Our pricing is transparent — what you see is what you pay. No trip charges, no surprise upcharges. We quote before we start." },

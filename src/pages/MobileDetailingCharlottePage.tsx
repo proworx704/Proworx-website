@@ -9,8 +9,7 @@ import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices"
 
 const PACKAGES = [
   { name: "Standard Detail", price: "From $258", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your car clean and fresh" },
-  { name: "Premium Detail", price: "From $392", features: ["Everything in Standard", "Clay bar decontamination", "Paint sealant application", "Leather conditioning", "Door jamb cleaning", "Engine bay wipe-down"], popular: true, best: "Deep clean — restores that just-bought feeling" },
-  { name: "Elite Detail", price: "From $783", features: ["Everything in Premium", "1-step paint enhancement polish", "Full interior steam cleaning", "Headlight restoration", "Odor elimination treatment", "Scratch-free hand polish"], best: "Showroom restoration — the ultimate transformation" },
+  { name: "Elite Ceramic Detail", price: "From $581", features: ["Everything in Standard", "Fabric protection & GYEON leather shield", "Ceramic tire dressing", "Plastic & trim ceramic coating", "12-month ceramic wax"], popular: true, best: "Ultimate protection — ceramic shield for the entire vehicle" },
 ];
 
 const SERVICE_AREAS = [
@@ -69,14 +68,14 @@ export function MobileDetailingCharlottePage() {
                 { "@type": "City", "name": "Ballantyne" }
               ],
               "description": "Professional mobile auto detailing service in Charlotte, NC. Interior and exterior detailing, paint correction, and ceramic coating brought to your home or office.",
-              "offers": { "@type": "Offer", "priceRange": "$258-$783+", "priceCurrency": "USD" }
+              "offers": { "@type": "Offer", "priceRange": "$258-$735", "priceCurrency": "USD" }
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte starts at $258 for a Standard Detail (exterior wash, interior vacuum & wipe-down) up to $783+ for an Elite Detail (paint polish, steam cleaning, headlight restoration). SUVs and trucks may be priced higher. ProWorx offers free quotes based on your vehicle's size and condition." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte starts at $258 for a Standard Detail (sedan, full inside & out) up to $735 for an Elite Ceramic Detail (van). We offer Standard and Ceramic tiers with add-on options. SUVs and trucks are priced by size. ProWorx offers free quotes based on your vehicle's size and condition." }},
                 { "@type": "Question", "name": "Do you bring your own water and supplies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx is a fully self-contained mobile detailing unit. We bring our own water, power, professional-grade products, and equipment. All we need is access to your vehicle and a parking spot. We're 100% eco-friendly with water reclamation." }},
-                { "@type": "Question", "name": "How long does a mobile detail take?", "acceptedAnswer": { "@type": "Answer", "text": "A Standard Detail takes 1.5–2 hours, Premium Detail 2.5–3.5 hours, and Elite Detail 4–6 hours depending on vehicle size and condition. We work by appointment only to ensure dedicated attention to your vehicle." }},
+                { "@type": "Question", "name": "How long does a mobile detail take?", "acceptedAnswer": { "@type": "Answer", "text": "A Standard Detail takes 1.5–4 hours and an Elite Ceramic Detail takes 5–7 hours depending on vehicle size and condition. Add-ons increase time accordingly. We work by appointment only to ensure dedicated attention to your vehicle." }},
                 { "@type": "Question", "name": "What areas in Charlotte do you service?", "acceptedAnswer": { "@type": "Answer", "text": "We're based in Waxhaw and service all of Charlotte and surrounding areas including Ballantyne, SouthPark, Myers Park, Uptown, Dilworth, South End, Weddington, Marvin, Indian Trail, Fort Mill SC, and Tega Cay SC. Most Charlotte locations are within 20-35 minutes." }}
               ]
             }
@@ -236,9 +235,9 @@ export function MobileDetailingCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Mobile Detailing FAQ — Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "How much does mobile detailing cost in Charlotte?", a: "Mobile detailing in Charlotte starts at $258 for a Standard Detail (exterior wash, interior vacuum & wipe-down) up to $783+ for our Elite Detail with paint enhancement polish and steam cleaning. Final pricing depends on vehicle size and condition. We offer free quotes — call or book online." },
+                { q: "How much does mobile detailing cost in Charlotte?", a: "Mobile detailing in Charlotte starts at $258 for a Standard Detail (sedan, full inside & out) up to $735 for an Elite Ceramic Detail (van). We offer Standard and Ceramic tiers — ceramic packages bundle protection products at 15% off. Final pricing depends on vehicle size and condition. We offer free quotes — call or book online." },
                 { q: "Do you bring your own water and supplies?", a: "Yes! ProWorx is a fully self-contained mobile detailing unit. We bring our own water supply, power, professional-grade products, and all equipment. All we need is access to your vehicle and a parking spot. We're 100% eco-friendly with full water reclamation." },
-                { q: "How long does a mobile detail take?", a: "Standard Detail: 1.5–2 hours. Premium Detail: 2.5–3.5 hours. Elite Detail: 4–6 hours. Times vary by vehicle size and condition. We work by appointment only to ensure your vehicle gets dedicated, unrushed attention." },
+                { q: "How long does a mobile detail take?", a: "Standard Detail: 1.5–4 hours depending on vehicle size and service type. Elite Ceramic Detail: 5–7 hours. Add-ons increase time accordingly. We work by appointment only to ensure your vehicle gets dedicated, unrushed attention." },
                 { q: "What areas of Charlotte do you service?", a: "We service all of Charlotte and surrounding areas including Ballantyne, SouthPark, Myers Park, Uptown, Dilworth, South End, Weddington, Marvin, Indian Trail, Fort Mill SC, Tega Cay SC, and Lake Wylie. Most Charlotte locations are 20-35 minutes from our base." },
                 { q: "Can you detail my car at my office?", a: "Absolutely — office details are one of our most popular services. We'll detail your car in the parking lot while you work. Many Charlotte professionals book regular maintenance plans so their car stays perfect without ever taking time out of their day." },
               ].map((faq) => (
