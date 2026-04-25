@@ -117,18 +117,14 @@ export function MenuPage() {
 
   // Inside & Out widgets
   const bookStdIO    = config["widgetUrl:homepage-cta"] || `${SQ}/3462dsfn0cvfuh${LOC}`;
-  const bookPremIOInt = `${SQ}/3rqy3ybteuq0h5${LOC}`;
-  const bookPremIOExt = `${SQ}/4shmxw5hsatfu3${LOC}`;
   const bookEliteIO   = `${SQ}/m7bilxz8z549j1${LOC}`;
 
   // Interior Only widgets
   const bookStdInt   = `${SQ}/3s57oeuq7958xd${LOC}`;
-  const bookPremInt  = `${SQ}/hacox5veazvkdw${LOC}`;
   const bookEliteInt = `${SQ}/vm4n9e5q56f6vl${LOC}`;
 
   // Exterior Only widgets
   const bookStdExt   = `${SQ}/hayrfl98qvan4m${LOC}`;
-  const bookPremExt  = `${SQ}/g96s66gqbeinpo${LOC}`;
   const bookEliteExt = `${SQ}/ve9f9u6kfgnpaw${LOC}`;
 
   // Other widgets
@@ -244,61 +240,23 @@ export function MenuPage() {
               bookHref={bookStdIO}
             />
             <TierCard
-              name="Premium I&O — Interior Focus"
-              badge="Interior Upgrade"
-              highlight
-              description="Standard Inside & Out plus interior-focused add-ons at 10% off — leather care, steam cleaning, and UV protection."
-              features={[
-                "Everything in Standard, plus:",
-                "Leather deep clean & conditioning",
-                "Steam cleaning (vents, plastics, crevices)",
-                "Premium long-lasting fragrance",
-                "UV protection for dashboard & plastics",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$392" },
-                { label: "Sm SUV/Truck", duration: "4h", price: "$444" },
-                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$495" },
-                { label: "Van", duration: "5h", price: "$547" },
-              ]}
-              bookHref={bookPremIOInt}
-            />
-            <TierCard
-              name="Premium I&O — Exterior Focus"
-              badge="Curb Appeal"
-              description="Standard Inside & Out plus exterior-focused add-ons at 10% off — decontamination, sealant, and trim restoration."
-              features={[
-                "Everything in Standard, plus:",
-                "Clay bar treatment",
-                "Iron decontamination",
-                "6-month paint sealant",
-                "Trim restoration & protectant",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$536" },
-                { label: "Sm SUV/Truck", duration: "4h", price: "$587" },
-                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$639" },
-                { label: "Van", duration: "5h", price: "$690" },
-              ]}
-              bookHref={bookPremIOExt}
-            />
-            <TierCard
               name="Elite Inside & Out — Ceramic"
               badge="Best Protection"
-              description="The ultimate detail — ceramic upgrades throughout with all add-ons bundled at 15% off for maximum protection."
+              highlight
+              description="Standard Inside & Out plus ceramic protection products bundled at 15% off — the ultimate long-lasting shield for interior and exterior."
               features={[
                 "Everything in Standard, plus:",
-                "Steam cleaning & premium fragrance",
-                "Clay bar treatment & iron decontamination",
-                "Fabric protection & GYEON leather shield",
-                "Ceramic tire dressing & plastic/trim ceramic",
+                "Fabric protection / weather guard",
+                "GYEON leather shield",
+                "Ceramic tire dressing",
+                "Plastic & trim ceramic coating",
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "5h 30m", price: "$783" },
-                { label: "Sm SUV/Truck", duration: "6h", price: "$835" },
-                { label: "Lg SUV/Truck", duration: "6h 30m", price: "$886" },
-                { label: "Van", duration: "7h", price: "$937" },
+                { label: "Sedan", duration: "5h 15m", price: "$581" },
+                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$632" },
+                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$684" },
+                { label: "Van", duration: "6h 45m", price: "$735" },
               ]}
               bookHref={bookEliteIO}
             />
@@ -313,9 +271,9 @@ export function MenuPage() {
           <SectionHeader
             label="Interior Only"
             title="Interior Packages"
-            subtitle="Comprehensive interior reset in three tiers:"
+            subtitle="Comprehensive interior reset — Standard or Ceramic:"
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <TierCard
               name="Standard Interior"
               badge="Best Value"
@@ -336,42 +294,20 @@ export function MenuPage() {
               bookHref={bookStdInt}
             />
             <TierCard
-              name="Premium Interior"
-              badge="Recommended"
-              highlight
-              description="Standard Interior plus bundled premium add-ons at 10% off — deep care with leather conditioning, steam, and UV protection."
-              features={[
-                "Everything in Standard Interior, plus:",
-                "Leather deep clean & conditioning",
-                "Steam cleaning (vents, plastics, crevices)",
-                "Premium long-lasting fragrance",
-                "UV protection for dashboard & plastics",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "2h 55m", price: "$315" },
-                { label: "Sm SUV/Truck", duration: "3h 15m", price: "$341" },
-                { label: "Lg SUV/Truck", duration: "3h 45m", price: "$392" },
-                { label: "Van", duration: "4h 15m", price: "$444" },
-              ]}
-              bookHref={bookPremInt}
-            />
-            <TierCard
-              name="Elite Interior — Ceramic"
+              name="Ceramic Interior Only"
               badge="Best Protection"
-              description="Standard Interior plus ceramic interior add-ons at 15% off — advanced fabric and leather protection with ceramic technology."
+              highlight
+              description="Standard Interior plus ceramic interior protection products bundled at 15% off — advanced fabric and leather shield."
               features={[
                 "Everything in Standard Interior, plus:",
-                "Hot water extraction / shampoo",
-                "Steam cleaning (vents, plastics, crevices)",
-                "Premium long-lasting fragrance",
                 "Fabric protection / weather guard",
                 "GYEON leather shield",
               ]}
               prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$461" },
-                { label: "Sm SUV/Truck", duration: "3h 45m", price: "$486" },
-                { label: "Lg SUV/Truck", duration: "4h 15m", price: "$538" },
-                { label: "Van", duration: "4h 45m", price: "$589" },
+                { label: "Sedan", duration: "2h 15m", price: "$300" },
+                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$325" },
+                { label: "Lg SUV/Truck", duration: "3h", price: "$377" },
+                { label: "Van", duration: "3h 30m", price: "$428" },
               ]}
               bookHref={bookEliteInt}
             />
@@ -387,7 +323,7 @@ export function MenuPage() {
             title="Exterior Packages"
             subtitle="Professional exterior care — all mobile at your location:"
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <TierCard
               name="Standard Exterior"
               badge="Best Value"
@@ -407,41 +343,21 @@ export function MenuPage() {
               bookHref={bookStdExt}
             />
             <TierCard
-              name="Premium Exterior"
-              badge="Most Popular"
-              highlight
-              description="Standard Exterior plus bundled add-ons at 10% off — full decontamination with a 6-month sealant and trim restoration."
-              features={[
-                "Everything in Standard Exterior, plus:",
-                "Clay bar treatment",
-                "Iron decontamination",
-                "6-month paint sealant",
-                "Trim restoration & protectant",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "2h 25m", price: "$407" },
-                { label: "Sm SUV/Truck", duration: "2h 40m", price: "$433" },
-                { label: "Lg SUV/Truck", duration: "3h", price: "$459" },
-                { label: "Van", duration: "3h 15m", price: "$484" },
-              ]}
-              bookHref={bookPremExt}
-            />
-            <TierCard
-              name="Elite Exterior — Ceramic"
+              name="Ceramic Exterior Only"
               badge="Best Protection"
-              description="Standard Exterior plus all add-ons at 15% off with ceramic upgrades for the ultimate long-lasting exterior shield."
+              highlight
+              description="Standard Exterior plus ceramic exterior protection products bundled at 15% off — the ultimate long-lasting exterior shield."
               features={[
                 "Everything in Standard Exterior, plus:",
-                "Clay bar treatment & iron decontamination",
                 "Ceramic tire dressing",
                 "Plastic & trim ceramic coating",
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 45m", price: "$462" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$487" },
-                { label: "Lg SUV/Truck", duration: "3h 20m", price: "$513" },
-                { label: "Van", duration: "3h 35m", price: "$539" },
+                { label: "Sedan", duration: "3h 30m", price: "$333" },
+                { label: "Sm SUV/Truck", duration: "3h 45m", price: "$359" },
+                { label: "Lg SUV/Truck", duration: "4h", price: "$385" },
+                { label: "Van", duration: "4h 15m", price: "$410" },
               ]}
               bookHref={bookEliteExt}
             />
@@ -455,7 +371,7 @@ export function MenuPage() {
           <SectionHeader
             label="Customize"
             title="Add-On Services"
-            subtitle="Enhance any detail. Already bundled at 10% off in Premium and 15% off in Elite tiers."
+            subtitle="Enhance any package. Ceramic protection products are bundled at 15% off in Ceramic packages."
           />
           <AddOnGroup title="Interior Add-Ons" items={[
             { name: "Hot Water Extraction / Shampoo", price: "$100" },
