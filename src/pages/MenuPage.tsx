@@ -597,22 +597,22 @@ export function MenuPage() {
               },
               {
                 name: "Ceramic Exterior",
-                price: "$109",
+                price: "$102.79",
                 tagline: "Ceramic-grade exterior care",
                 href: subCeramicExt,
                 icon: "droplets" as const,
                 features: ["Exterior hand wash", "Tire & wheel cleaning", "Door jambs cleaned", "GYEON ceramic top-coat refresh", "Ceramic trim & plastic refresh", "Tire shine & dressing", "10% off on add-on services"],
-                billing: { biweekly: "$55", quarterly: "$327", annually: "$1,253" },
+                billing: { biweekly: "$51.39", quarterly: "$308.38", annually: "$1,182.12" },
               },
               {
                 name: "Ceramic Inside & Out",
-                price: "$180",
+                price: "$184.76",
                 tagline: "The ultimate ceramic care",
                 href: subCeramicIO,
                 icon: "shield" as const,
                 popular: true,
                 features: ["Full inside & out detail", "Everything in Full I&O plan", "GYEON ceramic top-coat refresh", "Iron decontamination", "Ceramic trim & plastic refresh", "15% off on add-on services"],
-                billing: { biweekly: "$90", quarterly: "$540", annually: "$2,070" },
+                billing: { biweekly: "$92.38", quarterly: "$554.29", annually: "$2,124.81" },
               },
             ].map((plan) => (
               <div key={plan.name} className={`rounded-2xl bg-card border p-5 relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
