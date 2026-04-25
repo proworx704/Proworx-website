@@ -1,5 +1,22 @@
 {
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/ceramic-coating-ballantyne-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-weddington-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-marvin-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-myers-park-charlotte", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-southpark-charlotte", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-fort-mill-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-tega-cay-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-indian-trail-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-matthews-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-davidson-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-huntersville-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-cornelius-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-harrisburg-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-indian-land-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/ceramic-coating-mint-hill-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/booking-assets/:path*",
@@ -23,18 +40,11 @@
     { "source": "/menu", "destination": "/index.html" },
     { "source": "/ceramic-coating-vs-wax", "destination": "/index.html" },
     { "source": "/gyeon-certified-installer-charlotte", "destination": "/index.html" },
-    { "source": "/ceramic-coating-ballantyne-nc", "destination": "/index.html" },
-    { "source": "/ceramic-coating-weddington-nc", "destination": "/index.html" },
-    { "source": "/ceramic-coating-marvin-nc", "destination": "/index.html" },
-    { "source": "/ceramic-coating-myers-park-charlotte", "destination": "/index.html" },
-    { "source": "/ceramic-coating-southpark-charlotte", "destination": "/index.html" },
-    { "source": "/ceramic-coating-fort-mill-sc", "destination": "/index.html" },
-    { "source": "/ceramic-coating-tega-cay-sc", "destination": "/index.html" },
+    { "source": "/ceramic-coating-south-charlotte-nc", "destination": "/index.html" },
     { "source": "/paint-correction-charlotte-nc", "destination": "/index.html" },
     { "source": "/mobile-detailing-charlotte-nc", "destination": "/index.html" },
     { "source": "/car-detailing-charlotte-nc", "destination": "/index.html" },
     { "source": "/boat-detailing-charlotte-nc", "destination": "/index.html" },
-    { "source": "/ceramic-coating-indian-trail-nc", "destination": "/index.html" },
     { "source": "/admin", "destination": "/index.html" }
   ],
   "headers": [

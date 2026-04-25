@@ -30,26 +30,12 @@ const MobileDetailingCostPage = lazy(() => import("./pages/MobileDetailingCostPa
 const MenuPage = lazy(() => import("./pages/MenuPage").then(m => ({ default: m.MenuPage })));
 const CeramicCoatingVsWaxPage = lazy(() => import("./pages/CeramicCoatingVsWaxPage").then(m => ({ default: m.CeramicCoatingVsWaxPage })));
 const GyeonCertifiedCharlottePage = lazy(() => import("./pages/GyeonCertifiedCharlottePage").then(m => ({ default: m.GyeonCertifiedCharlottePage })));
-const CeramicCoatingBallantynePage = lazy(() => import("./pages/CeramicCoatingBallantynePage").then(m => ({ default: m.CeramicCoatingBallantynePage })));
-const CeramicCoatingWeddingtonPage = lazy(() => import("./pages/CeramicCoatingWeddingtonPage").then(m => ({ default: m.CeramicCoatingWeddingtonPage })));
-const CeramicCoatingMarvinPage = lazy(() => import("./pages/CeramicCoatingMarvinPage").then(m => ({ default: m.CeramicCoatingMarvinPage })));
-const CeramicCoatingMyersParkPage = lazy(() => import("./pages/CeramicCoatingMyersParkPage").then(m => ({ default: m.CeramicCoatingMyersParkPage })));
-const CeramicCoatingSouthParkPage = lazy(() => import("./pages/CeramicCoatingSouthParkPage").then(m => ({ default: m.CeramicCoatingSouthParkPage })));
-const CeramicCoatingFortMillPage = lazy(() => import("./pages/CeramicCoatingFortMillPage").then(m => ({ default: m.CeramicCoatingFortMillPage })));
-const CeramicCoatingTegaCayPage = lazy(() => import("./pages/CeramicCoatingTegaCayPage").then(m => ({ default: m.CeramicCoatingTegaCayPage })));
+
 const PaintCorrectionCharlottePage = lazy(() => import("./pages/PaintCorrectionCharlottePage").then(m => ({ default: m.PaintCorrectionCharlottePage })));
 const MobileDetailingCharlottePage = lazy(() => import("./pages/MobileDetailingCharlottePage").then(m => ({ default: m.MobileDetailingCharlottePage })));
 const CarDetailingCharlottePage = lazy(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
 const BoatDetailingCharlottePage = lazy(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
-const CeramicCoatingIndianTrailPage = lazy(() => import("./pages/CeramicCoatingIndianTrailPage").then(m => ({ default: m.CeramicCoatingIndianTrailPage })));
-const CeramicCoatingMatthewsPage = lazy(() => import("./pages/CeramicCoatingMatthewsPage").then(m => ({ default: m.CeramicCoatingMatthewsPage })));
-const CeramicCoatingDavidsonPage = lazy(() => import("./pages/CeramicCoatingDavidsonPage").then(m => ({ default: m.CeramicCoatingDavidsonPage })));
-const CeramicCoatingHuntersvillePage = lazy(() => import("./pages/CeramicCoatingHuntersvillePage").then(m => ({ default: m.CeramicCoatingHuntersvillePage })));
-const CeramicCoatingCorneliusPage = lazy(() => import("./pages/CeramicCoatingCorneliusPage").then(m => ({ default: m.CeramicCoatingCorneliusPage })));
-const CeramicCoatingHarrisburgPage = lazy(() => import("./pages/CeramicCoatingHarrisburgPage").then(m => ({ default: m.CeramicCoatingHarrisburgPage })));
-const CeramicCoatingIndianLandPage = lazy(() => import("./pages/CeramicCoatingIndianLandPage").then(m => ({ default: m.CeramicCoatingIndianLandPage })));
 const CeramicCoatingSouthCharlottePage = lazy(() => import("./pages/CeramicCoatingSouthCharlottePage").then(m => ({ default: m.CeramicCoatingSouthCharlottePage })));
-const CeramicCoatingMintHillPage = lazy(() => import("./pages/CeramicCoatingMintHillPage").then(m => ({ default: m.CeramicCoatingMintHillPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 /** Minimal loading spinner for lazy chunks.
@@ -102,26 +88,12 @@ function App() {
           <Route path="/menu" element={<SiteLayout><MenuPage /></SiteLayout>} />
           <Route path="/ceramic-coating-vs-wax" element={<SiteLayout><CeramicCoatingVsWaxPage /></SiteLayout>} />
           <Route path="/gyeon-certified-installer-charlotte" element={<SiteLayout><GyeonCertifiedCharlottePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-ballantyne-nc" element={<SiteLayout><CeramicCoatingBallantynePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-weddington-nc" element={<SiteLayout><CeramicCoatingWeddingtonPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-marvin-nc" element={<SiteLayout><CeramicCoatingMarvinPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-myers-park-charlotte" element={<SiteLayout><CeramicCoatingMyersParkPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-southpark-charlotte" element={<SiteLayout><CeramicCoatingSouthParkPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-fort-mill-sc" element={<SiteLayout><CeramicCoatingFortMillPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-tega-cay-sc" element={<SiteLayout><CeramicCoatingTegaCayPage /></SiteLayout>} />
+
           <Route path="/paint-correction-charlotte-nc" element={<SiteLayout><PaintCorrectionCharlottePage /></SiteLayout>} />
           <Route path="/mobile-detailing-charlotte-nc" element={<SiteLayout><MobileDetailingCharlottePage /></SiteLayout>} />
           <Route path="/car-detailing-charlotte-nc" element={<SiteLayout><CarDetailingCharlottePage /></SiteLayout>} />
           <Route path="/boat-detailing-charlotte-nc" element={<SiteLayout><BoatDetailingCharlottePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-indian-trail-nc" element={<SiteLayout><CeramicCoatingIndianTrailPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-matthews-nc" element={<SiteLayout><CeramicCoatingMatthewsPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-davidson-nc" element={<SiteLayout><CeramicCoatingDavidsonPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-huntersville-nc" element={<SiteLayout><CeramicCoatingHuntersvillePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-cornelius-nc" element={<SiteLayout><CeramicCoatingCorneliusPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-harrisburg-nc" element={<SiteLayout><CeramicCoatingHarrisburgPage /></SiteLayout>} />
-          <Route path="/ceramic-coating-indian-land-sc" element={<SiteLayout><CeramicCoatingIndianLandPage /></SiteLayout>} />
           <Route path="/ceramic-coating-south-charlotte-nc" element={<SiteLayout><CeramicCoatingSouthCharlottePage /></SiteLayout>} />
-          <Route path="/ceramic-coating-mint-hill-nc" element={<SiteLayout><CeramicCoatingMintHillPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>

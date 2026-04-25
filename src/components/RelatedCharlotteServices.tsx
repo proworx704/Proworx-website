@@ -11,9 +11,8 @@ const CHARLOTTE_SERVICES = [
 ];
 
 const NEIGHBORHOOD_PAGES = [
-  { label: "Ceramic Coating Ballantyne", href: "/ceramic-coating-ballantyne-nc" },
-  { label: "Ceramic Coating SouthPark", href: "/ceramic-coating-southpark-charlotte" },
-  { label: "Ceramic Coating Myers Park", href: "/ceramic-coating-myers-park-charlotte" },
+  { label: "Ceramic Coating South Charlotte", href: "/ceramic-coating-south-charlotte-nc" },
+  { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
   { label: "Detailing in Waxhaw", href: "/waxhaw" },
 ];
 

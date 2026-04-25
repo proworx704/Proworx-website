@@ -13,60 +13,18 @@ const AREAS = [
     { label: "Mobile Detailing", href: "/mobile-detailing-charlotte-nc" },
     { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
   ]},
-  { name: "South Charlotte", state: "NC", description: "Serving Providence, Rea Road, Arboretum, and all South Charlotte's affluent neighborhoods.", pages: [
+  { name: "South Charlotte", state: "NC", description: "Serving Ballantyne, Myers Park, SouthPark, Providence, Rea Road, Arboretum, Weddington, Marvin, and all South Charlotte neighborhoods.", pages: [
     { label: "Ceramic Coating", href: "/ceramic-coating-south-charlotte-nc" },
   ]},
-  { name: "Ballantyne", state: "NC", description: "Premium detailing services for the Ballantyne community and surrounding South Charlotte areas.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-ballantyne-nc" },
-  ]},
-  { name: "Myers Park", state: "NC", description: "Charlotte's most prestigious neighborhood — luxury vehicle detailing and ceramic coating.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-myers-park-charlotte" },
-  ]},
-  { name: "SouthPark", state: "NC", description: "Serving the SouthPark area with premium detailing and certified ceramic coating.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-southpark-charlotte" },
-  ]},
   { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
-    { label: "Ceramic Coating", href: "/waxhaw" },
+    { label: "Local Services", href: "/waxhaw" },
   ]},
-  { name: "Weddington", state: "NC", description: "Premium detailing for Weddington's executive neighborhoods.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-weddington-nc" },
-  ]},
-  { name: "Marvin", state: "NC", description: "Serving Marvin with certified ceramic coating and full detailing services.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-marvin-nc" },
-  ]},
-  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors. Full service lineup available.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-fort-mill-sc" },
-  ]},
-  { name: "Indian Land", state: "SC", description: "Serving Sun City, Highway 521 corridor, and all Indian Land communities.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-indian-land-sc" },
-  ]},
-  { name: "Tega Cay", state: "SC", description: "Mobile detailing services for Tega Cay and the surrounding lakeside communities.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-tega-cay-sc" },
-  ]},
-  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews and the Stallings area.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-matthews-nc" },
-  ]},
-  { name: "Indian Trail", state: "NC", description: "Serving Indian Trail, Sun Valley, and the surrounding Union County neighborhoods.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-indian-trail-nc" },
-  ]},
-  { name: "Mint Hill", state: "NC", description: "Professional detailing services for Mint Hill and eastern Mecklenburg County.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-mint-hill-nc" },
-  ]},
-  { name: "Huntersville", state: "NC", description: "Serving Huntersville, Birkdale Village, and the Lake Norman gateway.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-huntersville-nc" },
-  ]},
-  { name: "Cornelius", state: "NC", description: "Lake Norman waterfront community — premium detailing and ceramic coating.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-cornelius-nc" },
-  ]},
-  { name: "Davidson", state: "NC", description: "Lake Norman's premier address — luxury vehicle care and certified coatings.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-davidson-nc" },
-  ]},
-  { name: "Harrisburg", state: "NC", description: "Serving Harrisburg and northeast Charlotte with full mobile detailing.", pages: [
-    { label: "Ceramic Coating", href: "/ceramic-coating-harrisburg-nc" },
-  ]},
+  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors including Tega Cay and Indian Land.", pages: [] },
+  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews, Indian Trail, Mint Hill, and Stallings.", pages: [] },
+  { name: "Lake Norman", state: "NC", description: "Serving Huntersville, Cornelius, Davidson, and the greater Lake Norman area.", pages: [] },
+  { name: "Harrisburg", state: "NC", description: "Serving Harrisburg and northeast Charlotte with full mobile detailing.", pages: [] },
   { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area.", pages: [] },
   { name: "Monroe", state: "NC", description: "Serving Monroe and greater Union County with full mobile detailing.", pages: [] },
-  { name: "Stallings", state: "NC", description: "Full detailing services for Stallings residents and nearby communities.", pages: [] },
 ];
 
 export function AreasPage() {

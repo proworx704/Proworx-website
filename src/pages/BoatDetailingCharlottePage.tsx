@@ -11,20 +11,20 @@ const BOAT_PACKAGES = [
   {
     name: "Basic Boat Wash",
     tiers: [
-      { label: "Up to 20 ft", price: "$250" },
-      { label: "21–25 ft", price: "$325" },
-      { label: "26–30 ft", price: "$400" },
-      { label: "31–35 ft", price: "$500" },
+      { label: "Up to 20 ft", price: "$206" },
+      { label: "21–25 ft", price: "$258" },
+      { label: "26–30 ft", price: "$309" },
+      { label: "31–35 ft", price: "$361" },
     ],
     desc: "Exterior hand wash, rinse, and dry. Ideal for routine upkeep between deep cleans.",
   },
   {
     name: "Full Boat Detail",
     tiers: [
-      { label: "Up to 20 ft", price: "$600" },
-      { label: "21–25 ft", price: "$775" },
-      { label: "26–30 ft", price: "$950" },
-      { label: "31–35 ft", price: "$1,150" },
+      { label: "Up to 20 ft", price: "$618" },
+      { label: "21–25 ft", price: "$721" },
+      { label: "26–30 ft", price: "$824" },
+      { label: "31–35 ft", price: "$927" },
     ],
     desc: "Comprehensive interior deep clean + exterior wash, decontamination, and wax. Top-to-bottom restoration.",
     popular: true,

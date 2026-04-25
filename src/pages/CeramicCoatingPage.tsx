@@ -801,15 +801,8 @@ export function CeramicCoatingPage() {
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {[
               { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
+              { label: "Ceramic Coating South Charlotte", href: "/ceramic-coating-south-charlotte-nc" },
               { label: "Ceramic Coating Waxhaw", href: "/waxhaw" },
-              { label: "Ceramic Coating Indian Trail", href: "/ceramic-coating-indian-trail-nc" },
-              { label: "Ceramic Coating Fort Mill", href: "/ceramic-coating-fort-mill-sc" },
-              { label: "Ceramic Coating Ballantyne", href: "/ceramic-coating-ballantyne-nc" },
-              { label: "Ceramic Coating Myers Park", href: "/ceramic-coating-myers-park-charlotte" },
-              { label: "Ceramic Coating SouthPark", href: "/ceramic-coating-southpark-charlotte" },
-              { label: "Ceramic Coating Tega Cay", href: "/ceramic-coating-tega-cay-sc" },
-              { label: "Ceramic Coating Weddington", href: "/ceramic-coating-weddington-nc" },
-              { label: "Ceramic Coating Marvin", href: "/ceramic-coating-marvin-nc" },
             ].map((link) => (
               <Link key={link.href} to={link.href} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:border-gold/40 hover:text-foreground transition-colors">
                 {link.label}
