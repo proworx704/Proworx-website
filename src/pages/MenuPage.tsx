@@ -597,12 +597,12 @@ export function MenuPage() {
               },
               {
                 name: "Ceramic Exterior",
-                price: "$100",
+                price: "$109",
                 tagline: "Ceramic-grade exterior care",
                 href: subCeramicExt,
                 icon: "droplets" as const,
                 features: ["Exterior hand wash", "Tire & wheel cleaning", "Door jambs cleaned", "GYEON ceramic top-coat refresh", "Ceramic trim & plastic refresh", "Tire shine & dressing", "10% off on add-on services"],
-                billing: { biweekly: "$50", quarterly: "$300", annually: "$1,150" },
+                billing: { biweekly: "$55", quarterly: "$327", annually: "$1,253" },
               },
               {
                 name: "Ceramic Inside & Out",

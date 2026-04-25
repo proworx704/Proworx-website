@@ -43,6 +43,13 @@ const DEFAULTS: Record<string, string> = {
   "widgetUrl:boat-oxidation": "https://book.squareup.com/appointments/jtklllya08a78z/location/9VRKFJAZZM3HG",
   "widgetUrl:boat-ceramic-2yr": "https://book.squareup.com/appointments/8n6fmuooxsb1j9/location/9VRKFJAZZM3HG/services",
   "widgetUrl:boat-ceramic-5yr": "https://book.squareup.com/appointments/pvjjsw3dcl7yjj/location/9VRKFJAZZM3HG/services",
+  // Detailing package widget URLs (used by ServicesPage slug-based lookup)
+  "widgetUrl:standard-inside-out": "https://book.squareup.com/appointments/3462dsfn0cvfuh/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:elite-inside-out": "https://book.squareup.com/appointments/m7bilxz8z549j1/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:standard-interior": "https://book.squareup.com/appointments/3s57oeuq7958xd/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:ceramic-interior": "https://book.squareup.com/appointments/vm4n9e5q56f6vl/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:standard-exterior": "https://book.squareup.com/appointments/hayrfl98qvan4m/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:ceramic-exterior": "https://book.squareup.com/appointments/ve9f9u6kfgnpaw/location/9VRKFJAZZM3HG/services",
   // Membership widget URLs
   "widgetUrl:membership-exterior": "https://book.squareup.com/appointments/k9hzdqnwzz6xit/location/9VRKFJAZZM3HG/services",
   "widgetUrl:membership-interior": "https://book.squareup.com/appointments/pfgwty61hdrtyg/location/9VRKFJAZZM3HG/services",
