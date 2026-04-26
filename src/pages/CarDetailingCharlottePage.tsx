@@ -16,7 +16,7 @@ const SERVICES = [
 
 const WHY_PROWORX = [
   { title: "12+ Years of Experience", desc: "Serving Charlotte since 2013. We've detailed thousands of vehicles from daily drivers to exotics." },
-  { title: "53+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our results speak for themselves — and so do our customers." },
+  { title: "57+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our results speak for themselves — and so do our customers." },
   { title: "Certified Coating Installer", desc: "GYEON & IGL certified. Professional-grade products only available through authorized installers." },
   { title: "Fully Mobile Service", desc: "We come to your home or office with our self-contained mobile unit. No need to drop off anywhere." },
   { title: "Eco-Friendly Operations", desc: "Full water reclamation, biodegradable products, responsible waste disposal. Great results, zero guilt." },
@@ -55,7 +55,7 @@ export function CarDetailingCharlottePage() {
               "address": { "@type": "PostalAddress", "streetAddress": "4321 Overbecks Ln", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
               "telephone": "(980) 272-1903",
               "url": "https://www.proworxdetailing.com",
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "53" },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" },
               "priceRange": "$$",
               "openingHoursSpecification": [
                 { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday"], "opens": "09:30", "closes": "18:00" }
@@ -81,7 +81,7 @@ export function CarDetailingCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What is the best car detailing service in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx Mobile Detailing is consistently rated the top car detailing service in the Charlotte area with a perfect 5.0 Google rating across 53+ reviews. As a GYEON & IGL certified installer with 12+ years of experience, ProWorx offers everything from basic details to professional ceramic coating and multi-stage paint correction." }},
+                { "@type": "Question", "name": "What is the best car detailing service in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx Mobile Detailing is consistently rated the top car detailing service in the Charlotte area with a perfect 5.0 Google rating across 57+ reviews. As a GYEON & IGL certified installer with 12+ years of experience, ProWorx offers everything from basic details to professional ceramic coating and multi-stage paint correction." }},
                 { "@type": "Question", "name": "How much does car detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Car detailing in Charlotte ranges from $258 for a Standard Detail (full inside & out) to $735 for an Elite Ceramic Detail (van). Ceramic coating packages start at $499. Prices vary by vehicle size — SUVs and trucks are typically higher." }},
                 { "@type": "Question", "name": "Does ProWorx come to my location in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx is a fully mobile, self-contained detailing service. We come to your home, office, or any location in Charlotte and surrounding areas with our own water, power, and professional equipment. We also offer drop-off service at our Waxhaw facility for paint correction and ceramic coating work." }},
                 { "@type": "Question", "name": "How often should I get my car detailed?", "acceptedAnswer": { "@type": "Answer", "text": "For most Charlotte drivers, we recommend a full detail every 3-6 months, with regular maintenance washes in between. If you park outside, have pets, or drive frequently, monthly detailing keeps your vehicle in top condition. ProWorx offers maintenance subscriptions (biweekly, monthly, quarterly) for the best value." }}
@@ -101,7 +101,7 @@ export function CarDetailingCharlottePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-6 backdrop-blur-sm">
               <Star className="size-3.5 fill-gold" />
-              5.0 Stars — 53+ Google Reviews
+              5.0 Stars — 57+ Google Reviews
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6">
               Car Detailing in{" "}
@@ -217,7 +217,7 @@ export function CarDetailingCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Car Detailing FAQ — Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "What is the best car detailing service in Charlotte, NC?", a: "ProWorx Mobile Detailing is consistently rated among the top detailing services in Charlotte with a perfect 5.0 Google rating across 53+ reviews. As a GYEON & IGL certified installer with 12+ years of experience, we handle everything from basic details to ceramic coating and multi-stage paint correction — for daily drivers and exotics alike." },
+                { q: "What is the best car detailing service in Charlotte, NC?", a: "ProWorx Mobile Detailing is consistently rated among the top detailing services in Charlotte with a perfect 5.0 Google rating across 57+ reviews. As a GYEON & IGL certified installer with 12+ years of experience, we handle everything from basic details to ceramic coating and multi-stage paint correction — for daily drivers and exotics alike." },
                 { q: "How much does car detailing cost in Charlotte?", a: "Car detailing in Charlotte ranges from $258 for a Standard Detail to $735 for an Elite Ceramic Detail (van). Ceramic packages bundle protection products at 15% off. Ceramic coating starts at $499. Paint correction from $618. Prices vary by vehicle size — SUVs and trucks are typically higher. We offer free quotes." },
                 { q: "Does ProWorx come to my location in Charlotte?", a: "Yes! We're a fully mobile, self-contained detailing service — we bring our own water, power, and professional equipment to your home, office, or any Charlotte location. For paint correction and ceramic coating, we also offer drop-off at our professional facility in Waxhaw." },
                 { q: "How often should I get my car detailed?", a: "For most Charlotte drivers, a full detail every 3-6 months with maintenance washes in between keeps your vehicle in top condition. If you park outside, have pets, or drive frequently, monthly detailing is ideal. Our maintenance subscriptions (biweekly, monthly, quarterly) offer the best value for regular care." },

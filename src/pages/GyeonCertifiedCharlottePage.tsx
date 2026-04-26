@@ -231,7 +231,7 @@ export function GyeonCertifiedCharlottePage() {
             <div className="flex items-center justify-center gap-1 mb-4">
               {[...Array(5)].map((_, i) => <Star key={i} className="size-5 fill-gold text-gold" />)}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">5.0 Stars — 56 Google Reviews</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">5.0 Stars — 57 Google Reviews</h2>
             <p className="text-muted-foreground text-lg mb-8">
               Charlotte's highest-rated ceramic coating installer. See what our customers say about their ProWorx experience.
             </p>

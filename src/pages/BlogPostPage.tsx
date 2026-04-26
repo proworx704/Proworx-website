@@ -179,7 +179,7 @@ export function BlogPostPage() {
                 </h3>
                 <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
                   We're Charlotte's premier mobile detailing service — Gyeon &
-                  IGL certified, 51 five-star reviews, and 12+ years of
+                  IGL certified, 57 five-star reviews, and 12+ years of
                   experience. We come to you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">

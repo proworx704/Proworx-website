@@ -266,7 +266,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating — Charlotte, NC | Gyeon & IGL Certified"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 with 1-10 year protection. 50+ 5-star reviews, 12+ years experience. Reserve with 30% down."
+        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 with 1-10 year protection. 57+ 5-star reviews, 12+ years experience. Reserve with 30% down."
         keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
@@ -294,7 +294,7 @@ export function CeramicCoatingPage() {
                 aggregateRating: {
                   "@type": "AggregateRating",
                   ratingValue: "5",
-                  reviewCount: "50",
+                  reviewCount: "57",
                 },
               },
               areaServed: "Charlotte, NC",
@@ -707,7 +707,7 @@ export function CeramicCoatingPage() {
             <div className="flex items-center justify-center gap-2 mb-2">
               <StarRating count={5} />
               <span className="text-sm font-semibold">5.0</span>
-              <span className="text-sm text-muted-foreground">from 50+ reviews</span>
+              <span className="text-sm text-muted-foreground">from 57+ reviews</span>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -840,7 +840,7 @@ export function CeramicCoatingPage() {
           <div className="max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-1.5 mb-5">
               <StarRating count={5} />
-              <span className="text-sm text-muted-foreground ml-1">50+ 5-star reviews</span>
+              <span className="text-sm text-muted-foreground ml-1">57+ 5-star reviews</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Ready to Protect Your Vehicle for <span className="text-gradient-gold">Years to Come?</span>

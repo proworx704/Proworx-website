@@ -77,7 +77,7 @@ export function BoatDetailingCharlottePage() {
                 "address": { "@type": "PostalAddress", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "53" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte" },

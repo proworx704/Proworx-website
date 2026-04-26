@@ -72,7 +72,7 @@ export function WaxhawPage() {
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
-                "reviewCount": "50",
+                "reviewCount": "57",
                 "bestRating": "5"
               }
             },
@@ -139,7 +139,7 @@ export function WaxhawPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
             {[
               { icon: <MapPin className="size-5" />, title: "Based in Waxhaw", desc: "3008 Collaroy Rd — your neighbors, not a distant shop." },
-              { icon: <Star className="size-5" />, title: "5-Star Rated", desc: "50+ five-star reviews from real Charlotte-area customers." },
+              { icon: <Star className="size-5" />, title: "5-Star Rated", desc: "57+ five-star reviews from real Charlotte-area customers." },
               { icon: <Shield className="size-5" />, title: "Certified Installer", desc: "GYEON & IGL certified for professional ceramic coatings." },
               { icon: <CheckCircle2 className="size-5" />, title: "Fully Mobile", desc: "We bring water, power & pro-grade equipment to you." },
             ].map((item) => (

@@ -56,7 +56,7 @@ export function MobileDetailingCharlottePage() {
                 "address": { "@type": "PostalAddress", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "53" },
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" },
                 "priceRange": "$$"
               },
               "areaServed": [
@@ -100,11 +100,11 @@ export function MobileDetailingCharlottePage() {
               <span className="text-gradient-gold">Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Professional detailing brought to your home, office, or anywhere in the Charlotte area. We're a fully self-contained, eco-friendly detail shop on wheels — 12+ years experience and 53+ five-star reviews.
+              Professional detailing brought to your home, office, or anywhere in the Charlotte area. We're a fully self-contained, eco-friendly detail shop on wheels — 12+ years experience and 57+ five-star reviews.
             </p>
             <div className="flex items-center gap-2 text-sm text-gold mb-8">
               <Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" />
-              <span className="text-muted-foreground">5.0 on Google (53+ reviews)</span>
+              <span className="text-muted-foreground">5.0 on Google (57+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>

@@ -53,7 +53,7 @@ export function PaintCorrectionCharlottePage() {
                 "address": { "@type": "PostalAddress", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "53" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte", "sameAs": "https://en.wikipedia.org/wiki/Charlotte,_North_Carolina" },
@@ -95,11 +95,11 @@ export function PaintCorrectionCharlottePage() {
               <span className="text-gradient-gold">Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Remove swirl marks, scratches, water spots, and oxidation with professional multi-stage machine polishing. Restore your vehicle's showroom finish — backed by 12+ years of experience and 53+ five-star reviews.
+              Remove swirl marks, scratches, water spots, and oxidation with professional multi-stage machine polishing. Restore your vehicle's showroom finish — backed by 12+ years of experience and 57+ five-star reviews.
             </p>
             <div className="flex items-center gap-2 text-sm text-gold mb-8">
               <Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" />
-              <span className="text-muted-foreground">5.0 on Google (53+ reviews)</span>
+              <span className="text-muted-foreground">5.0 on Google (57+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
