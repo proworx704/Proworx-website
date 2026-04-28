@@ -99,6 +99,6 @@ export const LEGACY_PAGES = {
   membership: "https://www.proworxdetailing.com/proworx-membership",
   q2FlashEvo: "https://www.proworxdetailing.com/q2-flash-evo-maintenance-plan",
   fleet: "https://www.proworxdetailing.com/fleet-detailing-services",
-  contact: "https://www.proworxdetailing.com/contact-us",
+  contact: "https://www.proworxdetailing.com/contact",
   blogs: "https://www.proworxdetailing.com/blogs",
 };

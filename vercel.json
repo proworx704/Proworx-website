@@ -15,7 +15,12 @@
     { "source": "/ceramic-coating-cornelius-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
     { "source": "/ceramic-coating-harrisburg-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
     { "source": "/ceramic-coating-indian-land-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-mint-hill-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true }
+    { "source": "/ceramic-coating-mint-hill-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/fleet-detailing-services", "destination": "/fleet", "permanent": true },
+    { "source": "/proworx-membership", "destination": "/maintenance", "permanent": true },
+    { "source": "/q2-flash-evo-maintenance-plan", "destination": "/maintenance", "permanent": true },
+    { "source": "/blogs", "destination": "/blog", "permanent": true }
   ],
   "rewrites": [
     {
