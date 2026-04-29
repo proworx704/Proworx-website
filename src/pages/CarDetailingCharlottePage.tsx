@@ -52,7 +52,7 @@ export function CarDetailingCharlottePage() {
               "@type": "AutoRepair",
               "name": "ProWorx Mobile Detailing",
               "description": "Professional car detailing, paint correction, and ceramic coating in Charlotte, NC and surrounding areas.",
-              "address": { "@type": "PostalAddress", "streetAddress": "4321 Overbecks Ln", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
+              "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
               "telephone": "(980) 272-1903",
               "url": "https://www.proworxdetailing.com",
               "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" },

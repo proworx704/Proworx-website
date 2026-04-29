@@ -50,6 +50,7 @@
     { "source": "/mobile-detailing-charlotte-nc", "destination": "/index.html" },
     { "source": "/car-detailing-charlotte-nc", "destination": "/index.html" },
     { "source": "/boat-detailing-charlotte-nc", "destination": "/index.html" },
+    { "source": "/auto-detailing-charlotte-nc", "destination": "/index.html" },
     { "source": "/admin", "destination": "/index.html" }
   ],
   "headers": [

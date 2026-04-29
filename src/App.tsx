@@ -36,6 +36,7 @@ const MobileDetailingCharlottePage = lazy(() => import("./pages/MobileDetailingC
 const CarDetailingCharlottePage = lazy(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
 const BoatDetailingCharlottePage = lazy(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
 const CeramicCoatingSouthCharlottePage = lazy(() => import("./pages/CeramicCoatingSouthCharlottePage").then(m => ({ default: m.CeramicCoatingSouthCharlottePage })));
+const AutoDetailingCharlottePage = lazy(() => import("./pages/AutoDetailingCharlottePage").then(m => ({ default: m.AutoDetailingCharlottePage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 /** Minimal loading spinner for lazy chunks.
@@ -94,6 +95,7 @@ function App() {
           <Route path="/car-detailing-charlotte-nc" element={<SiteLayout><CarDetailingCharlottePage /></SiteLayout>} />
           <Route path="/boat-detailing-charlotte-nc" element={<SiteLayout><BoatDetailingCharlottePage /></SiteLayout>} />
           <Route path="/ceramic-coating-south-charlotte-nc" element={<SiteLayout><CeramicCoatingSouthCharlottePage /></SiteLayout>} />
+          <Route path="/auto-detailing-charlotte-nc" element={<SiteLayout><AutoDetailingCharlottePage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
