@@ -139,7 +139,7 @@ export function MenuPage() {
   const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
   const subCeramicExt = config["subscribeUrl:membership-ceramic-exterior"] || "https://square.link/u/VWcJFh5r";
   const subCeramicIO = config["subscribeUrl:membership-ceramic-io"] || "https://square.link/u/wyQAUVPr";
-  const phoneLink = config.phoneLink || "tel:+19803008093";
+  const phoneLink = config.phoneLink || "tel:+19802721903";
 
   const NAV = [
     { id: "inside-out", label: "Inside & Out" },
@@ -174,7 +174,7 @@ export function MenuPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
             <BookBtn href={bookMain}>Build Your Package <ArrowRight className="size-4" /></BookBtn>
-            <BookBtn href={phoneLink} variant="outline"><Phone className="size-4" /> (980) 300-8093</BookBtn>
+            <BookBtn href={phoneLink} variant="outline"><Phone className="size-4" /> (980) 272-1903</BookBtn>
           </div>
         </div>
       </div>
@@ -656,7 +656,7 @@ export function MenuPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
             <BookBtn href={bookMain}>Build Your Package <ArrowRight className="size-4" /></BookBtn>
-            <BookBtn href={phoneLink} variant="outline"><Phone className="size-4" /> (980) 300-8093</BookBtn>
+            <BookBtn href={phoneLink} variant="outline"><Phone className="size-4" /> (980) 272-1903</BookBtn>
           </div>
           <div className="text-xs text-muted-foreground space-y-1">
             <p><strong className="text-foreground">Hours:</strong> Mon–Fri 9:30AM–6PM · Sat 9:30AM–3PM · Sun Closed</p>
