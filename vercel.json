@@ -1,137 +1,402 @@
 {
   "trailingSlash": false,
   "redirects": [
-    { "source": "/ceramic-coating-ballantyne-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-weddington-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-marvin-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-myers-park-charlotte", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-southpark-charlotte", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-fort-mill-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-tega-cay-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-indian-trail-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-matthews-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-davidson-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-huntersville-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-cornelius-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-harrisburg-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-indian-land-sc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/ceramic-coating-mint-hill-nc", "destination": "/ceramic-coating-south-charlotte-nc", "permanent": true },
-    { "source": "/contact-us", "destination": "/contact", "permanent": true },
-    { "source": "/fleet-detailing-services", "destination": "/fleet", "permanent": true },
-    { "source": "/proworx-membership", "destination": "/maintenance", "permanent": true },
-    { "source": "/q2-flash-evo-maintenance-plan", "destination": "/maintenance", "permanent": true },
-    { "source": "/blogs", "destination": "/blog", "permanent": true }
+    {
+      "source": "/ceramic-coating-ballantyne-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-weddington-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-marvin-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-myers-park-charlotte",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-southpark-charlotte",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-fort-mill-sc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-tega-cay-sc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-indian-trail-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-matthews-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-davidson-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-huntersville-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-cornelius-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-harrisburg-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-indian-land-sc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/ceramic-coating-mint-hill-nc",
+      "destination": "/ceramic-coating-south-charlotte-nc",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/fleet-detailing-services",
+      "destination": "/fleet",
+      "permanent": true
+    },
+    {
+      "source": "/proworx-membership",
+      "destination": "/maintenance",
+      "permanent": true
+    },
+    {
+      "source": "/q2-flash-evo-maintenance-plan",
+      "destination": "/maintenance",
+      "permanent": true
+    },
+    {
+      "source": "/blogs",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/menu",
+      "permanent": true
+    },
+    {
+      "source": "/reviews",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/interior-detailing",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/exterior-detailing",
+      "destination": "/services",
+      "permanent": true
+    }
   ],
   "rewrites": [
     {
       "source": "/booking-assets/:path*",
       "destination": "https://book.proworxdetailing.com/booking-assets/:path*"
     },
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/services", "destination": "/index.html" },
-    { "source": "/paint-correction", "destination": "/index.html" },
-    { "source": "/ceramic-coating", "destination": "/index.html" },
-    { "source": "/book", "destination": "/index.html" },
-    { "source": "/fleet", "destination": "/index.html" },
-    { "source": "/boat-detailing", "destination": "/index.html" },
-    { "source": "/maintenance", "destination": "/index.html" },
-    { "source": "/areas", "destination": "/index.html" },
-    { "source": "/contact", "destination": "/index.html" },
-    { "source": "/blog", "destination": "/index.html" },
-    { "source": "/blog/:slug", "destination": "/index.html" },
-    { "source": "/waxhaw", "destination": "/index.html" },
-    { "source": "/ceramic-coating-charlotte-nc", "destination": "/index.html" },
-    { "source": "/mobile-detailing-cost", "destination": "/index.html" },
-    { "source": "/menu", "destination": "/index.html" },
-    { "source": "/ceramic-coating-vs-wax", "destination": "/index.html" },
-    { "source": "/gyeon-certified-installer-charlotte", "destination": "/index.html" },
-    { "source": "/ceramic-coating-south-charlotte-nc", "destination": "/index.html" },
-    { "source": "/paint-correction-charlotte-nc", "destination": "/index.html" },
-    { "source": "/mobile-detailing-charlotte-nc", "destination": "/index.html" },
-    { "source": "/car-detailing-charlotte-nc", "destination": "/index.html" },
-    { "source": "/boat-detailing-charlotte-nc", "destination": "/index.html" },
-    { "source": "/auto-detailing-charlotte-nc", "destination": "/index.html" },
-    { "source": "/admin", "destination": "/index.html" }
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/paint-correction",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ceramic-coating",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/book",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fleet",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/boat-detailing",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/maintenance",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/areas",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/waxhaw",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ceramic-coating-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mobile-detailing-cost",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/menu",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ceramic-coating-vs-wax",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gyeon-certified-installer-charlotte",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ceramic-coating-south-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/paint-correction-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mobile-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/car-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/boat-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/auto-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/booking-assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/favicon(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/apple-touch-icon(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/site.webmanifest",
       "headers": [
-        { "key": "Content-Type", "value": "application/manifest+json" },
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=43200" }
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=43200"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml" },
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=43200" }
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=43200"
+        }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/ads.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/llms.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-DNS-Prefetch-Control", "value": "on" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-site" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.convex.cloud https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.gstatic.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.facebook.net https://connect.facebook.net https://snap.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.convex.cloud wss://*.convex.cloud https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://*.facebook.com https://square.link https://book.proworxdetailing.com; frame-src 'self' https://www.google.com https://td.doubleclick.net https://book.proworxdetailing.com https://squareup.com https://square.link; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://book.proworxdetailing.com; frame-ancestors 'none'; upgrade-insecure-requests" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin-allow-popups"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-site"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.convex.cloud https://*.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.gstatic.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.facebook.net https://connect.facebook.net https://snap.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.convex.cloud wss://*.convex.cloud https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://*.facebook.com https://square.link https://book.proworxdetailing.com; frame-src 'self' https://www.google.com https://td.doubleclick.net https://book.proworxdetailing.com https://squareup.com https://square.link; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://book.proworxdetailing.com; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
       ]
     }
   ]
