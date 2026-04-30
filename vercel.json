@@ -128,12 +128,12 @@
     },
     {
       "source": "/interior-detailing",
-      "destination": "/services",
+      "destination": "/interior-detailing-charlotte-nc",
       "permanent": true
     },
     {
       "source": "/exterior-detailing",
-      "destination": "/services",
+      "destination": "/exterior-detailing-charlotte-nc",
       "permanent": true
     }
   ],
@@ -236,6 +236,14 @@
     },
     {
       "source": "/auto-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/interior-detailing-charlotte-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/exterior-detailing-charlotte-nc",
       "destination": "/index.html"
     },
     {

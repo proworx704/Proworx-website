@@ -8,6 +8,8 @@ const CHARLOTTE_SERVICES = [
   { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc", desc: "GYEON certified — 1 to 10-year protection" },
   { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc", desc: "Multi-stage swirl & scratch removal" },
   { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc", desc: "Lake Norman & Lake Wylie boat care" },
+  { label: "Interior Detailing Charlotte", href: "/interior-detailing-charlotte-nc", desc: "Deep cleaning, leather care, stain & odor removal" },
+  { label: "Exterior Detailing Charlotte", href: "/exterior-detailing-charlotte-nc", desc: "Hand wash, paint correction, ceramic protection" },
   { label: "GYEON Certified Installer", href: "/gyeon-certified-installer-charlotte", desc: "Charlotte's certified coating specialist" },
 ];
 
