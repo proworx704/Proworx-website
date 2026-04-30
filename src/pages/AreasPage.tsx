@@ -14,13 +14,18 @@ const AREAS = [
     { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
   ]},
   { name: "South Charlotte", state: "NC", description: "Serving Ballantyne, Myers Park, SouthPark, Providence, Rea Road, Arboretum, Weddington, Marvin, and all South Charlotte neighborhoods.", pages: [
+    { label: "Ballantyne Detailing", href: "/mobile-detailing-ballantyne-nc" },
     { label: "Ceramic Coating", href: "/ceramic-coating-south-charlotte-nc" },
   ]},
   { name: "Waxhaw", state: "NC", description: "Our home base. Fast, convenient service for all Waxhaw residents and surrounding communities.", pages: [
     { label: "Local Services", href: "/waxhaw" },
   ]},
-  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors including Tega Cay and Indian Land.", pages: [] },
-  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews, Indian Trail, Mint Hill, and Stallings.", pages: [] },
+  { name: "Fort Mill", state: "SC", description: "Cross-border service for our Fort Mill, SC neighbors including Tega Cay and Indian Land.", pages: [
+    { label: "Mobile Detailing", href: "/mobile-detailing-fort-mill-sc" },
+  ] },
+  { name: "Matthews", state: "NC", description: "Full mobile detailing services throughout Matthews, Indian Trail, Mint Hill, and Stallings.", pages: [
+    { label: "Mobile Detailing", href: "/mobile-detailing-matthews-nc" },
+  ] },
   { name: "Lake Norman", state: "NC", description: "Serving Huntersville, Cornelius, Davidson, and the greater Lake Norman area.", pages: [] },
   { name: "Harrisburg", state: "NC", description: "Serving Harrisburg and northeast Charlotte with full mobile detailing.", pages: [] },
   { name: "Pineville", state: "NC", description: "Mobile detailing available throughout Pineville and the Carolina Place area.", pages: [] },

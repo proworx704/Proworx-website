@@ -17,6 +17,9 @@ const NEIGHBORHOOD_PAGES = [
   { label: "Ceramic Coating South Charlotte", href: "/ceramic-coating-south-charlotte-nc" },
   { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
   { label: "Detailing in Waxhaw", href: "/waxhaw" },
+  { label: "Detailing in Ballantyne", href: "/mobile-detailing-ballantyne-nc" },
+  { label: "Detailing in Matthews", href: "/mobile-detailing-matthews-nc" },
+  { label: "Detailing in Fort Mill, SC", href: "/mobile-detailing-fort-mill-sc" },
 ];
 
 interface Props {

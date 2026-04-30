@@ -247,6 +247,18 @@
       "destination": "/index.html"
     },
     {
+      "source": "/mobile-detailing-ballantyne-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mobile-detailing-matthews-nc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mobile-detailing-fort-mill-sc",
+      "destination": "/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     }

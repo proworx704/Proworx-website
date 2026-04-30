@@ -39,6 +39,9 @@ const CeramicCoatingSouthCharlottePage = lazy(() => import("./pages/CeramicCoati
 const AutoDetailingCharlottePage = lazy(() => import("./pages/AutoDetailingCharlottePage").then(m => ({ default: m.AutoDetailingCharlottePage })));
 const InteriorDetailingCharlottePage = lazy(() => import("./pages/InteriorDetailingCharlottePage").then(m => ({ default: m.InteriorDetailingCharlottePage })));
 const ExteriorDetailingCharlottePage = lazy(() => import("./pages/ExteriorDetailingCharlottePage").then(m => ({ default: m.ExteriorDetailingCharlottePage })));
+const BallantyneDetailingPage = lazy(() => import("./pages/BallantyneDetailingPage").then(m => ({ default: m.BallantyneDetailingPage })));
+const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
+const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 /** Minimal loading spinner for lazy chunks.
@@ -100,6 +103,9 @@ function App() {
           <Route path="/auto-detailing-charlotte-nc" element={<SiteLayout><AutoDetailingCharlottePage /></SiteLayout>} />
           <Route path="/interior-detailing-charlotte-nc" element={<SiteLayout><InteriorDetailingCharlottePage /></SiteLayout>} />
           <Route path="/exterior-detailing-charlotte-nc" element={<SiteLayout><ExteriorDetailingCharlottePage /></SiteLayout>} />
+          <Route path="/mobile-detailing-ballantyne-nc" element={<SiteLayout><BallantyneDetailingPage /></SiteLayout>} />
+          <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
+          <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
