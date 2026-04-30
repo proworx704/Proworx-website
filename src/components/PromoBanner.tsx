@@ -40,6 +40,11 @@ export function PromoBanner() {
             <span className="underline underline-offset-2 decoration-white/60">
               15% OFF Gift Cards
             </span>
+            {" "}
+            <span className="hidden sm:inline">— Use code</span>
+            <span className="sm:hidden">| Code</span>
+            {" "}
+            <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-xs tracking-widest">MOTHER15</span>
             <span className="mx-2 hidden sm:inline">|</span>
             <a
               href={GIFT_CARDS_URL}
