@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
+import { PromoBanner } from "./PromoBanner";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -32,6 +33,9 @@ export function SiteHeader() {
       >
         Skip to main content
       </a>
+
+      {/* Promotional banner */}
+      <PromoBanner />
 
       {/* Top bar with phone */}
       <div className="bg-gold/10 border-b border-gold/20">
