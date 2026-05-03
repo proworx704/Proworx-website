@@ -5,6 +5,7 @@ import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
 import { PromoBanner } from "./PromoBanner";
+import { SummerShieldBanner } from "./SummerShieldBanner";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -34,8 +35,9 @@ export function SiteHeader() {
         Skip to main content
       </a>
 
-      {/* Promotional banner */}
+      {/* Promotional banners */}
       <PromoBanner />
+      <SummerShieldBanner />
 
       {/* Top bar with phone */}
       <div className="bg-gold/10 border-b border-gold/20">
