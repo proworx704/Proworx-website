@@ -259,6 +259,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/summer-shield",
+      "destination": "/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     }

@@ -42,6 +42,7 @@ const ExteriorDetailingCharlottePage = lazy(() => import("./pages/ExteriorDetail
 const BallantyneDetailingPage = lazy(() => import("./pages/BallantyneDetailingPage").then(m => ({ default: m.BallantyneDetailingPage })));
 const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
 const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
+const SummerShieldPage = lazy(() => import("./pages/SummerShieldPage").then(m => ({ default: m.SummerShieldPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 /** Minimal loading spinner for lazy chunks.
@@ -106,6 +107,7 @@ function App() {
           <Route path="/mobile-detailing-ballantyne-nc" element={<SiteLayout><BallantyneDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
+          <Route path="/summer-shield" element={<SiteLayout><SummerShieldPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
