@@ -103,7 +103,7 @@ const REVIEWS = [
 const URGENCY_ITEMS = [
   { icon: Sun, text: "UV damage accelerates every day without protection" },
   { icon: Clock, text: "Limited spots available — coatings take 1–2 full days" },
-  { icon: Zap, text: "Promo pricing ends when spots fill up" },
+  { icon: Zap, text: "Promo pricing ends May 31 — don't miss out" },
 ];
 
 /* ──────────────────────── COMPONENTS ──────────────────────── */
@@ -146,7 +146,7 @@ export function SummerShieldPage() {
           {/* Promo badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-sm text-gold mb-6">
             <Shield className="size-4" />
-            <span className="font-semibold tracking-wide">LIMITED-TIME SPECIAL</span>
+            <span className="font-semibold tracking-wide">LIMITED-TIME SPECIAL — ENDS MAY 31</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white mb-4">
@@ -287,6 +287,8 @@ export function SummerShieldPage() {
 
           <p className="text-center text-sm text-muted-foreground mt-6">
             Paint correction &amp; polish available as add-ons. Prices shown are for sedans/coupes — larger vehicles may vary.
+            <br />
+            <span className="text-gold">Offer valid through May 31, 2026.</span>
           </p>
         </div>
       </section>
@@ -367,9 +369,12 @@ export function SummerShieldPage() {
           <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3">
             Don't Wait Until the Damage Is Done
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-4 max-w-xl mx-auto">
             Every day without ceramic protection, UV rays, heat, pollen, and road grime
             are eating away at your clear coat. Lock in Summer Shield pricing now.
+          </p>
+          <p className="text-gold font-semibold text-sm mb-8">
+            ⏰ Offer expires May 31, 2026
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="text-base px-8">

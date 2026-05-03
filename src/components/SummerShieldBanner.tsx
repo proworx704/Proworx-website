@@ -45,6 +45,8 @@ export function SummerShieldBanner() {
             <span className="sm:hidden">| From</span>
             {" "}
             <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-xs tracking-widest">$399</span>
+            <span className="mx-1 hidden sm:inline">·</span>
+            <span className="hidden sm:inline text-white/80 text-xs">Ends May 31</span>
             <span className="mx-2 hidden sm:inline">|</span>
             <Link
               to="/summer-shield"
