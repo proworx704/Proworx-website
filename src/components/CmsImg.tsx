@@ -97,9 +97,13 @@ export function CmsImg({
   fetchPriority?: "high" | "low" | "auto";
   sizes?: string;
 } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src" | "sizes">) {
-  const url = usePhotoUrl(slot, fallback);
+  const cmsUrl = usePhotoUrl(slot, fallback);
   const dbFocalY = usePhotoFocalY(slot);
   const focalY = dbFocalY ?? focalYProp ?? 50;
+  // For eager-loaded images (hero/LCP), use the static fallback immediately
+  // so the browser can render from the preloaded asset without waiting for Convex.
+  // CMS overrides still work for lazy images (all other slots).
+  const url = loading === "eager" ? fallback : cmsUrl;
   const webpSrcSet = buildWebPSrcSet(url);
   const imgStyle = { objectPosition: `center ${focalY}%`, ...style };
   const imgSizes = sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
