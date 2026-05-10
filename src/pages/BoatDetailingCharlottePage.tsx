@@ -54,7 +54,7 @@ export function BoatDetailingCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Boat Detailing Charlotte NC — Lake Norman & Lake Wylie"
+        title="Boat Detailing Charlotte NC — Lake Norman"
         description="Professional boat detailing in Charlotte, NC. Gelcoat restoration, oxidation removal, interior cleaning. Serving Lake Norman, Lake Wylie & all Charlotte-area lakes."
         keywords="boat detailing Charlotte NC, boat detailing near me, boat cleaning Charlotte, marine detailing Charlotte NC, boat detailing Lake Norman, boat detailing Lake Wylie, gelcoat restoration Charlotte, boat oxidation removal Charlotte, boat wax Charlotte NC, yacht detailing Charlotte"
         schema={{
@@ -77,7 +77,7 @@ export function BoatDetailingCharlottePage() {
                 "address": { "@type": "PostalAddress", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte" },

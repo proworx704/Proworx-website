@@ -15,7 +15,7 @@ export function PageSEO({ title, description, keywords, ogImage, schema }: PageS
   const { pathname } = useLocation();
   const url = `${BASE_URL}${pathname === "/" ? "/" : pathname}`;
   const image = ogImage || `${BASE_URL}/images/og-cover.jpg`;
-  const fullTitle = pathname === "/" ? title : `${title} | ProWorx Detailing`;
+  const fullTitle = pathname === "/" ? title : `${title} | ProWorx`;
 
   return (
     <Helmet>

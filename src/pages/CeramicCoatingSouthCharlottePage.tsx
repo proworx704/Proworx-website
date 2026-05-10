@@ -60,7 +60,7 @@ export function CeramicCoatingSouthCharlottePage() {
               "telephone": "+19802721903",
               "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
               "areaServed": { "@type": "City", "name": "South Charlotte", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" },
               "priceRange": "$499 - $1,599+"
             },
             {

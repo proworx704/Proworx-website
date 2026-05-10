@@ -124,7 +124,7 @@ export function SummerShieldPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Summer Shield Special — Save up to $300 on Ceramic Coating | ProWorx Detailing"
+        title="Summer Shield — Save up to $300 on Ceramic Coating"
         description="Limited-time Summer Shield Special on GYEON Q² ceramic coating. 1-Year from $399, 3-Year from $699, 10-Year from $1,299. Includes full decon wash, clay bar & prep spray. Charlotte & Waxhaw NC."
         keywords="ceramic coating special Charlotte NC, GYEON ceramic coating deal, ceramic coating discount, paint protection Charlotte, summer ceramic coating sale, ProWorx detailing promo"
       />

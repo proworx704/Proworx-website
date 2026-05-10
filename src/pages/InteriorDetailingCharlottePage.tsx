@@ -41,7 +41,7 @@ export function InteriorDetailingCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Interior Detailing Charlotte NC \u2014 ProWorx Mobile Detailing"
+        title="Interior Detailing Charlotte NC \u2014 Mobile Service"
         description="Professional interior detailing in Charlotte, NC. Deep cleaning, leather care, steam cleaning, stain & odor removal. Mobile service. 5.0\u2605 rated with 57+ reviews. Book today."
         keywords="interior detailing charlotte nc, interior car detailing charlotte, interior auto detailing charlotte nc, car interior cleaning charlotte nc, interior detail charlotte, leather cleaning charlotte nc, steam cleaning car interior charlotte, car upholstery cleaning charlotte nc, interior detailing near me charlotte, best interior detailing charlotte nc, mobile interior detailing charlotte"
         schema={{
@@ -65,7 +65,7 @@ export function InteriorDetailingCharlottePage() {
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
                 "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte" },

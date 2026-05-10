@@ -40,7 +40,7 @@ export function AutoDetailingCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Auto Detailing Charlotte NC — ProWorx Mobile Detailing"
+        title="Auto Detailing Charlotte NC — Full Service Mobile"
         description="Professional auto detailing in Charlotte, NC. Interior & exterior detail, paint correction, ceramic coating. Mobile or drop-off. 5.0★ rated with 57+ reviews, 12+ years experience. Book today."
         keywords="auto detailing charlotte nc, auto detailing charlotte, auto detail charlotte nc, auto detailing in charlotte nc, auto detailing in charlotte, professional auto detailing charlotte, best auto detailing charlotte nc, car detailing charlotte nc, mobile auto detailing charlotte nc, auto detailing near me charlotte, interior auto detailing charlotte nc, exterior auto detailing charlotte, ceramic coating charlotte nc"
         schema={{
@@ -61,7 +61,7 @@ export function AutoDetailingCharlottePage() {
               "telephone": "(980) 272-1903",
               "url": "https://www.proworxdetailing.com",
               "image": "https://www.proworxdetailing.com/images/escalade-front.jpg",
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" },
               "priceRange": "$$",
               "openingHoursSpecification": [
                 { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:30", "closes": "18:00" },

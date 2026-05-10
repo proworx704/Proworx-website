@@ -135,6 +135,21 @@
       "source": "/exterior-detailing",
       "destination": "/exterior-detailing-charlotte-nc",
       "permanent": true
+    },
+    {
+      "source": "/build-your-package",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/detailing-packages",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/landing-page",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

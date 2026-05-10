@@ -41,7 +41,7 @@ export function ExteriorDetailingCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Exterior Detailing Charlotte NC \u2014 ProWorx Mobile Detailing"
+        title="Exterior Detailing Charlotte NC \u2014 Mobile Service"
         description="Professional exterior detailing in Charlotte, NC. Hand wash, clay bar, paint correction, ceramic coating, and paint protection. Mobile service. 5.0\u2605 rated with 57+ reviews. Book today."
         keywords="exterior detailing charlotte nc, exterior car detailing charlotte, exterior auto detailing charlotte nc, car wash charlotte nc, hand car wash charlotte nc, paint correction charlotte nc, exterior detail charlotte, car exterior cleaning charlotte nc, exterior detailing near me charlotte, best exterior detailing charlotte nc, mobile exterior detailing charlotte, clay bar treatment charlotte nc"
         schema={{
@@ -65,7 +65,7 @@ export function ExteriorDetailingCharlottePage() {
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
                 "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte" },

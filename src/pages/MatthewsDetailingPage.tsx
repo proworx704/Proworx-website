@@ -31,7 +31,7 @@ export function MatthewsDetailingPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Mobile Detailing in Matthews, NC | Indian Trail & Stallings"
+        title="Mobile Detailing Matthews NC & Indian Trail"
         description="ProWorx Mobile Detailing serves Matthews, Indian Trail, Stallings & Mint Hill. 5-star rated, GYEON certified. Full detailing, ceramic coating & paint correction \u2014 we come to you!"
         keywords="Matthews NC mobile detailing, car detailing Matthews NC, auto detailing Indian Trail NC, Stallings car detailing, mobile car wash Matthews, ceramic coating Matthews NC, Mint Hill detailing, mobile detailing near me Matthews"
         schema={{
@@ -72,7 +72,7 @@ export function MatthewsDetailingPage() {
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
-                "reviewCount": "57",
+                "reviewCount": "59",
                 "bestRating": "5"
               }
             },

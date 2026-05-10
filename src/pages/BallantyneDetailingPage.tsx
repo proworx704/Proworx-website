@@ -72,7 +72,7 @@ export function BallantyneDetailingPage() {
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
-                "reviewCount": "57",
+                "reviewCount": "59",
                 "bestRating": "5"
               }
             },

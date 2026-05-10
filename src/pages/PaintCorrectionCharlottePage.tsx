@@ -30,7 +30,7 @@ export function PaintCorrectionCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Paint Correction Charlotte NC — Swirl & Scratch Removal"
+        title="Paint Correction Charlotte NC — Scratch Removal"
         description="Professional paint correction in Charlotte, NC. Remove swirls, scratches & oxidation with multi-stage machine polishing. 12+ years experience. Free paint assessment."
         keywords="paint correction Charlotte NC, swirl removal Charlotte, scratch removal Charlotte NC, paint polishing Charlotte, paint restoration near me, multi-stage paint correction Charlotte, car paint correction south Charlotte, paint correction Waxhaw NC, paint correction near me"
         schema={{
@@ -53,7 +53,7 @@ export function PaintCorrectionCharlottePage() {
                 "address": { "@type": "PostalAddress", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173" },
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "57" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte", "sameAs": "https://en.wikipedia.org/wiki/Charlotte,_North_Carolina" },
