@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
-import { PromoBanner } from "./PromoBanner";
 import { SummerShieldBanner } from "./SummerShieldBanner";
 
 const NAV_LINKS = [
@@ -35,7 +34,6 @@ export function SiteHeader() {
         Skip to main content
       </a>
 
-      <PromoBanner />
       <SummerShieldBanner />
 
       {/* Top bar with phone */}
