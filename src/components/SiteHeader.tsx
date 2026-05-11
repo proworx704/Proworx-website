@@ -35,7 +35,6 @@ export function SiteHeader() {
         Skip to main content
       </a>
 
-      {/* Promotional banners */}
       <PromoBanner />
       <SummerShieldBanner />
 

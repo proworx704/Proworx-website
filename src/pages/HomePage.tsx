@@ -190,6 +190,7 @@ export function HomePage() {
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -561,7 +562,7 @@ export function HomePage() {
       {/* ─── CTA ─── */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="homepage-cta" fallback="/images/ferrari-profile.jpg" alt="Ferrari Roma side profile with flawless paint finish after professional detailing by ProWorx" className="w-full h-full object-cover" />
+          <CmsImg slot="homepage-cta" fallback="/images/ferrari-profile.jpg" alt="Ferrari Roma side profile with flawless paint finish after professional detailing by ProWorx" className="w-full h-full object-cover" sizes="100vw" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container">

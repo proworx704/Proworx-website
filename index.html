@@ -52,12 +52,13 @@
 
     
 
-    <!-- Fonts (loaded async to avoid render-blocking) -->
+    <!-- Fonts: use display=optional to eliminate CLS from font swap.
+         Fonts render on subsequent navigations when cached; first-visit uses fallback. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=optional" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=optional" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=optional" rel="stylesheet" /></noscript>
 
     <!-- Structured Data: Local Business (single unified block — reviews merged in) -->
     <script type="application/ld+json">
@@ -197,6 +198,11 @@
       }
     }
     </script>
+    <!-- CLS prevention: reserve space for elements that render after JS -->
+    <style>
+      /* Prevent CLS from banner appearance — both banners ~40px each on desktop */
+      #root:empty { min-height: 100vh; }
+    </style>
   </head>
   <body>
     <!-- Meta Pixel noscript fallback (moved from <head> to fix HTML parse warning) -->

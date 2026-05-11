@@ -40,7 +40,6 @@ export default defineConfig({
             "@radix-ui/react-slot",
           ],
           // Heavy libs only used on specific pages
-          "framer": ["framer-motion"],
           "charts": ["recharts"],
         },
       },
