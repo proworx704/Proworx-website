@@ -140,7 +140,7 @@ export function BallantyneDetailingPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
             {[
-              { icon: <Star className="size-5" />, title: "57+ Five-Star Reviews", desc: "Perfect 5.0 rating from real Charlotte-area customers on Google." },
+              { icon: <Star className="size-5" />, title: "60+ Five-Star Reviews", desc: "Perfect 5.0 rating from real Charlotte-area customers on Google." },
               { icon: <Shield className="size-5" />, title: "Certified Installer", desc: "GYEON & IGL certified for professional ceramic coatings with warranties." },
               { icon: <MapPin className="size-5" />, title: "Fully Mobile", desc: "We come to your Ballantyne home or office with water, power & all equipment." },
               { icon: <CheckCircle2 className="size-5" />, title: "12+ Years Experience", desc: "Over a decade of professional auto detailing in the Charlotte metro." },

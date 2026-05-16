@@ -41,7 +41,7 @@ export function AutoDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Auto Detailing Charlotte NC — Full Service Mobile"
-        description="Professional auto detailing in Charlotte, NC. Interior & exterior detail, paint correction, ceramic coating. Mobile or drop-off. 5.0★ rated with 57+ reviews, 12+ years experience. Book today."
+        description="Professional auto detailing in Charlotte, NC. Interior & exterior detail, paint correction, ceramic coating. Mobile or drop-off. 5.0★ rated with 60+ reviews, 12+ years experience. Book today."
         keywords="auto detailing charlotte nc, auto detailing charlotte, auto detail charlotte nc, auto detailing in charlotte nc, auto detailing in charlotte, professional auto detailing charlotte, best auto detailing charlotte nc, car detailing charlotte nc, mobile auto detailing charlotte nc, auto detailing near me charlotte, interior auto detailing charlotte nc, exterior auto detailing charlotte, ceramic coating charlotte nc"
         schema={{
           "@context": "https://schema.org",
@@ -122,11 +122,11 @@ export function AutoDetailingCharlottePage() {
               <span className="text-gradient-gold">Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Professional auto detailing for Charlotte and surrounding areas. Interior &amp; exterior detail, paint correction, and ceramic coating — mobile or drop-off. 12+ years experience and 57+ five-star Google reviews.
+              Professional auto detailing for Charlotte and surrounding areas. Interior &amp; exterior detail, paint correction, and ceramic coating — mobile or drop-off. 12+ years experience and 60+ five-star Google reviews.
             </p>
             <div className="flex items-center gap-2 text-sm text-gold mb-8">
               <Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" />
-              <span className="text-muted-foreground">5.0 on Google (57+ reviews)</span>
+              <span className="text-muted-foreground">5.0 on Google (60+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -150,7 +150,7 @@ export function AutoDetailingCharlottePage() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: <Star className="size-6" />, title: "57+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Charlotte's highest-rated auto detailing service with 100% positive reviews." },
+                { icon: <Star className="size-6" />, title: "60+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Charlotte's highest-rated auto detailing service with 100% positive reviews." },
                 { icon: <Award className="size-6" />, title: "12+ Years Experience", desc: "Serving Charlotte since 2013. We've detailed thousands of vehicles from daily drivers to luxury exotics." },
                 { icon: <Shield className="size-6" />, title: "GYEON & IGL Certified", desc: "Authorized ceramic coating installer. Professional-grade products only available through certified detailers." },
                 { icon: <Truck className="size-6" />, title: "Fully Mobile Service", desc: "We come to your home or office with our self-contained unit. No need to drop off your vehicle anywhere." },
@@ -265,7 +265,7 @@ export function AutoDetailingCharlottePage() {
                 { q: "Do you offer mobile auto detailing in Charlotte?", a: "Yes! ProWorx is a fully mobile auto detailing service. We bring our own water, power, and professional-grade products to your home or office anywhere in the Charlotte metro. We're fully self-contained and eco-friendly. We also offer drop-off service for ceramic coating and paint correction." },
                 { q: "How often should I get my car detailed?", a: "In Charlotte's climate — with heavy pollen season, summer humidity, and road debris — we recommend a full auto detail every 4-8 weeks for unprotected vehicles. Ceramic-coated vehicles can go 8-12 weeks between details. Our maintenance plans start at $59/month and take the guesswork out of scheduling." },
                 { q: "What areas near Charlotte do you service?", a: "We service all of Charlotte and surrounding areas including Ballantyne, SouthPark, Myers Park, Uptown, Dilworth, South End, NoDa, Weddington, Marvin, Indian Trail, Fort Mill SC, Tega Cay SC, and Waxhaw. Most Charlotte-area locations are within 20-35 minutes of our base." },
-                { q: "Is ProWorx the best auto detailing in Charlotte?", a: "With 57+ five-star Google reviews, a perfect 5.0 rating, 12+ years of experience, and GYEON & IGL ceramic coating certifications, ProWorx is Charlotte's highest-rated professional auto detailing service. We detail everything from daily drivers to luxury and exotic vehicles." },
+                { q: "Is ProWorx the best auto detailing in Charlotte?", a: "With 60+ five-star Google reviews, a perfect 5.0 rating, 12+ years of experience, and GYEON & IGL ceramic coating certifications, ProWorx is Charlotte's highest-rated professional auto detailing service. We detail everything from daily drivers to luxury and exotic vehicles." },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>

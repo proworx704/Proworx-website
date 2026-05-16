@@ -42,7 +42,7 @@ export function ExteriorDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Exterior Detailing Charlotte NC \u2014 Mobile Service"
-        description="Professional exterior detailing in Charlotte, NC. Hand wash, clay bar, paint correction, ceramic coating, and paint protection. Mobile service. 5.0\u2605 rated with 57+ reviews. Book today."
+        description="Professional exterior detailing in Charlotte, NC. Hand wash, clay bar, paint correction, ceramic coating, and paint protection. Mobile service. 5.0\u2605 rated with 60+ reviews. Book today."
         keywords="exterior detailing charlotte nc, exterior car detailing charlotte, exterior auto detailing charlotte nc, car wash charlotte nc, hand car wash charlotte nc, paint correction charlotte nc, exterior detail charlotte, car exterior cleaning charlotte nc, exterior detailing near me charlotte, best exterior detailing charlotte nc, mobile exterior detailing charlotte, clay bar treatment charlotte nc"
         schema={{
           "@context": "https://schema.org",
@@ -116,11 +116,11 @@ export function ExteriorDetailingCharlottePage() {
               <span className="text-gradient-gold">Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Hand wash, clay bar, paint correction, and ceramic coating from Charlotte's highest-rated detailing service. Mobile to your door or drop-off available. 12+ years experience and 57+ five-star Google reviews.
+              Hand wash, clay bar, paint correction, and ceramic coating from Charlotte's highest-rated detailing service. Mobile to your door or drop-off available. 12+ years experience and 60+ five-star Google reviews.
             </p>
             <div className="flex items-center gap-2 text-sm text-gold mb-8">
               <Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" />
-              <span className="text-muted-foreground">5.0 on Google (57+ reviews)</span>
+              <span className="text-muted-foreground">5.0 on Google (60+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -165,7 +165,7 @@ export function ExteriorDetailingCharlottePage() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: <Star className="size-6" />, title: "57+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our exterior results speak for themselves in every review." },
+                { icon: <Star className="size-6" />, title: "60+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our exterior results speak for themselves in every review." },
                 { icon: <Shield className="size-6" />, title: "GYEON & IGL Certified", desc: "Authorized ceramic coating installer. We use coatings and compounds only available through certified shops." },
                 { icon: <Award className="size-6" />, title: "12+ Years Experience", desc: "Thousands of vehicles detailed since 2013. From daily drivers to exotic supercars and everything in between." },
                 { icon: <Sparkles className="size-6" />, title: "Paint Correction Experts", desc: "Professional dual-action and rotary polishing. We remove swirls, scratches, and oxidation that others leave behind." },
