@@ -340,7 +340,7 @@ export function SummerShieldPage() {
       <section className="py-16 border-t border-border">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">
-            60+ Five-Star Reviews
+            61+ Five-Star Reviews
           </h2>
           <p className="text-muted-foreground mb-10">
             Charlotte's trusted detailing professional — 12+ years experience

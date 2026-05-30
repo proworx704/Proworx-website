@@ -42,7 +42,7 @@ export function InteriorDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Interior Detailing Charlotte NC \u2014 Mobile Service"
-        description="Professional interior detailing in Charlotte, NC. Deep cleaning, leather care, steam cleaning, stain & odor removal. Mobile service. 5.0\u2605 rated with 60+ reviews. Book today."
+        description="Professional interior detailing in Charlotte, NC. Deep cleaning, leather care, steam cleaning, stain & odor removal. Mobile service. 5.0\u2605 rated with 61+ reviews. Book today."
         keywords="interior detailing charlotte nc, interior car detailing charlotte, interior auto detailing charlotte nc, car interior cleaning charlotte nc, interior detail charlotte, leather cleaning charlotte nc, steam cleaning car interior charlotte, car upholstery cleaning charlotte nc, interior detailing near me charlotte, best interior detailing charlotte nc, mobile interior detailing charlotte"
         schema={{
           "@context": "https://schema.org",
@@ -65,7 +65,7 @@ export function InteriorDetailingCharlottePage() {
                 "telephone": "(980) 272-1903",
                 "url": "https://www.proworxdetailing.com",
                 "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
-                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "59" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "61" }
               },
               "areaServed": [
                 { "@type": "City", "name": "Charlotte" },
@@ -116,11 +116,11 @@ export function InteriorDetailingCharlottePage() {
               <span className="text-gradient-gold">Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Deep cleaning, leather care, steam sanitization, and stain removal for every surface inside your vehicle. Mobile service to your door or drop-off available. 12+ years experience, 60+ five-star Google reviews.
+              Deep cleaning, leather care, steam sanitization, and stain removal for every surface inside your vehicle. Mobile service to your door or drop-off available. 12+ years experience, 61+ five-star Google reviews.
             </p>
             <div className="flex items-center gap-2 text-sm text-gold mb-8">
               <Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" /><Star className="size-4 fill-gold" />
-              <span className="text-muted-foreground">5.0 on Google (60+ reviews)</span>
+              <span className="text-muted-foreground">5.0 on Google (61+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
@@ -165,7 +165,7 @@ export function InteriorDetailingCharlottePage() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: <Star className="size-6" />, title: "60+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our interior work is consistently praised for attention to detail and thoroughness." },
+                { icon: <Star className="size-6" />, title: "61+ Five-Star Reviews", desc: "Perfect 5.0 Google rating. Our interior work is consistently praised for attention to detail and thoroughness." },
                 { icon: <Droplets className="size-6" />, title: "Professional Steam Cleaning", desc: "Chemical-free steam sanitizes leather, vinyl, fabric, and hard surfaces. Kills 99% of bacteria without harsh chemicals." },
                 { icon: <Shield className="size-6" />, title: "GYEON Product Line", desc: "We use GYEON LeatherShield and fabric protectants \u2014 professional-grade products that last months, not days." },
                 { icon: <Car className="size-6" />, title: "All Vehicle Types", desc: "From compact sedans to full-size SUVs, trucks, vans, and luxury vehicles. We know every interior layout." },
