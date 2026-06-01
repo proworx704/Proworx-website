@@ -438,7 +438,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ul>
 <li><strong>Certifications matter.</strong> Anyone can buy a buffer and call themselves a detailer. Look for certified installers of professional-grade products. At ProWorx, we\'re <a href="/gyeon-certified-installer-charlotte">GYEON certified</a> and IGL certified — two of the most respected ceramic coating brands in the world. Certification means the manufacturer trusts us with their products and reputation.</li>
 <li><strong>Transparency in pricing.</strong> Great detailers don\'t hide their prices. Check out our <a href="/menu">full pricing menu</a> — what you see is what you pay. No hidden fees, no bait-and-switch.</li>
-<li><strong>Reviews tell the real story.</strong> We have 61+ five-star reviews because we obsess over quality. Read what real Charlotte customers say, not just the marketing copy.</li>
+<li><strong>Reviews tell the real story.</strong> We have 62+ five-star reviews because we obsess over quality. Read what real Charlotte customers say, not just the marketing copy.</li>
 <li><strong>Mobile capability with shop-level results.</strong> The best mobile detailers are completely self-contained — bringing their own water, power, and professional equipment. No cutting corners because you\'re not in a shop.</li>
 <li><strong>Paint correction expertise.</strong> Washing and waxing is the easy part. <a href="/paint-correction">Paint correction</a> separates hobbyists from professionals. It requires years of experience, proper lighting, and precision equipment.</li>
 </ul>`,

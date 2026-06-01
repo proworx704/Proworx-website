@@ -72,7 +72,7 @@ export function FortMillDetailingPage() {
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5",
-                "reviewCount": "61",
+                "reviewCount": "62",
                 "bestRating": "5"
               }
             },
@@ -139,7 +139,7 @@ export function FortMillDetailingPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
             {[
-              { icon: <Star className="size-5" />, title: "61+ Five-Star Reviews", desc: "Perfect 5.0 rating from real Charlotte-area customers on Google." },
+              { icon: <Star className="size-5" />, title: "62+ Five-Star Reviews", desc: "Perfect 5.0 rating from real Charlotte-area customers on Google." },
               { icon: <Shield className="size-5" />, title: "Certified Installer", desc: "GYEON & IGL certified for professional ceramic coatings with warranties." },
               { icon: <MapPin className="size-5" />, title: "Minutes from Fort Mill", desc: "Based in Waxhaw, NC \u2014 right across the state line, no extra charge." },
               { icon: <CheckCircle2 className="size-5" />, title: "12+ Years Experience", desc: "Over a decade of professional auto detailing in the Charlotte metro." },
