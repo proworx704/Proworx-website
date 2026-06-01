@@ -170,7 +170,7 @@ export function HomePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="ProWorx — Mobile Auto Detailing & Ceramic Coating Charlotte"
-        description="Charlotte's top-rated auto detailing and ceramic coating service. GYEON & IGL certified. Interior & exterior detail, paint correction, ceramic coating from $499. 5.0★ with 62+ reviews. Mobile or drop-off."
+        description="Charlotte's top-rated auto detailing and ceramic coating service. GYEON & IGL certified. Interior & exterior detail, paint correction, ceramic coating from $499. 5.0★ with 63+ reviews. Mobile or drop-off."
         keywords="auto detailing Charlotte NC, ceramic coating Charlotte NC, car detailing Charlotte NC, paint correction Charlotte NC, mobile detailing Charlotte NC, ceramic coating near me, GYEON certified installer Charlotte, auto detailing near me, paint protection Charlotte, best auto detailing Charlotte"
         schema={{
           "@context": "https://schema.org",
@@ -215,7 +215,7 @@ export function HomePage() {
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
               GYEON &amp; IGL certified ceramic coating installers with 12+ years of experience.
               Professional paint correction, 1 to 10-year ceramic protection packages,
-              and premium detailing — mobile or drop-off. 62+ five-star reviews.
+              and premium detailing — mobile or drop-off. 63+ five-star reviews.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">

@@ -266,7 +266,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating Charlotte NC — Gyeon Certified"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 with 1-10 year protection. 62+ 5-star reviews, 12+ years experience. Reserve with 30% down."
+        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 with 1-10 year protection. 63+ 5-star reviews, 12+ years experience. Reserve with 30% down."
         keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
@@ -294,7 +294,7 @@ export function CeramicCoatingPage() {
                 aggregateRating: {
                   "@type": "AggregateRating",
                   ratingValue: "5",
-                  reviewCount: "62",
+                  reviewCount: "63",
                 },
               },
               areaServed: "Charlotte, NC",
@@ -344,7 +344,7 @@ export function CeramicCoatingPage() {
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-400 text-xs font-semibold backdrop-blur-sm">
                 <Star className="size-3 fill-current" />
-                5.0 Stars · 62+ Reviews
+                5.0 Stars · 63+ Reviews
               </span>
             </div>
 
@@ -389,7 +389,7 @@ export function CeramicCoatingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { icon: <Award className="size-5 text-gold" />, label: "12+ Years", sub: "Professional Experience" },
-              { icon: <Star className="size-5 text-amber-400 fill-amber-400" />, label: "5.0 Stars", sub: "62+ Verified Reviews" },
+              { icon: <Star className="size-5 text-amber-400 fill-amber-400" />, label: "5.0 Stars", sub: "63+ Verified Reviews" },
               { icon: <ShieldCheck className="size-5 text-gold" />, label: "GYEON & IGL", sub: "Certified Installer" },
               { icon: <Calendar className="size-5 text-gold" />, label: "1–10 Year", sub: "Manufacturer Warranty" },
             ].map((stat) => (
@@ -707,7 +707,7 @@ export function CeramicCoatingPage() {
             <div className="flex items-center justify-center gap-2 mb-2">
               <StarRating count={5} />
               <span className="text-sm font-semibold">5.0</span>
-              <span className="text-sm text-muted-foreground">from 62+ reviews</span>
+              <span className="text-sm text-muted-foreground">from 63+ reviews</span>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -840,7 +840,7 @@ export function CeramicCoatingPage() {
           <div className="max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-1.5 mb-5">
               <StarRating count={5} />
-              <span className="text-sm text-muted-foreground ml-1">62+ 5-star reviews</span>
+              <span className="text-sm text-muted-foreground ml-1">63+ 5-star reviews</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Ready to Protect Your Vehicle for <span className="text-gradient-gold">Years to Come?</span>
