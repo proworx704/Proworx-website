@@ -42,8 +42,13 @@ const ExteriorDetailingCharlottePage = lazy(() => import("./pages/ExteriorDetail
 const BallantyneDetailingPage = lazy(() => import("./pages/BallantyneDetailingPage").then(m => ({ default: m.BallantyneDetailingPage })));
 const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
 const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
-const SummerShieldPage = lazy(() => import("./pages/SummerShieldPage").then(m => ({ default: m.SummerShieldPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+
+/** External redirect helper — replaces window.location for external URLs */
+function ExternalRedirect({ url }: { url: string }) {
+  window.location.replace(url);
+  return null;
+}
 
 /** Minimal loading spinner for lazy chunks.
  *  min-h keeps footer below the viewport during Suspense, preventing CLS. */
@@ -107,7 +112,8 @@ function App() {
           <Route path="/mobile-detailing-ballantyne-nc" element={<SiteLayout><BallantyneDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
-          <Route path="/summer-shield" element={<SiteLayout><SummerShieldPage /></SiteLayout>} />
+          {/* Old /summer-shield redirects to July 4th promo on booking site */}
+          <Route path="/summer-shield" element={<ExternalRedirect url="https://book.proworxdetailing.com/july4th" />} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
