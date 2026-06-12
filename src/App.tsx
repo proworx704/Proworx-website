@@ -43,9 +43,10 @@ const BallantyneDetailingPage = lazy(() => import("./pages/BallantyneDetailingPa
 const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
 const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+const July4thSalePage = lazy(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
 
 /** External redirect helper — replaces window.location for external URLs */
-function ExternalRedirect({ url }: { url: string }) {
+export function ExternalRedirect({ url }: { url: string }) {
   window.location.replace(url);
   return null;
 }
@@ -112,8 +113,9 @@ function App() {
           <Route path="/mobile-detailing-ballantyne-nc" element={<SiteLayout><BallantyneDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
-          {/* Old /summer-shield redirects to July 4th promo on booking site */}
-          <Route path="/summer-shield" element={<ExternalRedirect url="https://book.proworxdetailing.com/july4th" />} />
+          {/* 4th of July Sale landing pages — standalone (no SiteLayout) */}
+          <Route path="/4thsummersale" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
+          <Route path="/summer-shield" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
