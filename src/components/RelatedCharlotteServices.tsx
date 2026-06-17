@@ -5,7 +5,7 @@ const CHARLOTTE_SERVICES = [
   { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc", desc: "Professional auto detailing — mobile or drop-off" },
   { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc", desc: "Full interior & exterior detailing from $258" },
   { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc", desc: "Professional detailing at your home or office" },
-  { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc", desc: "GYEON certified — 1 to 10-year protection" },
+  { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc", desc: "GYEON certified — 1-year to lifetime protection" },
   { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc", desc: "Multi-stage swirl & scratch removal" },
   { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc", desc: "Lake Norman & Lake Wylie boat care" },
   { label: "Interior Detailing Charlotte", href: "/interior-detailing-charlotte-nc", desc: "Deep cleaning, leather care, stain & odor removal" },

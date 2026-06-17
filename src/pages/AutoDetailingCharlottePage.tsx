@@ -14,7 +14,7 @@ const PACKAGES = [
 
 const SERVICES = [
   { icon: <Car className="size-5" />, title: "Full Detailing", desc: "Complete interior & exterior detail packages from $258", link: "/services" },
-  { icon: <Shield className="size-5" />, title: "Ceramic Coating", desc: "GYEON & IGL certified — 1 to 10-year paint protection from $499", link: "/ceramic-coating-charlotte-nc" },
+  { icon: <Shield className="size-5" />, title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime paint protection from $499", link: "/ceramic-coating-charlotte-nc" },
   { icon: <Sparkles className="size-5" />, title: "Paint Correction", desc: "Multi-stage machine polishing — remove swirls, scratches & oxidation", link: "/paint-correction-charlotte-nc" },
   { icon: <Clock className="size-5" />, title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly subscription detailing from $59/mo", link: "/maintenance" },
 ];

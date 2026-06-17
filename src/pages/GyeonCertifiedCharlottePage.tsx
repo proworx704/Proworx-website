@@ -25,19 +25,27 @@ const GYEON_PRODUCTS = [
     configKey: "ceramicDeposit3yr",
   },
   {
-    name: "GYEON Q² Flash EVO",
-    protection: "10 Years",
-    price: "From $1,599",
-    description: "GYEON's flagship coating — the ultimate in paint protection. Maximum hardness, self-cleaning effect, and a decade of warranty-backed protection.",
-    features: ["Top-tier multi-layer coating", "10-year manufacturer warranty", "Maximum 9H hardness & scratch resistance", "Self-cleaning hydrophobic effect", "Annual inspection & maintenance included"],
-    configKey: "ceramicDeposit10yr",
+    name: "GYEON Infinite Type 1",
+    protection: "Lifetime*",
+    price: "From $1,799",
+    description: "World's first fluoro-modified polysilazane coating. Extreme chemical resistance, self-cleaning properties, and GYEON's Infinite Lifetime Warranty.",
+    features: ["Advanced fluoro-modified polysilazane technology", "Lifetime manufacturer warranty*", "Extreme chemical resistance & UV protection", "Self-cleaning hydrophobic effect", "Biennial maintenance inspection included"],
+    configKey: "ceramicDepositInfinite1",
+  },
+  {
+    name: "GYEON Infinite Type 1 + 2",
+    protection: "Lifetime*",
+    price: "From $2,199",
+    description: "The ultimate dual-layer system — Type 1 base with Type 2 TopCoat for maximum gloss, depth, and watermark resistance. Ideal for NC's hot, humid climate.",
+    features: ["Dual-layer base + topcoat system", "Lifetime manufacturer warranty*", "Maximum gloss, depth & color enhancement", "Outstanding watermark resistance", "Biennial maintenance inspection included"],
+    configKey: "ceramicDepositInfinite2",
   },
 ];
 
 const CERT_BENEFITS = [
   { title: "Factory-Trained", desc: "ProWorx installers are trained and certified directly by GYEON on proper surface preparation, application technique, and curing protocols." },
   { title: "Genuine Products", desc: "Only certified installers receive genuine GYEON professional-grade coatings. Consumer versions sold online are different (and inferior) products." },
-  { title: "Manufacturer Warranty", desc: "GYEON backs every certified installation with a manufacturer warranty — 1, 3, or 10 years depending on the coating tier. Non-certified work has no warranty." },
+  { title: "Manufacturer Warranty", desc: "GYEON backs every certified installation with a manufacturer warranty — from 1 year up to a lifetime with the Infinite series. Non-certified work has no warranty." },
   { title: "Proper Equipment", desc: "Certified installation requires LED inspection lighting, controlled environment, paint thickness gauges, and IR curing — not a garage with a shop light." },
   { title: "Annual Inspections", desc: "Your GYEON warranty includes annual coating inspections to ensure protection is performing as expected and to catch any issues early." },
   { title: "Paint Correction Expertise", desc: "Ceramic coating is only as good as the paint underneath. Certified installers are trained in multi-stage paint correction to ensure a flawless base before coating." },
@@ -46,7 +54,7 @@ const CERT_BENEFITS = [
 const WHY_CERTIFIED = [
   { bad: "Uncertified installer uses consumer-grade product", good: "Certified installer uses professional-grade GYEON Q² EVO series" },
   { bad: "No surface prep — coating applied over swirls and defects", good: "Full decontamination, clay bar, and prep polish before coating" },
-  { bad: "No warranty — you're on your own if it fails", good: "GYEON manufacturer warranty up to 10 years" },
+  { bad: "No warranty — you're on your own if it fails", good: "GYEON manufacturer warranty up to lifetime" },
   { bad: "Applied in a dusty garage or driveway", good: "Controlled environment with LED inspection lighting" },
   { bad: "Single quick layer — done in 2 hours", good: "Multi-layer application with proper cure time between coats" },
 ];
@@ -63,8 +71,8 @@ export function GyeonCertifiedCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="GYEON Certified Installer Charlotte NC"
-        description="Charlotte's GYEON & IGL certified ceramic coating installer. Factory-trained, genuine products, warranty up to 10 years."
-        keywords="GYEON certified installer Charlotte, GYEON ceramic coating Charlotte NC, certified ceramic coating installer near me, IGL certified installer Charlotte, GYEON Q2 Pure EVO, GYEON Q2 Flash EVO, professional ceramic coating Charlotte"
+        description="Charlotte's GYEON & IGL certified ceramic coating installer. Factory-trained, genuine products, warranty up to lifetime with GYEON Infinite."
+        keywords="GYEON certified installer Charlotte, GYEON ceramic coating Charlotte NC, certified ceramic coating installer near me, IGL certified installer Charlotte, GYEON Q2 Pure EVO, GYEON Infinite ceramic coating, professional ceramic coating Charlotte"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -81,8 +89,8 @@ export function GyeonCertifiedCharlottePage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Is ProWorx a certified GYEON installer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is a GYEON and IGL certified ceramic coating installer in Charlotte, NC. Our installers are factory-trained and use only genuine professional-grade GYEON Q² EVO series coatings backed by manufacturer warranty." }},
                 { "@type": "Question", "name": "Why does GYEON certification matter?", "acceptedAnswer": { "@type": "Answer", "text": "Certified installers receive proper training, access to professional-grade products (not available to consumers), and can offer manufacturer warranties. Non-certified installers may use consumer-grade products, skip proper prep work, and cannot provide a GYEON warranty." }},
-                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON Q² EVO professional series: Q² One EVO (1-year, from $499), Q² Pure EVO (3-year, from $899), and Q² Flash EVO (10-year, from $1,599). All include prep wash, decontamination, and light prep polish." }},
-                { "@type": "Question", "name": "Does GYEON ceramic coating come with a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when installed by a certified installer like ProWorx. GYEON provides manufacturer warranties: 1 year for Q² One EVO, 3 years for Q² Pure EVO, and 10 years for Q² Flash EVO. The warranty covers coating performance and includes annual inspections." }}
+                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON professional series: Q² One EVO (1-year, from $499), Q² Pure EVO (3-year, from $899), Infinite Type 1 (lifetime, from $1,799), and Infinite Type 1 + Type 2 (lifetime, from $2,199). All include prep wash, decontamination, and light prep polish." }},
+                { "@type": "Question", "name": "Does GYEON ceramic coating come with a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when installed by a certified installer like ProWorx. GYEON provides manufacturer warranties: 1 year for Q² One EVO, 3 years for Q² Pure EVO, and a lifetime Infinite Warranty for the Infinite series (with biennial maintenance). The warranty covers coating performance." }}
               ]
             }
           ]
@@ -112,7 +120,7 @@ export function GyeonCertifiedCharlottePage() {
               in Charlotte, NC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              ProWorx Detailing is Charlotte's GYEON &amp; IGL certified ceramic coating specialist. Factory-trained installers, genuine professional-grade products, and manufacturer warranty up to 10 years.
+              ProWorx Detailing is Charlotte's GYEON &amp; IGL certified ceramic coating specialist. Factory-trained installers, genuine professional-grade products, and manufacturer warranty up to a lifetime with the Infinite series.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>

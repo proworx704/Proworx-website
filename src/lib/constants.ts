@@ -82,6 +82,7 @@ export const SERVICES = {
   ],
   // Ceramic Add-ons
   ceramicAddons: [
+    { name: "GYEON Can Coat Pro EVO — Spray Ceramic (12–18 mo)", description: "Professional spray ceramic coating for quick, durable protection. Add to any detail service.", price: "$149", duration: "20 min" },
     { name: "Ceramic Tire Dressing", description: "Long-lasting, deep black finish for tires with UV protection.", price: "$20", duration: "30 min" },
     { name: "Convertible Top Fabric Protection", description: "Hydrophobic treatment for convertible tops.", price: "$100", duration: "30 min" },
     { name: "GYEON Leather Shield", description: "Ceramic coating for leather to resist dye transfer, staining, and UV fading.", price: "$60", duration: "20 min" },
@@ -97,7 +98,7 @@ export const LEGACY_PAGES = {
   paintCorrection: "https://www.proworxdetailing.com/paint-correction",
   ceramicCoating: "https://www.proworxdetailing.com/ceramic-coating",
   membership: "https://www.proworxdetailing.com/proworx-membership",
-  q2FlashEvo: "https://www.proworxdetailing.com/q2-flash-evo-maintenance-plan",
+  gyeonInfiniteMaintenance: "https://www.proworxdetailing.com/gyeon-infinite-maintenance-plan",
   fleet: "https://www.proworxdetailing.com/fleet-detailing-services",
   contact: "https://www.proworxdetailing.com/contact",
   blogs: "https://www.proworxdetailing.com/blogs",

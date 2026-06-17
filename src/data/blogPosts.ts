@@ -85,15 +85,15 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "What Is Ceramic Coating?",
-        body: `<p>A professional-grade ceramic coating is a <strong>semi-permanent chemical bond</strong> with your vehicle's clear coat. It creates a glass-like layer of protection that's significantly harder than wax and lasts <strong>1–10+ years</strong> depending on the product and application.</p>
-<p>At ProWorx, we're certified installers of <strong>Gyeon and IGL ceramic coatings</strong> — two of the most respected brands in the industry. Our <a href="/ceramic-coating">ceramic coating packages</a> range from 1-year protection (GYEON Q² One EVO) all the way to 10-year protection (GYEON Q² Mohs EVO).</p>`,
+        body: `<p>A professional-grade ceramic coating is a <strong>semi-permanent chemical bond</strong> with your vehicle's clear coat. It creates a glass-like layer of protection that's significantly harder than wax and lasts <strong>1 year to a lifetime</strong> depending on the product and application.</p>
+<p>At ProWorx, we're certified installers of <strong>Gyeon and IGL ceramic coatings</strong> — two of the most respected brands in the industry. Our <a href="/ceramic-coating">ceramic coating packages</a> range from 1-year protection (GYEON Q² One EVO) all the way to lifetime protection with the GYEON Infinite series.</p>`,
       },
       {
         heading: "Head-to-Head Comparison",
         body: `<table>
 <thead><tr><th>Factor</th><th>Wax / Sealant</th><th>Ceramic Coating</th></tr></thead>
 <tbody>
-<tr><td><strong>Durability</strong></td><td>4–8 weeks</td><td>1–10 years</td></tr>
+<tr><td><strong>Durability</strong></td><td>4–8 weeks</td><td>1 year – lifetime</td></tr>
 <tr><td><strong>Hardness</strong></td><td>Soft (sacrificial)</td><td>9H hardness rating</td></tr>
 <tr><td><strong>Hydrophobic</strong></td><td>Moderate</td><td>Extreme water beading</td></tr>
 <tr><td><strong>UV Protection</strong></td><td>Minimal</td><td>Strong</td></tr>
@@ -507,7 +507,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <tr><td><strong>Paint correction (single-stage)</strong></td><td>$300–$600</td><td>4–6 hours</td></tr>
 <tr><td><strong>Paint correction (multi-stage)</strong></td><td>$600–$1,200</td><td>8–12 hours</td></tr>
 <tr><td><strong>Ceramic coating (1–3 year)</strong></td><td>$499–$999</td><td>1–2 days</td></tr>
-<tr><td><strong>Ceramic coating (5–10 year)</strong></td><td>$999–$2,499</td><td>2–3 days</td></tr>
+<tr><td><strong>Ceramic coating (5+ year / lifetime)</strong></td><td>$999–$2,499</td><td>2–3 days</td></tr>
 </tbody>
 </table>
 <p>These are typical ranges for professional operators in the Charlotte metro area. Budget operators may charge less, but the product quality and results reflect the price. For our specific pricing, see our <a href="/menu">complete service menu</a>.</p>`,
@@ -610,7 +610,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "When to Get Your Coating Refreshed",
-        body: `<p>Even the best ceramic coatings have a lifespan. GYEON Q² Mohs EVO lasts up to 10 years, but most coatings in the 1–5 year range will eventually need refreshing. Signs your coating needs attention:</p>
+        body: `<p>Even the best ceramic coatings need maintenance. GYEON's Infinite series carries a lifetime warranty with biennial maintenance, but most coatings in the 1–5 year range will eventually need refreshing. Signs your coating needs attention:</p>
 <ul>
 <li>Water no longer beads tightly on the surface</li>
 <li>Dirt sticks more easily than it used to</li>
@@ -825,7 +825,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <ul>
 <li><strong>GYEON Q² One EVO</strong> — 1-year coating, great entry-level protection for leased vehicles</li>
 <li><strong>GYEON Q² Skin EVO</strong> — 3-year coating, our most popular choice for new car owners</li>
-<li><strong>GYEON Q² Mohs EVO</strong> — 10-year coating, the ultimate protection for long-term ownership</li>
+<li><strong>GYEON Infinite Type 1 + Type 2</strong> — lifetime warranty coating, the ultimate protection for long-term ownership</li>
 </ul>
 <p>Not sure which is right for your new car? <a href="/contact">Contact us</a> and we\'ll help you choose based on your ownership plans, budget, and goals. Or browse our <a href="/menu">full pricing menu</a> and <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a>.</p>
 <p>Just picked up a new car? Don\'t wait for the first scratch. Protect it now and enjoy that showroom finish for years to come.</p>`,

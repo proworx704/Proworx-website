@@ -211,7 +211,7 @@ export function MobileDetailingCostPage() {
               </h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {[
-                  { name: "Ceramic Coating", price: "From $499", desc: "1-year, 3-year & 10-year GYEON packages", link: "/ceramic-coating" },
+                  { name: "Ceramic Coating", price: "From $499", desc: "1-year, 3-year & lifetime GYEON packages", link: "/ceramic-coating" },
                   { name: "Paint Correction", price: "From $618", desc: "Stage 1, 2 & 3 correction packages", link: "/paint-correction" },
                   { name: "Hot Water Extraction", price: "$100", desc: "Deep clean seats & carpeted areas", link: "/services" },
                 ].map((svc) => (

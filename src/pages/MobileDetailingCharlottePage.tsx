@@ -186,7 +186,7 @@ export function MobileDetailingCharlottePage() {
               </p>
               <div className="space-y-4">
                 {[
-                  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1 to 10-year protection from $499", link: "/ceramic-coating" },
+                  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime protection from $499", link: "/ceramic-coating" },
                   { title: "Paint Correction", desc: "Multi-stage machine polishing to remove swirls & scratches", link: "/paint-correction" },
                   { title: "Boat Detailing", desc: "Full boat detail for Lake Norman & Lake Wylie boats", link: "/boat-detailing" },
                   { title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly subscriptions", link: "/maintenance" },

@@ -21,7 +21,7 @@ const SERVICES_OVERVIEW = [
   { name: "Elite Ceramic Inside & Out", price: "From $581", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
   { name: "Exterior Detail", price: "From $129", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
   { name: "Interior Detail", price: "From $181", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
-  { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & 10-year ceramic coating packages." },
+  { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
   { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];
 
@@ -88,8 +88,8 @@ export function MatthewsDetailingPage() {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Matthews and surrounding areas including Indian Trail, Stallings, Mint Hill, Idlewild, and Hemby Bridge. We bring our fully equipped mobile setup directly to your home or office." }},
-                { "@type": "Question", "name": "How much does mobile detailing cost in Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $258 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $129. Ceramic coating packages range from $499 to $1,599+." }},
-                { "@type": "Question", "name": "Can I get ceramic coating in Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and 10-year ($1,599+) professional ceramic coating packages with manufacturer warranties." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $258 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $129. Ceramic coating packages range from $499 to $2,199+." }},
+                { "@type": "Question", "name": "Can I get ceramic coating in Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
                 { "@type": "Question", "name": "How far is ProWorx from Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "We're based in Waxhaw, NC \u2014 just 15\u201320 minutes from Matthews. As a mobile service, we come to your location with everything we need. No trip to the shop required!" }}
               ]
             }
@@ -225,7 +225,8 @@ export function MatthewsDetailingPage() {
                 {[
                   { label: "1-Year Protection", price: "$499+", name: "GYEON Q\u00B2 One EVO" },
                   { label: "3-Year Protection", price: "$899+", name: "GYEON Q\u00B2 Pure EVO" },
-                  { label: "10-Year Protection", price: "$1,599+", name: "GYEON Q\u00B2 Flash EVO" },
+                  { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
+                  { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (
                   <div key={pkg.label} className="flex items-center justify-between rounded-xl bg-card border border-border p-4">
                     <div>

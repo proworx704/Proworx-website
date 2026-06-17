@@ -60,19 +60,37 @@ const PACKAGES = [
     popular: true,
   },
   {
-    name: "GYEON Q² Flash EVO",
-    tag: "10-Year Protection",
-    priceFrom: "$1,599",
-    deposit: "$480",
-    configKey: "ceramicDeposit10yr",
+    name: "GYEON Infinite Type 1",
+    tag: "Lifetime Protection*",
+    priceFrom: "$1,799",
+    deposit: "$540",
+    configKey: "ceramicDepositInfinite1",
     features: [
       "Prep wash & clay bar decontamination",
       "Light prep polish (paint prep)",
-      "GYEON Q² Flash EVO top-tier coating",
-      "Maximum hardness & scratch resistance",
-      "Self-cleaning hydrophobic effect",
-      "10-year GYEON manufacturer warranty",
-      "Annual inspection & maintenance",
+      "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
+      "Extreme chemical resistance & self-cleaning",
+      "Superior UV protection & hydrophobic effect",
+      "Lifetime GYEON Infinite Warranty*",
+      "Biennial maintenance inspection included",
+    ],
+    popular: false,
+  },
+  {
+    name: "GYEON Infinite Type 1 + 2",
+    tag: "Ultimate Lifetime Protection*",
+    priceFrom: "$2,199",
+    deposit: "$660",
+    configKey: "ceramicDepositInfinite2",
+    features: [
+      "Prep wash & clay bar decontamination",
+      "Light prep polish (paint prep)",
+      "GYEON Infinite Base Type 1 + Type 2 TopCoat",
+      "Maximum gloss, depth & color enhancement",
+      "Extreme watermark resistance (ideal for NC heat)",
+      "Dual-layer protection — best scratch resistance",
+      "Lifetime GYEON Infinite Warranty*",
+      "Biennial maintenance inspection included",
     ],
     popular: false,
   },
@@ -103,7 +121,7 @@ const REVIEWS = [
 
 const GALLERY_ITEMS = [
   { image: "/images/escalade-rear.jpg", slot: "ceramic-gallery-1", alt: "Cadillac Escalade ceramic coating — deep gloss under hex lights", label: "Escalade — GYEON Q² Pure" },
-  { image: "/images/aston-front.jpg", slot: "ceramic-gallery-2", alt: "Aston Martin ceramic coated by ProWorx", label: "Aston Martin — GYEON Q² Flash" },
+  { image: "/images/aston-front.jpg", slot: "ceramic-gallery-2", alt: "Aston Martin ceramic coated by ProWorx", label: "Aston Martin — GYEON Infinite" },
   { image: "/images/corvette-front.jpg", slot: "ceramic-gallery-3", alt: "Corvette ceramic coating with mirror finish", label: "Corvette — Paint Correction + Ceramic" },
   { image: "/images/ferrari-side.jpg", slot: "ceramic-gallery-4", alt: "Ferrari Roma ceramic coated by ProWorx", label: "Ferrari Roma — GYEON Q² Pure" },
   { image: "/images/audi-front.jpg", slot: "ceramic-gallery-5", alt: "Audi ceramic coating showroom finish", label: "Audi — GYEON Q² One" },
@@ -112,7 +130,7 @@ const GALLERY_ITEMS = [
 
 const PRO_VS_CONSUMER = [
   { feature: "Coating Type", pro: "SiO₂ professional-grade (GYEON / IGL)", consumer: "Spray-on sealant" },
-  { feature: "Longevity", pro: "1–10 years", consumer: "1–3 months" },
+  { feature: "Longevity", pro: "1 year – lifetime", consumer: "1–3 months" },
   { feature: "Surface Prep", pro: "Clay bar, iron decon & machine polish", consumer: "Basic wash" },
   { feature: "Hardness", pro: "True 9H hardness rating", consumer: "No measurable hardness" },
   { feature: "Warranty", pro: "GYEON manufacturer warranty", consumer: "None" },
@@ -126,7 +144,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How much does ceramic coating cost in Charlotte?",
-    a: "ProWorx offers three GYEON ceramic coating packages: Q² One EVO (1 year) starting at $499, Q² Pure EVO (3 years) starting at $899, and Q² Flash EVO (10 years) starting at $1,599. Reserve any package with just 30% down.",
+    a: "ProWorx offers four GYEON ceramic coating packages: Q² One EVO (1 year) starting at $499, Q² Pure EVO (3 years) starting at $899, Infinite Type 1 (lifetime warranty) starting at $1,799, and Infinite Type 1 + Type 2 (ultimate lifetime protection) starting at $2,199. Reserve any package with just 30% down.",
   },
   {
     q: "Is this a drop-off or mobile service?",
@@ -134,7 +152,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How long does ceramic coating last?",
-    a: "Depending on the package, ProWorx ceramic coatings last 1, 3, or 10 years. All packages include a GYEON manufacturer warranty, and our 3-year and 10-year packages include annual inspections.",
+    a: "Depending on the package, ProWorx ceramic coatings last 1 year, 3 years, or a lifetime. All packages include a GYEON manufacturer warranty. Our Infinite packages carry a lifetime warranty with biennial maintenance, and our 3-year package includes annual inspections.",
   },
   {
     q: "Do I need paint correction before ceramic coating?",
@@ -266,7 +284,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating Charlotte NC — Gyeon Certified"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 with 1-10 year protection. 63+ 5-star reviews, 12+ years experience. Reserve with 30% down."
+        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 — up to lifetime protection with GYEON Infinite. 63+ 5-star reviews, 12+ years experience. Reserve with 30% down."
         keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
@@ -298,11 +316,11 @@ export function CeramicCoatingPage() {
                 },
               },
               areaServed: "Charlotte, NC",
-              description: "Professional GYEON & IGL certified ceramic coating with 1-10 year protection packages.",
+              description: "Professional GYEON & IGL certified ceramic coating with 1-year to lifetime protection packages.",
               offers: {
                 "@type": "AggregateOffer",
                 lowPrice: "499",
-                highPrice: "1599",
+                highPrice: "2199",
                 priceCurrency: "USD",
               },
             },
@@ -352,7 +370,7 @@ export function CeramicCoatingPage() {
               Professional <span className="text-gradient-gold">Ceramic Coating</span> in Charlotte, NC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-foreground">up to 10 years</strong> — backed by a GYEON manufacturer warranty. Applied by a certified installer with 12+ years of experience.
+              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-foreground">up to a lifetime</strong> — backed by a GYEON manufacturer warranty. Applied by a certified installer with 12+ years of experience.
             </p>
             <p className="text-base text-gold font-semibold mb-8">
               Starting at $499 · Reserve with just 30% down
@@ -391,7 +409,7 @@ export function CeramicCoatingPage() {
               { icon: <Award className="size-5 text-gold" />, label: "12+ Years", sub: "Professional Experience" },
               { icon: <Star className="size-5 text-amber-400 fill-amber-400" />, label: "5.0 Stars", sub: "63+ Verified Reviews" },
               { icon: <ShieldCheck className="size-5 text-gold" />, label: "GYEON & IGL", sub: "Certified Installer" },
-              { icon: <Calendar className="size-5 text-gold" />, label: "1–10 Year", sub: "Manufacturer Warranty" },
+              { icon: <Calendar className="size-5 text-gold" />, label: "Up to Lifetime", sub: "Manufacturer Warranty" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-3">
                 <div className="shrink-0 size-10 rounded-lg bg-gold/10 flex items-center justify-center">

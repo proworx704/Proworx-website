@@ -17,7 +17,8 @@ const DEFAULTS: Record<string, string> = {
   ceramicDepositUrl: "https://square.link/u/NwnNJRm7",
   ceramicDeposit1yr: "",
   ceramicDeposit3yr: "",
-  ceramicDeposit10yr: "",
+  ceramicDepositInfinite1: "",
+  ceramicDepositInfinite2: "",
   wisetackUrl: "https://www.wisetack.com/",
   // Per-section booking links (empty = use /book page)
   bookingUrlFullDetail: "",

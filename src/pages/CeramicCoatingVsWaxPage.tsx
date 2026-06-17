@@ -6,7 +6,7 @@ import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
 const COMPARISON = [
-  { feature: "Longevity", ceramic: "1–10 years", wax: "2–4 weeks", sealant: "3–6 months" },
+  { feature: "Longevity", ceramic: "1 year – lifetime", wax: "2–4 weeks", sealant: "3–6 months" },
   { feature: "Hardness", ceramic: "9H rated", wax: "None", sealant: "None" },
   { feature: "Scratch Resistance", ceramic: "Significant", wax: "None", sealant: "Minimal" },
   { feature: "UV Protection", ceramic: "Excellent — prevents oxidation", wax: "Moderate", sealant: "Moderate" },
@@ -15,7 +15,7 @@ const COMPARISON = [
   { feature: "Gloss & Depth", ceramic: "Deep, mirror-like finish", wax: "Warm, natural glow", sealant: "Good shine" },
   { feature: "Maintenance", ceramic: "Easy — dirt slides off, less washing", wax: "Frequent reapplication needed", sealant: "Regular reapplication" },
   { feature: "Application", ceramic: "Professional — certified installer required", wax: "DIY or professional", sealant: "DIY or professional" },
-  { feature: "Cost", ceramic: "$499–$1,599+ (professional)", wax: "$20–$50 (DIY) / $100–$200 (pro)", sealant: "$30–$80 (DIY) / $150–$300 (pro)" },
+  { feature: "Cost", ceramic: "$499–$2,199+ (professional)", wax: "$20–$50 (DIY) / $100–$200 (pro)", sealant: "$30–$80 (DIY) / $150–$300 (pro)" },
   { feature: "Warranty", ceramic: "Manufacturer warranty (GYEON)", wax: "None", sealant: "None" },
   { feature: "Resale Value", ceramic: "Preserves paint — increases resale value", wax: "Minimal impact", sealant: "Minimal impact" },
 ];
@@ -59,11 +59,11 @@ export function CeramicCoatingVsWaxPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Is ceramic coating better than wax?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for long-term protection. Professional ceramic coating lasts 1–10 years and provides superior scratch resistance, UV protection, and hydrophobic properties. Wax lasts only 2–4 weeks and offers minimal protection. However, ceramic coating costs more upfront ($499–$1,599+) compared to wax ($20–$50 DIY)." }},
-                { "@type": "Question", "name": "How long does ceramic coating last vs wax?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating lasts 1–10 years depending on the product tier. GYEON Q² One EVO lasts 1 year, Q² Pure EVO lasts 3 years, and Q² Flash EVO lasts up to 10 years. Traditional carnauba wax lasts only 2–4 weeks before needing reapplication." }},
+                { "@type": "Question", "name": "Is ceramic coating better than wax?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for long-term protection. Professional ceramic coating lasts 1 year to a lifetime and provides superior scratch resistance, UV protection, and hydrophobic properties. Wax lasts only 2–4 weeks and offers minimal protection. However, ceramic coating costs more upfront ($499–$2,199+) compared to wax ($20–$50 DIY)." }},
+                { "@type": "Question", "name": "How long does ceramic coating last vs wax?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating lasts 1 year to a lifetime depending on the product tier. GYEON Q² One EVO lasts 1 year, Q² Pure EVO lasts 3 years, and the GYEON Infinite series carries a lifetime warranty with biennial maintenance. Traditional carnauba wax lasts only 2–4 weeks before needing reapplication." }},
                 { "@type": "Question", "name": "Can you wax over ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "You shouldn't need to. Ceramic coating provides superior protection and gloss on its own. Applying wax over ceramic coating can actually reduce the hydrophobic properties. Instead, use a ceramic-safe maintenance spray (like GYEON Cure) to boost the coating between professional maintenance visits." }},
-                { "@type": "Question", "name": "Is ceramic coating worth the money?", "acceptedAnswer": { "@type": "Answer", "text": "For most vehicle owners, yes. While the upfront cost is higher ($499–$1,599+), you save money over time by eliminating frequent waxing, reducing wash frequency, and protecting your paint from damage that would lower resale value. A 3-year ceramic coating at $899 costs roughly $25/month — less than monthly waxing." }},
-                { "@type": "Question", "name": "What's the best paint protection: ceramic coating, wax, or sealant?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating offers the best overall protection. It's harder (9H rated), lasts longer (1–10 years), and provides superior resistance to scratches, chemicals, UV, and environmental contaminants. Sealants are a middle ground lasting 3–6 months, while wax is the shortest-lived at 2–4 weeks." }}
+                { "@type": "Question", "name": "Is ceramic coating worth the money?", "acceptedAnswer": { "@type": "Answer", "text": "For most vehicle owners, yes. While the upfront cost is higher ($499–$2,199+), you save money over time by eliminating frequent waxing, reducing wash frequency, and protecting your paint from damage that would lower resale value. A 3-year ceramic coating at $899 costs roughly $25/month — less than monthly waxing." }},
+                { "@type": "Question", "name": "What's the best paint protection: ceramic coating, wax, or sealant?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating offers the best overall protection. It's harder (9H rated), lasts longer (1 year to a lifetime), and provides superior resistance to scratches, chemicals, UV, and environmental contaminants. Sealants are a middle ground lasting 3–6 months, while wax is the shortest-lived at 2–4 weeks." }}
               ]
             }
           ]
@@ -251,9 +251,9 @@ export function CeramicCoatingVsWaxPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions</h2>
             <div className="space-y-6">
               {[
-                { q: "Is ceramic coating better than wax?", a: "Yes, in almost every way. Ceramic coating provides 9H hardness, lasts 1–10 years, and protects against UV, chemicals, and scratches. Wax lasts 2–4 weeks with no real protection. The only advantage of wax is lower upfront cost." },
+                { q: "Is ceramic coating better than wax?", a: "Yes, in almost every way. Ceramic coating provides 9H hardness, lasts 1 year to a lifetime, and protects against UV, chemicals, and scratches. Wax lasts 2–4 weeks with no real protection. The only advantage of wax is lower upfront cost." },
                 { q: "Can I apply ceramic coating myself?", a: "Consumer-grade spray coatings exist, but they last weeks not years and provide minimal protection. Professional ceramic coating requires paint decontamination, machine polishing, controlled application, and IR curing. Improper application can cause high spots, streaking, and uneven protection. For real results, use a certified installer." },
-                { q: "How long does ceramic coating last vs wax?", a: "Professional ceramic coating: 1–10 years depending on tier. GYEON Q² One EVO (1 year), Q² Pure EVO (3 years), Q² Flash EVO (10 years). Traditional wax: 2–4 weeks. Paint sealant: 3–6 months." },
+                { q: "How long does ceramic coating last vs wax?", a: "Professional ceramic coating: 1 year to a lifetime depending on tier. GYEON Q² One EVO (1 year), Q² Pure EVO (3 years), GYEON Infinite (lifetime with biennial maintenance). Traditional wax: 2–4 weeks. Paint sealant: 3–6 months." },
                 { q: "Does ceramic coating prevent scratches?", a: "Ceramic coating provides significant scratch resistance (9H hardness) that wax cannot. It won't prevent damage from rock chips or key scratches, but it greatly reduces swirl marks, light scratches, and wash-related marring." },
                 { q: "Can you wax over ceramic coating?", a: "You shouldn't. Wax can reduce the hydrophobic properties of ceramic coating. Instead, use a ceramic-safe maintenance product like GYEON Cure to maintain and boost the coating." },
               ].map((item, i) => (

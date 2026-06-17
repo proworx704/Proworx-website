@@ -133,7 +133,8 @@ export function MenuPage() {
   const ceramicFallback = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
   const bookCeramic1yr = config.ceramicDeposit1yr || ceramicFallback;
   const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
-  const bookCeramic10yr = config.ceramicDeposit10yr || ceramicFallback;
+  const bookCeramicInfinite1 = config.ceramicDepositInfinite1 || ceramicFallback;
+  const bookCeramicInfinite2 = config.ceramicDepositInfinite2 || ceramicFallback;
   const subExterior = config["subscribeUrl:membership-exterior"] || "https://square.link/u/CP1LxyXc";
   const subInterior = config["subscribeUrl:membership-interior"] || "https://square.link/u/ZIRVEmaf";
   const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
@@ -393,6 +394,7 @@ export function MenuPage() {
             { name: "Iron Decontamination (Wheels)", price: "$40" },
           ]} />
           <AddOnGroup title="Ceramic Add-Ons" items={[
+            { name: "GYEON Can Coat Pro EVO — Spray Ceramic (12–18 mo)", price: "$149" },
             { name: "GYEON View — Windshield Ceramic", price: "$120" },
             { name: "Convertible Top Protection", price: "$100" },
             { name: "Fabric Protection / Weather Guard", price: "$80" },
@@ -482,7 +484,7 @@ export function MenuPage() {
             title="Ceramic Coating"
             subtitle="Professional-grade GYEON ceramic coatings by a certified installer. Each includes prep wash, decontamination & light prep polish. Reserve with just 30% down."
           />
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 name: "Q² One EVO",
@@ -514,17 +516,32 @@ export function MenuPage() {
                 ],
               },
               {
-                name: "Q² Flash EVO",
-                protection: "10-Year",
-                price: "$1,599",
-                deposit: "~$480",
-                depositUrl: bookCeramic10yr,
+                name: "Infinite Type 1",
+                protection: "Lifetime*",
+                price: "$1,799",
+                deposit: "~$540",
+                depositUrl: bookCeramicInfinite1,
                 features: [
                   "Prep wash & decontamination",
                   "Light prep polish",
-                  "GYEON Q² Flash EVO top-tier coating",
-                  "Maximum hardness & scratch resistance",
-                  "10-year warranty + annual inspection",
+                  "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
+                  "Extreme chemical resistance & self-cleaning",
+                  "Lifetime warranty* + biennial maintenance",
+                ],
+              },
+              {
+                name: "Infinite Type 1 + 2",
+                protection: "Lifetime*",
+                price: "$2,199",
+                deposit: "~$660",
+                depositUrl: bookCeramicInfinite2,
+                features: [
+                  "Prep wash & decontamination",
+                  "Light prep polish",
+                  "GYEON Infinite Base Type 1 + Type 2 TopCoat",
+                  "Maximum gloss, depth & watermark resistance",
+                  "Dual-layer ultimate protection",
+                  "Lifetime warranty* + biennial maintenance",
                 ],
               },
             ].map((pkg) => (
@@ -553,7 +570,7 @@ export function MenuPage() {
               </div>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground/60 mt-3">Pricing varies by vehicle size. Drop-off required. Financing available via Wisetack — prequalify with no impact to credit.</p>
+          <p className="text-xs text-muted-foreground/60 mt-3">*Lifetime warranty requires maintenance every 24 months with a GYEON Certified Detailer; 5-year base warranty without. Pricing varies by vehicle size. Drop-off required. Financing available via Wisetack.</p>
         </Section>
 
         <div className="border-t border-border" />

@@ -60,25 +60,46 @@ const PACKAGES = [
     badge: "bg-gold/20 text-gold border-gold/30",
   },
   {
-    name: "Q² Flash EVO",
-    tag: "10-Year Protection",
-    price: "$1,299",
-    originalPrice: "$1,599",
+    name: "Infinite Type 1",
+    tag: "Lifetime Protection*",
+    price: "$1,499",
+    originalPrice: "$1,799",
     savings: "Save $300",
     paymentLink: "https://square.link/u/JO0Ml2tZ",
     features: [
       "Full paint decontamination wash",
       "Clay bar treatment",
       "Prep spray wipe down for bonding",
-      "GYEON Q² Flash EVO top-tier coating",
-      "Maximum hardness & scratch resistance",
-      "Self-cleaning hydrophobic effect",
-      "10-year GYEON manufacturer warranty",
-      "Annual inspection & maintenance",
+      "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
+      "Extreme chemical resistance & self-cleaning",
+      "Superior UV protection & hydrophobic effect",
+      "Lifetime GYEON Infinite Warranty*",
+      "Biennial maintenance inspection included",
     ],
     popular: false,
     accent: "from-purple-500 to-pink-500",
     badge: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+  },
+  {
+    name: "Infinite Type 1 + 2",
+    tag: "Ultimate Lifetime Protection*",
+    price: "$1,899",
+    originalPrice: "$2,199",
+    savings: "Save $300",
+    paymentLink: "https://square.link/u/JO0Ml2tZ",
+    features: [
+      "Full paint decontamination wash",
+      "Clay bar treatment",
+      "Prep spray wipe down for bonding",
+      "GYEON Infinite Base Type 1 + Type 2 TopCoat",
+      "Maximum gloss, depth & color enhancement",
+      "Extreme watermark resistance",
+      "Lifetime GYEON Infinite Warranty*",
+      "Biennial maintenance inspection included",
+    ],
+    popular: false,
+    accent: "from-indigo-500 to-purple-500",
+    badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
   },
 ];
 
@@ -125,7 +146,7 @@ export function SummerShieldPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Summer Shield — Save up to $300 on Ceramic Coating"
-        description="Limited-time Summer Shield Special on GYEON Q² ceramic coating. 1-Year from $399, 3-Year from $699, 10-Year from $1,299. Includes full decon wash, clay bar & prep spray. Charlotte & Waxhaw NC."
+        description="Limited-time Summer Shield Special on GYEON ceramic coating. 1-Year from $399, 3-Year from $699, Infinite Lifetime from $1,499. Includes full decon wash, clay bar & prep spray. Charlotte & Waxhaw NC."
         keywords="ceramic coating special Charlotte NC, GYEON ceramic coating deal, ceramic coating discount, paint protection Charlotte, summer ceramic coating sale, ProWorx detailing promo"
       />
 

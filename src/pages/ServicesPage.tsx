@@ -474,7 +474,7 @@ export function ServicesPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               { icon: <Sparkles className="size-6" />, title: "Paint Correction", desc: "Remove swirls, scratches & oxidation", link: "/paint-correction", slot: "card-paint", fallback: "/images/corvette-rear.jpg" },
-              { icon: <Shield className="size-6" />, title: "Ceramic Coating", desc: "GYEON certified, up to 10-year protection", link: "/ceramic-coating", slot: "card-ceramic", fallback: "/images/escalade-rear.jpg" },
+              { icon: <Shield className="size-6" />, title: "Ceramic Coating", desc: "GYEON certified, up to lifetime protection", link: "/ceramic-coating", slot: "card-ceramic", fallback: "/images/escalade-rear.jpg" },
               { icon: <Truck className="size-6" />, title: "Fleet Detailing", desc: "Volume pricing for business vehicles", link: "/fleet", slot: "fleet-hero", fallback: "/images/fleet-real.jpg" },
             ].map((s) => (
               <Link key={s.title} to={s.link}>

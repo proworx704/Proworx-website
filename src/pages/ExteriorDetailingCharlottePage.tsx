@@ -16,7 +16,7 @@ const PACKAGES = [
 const EXTERIOR_SERVICES = [
   { icon: <Droplets className="size-5" />, title: "Hand Wash & Dry", desc: "Gentle two-bucket method with pH-neutral foam \u2014 no swirl marks" },
   { icon: <Sparkles className="size-5" />, title: "Paint Correction", desc: "Multi-stage machine polishing to remove swirls, scratches, and oxidation" },
-  { icon: <Shield className="size-5" />, title: "Ceramic Protection", desc: "GYEON & IGL certified coatings \u2014 1 to 10-year hydrophobic protection" },
+  { icon: <Shield className="size-5" />, title: "Ceramic Protection", desc: "GYEON & IGL certified coatings \u2014 1-year to lifetime hydrophobic protection" },
   { icon: <Sun className="size-5" />, title: "Trim & Wheel Care", desc: "Restore faded plastics, dress tires, and deep-clean wheels and barrels" },
 ];
 
@@ -253,7 +253,7 @@ export function ExteriorDetailingCharlottePage() {
                 { q: "Do you offer paint correction in Charlotte?", a: "Yes. ProWorx offers single-stage enhancement polishing and multi-stage paint correction. We use professional dual-action and rotary polishers with GYEON and Rupes compounds to safely remove swirl marks, light scratches, water spots, and oxidation. Correction is recommended before ceramic coating for the best results." },
                 { q: "How long does exterior detailing take?", a: "A Standard Exterior takes about 1\u20131.5 hours. Premium with clay bar and polish runs 2\u20133 hours. Elite with full paint correction and ceramic application can take 4\u20138 hours depending on paint condition and vehicle size. We never rush \u2014 the finish is worth the time." },
                 { q: "Will detailing remove scratches from my car?", a: "Paint correction can remove or significantly reduce light scratches, swirl marks, water spots, and oxidation. Deep scratches through the clear coat may need touch-up paint first. During your free consultation, we assess your paint condition and set realistic expectations." },
-                { q: "How long does ceramic coating last?", a: "Our GYEON and IGL ceramic coatings last 1 to 10 years depending on the product chosen. Ceramic provides hydrophobic protection, UV resistance, chemical resistance, and makes maintenance washes easier. We offer 1-year, 3-year, 5-year, and 10-year options." },
+                { q: "How long does ceramic coating last?", a: "Our GYEON and IGL ceramic coatings last 1 year to a lifetime depending on the product chosen. Ceramic provides hydrophobic protection, UV resistance, chemical resistance, and makes maintenance washes easier. We offer 1-year, 3-year, and lifetime options with the GYEON Infinite series." },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>

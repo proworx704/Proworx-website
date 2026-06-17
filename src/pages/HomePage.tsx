@@ -25,7 +25,7 @@ const SERVICES = [
   {
     icon: <Shield className="size-6" />,
     title: "Ceramic Coating",
-    description: "GYEON & IGL certified ceramic coating installation. Professional-grade 1-year to 10-year protection with a brilliant, hydrophobic finish.",
+    description: "GYEON & IGL certified ceramic coating installation. Professional-grade 1-year to lifetime protection with a brilliant, hydrophobic finish.",
     href: "/ceramic-coating",
     image: "/images/escalade-rear.jpg",
     slot: "card-ceramic",
@@ -131,7 +131,7 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   },
   {
     question: "How long does ceramic coating last?",
-    answer: "Professional ceramic coatings last 1–10+ years depending on the product and maintenance. Entry-level coatings like GYEON Q\u00b2 One EVO offer 1 year of protection, while premium options like GYEON Q\u00b2 Mohs EVO can last up to 10 years. <a href=\"/ceramic-coating\" class=\"text-gold hover:underline\">Learn more about ceramic coating</a>.",
+    answer: "Professional ceramic coatings last 1 year to a lifetime depending on the product and maintenance. Entry-level coatings like GYEON Q\u00b2 One EVO offer 1 year of protection, while our premium GYEON Infinite series carries a lifetime warranty with biennial maintenance. <a href=\"/ceramic-coating\" class=\"text-gold hover:underline\">Learn more about ceramic coating</a>.",
   },
   {
     question: "Is ceramic coating worth it?",
@@ -214,7 +214,7 @@ export function HomePage() {
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
               GYEON &amp; IGL certified ceramic coating installers with 12+ years of experience.
-              Professional paint correction, 1 to 10-year ceramic protection packages,
+              Professional paint correction, 1-year to lifetime ceramic protection packages,
               and premium detailing — mobile or drop-off. 63+ five-star reviews.
             </p>
 
@@ -230,7 +230,7 @@ export function HomePage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["1–10 Year Ceramic Protection", "GYEON & IGL Certified", "Mobile & Drop-Off", "12+ Years Experience"].map((item) => (
+              {["Up to Lifetime Ceramic Protection", "GYEON & IGL Certified", "Mobile & Drop-Off", "12+ Years Experience"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
                 </div>
@@ -259,7 +259,7 @@ export function HomePage() {
               <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">About ProWorx</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Charlotte's Ceramic Coating &amp; Paint Protection Experts</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                ProWorx Detailing is Charlotte's trusted GYEON &amp; IGL certified ceramic coating specialist. We deliver professional-grade paint protection with packages ranging from 1-year to 10-year ceramic coatings, precision multi-stage paint correction, and premium full detailing services.
+                ProWorx Detailing is Charlotte's trusted GYEON &amp; IGL certified ceramic coating specialist. We deliver professional-grade paint protection with packages ranging from 1-year to lifetime ceramic coatings, precision multi-stage paint correction, and premium full detailing services.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Whether you're protecting a brand-new vehicle or restoring one that's lost its luster, our certified installers ensure flawless results every time. We offer both convenient mobile service and drop-off options across the Charlotte metro area.

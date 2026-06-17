@@ -646,7 +646,8 @@ function ContactTab() {
         <p className="text-xs text-muted-foreground mb-3">Set a separate 30% deposit link for each ceramic package. Leave blank to use the default deposit link above.</p>
         <EditableRow label="1-Year (Q² One EVO)" value={config.ceramicDeposit1yr || ""} onSave={(v) => handleSave("ceramicDeposit1yr", v)} />
         <EditableRow label="3-Year (Q² Pure EVO)" value={config.ceramicDeposit3yr || ""} onSave={(v) => handleSave("ceramicDeposit3yr", v)} />
-        <EditableRow label="10-Year (Q² Flash EVO)" value={config.ceramicDeposit10yr || ""} onSave={(v) => handleSave("ceramicDeposit10yr", v)} />
+        <EditableRow label="Infinite Type 1" value={config.ceramicDepositInfinite1 || ""} onSave={(v) => handleSave("ceramicDepositInfinite1", v)} />
+        <EditableRow label="Infinite Type 1 + 2" value={config.ceramicDepositInfinite2 || ""} onSave={(v) => handleSave("ceramicDepositInfinite2", v)} />
       </Section>
 
       <Section title="Membership Subscribe Links" icon={<DollarSign className="size-5" />}>

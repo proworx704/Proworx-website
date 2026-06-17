@@ -8,11 +8,12 @@ import { useSiteConfig } from "@/hooks/useCms";
 const PACKAGES = [
   { name: "GYEON Q² One EVO", protection: "1-Year", price: "From $499", configKey: "ceramicDeposit1yr" },
   { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "From $899", popular: true, configKey: "ceramicDeposit3yr" },
-  { name: "GYEON Q² Flash EVO", protection: "10-Year", price: "From $1,599", configKey: "ceramicDeposit10yr" },
+  { name: "GYEON Infinite Type 1", protection: "Lifetime*", price: "From $1,799", configKey: "ceramicDepositInfinite1" },
+  { name: "GYEON Infinite Type 1 + 2", protection: "Lifetime*", price: "From $2,199", configKey: "ceramicDepositInfinite2" },
 ];
 
 const SERVICES = [
-  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1 to 10-year protection packages", link: "/ceramic-coating" },
+  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime protection packages", link: "/ceramic-coating" },
   { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches & oxidation", link: "/paint-correction" },
   { title: "Full Detailing", desc: "Standard & Ceramic interior and exterior packages", link: "/services" },
   { title: "Maintenance Plans", desc: "Biweekly, monthly or quarterly membership plans", link: "/maintenance" },
@@ -39,7 +40,7 @@ export function CeramicCoatingSouthCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating South Charlotte, NC"
-        description="Ceramic coating in South Charlotte, NC by GYEON & IGL certified installers. 1-10 year protection from $499. Mobile or drop-off. 5-star rated."
+        description="Ceramic coating in South Charlotte, NC by GYEON & IGL certified installers. 1-year to lifetime protection from $499. Mobile or drop-off. 5-star rated."
         keywords="ceramic coating South Charlotte NC, auto detailing South Charlotte, paint correction South Charlotte, car detailing South Charlotte NC, mobile detailing South Charlotte, GYEON ceramic coating South Charlotte, luxury car detailing South Charlotte"
         schema={{
           "@context": "https://schema.org",
@@ -60,14 +61,14 @@ export function CeramicCoatingSouthCharlottePage() {
               "telephone": "+19802721903",
               "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
               "areaServed": { "@type": "City", "name": "South Charlotte", "containedInPlace": { "@type": "State", "name": "North Carolina" } },
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "63" },
-              "priceRange": "$499 - $1,599+"
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "62" },
+              "priceRange": "$499 - $2,199+"
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "Is there a ceramic coating installer near South Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is ~18 min from South Charlotte. We offer mobile service (we come to your South Charlotte home) and drop-off at our Waxhaw location. GYEON & IGL certified with 63+ five-star Google reviews." } },
-                { "@type": "Question", "name": "How much does ceramic coating cost in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), and $1,599 for 10-year (Q² Flash EVO). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." } },
+                { "@type": "Question", "name": "How much does ceramic coating cost in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), $1,799 for lifetime (GYEON Infinite Type 1), and $2,199 for ultimate lifetime (Infinite Type 1 + 2). Price varies by vehicle size. All packages include prep wash, decontamination, and prep polish." } },
                 { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off. For ceramic coating, drop-off is recommended for best results, but we accommodate mobile installations. Call (980) 272-1903 to discuss options." } }
               ]
             }
@@ -244,7 +245,7 @@ export function CeramicCoatingSouthCharlottePage() {
             <div className="space-y-6">
               {[
                 { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes! ProWorx Detailing serves South Charlotte with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~18 min from South Charlotte. We're GYEON & IGL certified with 63+ five-star Google reviews." },
-                { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year protection (Q² Pure EVO), and $1,599 for 10-year protection (Q² Flash EVO). Pricing varies by vehicle size. We require a 30% deposit to book." },
+                { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), $1,799 for lifetime (GYEON Infinite Type 1), and $2,199 for ultimate lifetime (Infinite Type 1 + 2). Pricing varies by vehicle size. We require a 30% deposit to book." },
                 { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough prep wash, clay bar decontamination, iron decontamination, and a light prep polish before coating application. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
               ].map((item, i) => (
                 <div key={i} className="rounded-xl bg-card border border-border p-6">
