@@ -78,7 +78,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-exterior",
     name: "Ceramic Exterior",
-    pricing: { biweekly: "51.39", monthly: "102.79", quarterly: "308.38", annually: "1,182.12" },
+    pricing: { biweekly: "54.50", monthly: "109", quarterly: "327", annually: "1,253.50" },
     icon: <Droplets className="size-6" />,
     tagline: "Ceramic-grade exterior care",
     description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
@@ -149,9 +149,9 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($102.79/mo), and Ceramic Inside & Out ($184.76/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($109/mo), and Ceramic Inside & Out ($184.76/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }},
-                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($102.79/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($184.76/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
+                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($109/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($184.76/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, quarterly, or annually. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
               ]
             },
@@ -168,7 +168,7 @@ export function MaintenancePage() {
                   { "@type": "Offer", "name": "Exterior Only", "price": "59", "priceCurrency": "USD", "description": "Monthly exterior hand wash, tire & wheel cleaning, door jambs, tire shine" },
                   { "@type": "Offer", "name": "Interior Only", "price": "99", "priceCurrency": "USD", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
                   { "@type": "Offer", "name": "Full Inside & Out", "price": "159", "priceCurrency": "USD", "description": "Monthly complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
-                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "102.79", "priceCurrency": "USD", "description": "Monthly professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
+                  { "@type": "Offer", "name": "Ceramic Exterior", "price": "109", "priceCurrency": "USD", "description": "Monthly professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
                   { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "184.76", "priceCurrency": "USD", "description": "Monthly full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
                 ]
               }
