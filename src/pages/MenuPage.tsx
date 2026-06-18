@@ -591,7 +591,7 @@ export function MenuPage() {
                 href: subExterior,
                 icon: "droplets" as const,
                 features: ["Exterior hand wash", "Tire & wheel cleaning", "Exterior windows", "Door jambs cleaned", "Tire shine & dressing"],
-                billing: { biweekly: "$30", quarterly: "$177", annually: "$679" },
+                billing: { biweekly: "$27", quarterly: "$172.58", annually: "$672.60" },
               },
               {
                 name: "Interior Only",
@@ -600,7 +600,7 @@ export function MenuPage() {
                 href: subInterior,
                 icon: "shield" as const,
                 features: ["Full interior detail", "Full vacuum & wipe-down", "Dashboard & console detail", "Leather / vinyl conditioning", "Interior windows", "Air freshener"],
-                billing: { biweekly: "$50", quarterly: "$297", annually: "$1,139" },
+                billing: { biweekly: "$45", quarterly: "$289.58", annually: "$1,128.60" },
               },
               {
                 name: "Full Inside & Out",
@@ -610,7 +610,7 @@ export function MenuPage() {
                 icon: "sparkles" as const,
                 popular: true,
                 features: ["Full inside & out detail", "Everything in Exterior + Interior", "Ceramic wet-coat protection", "Tire shine & trim dressing", "10% off on add-on services"],
-                billing: { biweekly: "$80", quarterly: "$477", annually: "$1,829" },
+                billing: { biweekly: "$72", quarterly: "$465.08", annually: "$1,812.60" },
               },
               {
                 name: "Ceramic Exterior",
@@ -629,7 +629,7 @@ export function MenuPage() {
                 icon: "shield" as const,
                 popular: true,
                 features: ["Full inside & out detail", "Everything in Full I&O plan", "GYEON ceramic top-coat refresh", "Iron decontamination", "Ceramic trim & plastic refresh", "15% off on add-on services"],
-                billing: { biweekly: "$92.38", quarterly: "$554.29", annually: "$2,124.81" },
+                billing: { biweekly: "$83", quarterly: "$540.42", annually: "$2,106.26" },
               },
             ].map((plan) => (
               <div key={plan.name} className={`rounded-2xl bg-card border p-5 relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
