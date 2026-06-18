@@ -20,7 +20,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "clean",
     name: "Exterior Only",
-    pricing: { biweekly: "27", monthly: "59", quarterly: "172.58", annually: "672.60" },
+    pricing: { biweekly: "28.80", monthly: "61.20", quarterly: "178.20", annually: "693" },
     icon: <Droplets className="size-6" />,
     tagline: "Exterior care on your schedule",
     description: "A regular exterior refresh to keep your vehicle looking sharp between full details.",
@@ -39,7 +39,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "shield",
     name: "Interior Only",
-    pricing: { biweekly: "45", monthly: "99", quarterly: "289.58", annually: "1,128.60" },
+    pricing: { biweekly: "46.80", monthly: "102.60", quarterly: "298.80", annually: "1,162.80" },
     icon: <Shield className="size-6" />,
     tagline: "Interior care on your schedule",
     description: "A thorough interior detail on your chosen schedule to keep your cabin fresh and clean.",
@@ -59,7 +59,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "armor",
     name: "Full Inside & Out",
-    pricing: { biweekly: "72", monthly: "159", quarterly: "465.08", annually: "1,812.60" },
+    pricing: { biweekly: "74.70", monthly: "164.70", quarterly: "479.70", annually: "1,867.50" },
     icon: <Sparkles className="size-6" />,
     tagline: "Complete detail + ceramic protection",
     description: "The complete package — full interior and exterior detail with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
@@ -78,7 +78,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-exterior",
     name: "Ceramic Exterior",
-    pricing: { biweekly: "49", monthly: "109", quarterly: "318.83", annually: "1,242.60" },
+    pricing: { biweekly: "51.30", monthly: "113.40", quarterly: "329.40", annually: "1,280.70" },
     icon: <Droplets className="size-6" />,
     tagline: "Ceramic-grade exterior care",
     description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
@@ -99,7 +99,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-io",
     name: "Ceramic Inside & Out",
-    pricing: { biweekly: "83", monthly: "184.76", quarterly: "540.42", annually: "2,106.26" },
+    pricing: { biweekly: "86.40", monthly: "190.80", quarterly: "557.10", annually: "2,169.90" },
     icon: <Shield className="size-6" />,
     tagline: "The ultimate ceramic care",
     description: "The complete package for ceramic coating owners — full I&O detail plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care.",
