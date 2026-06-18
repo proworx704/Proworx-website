@@ -78,7 +78,7 @@ const MEMBERSHIP_PLANS = [
   {
     key: "ceramic-exterior",
     name: "Ceramic Exterior",
-    pricing: { biweekly: "54.50", monthly: "109", quarterly: "327", annually: "1,242.60" },
+    pricing: { biweekly: "49", monthly: "109", quarterly: "318.83", annually: "1,242.60" },
     icon: <Droplets className="size-6" />,
     tagline: "Ceramic-grade exterior care",
     description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
