@@ -619,7 +619,7 @@ export function MenuPage() {
                 href: subCeramicExt,
                 icon: "droplets" as const,
                 features: ["Exterior hand wash", "Tire & wheel cleaning", "Door jambs cleaned", "GYEON ceramic top-coat refresh", "Ceramic trim & plastic refresh", "Tire shine & dressing", "10% off on add-on services"],
-                billing: { biweekly: "$54.50", quarterly: "$327", annually: "$1,253.50" },
+                billing: { biweekly: "$54.50", quarterly: "$327", annually: "$1,242.60" },
               },
               {
                 name: "Ceramic Inside & Out",
