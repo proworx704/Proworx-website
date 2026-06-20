@@ -19,8 +19,7 @@ const SQUARE_BOOKING_URL =
   "https://book.squareup.com/appointments/3462dsfn0cvfuh/location/9VRKFJAZZM3HG/services";
 const SQUARE_WIDGET_URL =
   "https://app.squareup.com/appointments/buyer/widget/m9mhndj2r9ryyq/9VRKFJAZZM3HG";
-const MEMBERSHIP_CHECKOUT_URL =
-  "https://checkout.square.site/merchant/KAXAX104TMA6W/checkout/HDT3KCUF2VOY34QRVE27JKFL";
+/* Membership checkout (kept for reference): https://checkout.square.site/merchant/KAXAX104TMA6W/checkout/HDT3KCUF2VOY34QRVE27JKFL */
 const COATING_LINKS = {
   oneEvo: "https://square.link/u/gH4gRlzU",
   pureEvo: "https://square.link/u/ApNI3tJ3",
