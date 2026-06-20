@@ -24,15 +24,42 @@ const MEMBERSHIP_CHECKOUT_URL =
 const COATING_LINKS = {
   oneEvo: "https://square.link/u/gH4gRlzU",
   pureEvo: "https://square.link/u/ApNI3tJ3",
-  flashEvo: "https://square.link/u/Yb3WXDgL",
+  infiniteType1: "https://square.link/u/hgB1fzUS",
+  infiniteType1And2: "https://square.link/u/FRgXnw1m",
 };
 
 /* ── Data ── */
 
 const OFFERS = [
   {
+    id: "membership",
+    badge: "Featured Offer",
+    title: "FREE 3-Year Ceramic Coating",
+    subtitle: "Join any Annual Membership Maintenance Plan and receive:",
+    highlight: "FREE 3-Year Ceramic Coating Protection",
+    highlightSub: "$899+ Value",
+    features: [
+      "Q² Pure EVO professional ceramic coating included",
+      "Any Annual Membership Plan qualifies — from $679/year",
+      "We come to you — home or office",
+      "Cancel-anytime flexibility",
+      "Year-round professional maintenance",
+    ],
+    extraHighlight: "PLUS 15% OFF all ceramic add-ons",
+    extraFeatures: [
+      "Windshield Glass Ceramic",
+      "Wheel & Caliper Ceramic",
+      "Trim & Plastic Ceramic",
+      "Leather Shield · Fabric Coat",
+    ],
+    cta: "Get Your Free Coating",
+    link: "/maintenance",
+    accent: "amber",
+    tagLabel: "Best Value",
+  },
+  {
     id: "addons",
-    badge: "Offer 1",
+    badge: "Offer 2",
     title: "The Ultimate Add-On Upgrade",
     subtitle: "Book any Core Standard Detail Service and receive:",
     highlight: "15% OFF",
@@ -42,28 +69,12 @@ const OFFERS = [
       "Pet hair removal",
       "Headlight restoration & more",
     ],
+    extraHighlight: null,
+    extraFeatures: null,
     cta: "Book & Save 15%",
     link: SQUARE_BOOKING_URL,
     accent: "red",
     tagLabel: null,
-  },
-  {
-    id: "membership",
-    badge: "Offer 2",
-    title: "Annual Membership Bonus",
-    subtitle: "Purchase our Ceramic Membership Plan (Inside & Out) and get:",
-    highlight: "FREE 3-Year Ceramic Coating",
-    highlightSub: "$899 Value",
-    features: [
-      "Ceramic Membership — Inside & Out plan required",
-      "Effortless washing year-round",
-      "High-gloss showroom finish",
-      "Maintains & protects vehicle value",
-    ],
-    cta: "Get Ceramic Membership",
-    link: MEMBERSHIP_CHECKOUT_URL,
-    accent: "amber",
-    tagLabel: "Best Value",
   },
   {
     id: "summer-freedom",
@@ -75,12 +86,14 @@ const OFFERS = [
     highlightSub: null,
     features: [
       "Standard Inside/Out Detail",
-      "Gyeon CanCoat exterior paint protection",
+      "GYEON CanCoat Pro EVO exterior paint protection",
       "Wheel WetCoat hydrophobic protection",
       "Tire Ceramic Coating (deep satin finish)",
       "Leather Ceramic OR Fabric Ceramic Protection",
       "Premium Fragrance of your choice",
     ],
+    extraHighlight: null,
+    extraFeatures: null,
     cta: "Book Summer Freedom",
     link: "widget",
     accent: "blue",
@@ -107,6 +120,7 @@ const COATINGS = [
       "1-year GYEON manufacturer warranty",
     ],
     popular: false,
+    footnote: null,
   },
   {
     name: "Q² Pure EVO",
@@ -128,28 +142,53 @@ const COATINGS = [
       "Annual inspection included",
     ],
     popular: true,
+    footnote: "FREE with any Annual Membership Plan!",
   },
   {
-    name: "Q² Flash EVO",
-    term: "10-Year Protection",
-    price: "$1,299",
-    originalPrice: "$1,599",
+    name: "GYEON Infinite Type 1",
+    term: "Lifetime Protection*",
+    price: "$1,499",
+    originalPrice: "$1,799",
     savings: "$300",
-    link: COATING_LINKS.flashEvo,
+    link: COATING_LINKS.infiniteType1,
+    accent: "from-red-500 to-amber-500",
+    btnClass:
+      "bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700",
+    features: [
+      "Full paint decontamination wash",
+      "Clay bar treatment",
+      "Prep spray wipe down",
+      "GYEON Infinite Type 1 premium coating",
+      "Maximum hardness & scratch resistance",
+      "Self-cleaning hydrophobic effect",
+      "Lifetime warranty with biennial maintenance",
+      "5-year base warranty without maintenance",
+    ],
+    popular: false,
+    footnote: null,
+  },
+  {
+    name: "GYEON Infinite Type 1 + 2",
+    term: "Lifetime Protection*",
+    price: "$1,799",
+    originalPrice: "$2,199",
+    savings: "$400",
+    link: COATING_LINKS.infiniteType1And2,
     accent: "from-red-500 to-blue-500",
     btnClass:
       "bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700",
     features: [
       "Full paint decontamination wash",
-      "Clay bar treatment",
-      "Prep spray wipe down",
-      "GYEON Q² Flash EVO top-tier coating",
-      "Maximum hardness & scratch resistance",
+      "Clay bar treatment & prep spray",
+      "GYEON Infinite Type 1 base coat",
+      "GYEON Infinite Type 2 top coat",
+      "Ultimate depth, gloss & protection",
       "Self-cleaning hydrophobic effect",
-      "10-year GYEON manufacturer warranty",
-      "Annual inspection & maintenance",
+      "Lifetime warranty with biennial maintenance",
+      "5-year base warranty without maintenance",
     ],
     popular: false,
+    footnote: null,
   },
 ];
 
@@ -176,12 +215,12 @@ const REVIEWS = [
 export function July4thSalePage() {
   useEffect(() => {
     document.title =
-      "4th of July Sale — Save Up to $300 | ProWorx Detailing";
+      "4th of July Sale — FREE Ceramic Coating + Save Up to $400 | ProWorx Detailing";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute(
         "content",
-        "ProWorx Detailing 4th of July Summer Sale. Save up to $300 on GYEON ceramic coatings, 15% off add-ons, free 3-year coating with membership, and the limited-run Summer Freedom package. Charlotte & Waxhaw NC."
+        "ProWorx Detailing 4th of July Summer Sale. FREE 3-year ceramic coating ($899 value) with Annual Membership, save up to $400 on GYEON Infinite lifetime coatings, 15% off add-ons, and the limited-run Summer Freedom package. Charlotte NC."
       );
     }
   }, []);
@@ -269,10 +308,13 @@ export function July4thSalePage() {
           <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-200 mb-3">
             🇺🇸 4th of July Specials
           </p>
+          <p className="text-base sm:text-lg text-amber-300 font-semibold mb-2">
+            FREE 3-Year Ceramic Coating with Annual Membership
+          </p>
           <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Our biggest savings of the year — save up to $300 on ceramic
-            coatings, unlock free upgrades, and experience our limited-edition
-            summer package.
+            Our biggest savings of the year — save up to $400 on ceramic
+            coatings, get a free 3-year ceramic coating with membership,
+            and experience our limited-edition summer package.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button
@@ -413,7 +455,7 @@ export function July4thSalePage() {
                     )}
 
                     {/* Features */}
-                    <ul className="space-y-1.5 mb-5">
+                    <ul className="space-y-1.5 mb-4">
                       {offer.features.map((f) => (
                         <li
                           key={f}
@@ -425,6 +467,25 @@ export function July4thSalePage() {
                       ))}
                     </ul>
 
+                    {/* Extra highlight (membership promo bonus) */}
+                    {offer.extraHighlight && (
+                      <div className="rounded-lg border border-amber-400/30 bg-amber-50 dark:bg-amber-950/20 p-3 mb-4">
+                        <p className="text-sm font-bold text-amber-700 dark:text-amber-400 mb-2">
+                          {offer.extraHighlight}
+                        </p>
+                        {offer.extraFeatures && (
+                          <ul className="space-y-1">
+                            {offer.extraFeatures.map((ef: string) => (
+                              <li key={ef} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                                <CheckCircle2 className="size-3 shrink-0 text-amber-500" />
+                                <span>{ef}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+
                     {/* CTA */}
                     {offer.link === "widget" ? (
                       <Button
@@ -433,6 +494,19 @@ export function July4thSalePage() {
                       >
                         {offer.cta}
                         <ArrowRight className="size-4 ml-1.5" />
+                      </Button>
+                    ) : offer.link.startsWith("/") ? (
+                      <Button
+                        asChild
+                        className={`w-full text-white cursor-pointer ${btnColor}`}
+                      >
+                        <a
+                          href={offer.link}
+                          onClick={() => trackBookNowConversion(offer.link)}
+                        >
+                          {offer.cta}
+                          <ArrowRight className="size-4 ml-1.5" />
+                        </a>
                       </Button>
                     ) : (
                       <Button
@@ -473,13 +547,13 @@ export function July4thSalePage() {
               Summer Shield Ceramic Coating
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
-              Professional GYEON Q² ceramic protection at the biggest discounts
-              of the year. Full decon wash, clay bar & prep included with every
-              package.
+              Professional GYEON ceramic protection at the biggest discounts
+              of the year. From 1-year protection to our new Lifetime GYEON
+              Infinite line — full decon wash, clay bar & prep included.
             </p>
           </div>
 
-          <div className="grid gap-5 sm:gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             {COATINGS.map((coating) => (
               <div
                 key={coating.name}
@@ -543,6 +617,15 @@ export function July4thSalePage() {
                     ))}
                   </ul>
 
+                  {/* Footnote (e.g. "FREE with membership") */}
+                  {coating.footnote && (
+                    <div className="mb-3 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-600/40 px-3 py-2 text-center">
+                      <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+                        {coating.footnote}
+                      </span>
+                    </div>
+                  )}
+
                   {/* CTA */}
                   <Button
                     asChild
@@ -555,7 +638,7 @@ export function July4thSalePage() {
                       rel="noopener noreferrer"
                       onClick={() => trackBookNowConversion(coating.link)}
                     >
-                      Get {coating.name} — {coating.price}
+                      Get {coating.name.length > 16 ? coating.name.replace("GYEON ", "") : coating.name} — {coating.price}
                       <ArrowRight className="size-4 ml-1.5" />
                     </a>
                   </Button>
@@ -566,7 +649,9 @@ export function July4thSalePage() {
 
           <p className="text-center text-xs text-slate-400 mt-5">
             Paint correction & polish available as add-ons. Prices shown are for
-            sedans/coupes — larger vehicles may vary.
+            sedans/coupes — larger vehicles may vary. *Lifetime warranty
+            requires biennial maintenance every 24 months; 5-year base warranty
+            without maintenance.
           </p>
         </div>
       </section>
