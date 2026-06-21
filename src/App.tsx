@@ -44,6 +44,7 @@ const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage")
 const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 const July4thSalePage = lazy(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
+const CeramicPromoPage = lazy(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
 
 /** External redirect helper — replaces window.location for external URLs */
 export function ExternalRedirect({ url }: { url: string }) {
@@ -116,6 +117,7 @@ function App() {
           {/* 4th of July Sale landing pages — standalone (no SiteLayout) */}
           <Route path="/4thsummersale" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
           <Route path="/summer-shield" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
+          <Route path="/ceramic-promo" element={<SiteLayout><Suspense fallback={<PageLoader />}><CeramicPromoPage /></Suspense></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
