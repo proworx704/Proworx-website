@@ -35,7 +35,7 @@ const DEFAULTS: Record<string, string> = {
   "widgetUrl:homepage-cta": "https://book.squareup.com/appointments/3462dsfn0cvfuh/location/9VRKFJAZZM3HG/services",
   "widgetUrl:paint-correction-cta": "https://book.squareup.com/appointments/14i1e4shwem0qb/location/9VRKFJAZZM3HG/services",
   "widgetUrl:boat-detail-cta": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
-  "widgetUrl:maintenance-booking": "https://book.squareup.com/appointments/k9hzdqnwzz6xit/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:maintenance-booking": "https://book.squareup.com/appointments/hwj7922126qulh/location/9VRKFJAZZM3HG/services",
   // Boat widget URLs
   "widgetUrl:basic-boat-wash": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
   "widgetUrl:interior-boat-detail": "https://book.squareup.com/appointments/0h1h4064nn0qpr/location/9VRKFJAZZM3HG/services",
