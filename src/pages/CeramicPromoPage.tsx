@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
-import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
+import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Square checkout link — Annual Ceramic Inside & Out ── */
 const CHECKOUT_URL = "https://square.link/u/wyQAUVPr";
@@ -59,10 +59,11 @@ const AREAS = [
 export function CeramicPromoPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    trackViewContent("Ceramic Membership Promo", "Promo");
   }, []);
 
   const handleCTA = () => {
-    trackBookNowConversion(CHECKOUT_URL);
+    trackSubscribeClick("Ceramic Inside & Out (Promo)", CHECKOUT_URL);
     window.open(CHECKOUT_URL, "_blank", "noopener,noreferrer");
   };
 
