@@ -43,11 +43,12 @@ const COATING_FEATURES = [
 
 /* ── Ceramic add-on upsells ── */
 const ADDON_UPSELLS = [
-  { name: "Windshield Glass Ceramic", price: "$120", save: "$102" },
-  { name: "Wheel & Caliper Ceramic", price: "$80", save: "$68" },
-  { name: "Trim & Plastic Ceramic", price: "$80", save: "$68" },
-  { name: "Leather Shield", price: "$60", save: "$51" },
-  { name: "Fabric Coat", price: "$40", save: "$34" },
+  { name: "Windshield Glass Ceramic", price: "$120", save: "$18" },
+  { name: "Wheel Faces Ceramic", price: "$200", save: "$30" },
+  { name: "Wheel Off — Faces, Barrel & Calipers", price: "$400", save: "$60" },
+  { name: "Trim & Plastic Ceramic", price: "$80", save: "$12" },
+  { name: "Leather Shield", price: "$60", save: "$9" },
+  { name: "Fabric Coat", price: "$40", save: "$6" },
 ];
 
 /* ── Service areas ── */
