@@ -2,14 +2,16 @@ import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown, Droplet
 import { useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
+import { trackSubscribeClick, trackCeramicDepositClick } from "@/lib/tracking";
 
 /* ── helpers ─────────────────────────────────────────────────────────── */
-function BookBtn({ href, children, variant = "gold" }: { href: string; children: React.ReactNode; variant?: "gold" | "outline" }) {
+function BookBtn({ href, children, variant = "gold", onClick }: { href: string; children: React.ReactNode; variant?: "gold" | "outline"; onClick?: () => void }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all w-full sm:w-auto ${
         variant === "gold"
           ? "bg-gold text-gold-foreground hover:bg-gold/90"
@@ -566,7 +568,7 @@ export function MenuPage() {
                     </li>
                   ))}
                 </ul>
-                <BookBtn href={pkg.depositUrl}>Reserve with 30% Down <ArrowRight className="size-4" /></BookBtn>
+                <BookBtn href={pkg.depositUrl} onClick={() => trackCeramicDepositClick(pkg.name, pkg.depositUrl)}>Reserve with 30% Down <ArrowRight className="size-4" /></BookBtn>
               </div>
             ))}
           </div>
@@ -655,7 +657,7 @@ export function MenuPage() {
                     </li>
                   ))}
                 </ul>
-                <BookBtn href={plan.href}>Subscribe Now <ArrowRight className="size-4" /></BookBtn>
+                <BookBtn href={plan.href} onClick={() => trackSubscribeClick(plan.name, plan.href)}>Subscribe Now <ArrowRight className="size-4" /></BookBtn>
               </div>
             ))}
           </div>

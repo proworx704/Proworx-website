@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Award,
@@ -21,7 +21,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
-import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
+import { trackPhoneClick, trackBookNowConversion, trackViewContent } from "@/lib/tracking";
 
 /* ──────────────────────── DATA ──────────────────────── */
 
@@ -272,6 +272,10 @@ function FaqAccordion() {
 
 export function CeramicCoatingPage() {
   const { config } = useSiteConfig();
+
+  useEffect(() => {
+    trackViewContent("Ceramic Coating", "Services");
+  }, []);
 
   const getDepositUrl = (configKey: string) => {
     const url = config[configKey];

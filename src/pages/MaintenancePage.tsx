@@ -1,9 +1,10 @@
 import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Star } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Billing Frequencies ── */
 type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
@@ -129,6 +130,10 @@ export function MaintenancePage() {
   const { config } = useSiteConfig();
   const [frequency, setFrequency] = useState<Frequency>("monthly");
   const freq = FREQUENCIES.find((f) => f.key === frequency)!;
+
+  useEffect(() => {
+    trackViewContent("Maintenance Plans", "Membership");
+  }, []);
 
   return (
     <div className="flex-1 flex flex-col">
@@ -328,7 +333,7 @@ export function MaintenancePage() {
                   <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
                 </div>
                 <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={config[plan.configKey] || plan.subscribeUrl || "#plans"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
+                  <a href={config[plan.configKey] || plan.subscribeUrl || "#plans"} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(plan.name, config[plan.configKey] || plan.subscribeUrl || "#plans")}>Subscribe Now <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
             ))}
@@ -380,7 +385,7 @@ export function MaintenancePage() {
                         <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
                       </div>
                       <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                        <a href={config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer">Subscribe Now <ArrowRight className="size-4" /></a>
+                        <a href={config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(plan.name, config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership")}>Subscribe Now <ArrowRight className="size-4" /></a>
                       </Button>
                     </div>
                   ))}

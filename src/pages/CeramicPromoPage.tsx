@@ -12,24 +12,25 @@ import {
   Calendar,
   Car,
   MapPin,
+  Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
-import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
+import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Square checkout link — Annual Ceramic Inside & Out ── */
 const CHECKOUT_URL = "https://square.link/u/wyQAUVPr";
 
-/* ── What's included in the membership ── */
-const MEMBERSHIP_FEATURES = [
-  "Full inside & out detail every visit",
-  "GYEON ceramic top-coat refresh",
-  "Iron decontamination",
-  "Ceramic trim & plastic refresh",
-  "Tire shine & dressing",
-  "15% off on all add-on services",
-  "We come to you — home or office",
-  "Priority scheduling",
+/* ── What happens EVERY monthly visit ── */
+const MONTHLY_VISIT_STEPS = [
+  { label: "Full Exterior Hand Wash & Dry", detail: "Thorough two-bucket wash, no automated brushes" },
+  { label: "Complete Interior Detail", detail: "Vacuum, wipe-down, dashboard, console & door panels" },
+  { label: "Leather / Vinyl Conditioning", detail: "Keeps your seats soft, protected & crack-free" },
+  { label: "GYEON Ceramic Top-Coat Refresh", detail: "Restores hydrophobic beading & gloss every visit" },
+  { label: "Iron Decontamination", detail: "Removes embedded brake dust & industrial fallout" },
+  { label: "Ceramic Trim & Plastic Refresh", detail: "Keeps exterior trim looking factory-new" },
+  { label: "Interior + Exterior Windows", detail: "Streak-free glass inside and out" },
+  { label: "Tire Shine & Dressing", detail: "Deep black finish on tires & wheel wells" },
 ];
 
 /* ── What's included in the FREE coating ── */
@@ -42,11 +43,12 @@ const COATING_FEATURES = [
 
 /* ── Ceramic add-on upsells ── */
 const ADDON_UPSELLS = [
-  { name: "Windshield Glass Ceramic", price: "$120", save: "$102" },
-  { name: "Wheel & Caliper Ceramic", price: "$80", save: "$68" },
-  { name: "Trim & Plastic Ceramic", price: "$80", save: "$68" },
-  { name: "Leather Shield", price: "$60", save: "$51" },
-  { name: "Fabric Coat", price: "$40", save: "$34" },
+  { name: "Windshield Glass Ceramic", price: "$120", save: "$18" },
+  { name: "Wheel Faces Ceramic", price: "$200", save: "$30" },
+  { name: "Wheel Off — Faces, Barrel & Calipers", price: "$400", save: "$60" },
+  { name: "Trim & Plastic Ceramic", price: "$80", save: "$12" },
+  { name: "Leather Shield", price: "$60", save: "$9" },
+  { name: "Fabric Coat", price: "$40", save: "$6" },
 ];
 
 /* ── Service areas ── */
@@ -59,10 +61,11 @@ const AREAS = [
 export function CeramicPromoPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    trackViewContent("Ceramic Membership Promo", "Promo");
   }, []);
 
   const handleCTA = () => {
-    trackBookNowConversion(CHECKOUT_URL);
+    trackSubscribeClick("Ceramic Inside & Out (Promo)", CHECKOUT_URL);
     window.open(CHECKOUT_URL, "_blank", "noopener,noreferrer");
   };
 
@@ -75,33 +78,31 @@ export function CeramicPromoPage() {
 
       {/* ══════ HERO ══════ */}
       <section className="relative overflow-hidden">
-        {/* Gradient bg */}
         <div className="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-zinc-950 to-zinc-950" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-600/8 rounded-full blur-3xl" />
 
         <div className="relative max-w-5xl mx-auto px-4 py-16 sm:py-24 text-center">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-full text-sm font-semibold mb-8">
             <Sparkles className="size-4" />
             Limited-Time Offer — $899+ Value FREE
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
-            Get a <span className="text-amber-400">FREE 3-Year</span>
-            <br />Ceramic Coating
+            A Full Ceramic Detail
+            <br /><span className="text-amber-400">Every Month</span>
+            <br />+ a FREE Coating
           </h1>
 
           <p className="text-xl sm:text-2xl text-zinc-300 max-w-2xl mx-auto mb-4">
-            When you join the <strong className="text-white">Annual Ceramic Inside & Out</strong> Maintenance Membership
+            12 professional ceramic details at your door — plus a complimentary <strong className="text-white">3-year Q² Pure EVO coating</strong> just for joining.
           </p>
 
           <p className="text-lg text-amber-400 font-semibold mb-10">
-            Plus 15% OFF all ceramic add-ons
+            $180.83/mo · Cancel anytime · We come to you
           </p>
 
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Button
               onClick={handleCTA}
               className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
@@ -110,104 +111,133 @@ export function CeramicPromoPage() {
             </Button>
           </div>
 
-          <p className="text-zinc-500 text-sm">
-            Annual plan • Professional mobile service • Cancel anytime
-          </p>
+          {/* Risk reversal */}
+          <div className="inline-flex items-center gap-2 bg-zinc-800/80 border border-zinc-700/50 px-5 py-2.5 rounded-full text-sm text-zinc-300">
+            <Shield className="size-4 text-amber-400" />
+            No contracts — cancel anytime, keep your coating
+          </div>
         </div>
       </section>
 
-      {/* ══════ THE DEAL BREAKDOWN ══════ */}
+      {/* ══════ WHAT YOU GET EVERY MONTH ══════ */}
       <section className="py-16 sm:py-20 bg-zinc-900/50">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Here's What You Get</h2>
-            <p className="text-zinc-400 text-lg">One membership. Total protection. Incredible value.</p>
+            <div className="inline-flex items-center gap-2 text-amber-400 text-sm font-semibold mb-3">
+              <Calendar className="size-4" />
+              EVERY SINGLE MONTH
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Here's What Happens Each Visit
+            </h2>
+            <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+              A GYEON-certified detailer arrives at your home or office and performs a complete ceramic-grade detail — inside and out. Every month. Here's the full breakdown:
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Card 1: FREE Coating */}
-            <div className="relative bg-gradient-to-br from-amber-500/10 to-zinc-900 border border-amber-500/20 rounded-2xl p-8">
-              <div className="absolute -top-3 left-6 bg-amber-500 text-zinc-950 text-xs font-bold px-3 py-1 rounded-full">
-                FREE WITH MEMBERSHIP
-              </div>
-              <div className="flex items-center gap-3 mb-6 mt-2">
-                <div className="bg-amber-500/20 p-3 rounded-xl">
-                  <ShieldCheck className="size-6 text-amber-400" />
-                </div>
+          <div className="grid sm:grid-cols-2 gap-4 mb-10">
+            {MONTHLY_VISIT_STEPS.map((step) => (
+              <div key={step.label} className="flex items-start gap-4 bg-zinc-800/50 border border-zinc-700/30 rounded-xl p-5">
+                <CheckCircle2 className="size-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="text-xl font-bold">3-Year Ceramic Coating</h3>
-                  <p className="text-amber-400 font-semibold">$899+ Value — Yours FREE</p>
+                  <span className="text-white font-semibold">{step.label}</span>
+                  <span className="text-zinc-400 block text-sm mt-0.5">{step.detail}</span>
                 </div>
               </div>
-              <ul className="space-y-3">
-                {COATING_FEATURES.map((f) => (
-                  <li key={f.label} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-amber-400 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-white font-medium">{f.label}</span>
-                      <span className="text-zinc-400 block text-sm">{f.detail}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
+          </div>
 
-            {/* Card 2: Membership */}
-            <div className="bg-zinc-800/50 border border-zinc-700/50 rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="bg-blue-500/20 p-3 rounded-xl">
-                  <Shield className="size-6 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Ceramic Inside & Out Membership</h3>
-                  <p className="text-zinc-400">The ultimate ceramic care plan</p>
-                </div>
+          <div className="text-center">
+            <p className="text-zinc-400 text-sm mb-1">Plus as a member you get:</p>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+              <span className="flex items-center gap-1.5 text-amber-400 font-medium"><Star className="size-4" /> 15% off all add-on services</span>
+              <span className="text-zinc-600">•</span>
+              <span className="flex items-center gap-1.5 text-amber-400 font-medium"><Clock className="size-4" /> Priority scheduling</span>
+              <span className="text-zinc-600">•</span>
+              <span className="flex items-center gap-1.5 text-amber-400 font-medium"><MapPin className="size-4" /> Mobile — we come to you</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════ FREE COATING BONUS ══════ */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-amber-400 text-sm font-semibold mb-3">
+              <ShieldCheck className="size-4" />
+              ONE-TIME BONUS — YOURS FREE
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Plus a FREE 3-Year Ceramic Coating
+            </h2>
+            <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+              On top of 12 months of professional detailing, we'll apply a full ceramic coating at no extra charge — a $899+ value.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-amber-500/10 to-zinc-900 border border-amber-500/20 rounded-2xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-amber-500/20 p-3 rounded-xl">
+                <ShieldCheck className="size-6 text-amber-400" />
               </div>
-              <ul className="space-y-3">
-                {MEMBERSHIP_FEATURES.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-5 text-blue-400 shrink-0 mt-0.5" />
-                    <span className="text-zinc-200">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 pt-6 border-t border-zinc-700/50">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black text-white">$2,169.90</span>
-                  <span className="text-zinc-400">/year</span>
-                </div>
-                <p className="text-zinc-500 text-sm mt-1">
-                  That's just $180.83/mo for professional ceramic care + a FREE coating
-                </p>
+              <div>
+                <h3 className="text-xl font-bold">Q² Pure EVO Ceramic Coating</h3>
+                <p className="text-amber-400 font-semibold">$899+ Value — FREE with your membership</p>
               </div>
             </div>
+            <ul className="space-y-3">
+              {COATING_FEATURES.map((f) => (
+                <li key={f.label} className="flex items-start gap-3">
+                  <CheckCircle2 className="size-5 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-white font-medium">{f.label}</span>
+                    <span className="text-zinc-400 block text-sm">{f.detail}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-zinc-500 text-sm mt-6 pt-4 border-t border-zinc-700/50">
+              Applied at your first visit. Your monthly ceramic maintenance refreshes and extends the coating's life indefinitely.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ══════ VALUE MATH ══════ */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-zinc-900/50">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10">The Math Speaks for Itself</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">The Math Speaks for Itself</h2>
+          <p className="text-zinc-400 text-lg mb-10">See what you'd pay without the membership vs. with it.</p>
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 sm:p-10">
             <div className="space-y-4 text-left">
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
-                <span className="text-zinc-300">Annual Ceramic Inside & Out Membership</span>
-                <span className="text-white font-semibold">$2,169.90</span>
+                <span className="text-zinc-300">12 individual Ceramic I&O details</span>
+                <span className="text-zinc-400 font-semibold">$2,289.60</span>
               </div>
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
                 <span className="text-zinc-300">Q² Pure EVO 3-Year Ceramic Coating</span>
-                <span className="text-amber-400 font-semibold line-through">$899</span>
+                <span className="text-zinc-400 font-semibold">$899.00</span>
               </div>
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
-                <span className="text-zinc-300">15% Off Ceramic Add-Ons (avg savings)</span>
-                <span className="text-amber-400 font-semibold">~$50–$100+</span>
+                <span className="text-zinc-300">Priority scheduling & 15% add-on savings</span>
+                <span className="text-zinc-400 font-semibold">~$50–100+</span>
+              </div>
+              <div className="flex justify-between items-center py-3 border-b border-zinc-800">
+                <span className="text-white font-medium">Without membership</span>
+                <span className="text-zinc-400 font-bold text-lg line-through">$3,238+</span>
               </div>
               <div className="flex justify-between items-center py-4 bg-amber-500/10 rounded-xl px-4 -mx-4">
-                <span className="text-amber-400 font-bold text-lg">Total Value You Receive</span>
-                <span className="text-amber-400 font-black text-2xl">$3,000+</span>
+                <div>
+                  <span className="text-amber-400 font-bold text-lg">Your price with membership</span>
+                  <span className="text-zinc-500 block text-sm">That's just $180.83/mo</span>
+                </div>
+                <span className="text-amber-400 font-black text-2xl">$2,169.90</span>
               </div>
             </div>
+            <p className="text-center text-amber-400/80 text-sm font-medium mt-6">
+              You save over $1,000 — and the coating is completely free.
+            </p>
           </div>
 
           <Button
@@ -220,7 +250,7 @@ export function CeramicPromoPage() {
       </section>
 
       {/* ══════ 15% OFF ADD-ONS ══════ */}
-      <section className="py-16 sm:py-20 bg-zinc-900/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -256,29 +286,35 @@ export function CeramicPromoPage() {
       </section>
 
       {/* ══════ HOW IT WORKS ══════ */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-zinc-900/50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">How It Works</h2>
 
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-4 gap-6">
             {[
               {
                 icon: <Calendar className="size-7" />,
                 step: "1",
                 title: "Subscribe",
-                desc: "Click below to join the Annual Ceramic Inside & Out plan through our secure checkout.",
+                desc: "Join the annual plan through our secure Square checkout.",
               },
               {
                 icon: <ShieldCheck className="size-7" />,
                 step: "2",
-                title: "Get Your Free Coating",
-                desc: "We'll schedule your complimentary Q² Pure EVO ceramic coating application at your location.",
+                title: "Free Coating",
+                desc: "We schedule your complimentary ceramic coating at your location.",
+              },
+              {
+                icon: <Wrench className="size-7" />,
+                step: "3",
+                title: "Monthly Visits",
+                desc: "Every month a certified detailer comes to you for a full ceramic detail.",
               },
               {
                 icon: <Car className="size-7" />,
-                step: "3",
-                title: "Enjoy Year-Round Care",
-                desc: "Regular professional maintenance keeps your coating performing and your vehicle looking its best.",
+                step: "4",
+                title: "Stay Protected",
+                desc: "Your coating stays fresh, your car stays flawless — year-round.",
               },
             ].map((s) => (
               <div key={s.step} className="text-center">
@@ -297,7 +333,7 @@ export function CeramicPromoPage() {
       </section>
 
       {/* ══════ WHY PROWORX ══════ */}
-      <section className="py-16 sm:py-20 bg-zinc-900/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Why ProWorx?</h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -322,7 +358,7 @@ export function CeramicPromoPage() {
       </section>
 
       {/* ══════ SERVICE AREAS ══════ */}
-      <section className="py-12 sm:py-16">
+      <section className="py-12 sm:py-16 bg-zinc-900/50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-6">Serving South Charlotte & Surrounding Areas</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -341,12 +377,15 @@ export function CeramicPromoPage() {
           <div className="bg-gradient-to-br from-amber-500/15 to-zinc-900 border border-amber-500/20 rounded-3xl p-10 sm:p-14">
             <Sparkles className="size-10 text-amber-400 mx-auto mb-6" />
             <h2 className="text-3xl sm:text-4xl font-black mb-4">
-              Don't Miss Out
+              12 Ceramic Details + a Free Coating
             </h2>
-            <p className="text-zinc-300 text-lg mb-8 max-w-xl mx-auto">
-              Join the Annual Ceramic Inside & Out membership today and get a
-              <strong className="text-amber-400"> FREE 3-Year Ceramic Coating</strong> —
-              a $899+ value, on us.
+            <p className="text-zinc-300 text-lg mb-3 max-w-xl mx-auto">
+              A professional ceramic detail at your door every month, plus a
+              <strong className="text-amber-400"> FREE 3-Year Q² Pure EVO Coating</strong> —
+              over $3,200 in value for $2,169.90/year.
+            </p>
+            <p className="text-zinc-400 text-sm mb-8">
+              That's just $180.83/mo · No contracts · Cancel anytime
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
