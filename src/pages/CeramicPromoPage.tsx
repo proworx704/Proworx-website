@@ -99,7 +99,7 @@ export function CeramicPromoPage() {
           </p>
 
           <p className="text-lg text-amber-400 font-semibold mb-10">
-            $180.83/mo · Cancel anytime · We come to you
+            $180.83/mo · One-year membership · We come to you
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -114,7 +114,7 @@ export function CeramicPromoPage() {
           {/* Risk reversal */}
           <div className="inline-flex items-center gap-2 bg-zinc-800/80 border border-zinc-700/50 px-5 py-2.5 rounded-full text-sm text-zinc-300">
             <Shield className="size-4 text-amber-400" />
-            No contracts — cancel anytime, keep your coating
+            One-year membership · No auto-renewal · Coating is yours to keep
           </div>
         </div>
       </section>
@@ -385,7 +385,7 @@ export function CeramicPromoPage() {
               over $3,200 in value for $2,169.90/year.
             </p>
             <p className="text-zinc-400 text-sm mb-8">
-              That's just $180.83/mo · No contracts · Cancel anytime
+              That's just $180.83/mo · One-year membership · No auto-renewal
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
