@@ -282,6 +282,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/ceramic-promo",
+      "destination": "/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     }
