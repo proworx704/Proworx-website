@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Star } from "lucide-react";
+import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Phone, Shield, Sparkles, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -7,116 +7,41 @@ import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Billing Frequencies ── */
-type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
+type Frequency = "biweekly" | "monthly" | "quarterly";
 
-const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: string }[] = [
-  { key: "biweekly", label: "Biweekly", suffix: "/2 wks" },
-  { key: "monthly", label: "Monthly", suffix: "/mo" },
-  { key: "quarterly", label: "Quarterly", suffix: "/qtr" },
-  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 8%" },
+const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: string; description: string }[] = [
+  { key: "biweekly", label: "Biweekly", suffix: "/visit", description: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep. (Requires an initial Standard Reset Detail to qualify)." },
+  { key: "monthly", label: "Monthly", suffix: "/visit", badge: "Most Popular", description: "The Sweet Spot. Keeps your vehicle consistently fresh and protected. (Requires an initial Standard Reset Detail to qualify)." },
+  { key: "quarterly", label: "Quarterly", suffix: "/visit", description: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment." },
 ];
 
-/* ── Membership Tiers ── */
-const MEMBERSHIP_PLANS = [
-  {
-    key: "clean",
-    name: "Exterior Only",
-    pricing: { biweekly: "28.80", monthly: "61.20", quarterly: "178.20", annually: "693" },
-    icon: <Droplets className="size-6" />,
-    tagline: "Exterior care on your schedule",
-    description: "A regular exterior refresh to keep your vehicle looking sharp between full details.",
-    features: [
-      "Exterior hand wash",
-      "Tire & wheel cleaning",
-      "Exterior windows",
-      "Door jambs cleaned",
-      "Tire shine & dressing",
-    ],
-    ideal: "Drivers who want a consistently clean exterior without the full detail commitment.",
-    popular: false,
-    subscribeUrl: "https://square.link/u/CP1LxyXc",
-    configKey: "subscribeUrl:membership-exterior",
-  },
-  {
-    key: "shield",
-    name: "Interior Only",
-    pricing: { biweekly: "46.80", monthly: "102.60", quarterly: "298.80", annually: "1,162.80" },
-    icon: <Shield className="size-6" />,
-    tagline: "Interior care on your schedule",
-    description: "A thorough interior detail on your chosen schedule to keep your cabin fresh and clean.",
-    features: [
-      "Full interior detail",
-      "Full vacuum & wipe-down",
-      "Dashboard & console detail",
-      "Leather / vinyl conditioning",
-      "Interior windows",
-      "Air freshener",
-    ],
-    ideal: "Daily drivers and families who want a fresh, clean interior.",
-    popular: false,
-    subscribeUrl: "https://square.link/u/ZIRVEmaf",
-    configKey: "subscribeUrl:membership-interior",
-  },
-  {
-    key: "armor",
-    name: "Full Inside & Out",
-    pricing: { biweekly: "74.70", monthly: "164.70", quarterly: "479.70", annually: "1,867.50" },
-    icon: <Sparkles className="size-6" />,
-    tagline: "Complete detail + ceramic protection",
-    description: "The complete package — full interior and exterior detail with ceramic wet-coat protection and tire shine. Includes 10% off all add-on services.",
-    features: [
-      "Full inside & out detail",
-      "Everything in Exterior + Interior",
-      "Ceramic wet-coat protection",
-      "Tire shine & trim dressing",
-      "10% off on add-on services",
-    ],
-    ideal: "Enthusiasts and luxury vehicle owners who want the ultimate care with ceramic protection.",
-    popular: true,
-    subscribeUrl: "https://square.link/u/kuw5LL99",
-    configKey: "subscribeUrl:membership-full",
-  },
-  {
-    key: "ceramic-exterior",
-    name: "Ceramic Exterior",
-    pricing: { biweekly: "51.30", monthly: "113.40", quarterly: "329.40", annually: "1,280.70" },
-    icon: <Droplets className="size-6" />,
-    tagline: "Ceramic-grade exterior care",
-    description: "Professional exterior detail with GYEON ceramic top-coat refresh for coating owners. Keep your coating hydrophobic and performing at its best.",
-    features: [
-      "Exterior hand wash",
-      "Tire & wheel cleaning",
-      "Door jambs cleaned",
-      "GYEON ceramic top-coat refresh",
-      "Ceramic trim & plastic refresh",
-      "Tire shine & dressing",
-      "10% off on add-on services",
-    ],
-    ideal: "Ceramic coating owners who want exterior-focused maintenance to protect their investment.",
-    popular: false,
-    subscribeUrl: "https://square.link/u/VWcJFh5r",
-    configKey: "subscribeUrl:membership-ceramic-exterior",
-  },
-  {
-    key: "ceramic-io",
-    name: "Ceramic Inside & Out",
-    pricing: { biweekly: "86.40", monthly: "190.80", quarterly: "557.10", annually: "2,169.90" },
-    icon: <Shield className="size-6" />,
-    tagline: "The ultimate ceramic care",
-    description: "The complete package for ceramic coating owners — full I&O detail plus GYEON ceramic top-coat refresh, iron decontamination, and ceramic trim care.",
-    features: [
-      "Full inside & out detail",
-      "Everything in Full I&O plan",
-      "GYEON ceramic top-coat refresh",
-      "Iron decontamination",
-      "Ceramic trim & plastic refresh",
-      "15% off on add-on services",
-    ],
-    ideal: "Ceramic coating owners who want professional-grade full maintenance to maximize their coating's lifespan.",
-    popular: true,
-    subscribeUrl: "https://square.link/u/wyQAUVPr",
-    configKey: "subscribeUrl:membership-ceramic-io",
-  },
+/* ── Vehicle Sizes ── */
+type VehicleSize = "sedan" | "small-suv" | "large-suv" | "van";
+
+const VEHICLE_SIZES: { key: VehicleSize; label: string }[] = [
+  { key: "sedan", label: "Sedan" },
+  { key: "small-suv", label: "Small SUV / Truck" },
+  { key: "large-suv", label: "Large SUV / Off-Road" },
+  { key: "van", label: "Van" },
+];
+
+/* ── Per-Visit Pricing by Vehicle Size ── */
+const MAINTENANCE_PRICING: Record<VehicleSize, Record<Frequency, string>> = {
+  sedan: { biweekly: "134.19", monthly: "165.09", quarterly: "226.88" },
+  "small-suv": { biweekly: "154.79", monthly: "185.68", quarterly: "257.78" },
+  "large-suv": { biweekly: "175.39", monthly: "206.28", quarterly: "288.67" },
+  van: { biweekly: "195.98", monthly: "226.88", quarterly: "319.57" },
+};
+
+/* ── What's included in every maintenance visit ── */
+const MAINTENANCE_FEATURES = [
+  "Full interior vacuum (carpets, seats, crevices)",
+  "Wipe-down of all interior surfaces",
+  "Interior glass cleaning",
+  "Hand wash with foam pre-treatment",
+  "Wheels & tires cleaned and dressed",
+  "Exterior glass cleaned",
+  "Light spray wax & tire shine",
 ];
 
 const WHO_ITS_FOR = [
@@ -129,7 +54,10 @@ const WHO_ITS_FOR = [
 export function MaintenancePage() {
   const { config } = useSiteConfig();
   const [frequency, setFrequency] = useState<Frequency>("monthly");
+  const [vehicleSize, setVehicleSize] = useState<VehicleSize>("sedan");
   const freq = FREQUENCIES.find((f) => f.key === frequency)!;
+  const prices = MAINTENANCE_PRICING[vehicleSize];
+  const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
 
   useEffect(() => {
     trackViewContent("Maintenance Plans", "Membership");
@@ -157,7 +85,7 @@ export function MaintenancePage() {
                 { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($109/mo), and Ceramic Inside & Out ($184.76/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }},
                 { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($109/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($184.76/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
-                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, quarterly, or annually. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
+                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, or quarterly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
               ]
             },
             {
@@ -269,132 +197,94 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Regular Membership Plans (3 tiers) ── */}
+      {/* ── Maintenance Plans — Vehicle Size First ── */}
       <section id="plans" className="py-20 md:py-28 bg-card/50">
         <div className="container">
           <div className="text-center mb-10">
-            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Memberships</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Detailing Plans</h2>
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Maintenance Plans</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Full Inside & Out Subscriptions</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Three tiers to match your needs and budget. Every plan includes mobile service — we come to you.
+              Choose your vehicle size, then pick the frequency that fits your schedule. All rates are per visit.
             </p>
           </div>
 
-          {/* ── Frequency Toggle ── */}
-          <div className="flex justify-center mb-10">
-            <div className="inline-flex items-center rounded-xl bg-card border border-border p-1 gap-0.5">
-              {FREQUENCIES.map((f) => (
-                <button
-                  key={f.key}
-                  onClick={() => setFrequency(f.key)}
-                  className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                    frequency === f.key
-                      ? "bg-gold text-gold-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {f.label}
-                  {f.badge && (
-                    <span className={`absolute -top-2.5 -right-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold leading-none ${
-                      frequency === f.key ? "bg-emerald-500 text-white" : "bg-emerald-500/20 text-emerald-400"
-                    }`}>
-                      {f.badge}
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
+          {/* ── Vehicle Size Selector ── */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {VEHICLE_SIZES.map((s) => (
+              <button
+                key={s.key}
+                onClick={() => setVehicleSize(s.key)}
+                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                  vehicleSize === s.key
+                    ? "bg-gold text-gold-foreground shadow-sm"
+                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
+                }`}
+              >
+                {s.label}
+              </button>
+            ))}
           </div>
 
+          {/* ── Frequency Cards ── */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {MEMBERSHIP_PLANS.filter((p) => !p.key.startsWith("ceramic")).map((plan) => (
-              <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
-                <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
-                <h3 className="font-bold text-xl mb-0.5">{plan.name}</h3>
-                <p className="text-xs text-muted-foreground mb-2">{plan.tagline}</p>
+            {FREQUENCIES.map((f) => (
+              <div key={f.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
+                {f.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{f.badge}</div>}
+                <h3 className="font-bold text-xl mb-1">{f.label}</h3>
                 <p className="text-3xl font-black mb-2">
-                  ${plan.pricing[frequency]}
-                  <span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span>
+                  ${prices[f.key]}
+                  <span className="text-sm font-normal text-muted-foreground">/visit</span>
                 </p>
-                {frequency === "annually" && (
-                  <p className="text-xs text-emerald-400 font-medium -mt-1 mb-2">Save vs. monthly billing</p>
-                )}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{plan.description}</p>
-                <ul className="space-y-2.5 flex-1 mb-4">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{f.description}</p>
+                <ul className="space-y-2.5 flex-1 mb-6">
+                  {MAINTENANCE_FEATURES.map((feat) => (
+                    <li key={feat} className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">{f}</span>
+                      <span className="text-muted-foreground">{feat}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="rounded-lg bg-gold/5 border border-gold/20 px-3 py-2 mb-5">
-                  <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
-                </div>
-                <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={config[plan.configKey] || plan.subscribeUrl || "#plans"} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(plan.name, config[plan.configKey] || plan.subscribeUrl || "#plans")}>Subscribe Now <ArrowRight className="size-4" /></a>
+                <Button className={f.badge ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                  <a href={subFull} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`Maintenance ${f.label}`, subFull)}>Subscribe Now <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
             ))}
           </div>
+
+          {/* ── Full Pricing Table ── */}
+          <div className="max-w-3xl mx-auto mt-12">
+            <div className="rounded-2xl bg-card border border-border overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-muted/30">
+                      <th className="text-left p-4 font-semibold">Vehicle Size</th>
+                      <th className="p-4 font-semibold text-center">Biweekly</th>
+                      <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
+                      <th className="p-4 font-semibold text-center">Quarterly</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {VEHICLE_SIZES.map((s) => (
+                      <tr key={s.key} className="border-b border-border/50 last:border-0">
+                        <td className="p-4 font-medium">{s.label}</td>
+                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].biweekly}</td>
+                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${MAINTENANCE_PRICING[s.key].monthly}</td>
+                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].quarterly}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">All rates are per visit. All recurring maintenance plans require a vehicle to have received a Standard Reset Detail from us within the last 30 days to qualify for maintenance pricing.</p>
+          </div>
+
           <p className="text-center text-sm text-muted-foreground mt-8">
-            All plans can be billed biweekly, monthly, quarterly, or annually. No long-term contracts — cancel anytime with no penalty.
+            No long-term contracts — cancel anytime with no penalty.
           </p>
         </div>
       </section>
-
-      {/* ── Ceramic Maintenance Membership (premium tiers) ── */}
-      {(() => {
-        const ceramicPlans = MEMBERSHIP_PLANS.filter((p) => p.key.startsWith("ceramic"));
-        return (
-          <section id="ceramic-membership" className="py-20 md:py-28">
-            <div className="container">
-              <div className="max-w-5xl mx-auto">
-                <div className="text-center mb-12">
-                  <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">For Ceramic Coating Owners</p>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Maintenance Membership</h2>
-                  <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    Professional-grade care designed specifically for ceramic-coated vehicles. Keep your coating performing at its best.
-                  </p>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {ceramicPlans.map((plan) => (
-                    <div key={plan.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-gold/30 shadow-md shadow-gold/5"}`}>
-                      {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
-                      <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
-                      <h3 className="font-bold text-xl mb-0.5">{plan.name}</h3>
-                      <p className="text-xs text-muted-foreground mb-2">{plan.tagline}</p>
-                      <p className="text-3xl font-black mb-2">
-                        ${plan.pricing[frequency]}
-                        <span className="text-sm font-normal text-muted-foreground">{freq.suffix}</span>
-                      </p>
-                      {frequency === "annually" && (
-                        <p className="text-xs text-emerald-400 font-medium -mt-1 mb-2">Save vs. monthly billing</p>
-                      )}
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">{plan.description}</p>
-                      <ul className="space-y-2.5 flex-1 mb-4">
-                        {plan.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-sm">
-                            <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                            <span className="text-muted-foreground">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="rounded-lg bg-gold/5 border border-gold/20 px-3 py-2 mb-5">
-                        <p className="text-xs text-muted-foreground"><span className="font-semibold text-foreground">Best for:</span> {plan.ideal}</p>
-                      </div>
-                      <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                        <a href={config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership"} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(plan.name, config[plan.configKey] || plan.subscribeUrl || "#ceramic-membership")}>Subscribe Now <ArrowRight className="size-4" /></a>
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        );
-      })()}
 
       {/* ── What Each Visit Looks Like ── */}
       <section className="py-20 md:py-28">
@@ -444,52 +334,32 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Plan Comparison ── */}
+      {/* ── Pricing at a Glance ── */}
       <section className="py-20 md:py-28">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Compare Plans at a Glance</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">All Maintenance Pricing at a Glance</h2>
+              <p className="text-muted-foreground">Full Inside & Out — per-visit rates by vehicle size and frequency.</p>
             </div>
             <div className="rounded-2xl bg-card border border-border overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-border">
-                      <th className="text-left p-4 font-semibold">Feature</th>
-                      {MEMBERSHIP_PLANS.map((plan) => (
-                        <th key={plan.key} className={`p-4 font-semibold text-center ${plan.popular ? "bg-gold/5" : ""}`}>
-                          {plan.name}<br/><span className="text-gold font-normal text-xs">${plan.pricing[frequency]}{freq.suffix}</span>
-                        </th>
-                      ))}
+                    <tr className="border-b border-border bg-muted/30">
+                      <th className="text-left p-4 font-semibold">Vehicle Size</th>
+                      <th className="p-4 font-semibold text-center">Biweekly</th>
+                      <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
+                      <th className="p-4 font-semibold text-center">Quarterly</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {[
-                      { feature: "Monthly exterior wash", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "Tire & wheel cleaning", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "Exterior windows", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "Door jambs", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "Tire shine & dressing", clean: true, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "Full interior detail", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "Dashboard & console detail", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "Leather / vinyl conditioning", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "Interior windows", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "Air freshener", clean: false, shield: true, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "Ceramic wet-coat protection", clean: false, shield: false, armor: true, ceramicExt: false, ceramicIo: true },
-                      { feature: "GYEON ceramic top-coat refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
-                      { feature: "Iron decontamination", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
-                      { feature: "Ceramic trim & plastic refresh", clean: false, shield: false, armor: false, ceramicExt: true, ceramicIo: true },
-                      { feature: "10% off on add-on services", clean: false, shield: false, armor: true, ceramicExt: true, ceramicIo: true },
-                      { feature: "15% off on add-on services", clean: false, shield: false, armor: false, ceramicExt: false, ceramicIo: true },
-                    ].map((row) => (
-                      <tr key={row.feature} className="border-b border-border/50 last:border-0">
-                        <td className="p-4 text-muted-foreground">{row.feature}</td>
-                        <td className="p-4 text-center">{row.clean ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center">{row.shield ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center bg-gold/5">{row.armor ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center">{row.ceramicExt ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
-                        <td className="p-4 text-center">{row.ceramicIo ? <CheckCircle2 className="size-4 text-gold mx-auto" /> : <span className="text-muted-foreground/30">—</span>}</td>
+                    {VEHICLE_SIZES.map((s) => (
+                      <tr key={s.key} className="border-b border-border/50 last:border-0">
+                        <td className="p-4 font-medium">{s.label}</td>
+                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].biweekly}</td>
+                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${MAINTENANCE_PRICING[s.key].monthly}</td>
+                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].quarterly}</td>
                       </tr>
                     ))}
                   </tbody>
