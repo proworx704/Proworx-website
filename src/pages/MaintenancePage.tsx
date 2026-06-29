@@ -7,12 +7,13 @@ import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Billing Frequencies ── */
-type Frequency = "biweekly" | "monthly" | "quarterly";
+type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
 
 const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: string; description: string }[] = [
   { key: "biweekly", label: "Biweekly", suffix: "/visit", description: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep. (Requires an initial Standard Reset Detail to qualify)." },
   { key: "monthly", label: "Monthly", suffix: "/visit", badge: "Most Popular", description: "The Sweet Spot. Keeps your vehicle consistently fresh and protected. (Requires an initial Standard Reset Detail to qualify)." },
   { key: "quarterly", label: "Quarterly", suffix: "/visit", description: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment." },
+  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 8%", description: "Our ultimate commitment to hassle-free care. Includes 12 Monthly Full Inside & Out maintenance visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime." },
 ];
 
 /* ── Vehicle Sizes ── */
@@ -25,12 +26,12 @@ const VEHICLE_SIZES: { key: VehicleSize; label: string }[] = [
   { key: "van", label: "Van" },
 ];
 
-/* ── Per-Visit Pricing by Vehicle Size ── */
+/* ── Per-Visit Pricing by Vehicle Size (annually = pre-paid 12 monthly visits at 8% off) ── */
 const MAINTENANCE_PRICING: Record<VehicleSize, Record<Frequency, string>> = {
-  sedan: { biweekly: "134.19", monthly: "165.09", quarterly: "226.88" },
-  "small-suv": { biweekly: "154.79", monthly: "185.68", quarterly: "257.78" },
-  "large-suv": { biweekly: "175.39", monthly: "206.28", quarterly: "288.67" },
-  van: { biweekly: "195.98", monthly: "226.88", quarterly: "319.57" },
+  sedan: { biweekly: "134.19", monthly: "165.09", quarterly: "226.88", annually: "1,822.59" },
+  "small-suv": { biweekly: "154.79", monthly: "185.68", quarterly: "257.78", annually: "2,050.22" },
+  "large-suv": { biweekly: "175.39", monthly: "206.28", quarterly: "288.67", annually: "2,277.85" },
+  van: { biweekly: "195.98", monthly: "226.88", quarterly: "319.57", annually: "2,505.48" },
 };
 
 /* ── What's included in every maintenance visit ── */
@@ -202,7 +203,7 @@ export function MaintenancePage() {
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Maintenance Plans</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Full Inside & Out Subscriptions</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Choose your vehicle size, then pick the frequency that fits your schedule. All rates are per visit.
+              Choose your vehicle size, then pick the frequency that fits your schedule. Per-visit rates for recurring plans, or save 8% with an annual pre-pay.
             </p>
           </div>
 
@@ -223,15 +224,15 @@ export function MaintenancePage() {
             ))}
           </div>
 
-          {/* ── Frequency Cards ── */}
+          {/* ── Frequency Cards (per-visit) ── */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {FREQUENCIES.map((f) => (
+            {FREQUENCIES.filter((f) => f.key !== "annually").map((f) => (
               <div key={f.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {f.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{f.badge}</div>}
                 <h3 className="font-bold text-xl mb-1">{f.label}</h3>
                 <p className="text-3xl font-black mb-2">
                   ${prices[f.key]}
-                  <span className="text-sm font-normal text-muted-foreground">/visit</span>
+                  <span className="text-sm font-normal text-muted-foreground">{f.suffix}</span>
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">{f.description}</p>
                 <ul className="space-y-2.5 flex-1 mb-6">
@@ -249,8 +250,41 @@ export function MaintenancePage() {
             ))}
           </div>
 
+          {/* ── Annual Pre-Pay Card ── */}
+          <div className="max-w-5xl mx-auto mt-8">
+            <div className="rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-8 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">Save 8%</div>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="font-bold text-2xl mb-2">Annual Pre-Pay</h3>
+                  <p className="text-3xl font-black mb-1">
+                    ${prices.annually}
+                    <span className="text-sm font-normal text-muted-foreground">/yr</span>
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    Our ultimate commitment to hassle-free care. Includes 12 Monthly Full Inside &amp; Out maintenance visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime.
+                  </p>
+                  <Button className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold" asChild>
+                    <a href={subFull} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick("Maintenance Annual", subFull)}>Pre-Pay Now <ArrowRight className="size-4" /></a>
+                  </Button>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold mb-3">What&rsquo;s included in every visit:</p>
+                  <ul className="space-y-2">
+                    {MAINTENANCE_FEATURES.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2 text-sm">
+                        <CheckCircle2 className="size-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <span className="text-muted-foreground">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* ── Full Pricing Table ── */}
-          <div className="max-w-3xl mx-auto mt-12">
+          <div className="max-w-4xl mx-auto mt-12">
             <div className="rounded-2xl bg-card border border-border overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -260,6 +294,7 @@ export function MaintenancePage() {
                       <th className="p-4 font-semibold text-center">Biweekly</th>
                       <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
                       <th className="p-4 font-semibold text-center">Quarterly</th>
+                      <th className="p-4 font-semibold text-center bg-emerald-500/5">Annually <span className="text-emerald-400 text-xs">(Save 8%)</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -269,17 +304,18 @@ export function MaintenancePage() {
                         <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].biweekly}</td>
                         <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${MAINTENANCE_PRICING[s.key].monthly}</td>
                         <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].quarterly}</td>
+                        <td className="p-4 text-center tabular-nums font-bold text-emerald-400 bg-emerald-500/5">${MAINTENANCE_PRICING[s.key].annually}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-3">All rates are per visit. All recurring maintenance plans require a vehicle to have received a Standard Reset Detail from us within the last 30 days to qualify for maintenance pricing.</p>
+            <p className="text-xs text-muted-foreground text-center mt-3">Per-visit rates shown for Biweekly, Monthly, and Quarterly. Annual is a one-time pre-pay for 12 monthly visits. All recurring maintenance plans require a vehicle to have received a Standard Reset Detail from us within the last 30 days to qualify for maintenance pricing.</p>
           </div>
 
           <p className="text-center text-sm text-muted-foreground mt-8">
-            No long-term contracts — cancel anytime with no penalty.
+            No long-term contracts — cancel anytime with no penalty. Annual pre-pay plans include 10% off add-on services.
           </p>
         </div>
       </section>
