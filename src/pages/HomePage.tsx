@@ -180,20 +180,18 @@ export function HomePage() {
           ]
         }}
       />
-      {/* ─── HERO with background image ─── */}
+      {/* ─── HERO with background video ─── */}
       <section className="relative flex items-center min-h-[85vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg
-            slot="homepage-hero"
-            fallback="/images/escalade-front.jpg"
-            alt="Cadillac Escalade under hex lights after ceramic coating by ProWorx Detailing"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          >
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="container py-20 md:py-28">
