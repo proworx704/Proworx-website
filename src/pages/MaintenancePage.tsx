@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackViewContent } from "@/lib/tracking";
+import {
+  SUBSCRIPTION_PLANS,
+  PLAN_TYPE_ORDER,
+  getCheckoutUrl,
+  type SubscriptionPlanType,
+  type SubscriptionFrequency,
+} from "@/lib/subscriptionUrls";
 
 /* ── Billing Frequencies ── */
 type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
@@ -55,8 +62,9 @@ const WHO_ITS_FOR = [
 export function MaintenancePage() {
   const { config } = useSiteConfig();
   const [vehicleSize, setVehicleSize] = useState<VehicleSize>("sedan");
+  const [planType, setPlanType] = useState<SubscriptionPlanType>("inside-out");
   const prices = MAINTENANCE_PRICING[vehicleSize];
-  const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
+  const currentPlan = SUBSCRIPTION_PLANS[planType];
 
   useEffect(() => {
     trackViewContent("Maintenance Plans", "Membership");
@@ -196,123 +204,171 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Maintenance Plans — Vehicle Size First ── */}
+      {/* ── Maintenance Plans — Plan Type + Vehicle Size ── */}
       <section id="plans" className="py-20 md:py-28 bg-card/50">
         <div className="container">
           <div className="text-center mb-10">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Maintenance Plans</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Full Inside & Out Subscriptions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{currentPlan.shortName} Subscriptions</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Choose your vehicle size, then pick the frequency that fits your schedule. Per-visit rates for recurring plans, or save 8% with an annual pre-pay.
+              Choose your plan type and vehicle size, then pick the frequency that fits your schedule.
             </p>
           </div>
 
-          {/* ── Vehicle Size Selector ── */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {VEHICLE_SIZES.map((s) => (
-              <button
-                key={s.key}
-                onClick={() => setVehicleSize(s.key)}
-                className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                  vehicleSize === s.key
-                    ? "bg-gold text-gold-foreground shadow-sm"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
+          {/* ── Plan Type Selector ── */}
+          <div className="mb-6">
+            <p className="text-center text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">Plan Type</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {PLAN_TYPE_ORDER.map((pt) => {
+                const plan = SUBSCRIPTION_PLANS[pt];
+                return (
+                  <button
+                    key={pt}
+                    onClick={() => setPlanType(pt)}
+                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                      planType === pt
+                        ? plan.ceramic
+                          ? "bg-sky-500 text-white shadow-sm"
+                          : "bg-gold text-gold-foreground shadow-sm"
+                        : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
+                    }`}
+                  >
+                    {plan.shortName}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-center text-sm text-muted-foreground mt-3 max-w-xl mx-auto">{currentPlan.description}</p>
           </div>
 
-          {/* ── Frequency Cards (per-visit) ── */}
+          {/* ── Vehicle Size Selector (shown for Inside/Out with detailed pricing) ── */}
+          {planType === "inside-out" && (
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {VEHICLE_SIZES.map((s) => (
+                <button
+                  key={s.key}
+                  onClick={() => setVehicleSize(s.key)}
+                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                    vehicleSize === s.key
+                      ? "bg-gold text-gold-foreground shadow-sm"
+                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* ── Frequency Cards ── */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {FREQUENCIES.filter((f) => f.key !== "annually").map((f) => (
-              <div key={f.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                {f.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{f.badge}</div>}
-                <h3 className="font-bold text-xl mb-1">{f.label}</h3>
-                <p className="text-3xl font-black mb-2">
-                  ${prices[f.key]}
-                  <span className="text-sm font-normal text-muted-foreground">{f.suffix}</span>
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{f.description}</p>
-                <ul className="space-y-2.5 flex-1 mb-6">
-                  {MAINTENANCE_FEATURES.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2 text-sm">
-                      <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className={f.badge ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={subFull} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`Maintenance ${f.label}`, subFull)}>Subscribe Now <ArrowRight className="size-4" /></a>
-                </Button>
-              </div>
-            ))}
+            {FREQUENCIES.filter((f) => f.key !== "annually").map((f) => {
+              const checkoutUrl = getCheckoutUrl(planType, f.key as SubscriptionFrequency);
+              return (
+                <div key={f.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
+                  {f.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{f.badge}</div>}
+                  <h3 className="font-bold text-xl mb-1">{f.label}</h3>
+                  {planType === "inside-out" ? (
+                    <p className="text-3xl font-black mb-2">
+                      ${prices[f.key]}
+                      <span className="text-sm font-normal text-muted-foreground">{f.suffix}</span>
+                    </p>
+                  ) : (
+                    <p className="text-lg font-semibold text-gold mb-2">Pricing at checkout</p>
+                  )}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{f.description}</p>
+                  {planType === "inside-out" && (
+                    <ul className="space-y-2.5 flex-1 mb-6">
+                      {MAINTENANCE_FEATURES.map((feat) => (
+                        <li key={feat} className="flex items-start gap-2 text-sm">
+                          <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
+                          <span className="text-muted-foreground">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <Button className={f.badge ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                    <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
+                  </Button>
+                </div>
+              );
+            })}
           </div>
 
           {/* ── Annual Pre-Pay Card ── */}
-          <div className="max-w-5xl mx-auto mt-8">
-            <div className="rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-8 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">Save 8%</div>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="font-bold text-2xl mb-2">Annual Pre-Pay</h3>
-                  <p className="text-3xl font-black mb-1">
-                    ${prices.annually}
-                    <span className="text-sm font-normal text-muted-foreground">/yr</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Our ultimate commitment to hassle-free care. Includes 12 Monthly Full Inside &amp; Out maintenance visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime.
-                  </p>
-                  <Button className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold" asChild>
-                    <a href={subFull} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick("Maintenance Annual", subFull)}>Pre-Pay Now <ArrowRight className="size-4" /></a>
-                  </Button>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold mb-3">What&rsquo;s included in every visit:</p>
-                  <ul className="space-y-2">
-                    {MAINTENANCE_FEATURES.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="size-4 text-emerald-500 mt-0.5 shrink-0" />
-                        <span className="text-muted-foreground">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+          {(() => {
+            const annualUrl = getCheckoutUrl(planType, "annually");
+            return (
+              <div className="max-w-5xl mx-auto mt-8">
+                <div className="rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-8 relative">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">Save 8%</div>
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="font-bold text-2xl mb-2">Annual Pre-Pay</h3>
+                      {planType === "inside-out" ? (
+                        <p className="text-3xl font-black mb-1">
+                          ${prices.annually}
+                          <span className="text-sm font-normal text-muted-foreground">/yr</span>
+                        </p>
+                      ) : (
+                        <p className="text-lg font-semibold text-emerald-400 mb-1">Pricing at checkout</p>
+                      )}
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        Our ultimate commitment to hassle-free care. 12 monthly {currentPlan.shortName.toLowerCase()} visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime.
+                      </p>
+                      <Button className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold" asChild>
+                        <a href={annualUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} Annual`, annualUrl)}>Pre-Pay Now <ArrowRight className="size-4" /></a>
+                      </Button>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold mb-3">What&rsquo;s included in every visit:</p>
+                      <ul className="space-y-2">
+                        {MAINTENANCE_FEATURES.map((feat) => (
+                          <li key={feat} className="flex items-start gap-2 text-sm">
+                            <CheckCircle2 className="size-4 text-emerald-500 mt-0.5 shrink-0" />
+                            <span className="text-muted-foreground">{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })()}
 
-          {/* ── Full Pricing Table ── */}
-          <div className="max-w-4xl mx-auto mt-12">
-            <div className="rounded-2xl bg-card border border-border overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-border bg-muted/30">
-                      <th className="text-left p-4 font-semibold">Vehicle Size</th>
-                      <th className="p-4 font-semibold text-center">Biweekly</th>
-                      <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
-                      <th className="p-4 font-semibold text-center">Quarterly</th>
-                      <th className="p-4 font-semibold text-center bg-emerald-500/5">Annually <span className="text-emerald-400 text-xs">(Save 8%)</span></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {VEHICLE_SIZES.map((s) => (
-                      <tr key={s.key} className="border-b border-border/50 last:border-0">
-                        <td className="p-4 font-medium">{s.label}</td>
-                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].biweekly}</td>
-                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${MAINTENANCE_PRICING[s.key].monthly}</td>
-                        <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].quarterly}</td>
-                        <td className="p-4 text-center tabular-nums font-bold text-emerald-400 bg-emerald-500/5">${MAINTENANCE_PRICING[s.key].annually}</td>
+          {/* ── Full Pricing Table (Inside/Out only) ── */}
+          {planType === "inside-out" && (
+            <div className="max-w-4xl mx-auto mt-12">
+              <div className="rounded-2xl bg-card border border-border overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/30">
+                        <th className="text-left p-4 font-semibold">Vehicle Size</th>
+                        <th className="p-4 font-semibold text-center">Biweekly</th>
+                        <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
+                        <th className="p-4 font-semibold text-center">Quarterly</th>
+                        <th className="p-4 font-semibold text-center bg-emerald-500/5">Annually <span className="text-emerald-400 text-xs">(Save 8%)</span></th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {VEHICLE_SIZES.map((s) => (
+                        <tr key={s.key} className="border-b border-border/50 last:border-0">
+                          <td className="p-4 font-medium">{s.label}</td>
+                          <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].biweekly}</td>
+                          <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${MAINTENANCE_PRICING[s.key].monthly}</td>
+                          <td className="p-4 text-center tabular-nums">${MAINTENANCE_PRICING[s.key].quarterly}</td>
+                          <td className="p-4 text-center tabular-nums font-bold text-emerald-400 bg-emerald-500/5">${MAINTENANCE_PRICING[s.key].annually}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
+              <p className="text-xs text-muted-foreground text-center mt-3">Per-visit rates shown for Biweekly, Monthly, and Quarterly. Annual is a one-time pre-pay for 12 monthly visits. All recurring maintenance plans require a vehicle to have received a Standard Reset Detail from us within the last 30 days to qualify for maintenance pricing.</p>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-3">Per-visit rates shown for Biweekly, Monthly, and Quarterly. Annual is a one-time pre-pay for 12 monthly visits. All recurring maintenance plans require a vehicle to have received a Standard Reset Detail from us within the last 30 days to qualify for maintenance pricing.</p>
-          </div>
+          )}
 
           <p className="text-center text-sm text-muted-foreground mt-8">
             No long-term contracts — cancel anytime with no penalty. Annual pre-pay plans include 10% off add-on services.
@@ -368,12 +424,12 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── Pricing at a Glance ── */}
+      {/* ── Pricing at a Glance (Inside/Out only) ── */}
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">All Maintenance Pricing at a Glance</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Inside & Out Pricing at a Glance</h2>
               <p className="text-muted-foreground">Full Inside & Out — per-visit rates by vehicle size and frequency.</p>
             </div>
             <div className="rounded-2xl bg-card border border-border overflow-hidden">
