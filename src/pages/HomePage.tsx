@@ -123,7 +123,7 @@ const AREAS = [
 const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "How much does auto detailing cost in Charlotte NC?",
-    answer: "Professional auto detailing in Charlotte ranges from $258–$735 for a full interior and exterior detail, depending on vehicle size and tier. Ceramic packages bundle protection products at 15% off. Paint correction starts at $618–$1,030 for single-stage, and ceramic coating packages range from $499–$2,499. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size and service level.",
+    answer: "Professional auto detailing in Charlotte ranges from $257.78–$757.26 for a full interior and exterior detail, depending on vehicle size and tier. Ceramic packages bundle protection products at 15% off. Paint correction starts at $618–$1,030 for single-stage, and ceramic coating packages range from $499–$2,499. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size and service level.",
   },
   {
     question: "Is mobile detailing as good as a shop?",
@@ -143,7 +143,7 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   },
   {
     question: "How often should I get my car detailed?",
-    answer: "We recommend a maintenance wash every 2–4 weeks, a full detail every 6 months, and annual paint correction or ceramic coating inspection. Our <a href=\"/maintenance\" class=\"text-gold hover:underline\">monthly maintenance plans</a> starting at $59/month handle the regular care automatically.",
+    answer: "We recommend a maintenance wash every 2–4 weeks, a full detail every 6 months, and annual paint correction or ceramic coating inspection. Our <a href=\"/maintenance\" class=\"text-gold hover:underline\">monthly maintenance plans</a> starting at $134.19/visit handle the regular care automatically.",
   },
   {
     question: "Do you detail Teslas and electric vehicles?",
@@ -192,6 +192,7 @@ export function HomePage() {
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
+          <div className="absolute inset-0 bg-black/45" />
         </div>
 
         <div className="container py-20 md:py-28">
