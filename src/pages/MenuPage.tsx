@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown, Droplets } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
@@ -137,11 +137,9 @@ export function MenuPage() {
   const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
   const bookCeramicInfinite1 = config.ceramicDepositInfinite1 || ceramicFallback;
   const bookCeramicInfinite2 = config.ceramicDepositInfinite2 || ceramicFallback;
-  const subExterior = config["subscribeUrl:membership-exterior"] || "https://square.link/u/CP1LxyXc";
-  const subInterior = config["subscribeUrl:membership-interior"] || "https://square.link/u/ZIRVEmaf";
+  // Removed: subExterior, subInterior (old 5-tier model)
   const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
-  const subCeramicExt = config["subscribeUrl:membership-ceramic-exterior"] || "https://square.link/u/VWcJFh5r";
-  const subCeramicIO = config["subscribeUrl:membership-ceramic-io"] || "https://square.link/u/wyQAUVPr";
+  // Removed: subCeramicExt, subCeramicIO (old 5-tier model)
   const phoneLink = config.phoneLink || "tel:+19802721903";
 
   const NAV = [
@@ -235,10 +233,10 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 30m", price: "$258" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$309" },
-                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$361" },
-                { label: "Van", duration: "4h", price: "$412" },
+                { label: "Sedan", duration: "2h 30m", price: "$257.78" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$309.27" },
+                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$360.76" },
+                { label: "Van", duration: "4h", price: "$412.26" },
               ]}
               bookHref={bookStdIO}
             />
@@ -256,10 +254,10 @@ export function MenuPage() {
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "5h 15m", price: "$581" },
-                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$632" },
-                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$684" },
-                { label: "Van", duration: "6h 45m", price: "$735" },
+                { label: "Sedan", duration: "5h 15m", price: "$598.66" },
+                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$651.18" },
+                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$704.74" },
+                { label: "Van", duration: "6h 45m", price: "$757.26" },
               ]}
               bookHref={bookEliteIO}
             />
@@ -577,90 +575,63 @@ export function MenuPage() {
 
         <div className="border-t border-border" />
 
-        {/* ═══ MEMBERSHIPS ═══ */}
+        {/* ═══ MEMBERSHIPS — Vehicle-Size-First ═══ */}
         <Section id="memberships">
           <SectionHeader
-            label="Monthly Plans"
-            title="Maintenance Memberships"
-            subtitle="Keep your vehicle looking its best year-round. Cancel anytime — no contracts."
+            label="Maintenance Plans"
+            title="Full Inside & Out Subscriptions"
+            subtitle="Choose your vehicle size, then pick the frequency that fits your schedule. All rates are per visit. Requires an initial Standard Reset Detail within the last 30 days to qualify for maintenance pricing."
           />
-          <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              {
-                name: "Exterior Only",
-                price: "$61.20",
-                tagline: "Exterior care on your schedule",
-                href: subExterior,
-                icon: "droplets" as const,
-                features: ["Exterior hand wash", "Tire & wheel cleaning", "Exterior windows", "Door jambs cleaned", "Tire shine & dressing"],
-                billing: { biweekly: "$28.80", quarterly: "$178.20", annually: "$693" },
-              },
-              {
-                name: "Interior Only",
-                price: "$102.60",
-                tagline: "Interior care on your schedule",
-                href: subInterior,
-                icon: "shield" as const,
-                features: ["Full interior detail", "Full vacuum & wipe-down", "Dashboard & console detail", "Leather / vinyl conditioning", "Interior windows", "Air freshener"],
-                billing: { biweekly: "$46.80", quarterly: "$298.80", annually: "$1,162.80" },
-              },
-              {
-                name: "Full Inside & Out",
-                price: "$164.70",
-                tagline: "Complete detail + ceramic protection",
-                href: subFull,
-                icon: "sparkles" as const,
-                popular: true,
-                features: ["Full inside & out detail", "Everything in Exterior + Interior", "Ceramic wet-coat protection", "Tire shine & trim dressing", "10% off on add-on services"],
-                billing: { biweekly: "$74.70", quarterly: "$479.70", annually: "$1,867.50" },
-              },
-              {
-                name: "Ceramic Exterior",
-                price: "$113.40",
-                tagline: "Ceramic-grade exterior care",
-                href: subCeramicExt,
-                icon: "droplets" as const,
-                features: ["Exterior hand wash", "Tire & wheel cleaning", "Door jambs cleaned", "GYEON ceramic top-coat refresh", "Ceramic trim & plastic refresh", "Tire shine & dressing", "10% off on add-on services"],
-                billing: { biweekly: "$51.30", quarterly: "$329.40", annually: "$1,280.70" },
-              },
-              {
-                name: "Ceramic Inside & Out",
-                price: "$190.80",
-                tagline: "The ultimate ceramic care",
-                href: subCeramicIO,
-                icon: "shield" as const,
-                popular: true,
-                features: ["Full inside & out detail", "Everything in Full I&O plan", "GYEON ceramic top-coat refresh", "Iron decontamination", "Ceramic trim & plastic refresh", "15% off on add-on services"],
-                billing: { biweekly: "$86.40", quarterly: "$557.10", annually: "$2,169.90" },
-              },
-            ].map((plan) => (
-              <div key={plan.name} className={`rounded-2xl bg-card border p-5 relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                {plan.popular && (
-                  <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">
-                    Most Popular
-                  </div>
-                )}
-                <div className="flex items-center gap-2 mb-1 mt-1">
-                  {plan.icon === "droplets" ? <Droplets className="size-5 text-gold" /> : plan.icon === "shield" ? <Shield className="size-5 text-gold" /> : <Sparkles className="size-5 text-gold" />}
-                  <h3 className="font-bold text-base">{plan.name}</h3>
-                </div>
-                <p className="text-[10px] text-muted-foreground mb-2">{plan.tagline}</p>
-                <p className="text-3xl font-black mb-0.5">{plan.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
-                <p className="text-[10px] text-muted-foreground mb-3">
-                  Also: {plan.billing.biweekly}/biweekly · {plan.billing.quarterly}/qtr · {plan.billing.annually}/yr
-                </p>
-                <ul className="space-y-1.5 mb-4">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
-                      <CheckCircle2 className="size-3.5 text-gold mt-0.5 shrink-0" />
-                      {f}
-                    </li>
+          {(() => {
+            const MAINT_SIZES = [
+              { key: "sedan", label: "Sedan" },
+              { key: "small-suv", label: "Small SUV / Truck" },
+              { key: "large-suv", label: "Large SUV / Off-Road" },
+              { key: "van", label: "Van" },
+            ];
+            const MAINT_PRICING: Record<string, { biweekly: string; monthly: string; quarterly: string }> = {
+              sedan: { biweekly: "$134.19", monthly: "$165.09", quarterly: "$226.88" },
+              "small-suv": { biweekly: "$154.79", monthly: "$185.68", quarterly: "$257.78" },
+              "large-suv": { biweekly: "$175.39", monthly: "$206.28", quarterly: "$288.67" },
+              van: { biweekly: "$195.98", monthly: "$226.88", quarterly: "$319.57" },
+            };
+            const MAINT_FREQ = [
+              { key: "biweekly" as const, label: "Biweekly", desc: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep." },
+              { key: "monthly" as const, label: "Monthly", desc: "The Sweet Spot. Keeps your vehicle consistently fresh and protected.", badge: "Most Popular" },
+              { key: "quarterly" as const, label: "Quarterly", desc: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment." },
+            ];
+            // use component state — we're inside the render, so use a simple inline approach
+            const [menuSize, setMenuSize] = useState<string>("sedan");
+            const prices = MAINT_PRICING[menuSize];
+            return (
+              <div>
+                {/* Vehicle size selector */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {MAINT_SIZES.map((s) => (
+                    <button
+                      key={s.key}
+                      onClick={() => setMenuSize(s.key)}
+                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
+                    >
+                      {s.label}
+                    </button>
                   ))}
-                </ul>
-                <BookBtn href={plan.href} onClick={() => trackSubscribeClick(plan.name, plan.href)}>Subscribe Now <ArrowRight className="size-4" /></BookBtn>
+                </div>
+                {/* Frequency cards */}
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {MAINT_FREQ.map((f) => (
+                    <div key={f.key} className={`rounded-2xl bg-card border p-5 relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
+                      {f.badge && <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">{f.badge}</div>}
+                      <h3 className="font-bold text-base mt-1 mb-1">{f.label}</h3>
+                      <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">/visit</span></p>
+                      <p className="text-xs text-muted-foreground leading-relaxed mb-4">{f.desc}</p>
+                      <BookBtn href={subFull} onClick={() => trackSubscribeClick(`Maintenance ${f.label}`, subFull)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })()}
         </Section>
 
         <div className="border-t border-border" />
