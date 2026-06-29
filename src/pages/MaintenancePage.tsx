@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Phone, Shield, Sparkles, Star } from "lucide-react";
+import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Phone, Shield, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -53,9 +53,7 @@ const WHO_ITS_FOR = [
 
 export function MaintenancePage() {
   const { config } = useSiteConfig();
-  const [frequency, setFrequency] = useState<Frequency>("monthly");
   const [vehicleSize, setVehicleSize] = useState<VehicleSize>("sedan");
-  const freq = FREQUENCIES.find((f) => f.key === frequency)!;
   const prices = MAINTENANCE_PRICING[vehicleSize];
   const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
 
