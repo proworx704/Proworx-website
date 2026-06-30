@@ -118,7 +118,7 @@ export function BallantyneDetailingPage() {
               ProWorx brings premium mobile auto detailing directly to your Ballantyne home or office. From SouthPark to Myers Park, Providence to Rea Road {"\u2014"} we cover all of South Charlotte with 5-star, white-glove service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -175,7 +175,7 @@ export function BallantyneDetailingPage() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/services">View Full Pricing <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -238,7 +238,7 @@ export function BallantyneDetailingPage() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -285,7 +285,7 @@ export function BallantyneDetailingPage() {
             Book online or call us today. We{"\u2019"}ll come to your Ballantyne home or office with everything we need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

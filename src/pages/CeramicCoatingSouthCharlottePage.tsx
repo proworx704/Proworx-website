@@ -97,7 +97,7 @@ export function CeramicCoatingSouthCharlottePage() {
               Professional ceramic coating for South Charlotte residents. GYEON &amp; IGL certified installers with 12+ years experience and 63+ five-star reviews. Mobile service or convenient drop-off — ~18 min from our Waxhaw location.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -174,7 +174,7 @@ export function CeramicCoatingSouthCharlottePage() {
                 <p className="text-sm font-semibold text-gold mb-1">{pkg.protection} Protection</p>
                 <h3 className="text-lg font-bold mb-1">{pkg.name}</h3>
                 <p className="text-2xl font-black text-gold mb-4">{pkg.price}</p>
-                <Button className={`w-full font-bold ${pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
+                <Button className={`w-full font-bold ${pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
                   <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
                     Book Now <ArrowRight className="size-4" />
                   </a>
@@ -269,7 +269,7 @@ export function CeramicCoatingSouthCharlottePage() {
               Book a ceramic coating consultation with Charlotte's certified specialists. Mobile service to your South Charlotte home or drop-off at our Waxhaw facility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">Book Your Coating <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

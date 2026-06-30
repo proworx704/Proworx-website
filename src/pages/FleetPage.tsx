@@ -134,7 +134,7 @@ export function FleetPage() {
               Keep your business vehicles clean, professional, and representing your brand well. Tier-based volume pricing with on-site mobile service — zero downtime for your fleet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <a href="#pricing">
                   View Fleet Pricing <ArrowRight className="size-5" />
                 </a>
@@ -200,7 +200,7 @@ export function FleetPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className={tier.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                <Button className={tier.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                   <a href={config.phoneLink}>Get a Quote <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
@@ -303,7 +303,7 @@ export function FleetPage() {
             Get a custom fleet quote today. We'll work with you to build the perfect plan for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <a href={config.phoneLink}>Get a Fleet Quote <Phone className="size-5" /></a>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

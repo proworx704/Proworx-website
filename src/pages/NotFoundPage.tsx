@@ -18,7 +18,7 @@ export function NotFoundPage() {
             The page you're looking for doesn't exist or has been moved. Let's get you back on track.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+            <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
               <Link to="/"><Home className="size-4" /> Back to Home</Link>
             </Button>
             <Button variant="outline" asChild>

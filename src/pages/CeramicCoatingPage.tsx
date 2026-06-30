@@ -383,7 +383,7 @@ export function CeramicCoatingPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold"
+                className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold"
                 asChild
               >
                 <a href="#packages">
@@ -499,7 +499,7 @@ export function CeramicCoatingPage() {
                   <Button
                     className={`w-full font-bold ${
                       pkg.popular
-                        ? "bg-gold text-gold-foreground hover:bg-gold/90"
+                        ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90"
                         : "bg-muted text-foreground hover:bg-muted/80"
                     }`}
                     asChild
@@ -654,7 +654,7 @@ export function CeramicCoatingPage() {
                 ))}
               </div>
               <Button
-                className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold"
+                className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold"
                 asChild
               >
                 <a href="#packages">
@@ -873,7 +873,7 @@ export function CeramicCoatingPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="lg"
-                className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold"
+                className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold"
                 asChild
               >
                 <a

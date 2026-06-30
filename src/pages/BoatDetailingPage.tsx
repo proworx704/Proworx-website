@@ -159,7 +159,7 @@ export function BoatDetailingPage() {
               Keep your boat looking showroom-fresh all season. From basic washes to full details and marine ceramic coatings — we bring the detail shop to your dock or driveway. Pricing based on boat length.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <a href="#services">
                   View Boat Pricing <ArrowRight className="size-5" />
                 </a>
@@ -241,7 +241,7 @@ export function BoatDetailingPage() {
                     <h3 className="font-bold text-lg md:text-xl">{svc.name}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-1">{svc.description}</p>
                   </div>
-                  <Button size="sm" className={svc.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" : "bg-muted text-foreground hover:bg-muted/80 font-semibold shrink-0"} asChild>
+                  <Button size="sm" className={svc.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold shrink-0" : "bg-muted text-foreground hover:bg-muted/80 font-semibold shrink-0"} asChild>
                     <BookNowLink href={config[`widgetUrl:${svc.slug}`] || `/book?service=${svc.slug}`}>Book Now <ArrowRight className="size-3.5" /></BookNowLink>
                   </Button>
                 </div>
@@ -300,7 +300,7 @@ export function BoatDetailingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className={pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                <Button className={pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                   <BookNowLink href={config[`widgetUrl:${pkg.slug}`] || undefined}>Book Now <ArrowRight className="size-4" /></BookNowLink>
                 </Button>
               </div>
@@ -376,7 +376,7 @@ export function BoatDetailingPage() {
             Schedule a mobile boat detail today. We'll come to you with everything we need — just point us to the boat.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink href={config["widgetUrl:boat-detail-cta"] || undefined}>Book Boat Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

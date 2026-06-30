@@ -67,7 +67,7 @@ export function CeramicCoatingCharlottePage() {
               Wondering how much ceramic coating costs in Charlotte? Professional GYEON ceramic coating packages start at $499 — with a manufacturer warranty, prep work included, and just 30% down to reserve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <a href="#pricing">See Pricing <ArrowRight className="size-5" /></a>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -99,7 +99,7 @@ export function CeramicCoatingCharlottePage() {
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                     <span className="font-semibold text-foreground">Best for:</span> {pkg.best}
                   </p>
-                  <Button className={i === 1 ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                  <Button className={i === 1 ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                     <Link to="/ceramic-coating">View Full Details <ArrowRight className="size-4" /></Link>
                   </Button>
                 </div>
@@ -256,7 +256,7 @@ export function CeramicCoatingCharlottePage() {
             Reserve with just 30% down. Free consultation available — we'll inspect your paint and recommend the ideal package.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <Link to="/ceramic-coating">View Packages & Reserve <ArrowRight className="size-5" /></Link>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

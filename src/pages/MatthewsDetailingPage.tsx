@@ -117,7 +117,7 @@ export function MatthewsDetailingPage() {
               ProWorx brings premium mobile auto detailing to Matthews, Indian Trail, Stallings, and Mint Hill. We bring water, power, and professional-grade products directly to your driveway {"\u2014"} no drop-off required.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -174,7 +174,7 @@ export function MatthewsDetailingPage() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/services">View Full Pricing <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -237,7 +237,7 @@ export function MatthewsDetailingPage() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -284,7 +284,7 @@ export function MatthewsDetailingPage() {
             Book online or call us today. We{"\u2019"}ll come to your Matthews home or office with everything we need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

@@ -96,7 +96,7 @@ export function CeramicCoatingVsWaxPage() {
               Should you ceramic coat your car or stick with wax? We break down the real differences in protection, longevity, cost, and results — from Charlotte's certified ceramic coating specialists.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Coating Packages <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -184,7 +184,7 @@ export function CeramicCoatingVsWaxPage() {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold mt-6 w-full" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold mt-6 w-full" asChild>
                 <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -279,7 +279,7 @@ export function CeramicCoatingVsWaxPage() {
               Get a free ceramic coating consultation from Charlotte's GYEON & IGL certified specialists. We'll inspect your paint and recommend the right package.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">View Packages & Book <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

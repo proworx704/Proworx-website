@@ -49,7 +49,7 @@ export function SummerShieldBanner() {
             <span className="mx-2 hidden sm:inline">|</span>
             <a
               href="https://book.proworxdetailing.com/july4th"
-              className="inline-flex items-center gap-1 ml-2 sm:ml-0 px-3 py-0.5 bg-white text-red-700 font-bold text-xs rounded-full hover:bg-red-50 transition-colors uppercase tracking-wider"
+              className="inline-flex items-center gap-1 ml-2 sm:ml-0 px-4 py-1.5 min-h-[44px] bg-white text-red-700 font-bold text-xs rounded-full hover:bg-red-50 transition-colors uppercase tracking-wider"
             >
               View Offers
             </a>
