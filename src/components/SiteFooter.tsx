@@ -45,7 +45,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="size-9 rounded-lg bg-gold flex items-center justify-center">
+              <div className="size-9 rounded-lg bg-gold-dark flex items-center justify-center">
                 <span className="text-gold-foreground font-black text-sm">PW</span>
               </div>
               <span className="font-display font-bold text-lg tracking-tight">{config.appName}</span>

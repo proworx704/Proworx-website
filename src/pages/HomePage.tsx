@@ -188,9 +188,11 @@ export function HomePage() {
             loop
             muted
             playsInline
+            poster="/images/hero-poster.webp"
             className="w-full h-full object-cover"
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
+            <track kind="captions" />
           </video>
           <div className="absolute inset-0 bg-black/45" />
         </div>
@@ -218,7 +220,7 @@ export function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlHomeCta || undefined}>
                   Build Your Detail Package <ArrowRight className="size-5" />
                 </BookNowLink>
@@ -351,7 +353,7 @@ export function HomePage() {
                 ))}
               </ul>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+                <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                   <Link to="/fleet">
                     Learn About Fleet Pricing <ArrowRight className="size-4" />
                   </Link>
@@ -573,7 +575,7 @@ export function HomePage() {
               Get a free ceramic coating consultation or book your detail today. Professional paint protection and detailing — mobile or drop-off across Charlotte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlHomeCta || undefined}>Book Your Detail <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

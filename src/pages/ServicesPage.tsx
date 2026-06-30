@@ -92,7 +92,7 @@ function TierCard({
         </div>
       )}
 
-      <Button className={highlight ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+      <Button className={highlight ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
         <BookNowLink href={resolvedHref}>{bookLabel} <ArrowRight className="size-4" /></BookNowLink>
       </Button>
     </div>
@@ -364,7 +364,7 @@ export function ServicesPage() {
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
               From quick maintenance washes to full paint corrections and ceramic coatings — we offer a complete range of professional detailing services, all mobile.
             </p>
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
           </div>
@@ -456,7 +456,7 @@ export function ServicesPage() {
               </div>
             </div>
             <div className="mt-8 text-center">
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-4" /></BookNowLink>
               </Button>
             </div>
@@ -520,7 +520,7 @@ export function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className={plan.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                <Button className={plan.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                   <a href={plan.url} target="_blank" rel="noopener noreferrer">Subscribe <ArrowRight className="size-4" /></a>
                 </Button>
               </div>
@@ -562,7 +562,7 @@ export function ServicesPage() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">Not Sure What You Need?</h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">Call us for a free consultation. We'll recommend the perfect package for your vehicle.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>Build Your Package <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

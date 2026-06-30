@@ -123,7 +123,7 @@ export function GyeonCertifiedCharlottePage() {
               ProWorx Detailing is Charlotte's GYEON &amp; IGL certified ceramic coating specialist. Factory-trained installers, genuine professional-grade products, and manufacturer warranty up to a lifetime with the Infinite series.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Packages <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -221,7 +221,7 @@ export function GyeonCertifiedCharlottePage() {
                     </li>
                   ))}
                 </ul>
-                <Button className={`w-full font-bold ${pkg.popular ? "bg-gold text-gold-foreground hover:bg-gold/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
+                <Button className={`w-full font-bold ${pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
                   <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
                     Book — 30% Deposit <ArrowRight className="size-4" />
                   </a>
@@ -273,7 +273,7 @@ export function GyeonCertifiedCharlottePage() {
               Don't trust your vehicle's paint to an uncertified installer. Book with Charlotte's GYEON & IGL certified specialists and get the warranty-backed protection your car deserves.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <Link to="/ceramic-coating">Book Your Coating <ArrowRight className="size-5" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

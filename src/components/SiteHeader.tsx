@@ -104,7 +104,7 @@ export function SiteHeader() {
             <div className="flex items-center gap-3">
               <Button
                 size="sm"
-                className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
+                className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-semibold min-h-[44px] min-w-[44px] px-4"
                 asChild
               >
                 <a href={config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book"} target="_blank" rel="noopener noreferrer" onClick={() => trackBookNowConversion(config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book")}>

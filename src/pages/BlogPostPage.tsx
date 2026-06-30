@@ -186,7 +186,7 @@ export function BlogPostPage() {
                   <BookNowLink>
                     <Button
                       size="lg"
-                      className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold"
+                      className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-semibold"
                     >
                       Book a Detail <ArrowRight className="size-4 ml-1" />
                     </Button>

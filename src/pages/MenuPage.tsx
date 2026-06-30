@@ -21,7 +21,7 @@ function BookBtn({ href, children, variant = "gold", onClick }: { href: string; 
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all w-full sm:w-auto ${
         variant === "gold"
-          ? "bg-gold text-gold-foreground hover:bg-gold/90"
+          ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90"
           : "border border-gold/30 text-gold hover:bg-gold/10"
       }`}
     >
@@ -623,7 +623,7 @@ export function MenuPage() {
                           menuPlanType === pt
                             ? plan.ceramic
                               ? "bg-sky-500 text-white shadow-sm"
-                              : "bg-gold text-gold-foreground shadow-sm"
+                              : "bg-gold-dark text-gold-foreground shadow-sm"
                             : "bg-card border border-border text-muted-foreground hover:text-foreground"
                         }`}
                       >
@@ -640,7 +640,7 @@ export function MenuPage() {
                       <button
                         key={s.key}
                         onClick={() => setMenuSize(s.key)}
-                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
+                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold-dark text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
                       >
                         {s.label}
                       </button>

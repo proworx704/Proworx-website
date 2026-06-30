@@ -50,7 +50,7 @@ export function BookingPage() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="lg"
-                className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold"
+                className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold"
                 asChild
               >
                 <a href={bookingUrl}>

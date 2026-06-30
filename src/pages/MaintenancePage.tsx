@@ -136,7 +136,7 @@ export function MaintenancePage() {
               Professional mobile detailing on a schedule that works for you. Choose your plan, and we'll show up every month to keep your vehicle clean, protected, and looking like it just left the shop. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <a href="#plans">
                   View Plans <ArrowRight className="size-5" />
                 </a>
@@ -165,7 +165,7 @@ export function MaintenancePage() {
                   </p>
                 </div>
               </div>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold shrink-0" size="lg" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold shrink-0" size="lg" asChild>
                 <a href={config["widgetUrl:maintenance-booking"] || "https://book.proworxdetailing.com/book?category=membership"}>
                   Book Here <ArrowRight className="size-5" />
                 </a>
@@ -229,7 +229,7 @@ export function MaintenancePage() {
                       planType === pt
                         ? plan.ceramic
                           ? "bg-sky-500 text-white shadow-sm"
-                          : "bg-gold text-gold-foreground shadow-sm"
+                          : "bg-gold-dark text-gold-foreground shadow-sm"
                         : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
                     }`}
                   >
@@ -250,7 +250,7 @@ export function MaintenancePage() {
                   onClick={() => setVehicleSize(s.key)}
                   className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                     vehicleSize === s.key
-                      ? "bg-gold text-gold-foreground shadow-sm"
+                      ? "bg-gold-dark text-gold-foreground shadow-sm"
                       : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
                   }`}
                 >
@@ -287,7 +287,7 @@ export function MaintenancePage() {
                       ))}
                     </ul>
                   )}
-                  <Button className={f.badge ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                  <Button className={f.badge ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                     <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
                   </Button>
                 </div>
@@ -474,7 +474,7 @@ export function MaintenancePage() {
             Pick a plan, set your schedule, and we'll handle the rest. Your vehicle deserves consistent professional care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <a href="#plans">View Plans <ArrowRight className="size-5" /></a>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

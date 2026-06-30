@@ -58,7 +58,7 @@ export function MobileDetailingCostPage() {
               Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $129 for exterior and $181 for interior.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <a href="#pricing">See All Pricing <ArrowRight className="size-5" /></a>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -279,7 +279,7 @@ export function MobileDetailingCostPage() {
                 </div>
               ))}
             </div>
-            <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+            <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
               <Link to="/maintenance">View Membership Plans <ArrowRight className="size-4" /></Link>
             </Button>
           </div>
@@ -323,7 +323,7 @@ export function MobileDetailingCostPage() {
             Book online in 60 seconds or call for a free quote. We come to you — no drop-off needed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink>Book Now <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>

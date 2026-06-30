@@ -77,7 +77,7 @@ export function PaintCorrectionPage() {
               Remove swirl marks, scratches, water spots, and oxidation. Our multi-stage machine polishing process restores your vehicle's paint to a flawless, mirror-like finish.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Get a Quote <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -109,7 +109,7 @@ export function PaintCorrectionPage() {
                     <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Ideal for:</strong> {stage.ideal}</span></div>
                     <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Result:</strong> {stage.improvement}</span></div>
                   </div>
-                  <Button size="sm" className="bg-gold text-gold-foreground hover:bg-gold/90 font-semibold mt-auto" asChild>
+                  <Button size="sm" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-semibold mt-auto" asChild>
                     <BookNowLink href={bookUrl}>Book Now <ArrowRight className="size-4" /></BookNowLink>
                   </Button>
                 </div>
@@ -157,7 +157,7 @@ export function PaintCorrectionPage() {
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
             Contact us for a free paint assessment. We'll recommend the right level of correction for your vehicle.
           </p>
-          <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+          <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
             <BookNowLink href={config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || undefined}>Book Your Correction <ArrowRight className="size-5" /></BookNowLink>
           </Button>
         </div>

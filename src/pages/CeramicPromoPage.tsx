@@ -15,6 +15,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageSEO } from "@/components/PageSEO";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
 import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
@@ -75,6 +76,11 @@ export function CeramicPromoPage() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
+      <PageSEO
+        title="Free 3-Year Ceramic Coating with Monthly Membership | ProWorx Charlotte"
+        description="Subscribe to ProWorx Ceramic Inside & Out monthly detailing and get a FREE 3-year GYEON Q² Pure EVO ceramic coating. Charlotte's certified ceramic coating specialists."
+        keywords="ceramic coating Charlotte NC, free ceramic coating, car detailing membership, GYEON certified, monthly detailing subscription"
+      />
 
       {/* ══════ HERO ══════ */}
       <section className="relative overflow-hidden">

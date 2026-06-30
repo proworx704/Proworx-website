@@ -102,7 +102,7 @@ export function PaintCorrectionCharlottePage() {
               <span className="text-muted-foreground">5.0 on Google (63+ reviews)</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+              <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
                 <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Free Paint Assessment <ArrowRight className="size-5" /></BookNowLink>
               </Button>
               <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -158,7 +158,7 @@ export function PaintCorrectionCharlottePage() {
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                   <span className="font-semibold text-foreground">Best for:</span> {stage.best}
                 </p>
-                <Button className={stage.popular ? "bg-gold text-gold-foreground hover:bg-gold/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
+                <Button className={stage.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
                   <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Book Now <ArrowRight className="size-4" /></BookNowLink>
                 </Button>
               </div>
@@ -220,7 +220,7 @@ export function PaintCorrectionCharlottePage() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-gold text-gold-foreground hover:bg-gold/90 font-bold" asChild>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/ceramic-coating">View Ceramic Coating Packages <ArrowRight className="size-4" /></Link>
               </Button>
             </div>
@@ -286,7 +286,7 @@ export function PaintCorrectionCharlottePage() {
             Book a free paint assessment. We'll inspect your vehicle under LED lighting and recommend the perfect correction package for your Charlotte ride.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 h-13 px-8 text-base font-bold" asChild>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
               <BookNowLink href={config.bookingUrlPaintCorrection || undefined}>Book Paint Correction <ArrowRight className="size-5" /></BookNowLink>
             </Button>
             <Button size="lg" variant="outline" className="h-13 px-8 text-base font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
