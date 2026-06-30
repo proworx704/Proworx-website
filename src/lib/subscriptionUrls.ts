@@ -46,10 +46,10 @@ export const SUBSCRIPTION_PLANS: Record<SubscriptionPlanType, SubscriptionPlan> 
     description: "Professional hand wash, wheels, tires, and exterior protection every visit.",
     ceramic: false,
     urls: {
-      biweekly: "", // TODO: awaiting checkout link from Square
-      monthly: "",  // TODO: awaiting checkout link from Square
-      quarterly: "", // TODO: awaiting checkout link from Square
-      annually: "",  // TODO: awaiting checkout link from Square
+      biweekly: "https://square.link/u/QyPsNPOH",
+      monthly: "https://square.link/u/6SG0qpPh",
+      quarterly: "https://square.link/u/fL3FrFXn",
+      annually: "https://square.link/u/FcMaegps",
     },
   },
   interior: {
@@ -59,9 +59,9 @@ export const SUBSCRIPTION_PLANS: Record<SubscriptionPlanType, SubscriptionPlan> 
     ceramic: false,
     urls: {
       biweekly: "https://square.link/u/McgJTokF",
-      monthly: "",  // TODO: awaiting checkout link from Square
-      quarterly: "", // TODO: awaiting checkout link from Square
-      annually: "",  // TODO: awaiting checkout link from Square
+      monthly: "https://square.link/u/U9rcqtz5",
+      quarterly: "https://square.link/u/AWw4ew0X",
+      annually: "https://square.link/u/5vnJTNae",
     },
   },
   "ceramic-inside-out": {
