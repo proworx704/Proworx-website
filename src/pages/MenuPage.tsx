@@ -3,6 +3,13 @@ import { useState } from "react";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackCeramicDepositClick } from "@/lib/tracking";
+import {
+  SUBSCRIPTION_PLANS,
+  PLAN_TYPE_ORDER,
+  getCheckoutUrl,
+  type SubscriptionPlanType,
+  type SubscriptionFrequency,
+} from "@/lib/subscriptionUrls";
 
 /* ── helpers ─────────────────────────────────────────────────────────── */
 function BookBtn({ href, children, variant = "gold", onClick }: { href: string; children: React.ReactNode; variant?: "gold" | "outline"; onClick?: () => void }) {
@@ -137,9 +144,8 @@ export function MenuPage() {
   const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
   const bookCeramicInfinite1 = config.ceramicDepositInfinite1 || ceramicFallback;
   const bookCeramicInfinite2 = config.ceramicDepositInfinite2 || ceramicFallback;
-  // Removed: subExterior, subInterior (old 5-tier model)
-  const subFull = config["subscribeUrl:membership-full"] || "https://square.link/u/kuw5LL99";
-  // Removed: subCeramicExt, subCeramicIO (old 5-tier model)
+  // Subscription plan type state for memberships section
+  const [menuPlanType, setMenuPlanType] = useState<SubscriptionPlanType>("inside-out");
   const phoneLink = config.phoneLink || "tel:+19802721903";
 
   const NAV = [
@@ -575,12 +581,12 @@ export function MenuPage() {
 
         <div className="border-t border-border" />
 
-        {/* ═══ MEMBERSHIPS — Vehicle-Size-First ═══ */}
+        {/* ═══ MEMBERSHIPS — Plan Type + Vehicle Size ═══ */}
         <Section id="memberships">
           <SectionHeader
             label="Maintenance Plans"
-            title="Full Inside & Out Subscriptions"
-            subtitle="Choose your vehicle size, then pick the frequency that fits your schedule. All rates are per visit. Requires an initial Standard Reset Detail within the last 30 days to qualify for maintenance pricing."
+            title={`${SUBSCRIPTION_PLANS[menuPlanType].shortName} Subscriptions`}
+            subtitle="Choose your plan type and vehicle size, then pick the frequency that fits your schedule. All rates are per visit."
           />
           {(() => {
             const MAINT_SIZES = [
@@ -600,47 +606,87 @@ export function MenuPage() {
               { key: "monthly" as const, label: "Monthly", suffix: "/visit", desc: "The Sweet Spot. Keeps your vehicle consistently fresh and protected.", badge: "Most Popular" },
               { key: "quarterly" as const, label: "Quarterly", suffix: "/visit", desc: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment." },
             ];
-            // use component state — we're inside the render, so use a simple inline approach
             const [menuSize, setMenuSize] = useState<string>("sedan");
             const prices = MAINT_PRICING[menuSize];
+            const currentMenuPlan = SUBSCRIPTION_PLANS[menuPlanType];
             return (
               <div>
-                {/* Vehicle size selector */}
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {MAINT_SIZES.map((s) => (
-                    <button
-                      key={s.key}
-                      onClick={() => setMenuSize(s.key)}
-                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
-                    >
-                      {s.label}
-                    </button>
-                  ))}
+                {/* Plan type selector */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {PLAN_TYPE_ORDER.map((pt) => {
+                    const plan = SUBSCRIPTION_PLANS[pt];
+                    return (
+                      <button
+                        key={pt}
+                        onClick={() => setMenuPlanType(pt)}
+                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                          menuPlanType === pt
+                            ? plan.ceramic
+                              ? "bg-sky-500 text-white shadow-sm"
+                              : "bg-gold text-gold-foreground shadow-sm"
+                            : "bg-card border border-border text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {plan.shortName}
+                      </button>
+                    );
+                  })}
                 </div>
+                <p className="text-xs text-muted-foreground mb-5">{currentMenuPlan.description}</p>
+                {/* Vehicle size selector (shown for Inside/Out with detailed pricing) */}
+                {menuPlanType === "inside-out" && (
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {MAINT_SIZES.map((s) => (
+                      <button
+                        key={s.key}
+                        onClick={() => setMenuSize(s.key)}
+                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 {/* Frequency cards */}
                 <div className="grid sm:grid-cols-3 gap-4">
-                  {MAINT_FREQ.map((f) => (
-                    <div key={f.key} className={`rounded-2xl bg-card border p-5 relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                      {f.badge && <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">{f.badge}</div>}
-                      <h3 className="font-bold text-base mt-1 mb-1">{f.label}</h3>
-                      <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">{f.suffix}</span></p>
-                      <p className="text-xs text-muted-foreground leading-relaxed mb-4">{f.desc}</p>
-                      <BookBtn href={subFull} onClick={() => trackSubscribeClick(`Maintenance ${f.label}`, subFull)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
-                    </div>
-                  ))}
+                  {MAINT_FREQ.map((f) => {
+                    const checkoutUrl = getCheckoutUrl(menuPlanType, f.key as SubscriptionFrequency);
+                    return (
+                      <div key={f.key} className={`rounded-2xl bg-card border p-5 relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
+                        {f.badge && <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">{f.badge}</div>}
+                        <h3 className="font-bold text-base mt-1 mb-1">{f.label}</h3>
+                        {menuPlanType === "inside-out" ? (
+                          <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">{f.suffix}</span></p>
+                        ) : (
+                          <p className="text-base font-semibold text-gold mb-1">Pricing at checkout</p>
+                        )}
+                        <p className="text-xs text-muted-foreground leading-relaxed mb-4">{f.desc}</p>
+                        <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
+                      </div>
+                    );
+                  })}
                 </div>
                 {/* Annual Pre-Pay Card */}
-                <div className="mt-5 rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-5 relative">
-                  <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-emerald-500 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Save 8%</div>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-1">
-                    <div className="flex-1">
-                      <h3 className="font-bold text-base mb-1">Annual Pre-Pay</h3>
-                      <p className="text-2xl font-black mb-1">{prices.annually}<span className="text-sm font-normal text-muted-foreground">/yr</span></p>
-                      <p className="text-xs text-muted-foreground leading-relaxed">12 Monthly Full Inside & Out visits, completely pre-paid. Plus 10% off any specialty add-on services.</p>
+                {(() => {
+                  const annualUrl = getCheckoutUrl(menuPlanType, "annually");
+                  return (
+                    <div className="mt-5 rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-5 relative">
+                      <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-emerald-500 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Save 8%</div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-1">
+                        <div className="flex-1">
+                          <h3 className="font-bold text-base mb-1">Annual Pre-Pay</h3>
+                          {menuPlanType === "inside-out" ? (
+                            <p className="text-2xl font-black mb-1">{prices.annually}<span className="text-sm font-normal text-muted-foreground">/yr</span></p>
+                          ) : (
+                            <p className="text-base font-semibold text-emerald-400 mb-1">Pricing at checkout</p>
+                          )}
+                          <p className="text-xs text-muted-foreground leading-relaxed">12 monthly {currentMenuPlan.shortName.toLowerCase()} visits, completely pre-paid. Plus 10% off any specialty add-on services.</p>
+                        </div>
+                        <BookBtn href={annualUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Annual`, annualUrl)}>Pre-Pay Now <ArrowRight className="size-4" /></BookBtn>
+                      </div>
                     </div>
-                    <BookBtn href={subFull} onClick={() => trackSubscribeClick("Maintenance Annual", subFull)}>Pre-Pay Now <ArrowRight className="size-4" /></BookBtn>
-                  </div>
-                </div>
+                  );
+                })()}
               </div>
             );
           })()}
