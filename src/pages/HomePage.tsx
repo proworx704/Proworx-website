@@ -415,6 +415,62 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* ─── BEFORE & AFTER ─── */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Real Results</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Before &amp; After</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              See the transformation for yourself — real vehicles, real results.
+            </p>
+          </div>
+          <div className="max-w-5xl mx-auto space-y-10">
+            {/* Before/After Pair 1 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
+                <div className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">Before</div>
+                <img src="/images/gallery/odyssey-before-passenger.webp" alt="Honda Odyssey dirty passenger side interior before detailing" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
+                <div className="absolute top-3 left-3 z-10 bg-green-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">After</div>
+                <img src="/images/gallery/odyssey-after-frontseat.webp" alt="Honda Odyssey clean leather front seat after ProWorx interior detail" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+
+            {/* Before/After Pair 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
+                <div className="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">Before</div>
+                <img src="/images/gallery/odyssey-before-floormat.webp" alt="Honda Odyssey dirty floor mat covered in mud before detailing" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="relative overflow-hidden rounded-xl aspect-[3/4]">
+                <div className="absolute top-3 left-3 z-10 bg-green-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full">After</div>
+                <img src="/images/gallery/odyssey-after-cockpit.webp" alt="Honda Odyssey pristine driver cockpit after ProWorx interior detail" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+
+            {/* Additional After Shots */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { src: "/images/gallery/odyssey-after-driver-wide.webp", alt: "Honda Odyssey clean driver side wide view after interior detail", label: "Driver Side" },
+                { src: "/images/gallery/odyssey-after-console.webp", alt: "Honda Odyssey spotless center console and wireless charger after detail", label: "Console" },
+                { src: "/images/gallery/odyssey-after-backseat-left.webp", alt: "Honda Odyssey clean second row leather seats after detail", label: "Second Row" },
+                { src: "/images/gallery/odyssey-after-backseat-right.webp", alt: "Honda Odyssey clean rear seats from right side after detail", label: "Rear Seats" },
+              ].map((photo, i) => (
+                <div key={i} className="group relative overflow-hidden rounded-xl aspect-[3/4]">
+                  <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p className="text-white text-sm font-semibold">{photo.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── WHY CHOOSE US ─── */}
       <section className="py-20 md:py-28">
         <div className="container">
