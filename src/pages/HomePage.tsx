@@ -457,6 +457,10 @@ export function HomePage() {
                 { src: "/images/gallery/odyssey-after-console.webp", alt: "Honda Odyssey spotless center console and wireless charger after detail", label: "Console" },
                 { src: "/images/gallery/odyssey-after-backseat-left.webp", alt: "Honda Odyssey clean second row leather seats after detail", label: "Second Row" },
                 { src: "/images/gallery/odyssey-after-backseat-right.webp", alt: "Honda Odyssey clean rear seats from right side after detail", label: "Rear Seats" },
+                { src: "/images/gallery/odyssey-after-secondrow.webp", alt: "Honda Odyssey clean second row with ProWorx branding visible", label: "Second Row Side" },
+                { src: "/images/gallery/odyssey-after-doorpanel-pass.webp", alt: "Honda Odyssey spotless passenger door panel after detail", label: "Door Panel" },
+                { src: "/images/gallery/odyssey-after-passenger-wide.webp", alt: "Honda Odyssey clean passenger side wide angle with floor mat", label: "Passenger Side" },
+                { src: "/images/gallery/odyssey-after-cargo.webp", alt: "Honda Odyssey clean cargo area with third row seats", label: "Cargo Area" },
               ].map((photo, i) => (
                 <div key={i} className="group relative overflow-hidden rounded-xl aspect-[3/4]">
                   <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
