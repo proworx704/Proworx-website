@@ -340,19 +340,23 @@ export function CeramicCoatingPage() {
         }}
       />
 
-      {/* ═══════════ HERO ═══════════ */}
-      <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
+      {/* ═══════════ HERO with background video ═══════════ */}
+      <section className="relative flex items-center min-h-[85vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg
-            slot="ceramic-hero"
-            fallback="/images/escalade-rear.jpg"
-            alt="Cadillac Escalade ceramic coating reflections under hex lights"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/ceramic-hero-poster.webp"
             className="w-full h-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40" />
+          >
+            <source src="/videos/ceramic-hero-bg.mp4" type="video/mp4" />
+            <track kind="captions" />
+          </video>
+          <div className="absolute inset-0 bg-black/45" />
         </div>
-        <div className="container">
+        <div className="container py-20 md:py-28">
           <div className="max-w-3xl">
             {/* Trust pills */}
             <div className="flex flex-wrap items-center gap-2 mb-6">
