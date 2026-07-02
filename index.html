@@ -200,6 +200,17 @@
       }
     }
     </script>
+    <!-- Meta Pixel — loaded immediately so fbq() is available before React mounts -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '717926283758981', {}, { autoConfig: true, debug: false });
+      fbq('track', 'PageView');
+    </script>
+
     <!-- CLS prevention: reserve space for elements that render after JS -->
     <style>
       /* Prevent CLS from banner appearance — both banners ~40px each on desktop */
@@ -224,7 +235,7 @@
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   
-    <!-- Deferred analytics — loaded after page is interactive to improve LCP/TBT -->
+    <!-- Deferred analytics — GA4/Google Ads loaded after page is interactive -->
     <script>
       function loadAnalytics() {
         // GA4 + Google Ads
@@ -240,14 +251,6 @@
           gtag('config', 'G-RCPNZC30P2', { linker: { domains: ['book.proworxdetailing.com'] } });
           gtag('config', 'AW-11353787151');
         };
-        // Meta Pixel
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-        document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '717926283758981', {}, { autoConfig: true, debug: false });
-        fbq('track', 'PageView');
       }
       // Use requestIdleCallback or fallback to setTimeout
       if ('requestIdleCallback' in window) {
