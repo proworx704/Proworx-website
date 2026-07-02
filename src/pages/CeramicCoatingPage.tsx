@@ -433,7 +433,8 @@ export function CeramicCoatingPage() {
         </div>
       </section>
 
-      {/* ═══════════ GALLERY ═══════════ */}
+      {/* ═══════════ GALLERY — hidden until better images are ready ═══════════ */}
+      {/*
       <section className="py-16 md:py-24">
         <div className="container">
           <div className="text-center mb-10">
@@ -449,6 +450,7 @@ export function CeramicCoatingPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ═══════════ PACKAGES ═══════════ */}
       <section id="packages" className="py-16 md:py-24 bg-card/50">
