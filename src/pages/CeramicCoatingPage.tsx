@@ -5,8 +5,6 @@ import {
   Calendar,
   CheckCircle2,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Clock,
   Droplets,
   Phone,
@@ -119,6 +117,7 @@ const REVIEWS = [
   },
 ];
 
+/* GALLERY_ITEMS — hidden until better images are ready
 const GALLERY_ITEMS = [
   { image: "/images/escalade-rear.jpg", slot: "ceramic-gallery-1", alt: "Cadillac Escalade ceramic coating — deep gloss under hex lights", label: "Escalade — GYEON Q² Pure" },
   { image: "/images/aston-front.jpg", slot: "ceramic-gallery-2", alt: "Aston Martin ceramic coated by ProWorx", label: "Aston Martin — GYEON Infinite" },
@@ -127,6 +126,7 @@ const GALLERY_ITEMS = [
   { image: "/images/audi-front.jpg", slot: "ceramic-gallery-5", alt: "Audi ceramic coating showroom finish", label: "Audi — GYEON Q² One" },
   { image: "/images/rangerover-front.jpg", slot: "ceramic-gallery-6", alt: "Range Rover ceramic protection by ProWorx", label: "Range Rover — GYEON Q² Pure" },
 ];
+*/
 
 const PRO_VS_CONSUMER = [
   { feature: "Coating Type", pro: "SiO₂ professional-grade (GYEON / IGL)", consumer: "Spray-on sealant" },
@@ -176,6 +176,7 @@ function StarRating({ count }: { count: number }) {
   );
 }
 
+/* GalleryCarousel — hidden until better images are ready
 function GalleryCarousel() {
   const [idx, setIdx] = useState(0);
   const prev = () => setIdx((i) => (i === 0 ? GALLERY_ITEMS.length - 1 : i - 1));
@@ -184,7 +185,6 @@ function GalleryCarousel() {
 
   return (
     <div className="relative">
-      {/* Main image */}
       <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-muted">
         <CmsImg
           slot={item.slot}
@@ -195,7 +195,6 @@ function GalleryCarousel() {
         <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent pt-12 pb-4 px-5">
           <p className="text-white font-semibold text-sm">{item.label}</p>
         </div>
-        {/* Nav arrows */}
         <button
           type="button"
           onClick={prev}
@@ -213,7 +212,6 @@ function GalleryCarousel() {
           <ChevronRight className="size-5" />
         </button>
       </div>
-      {/* Thumbnails */}
       <div className="flex gap-2 mt-3 overflow-x-auto pb-1 scrollbar-hide">
         {GALLERY_ITEMS.map((g, i) => (
           <button
@@ -235,6 +233,7 @@ function GalleryCarousel() {
     </div>
   );
 }
+*/
 
 function FaqAccordion() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
