@@ -108,6 +108,8 @@ function TieredPackageSection({
   photoSlot,
   photoFallback,
   imageAlt,
+  videoSrc,
+  videoPoster,
   config,
 }: {
   categoryLabel: string;
@@ -126,6 +128,8 @@ function TieredPackageSection({
   photoSlot: string;
   photoFallback: string;
   imageAlt: string;
+  videoSrc?: string;
+  videoPoster?: string;
   config?: Record<string, string>;
 }) {
   return (
@@ -136,9 +140,23 @@ function TieredPackageSection({
         <p className="text-muted-foreground max-w-2xl mx-auto">Every tier includes a final quality inspection. Upgrade for enhanced protection and deeper cleaning.</p>
       </div>
 
-      {/* Image */}
+      {/* Media — video or image */}
       <div className="mb-10">
-        <CmsImg slot={photoSlot} fallback={photoFallback} alt={imageAlt} className="rounded-2xl w-full aspect-[21/9] object-cover shadow-xl" loading="eager" />
+        {videoSrc ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={videoPoster}
+            className="rounded-2xl w-full aspect-[21/9] object-cover shadow-xl"
+          >
+            <source src={videoSrc} type="video/mp4" />
+            <track kind="captions" />
+          </video>
+        ) : (
+          <CmsImg slot={photoSlot} fallback={photoFallback} alt={imageAlt} className="rounded-2xl w-full aspect-[21/9] object-cover shadow-xl" loading="eager" />
+        )}
       </div>
 
       {/* Tier cards grid */}
@@ -382,6 +400,8 @@ export function ServicesPage() {
             photoSlot="services-standard"
             photoFallback="/images/full-insideout.jpg"
             imageAlt="Ferrari Roma full inside & out detail by ProWorx with van on-site"
+            videoSrc="/videos/ceramic-hero-bg.mp4"
+            videoPoster="/images/full-insideout.jpg"
             config={config}
           />
         </div>
