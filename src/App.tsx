@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ComponentType } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteHeader } from "./components/SiteHeader";
@@ -11,40 +11,62 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 // Homepage loaded eagerly (landing page — needs fast LCP)
 import { HomePage } from "./pages/HomePage";
 
-// All other pages lazy-loaded (code splitting)
-const ServicesPage = lazy(() => import("./pages/ServicesPage").then(m => ({ default: m.ServicesPage })));
-const PaintCorrectionPage = lazy(() => import("./pages/PaintCorrectionPage").then(m => ({ default: m.PaintCorrectionPage })));
-const CeramicCoatingPage = lazy(() => import("./pages/CeramicCoatingPage").then(m => ({ default: m.CeramicCoatingPage })));
-const BookingPage = lazy(() => import("./pages/BookingPage").then(m => ({ default: m.BookingPage })));
-const AreasPage = lazy(() => import("./pages/AreasPage").then(m => ({ default: m.AreasPage })));
-const ContactPage = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
-const FleetPage = lazy(() => import("./pages/FleetPage").then(m => ({ default: m.FleetPage })));
-const BoatDetailingPage = lazy(() => import("./pages/BoatDetailingPage").then(m => ({ default: m.BoatDetailingPage })));
-const MaintenancePage = lazy(() => import("./pages/MaintenancePage").then(m => ({ default: m.MaintenancePage })));
-const AdminPage = lazy(() => import("./pages/AdminPage").then(m => ({ default: m.AdminPage })));
-const BlogPage = lazy(() => import("./pages/BlogPage").then(m => ({ default: m.BlogPage })));
-const BlogPostPage = lazy(() => import("./pages/BlogPostPage").then(m => ({ default: m.BlogPostPage })));
-const WaxhawPage = lazy(() => import("./pages/WaxhawPage").then(m => ({ default: m.WaxhawPage })));
-const CeramicCoatingCharlottePage = lazy(() => import("./pages/CeramicCoatingCharlottePage").then(m => ({ default: m.CeramicCoatingCharlottePage })));
-const MobileDetailingCostPage = lazy(() => import("./pages/MobileDetailingCostPage").then(m => ({ default: m.MobileDetailingCostPage })));
-const MenuPage = lazy(() => import("./pages/MenuPage").then(m => ({ default: m.MenuPage })));
-const CeramicCoatingVsWaxPage = lazy(() => import("./pages/CeramicCoatingVsWaxPage").then(m => ({ default: m.CeramicCoatingVsWaxPage })));
-const GyeonCertifiedCharlottePage = lazy(() => import("./pages/GyeonCertifiedCharlottePage").then(m => ({ default: m.GyeonCertifiedCharlottePage })));
+/**
+ * Wrapper around React.lazy that auto-reloads on ChunkLoadError.
+ * After a Vercel deploy the cached index.html references old chunk hashes.
+ * Clicking a link tries to load a chunk that no longer exists → 404.
+ * This catches that error and does a hard refresh to get the new HTML.
+ * sessionStorage flag prevents infinite reload loops.
+ */
+function lazyRetry<T extends ComponentType<unknown>>(
+  factory: () => Promise<{ default: T }>,
+): React.LazyExoticComponent<T> {
+  return lazy(() =>
+    factory().catch((err: Error) => {
+      const key = "chunk-retry-" + factory.toString().slice(0, 80);
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, "1");
+        window.location.reload();
+      }
+      throw err; // already retried — let ErrorBoundary handle
+    }),
+  );
+}
 
-const PaintCorrectionCharlottePage = lazy(() => import("./pages/PaintCorrectionCharlottePage").then(m => ({ default: m.PaintCorrectionCharlottePage })));
-const MobileDetailingCharlottePage = lazy(() => import("./pages/MobileDetailingCharlottePage").then(m => ({ default: m.MobileDetailingCharlottePage })));
-const CarDetailingCharlottePage = lazy(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
-const BoatDetailingCharlottePage = lazy(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
-const CeramicCoatingSouthCharlottePage = lazy(() => import("./pages/CeramicCoatingSouthCharlottePage").then(m => ({ default: m.CeramicCoatingSouthCharlottePage })));
-const AutoDetailingCharlottePage = lazy(() => import("./pages/AutoDetailingCharlottePage").then(m => ({ default: m.AutoDetailingCharlottePage })));
-const InteriorDetailingCharlottePage = lazy(() => import("./pages/InteriorDetailingCharlottePage").then(m => ({ default: m.InteriorDetailingCharlottePage })));
-const ExteriorDetailingCharlottePage = lazy(() => import("./pages/ExteriorDetailingCharlottePage").then(m => ({ default: m.ExteriorDetailingCharlottePage })));
-const BallantyneDetailingPage = lazy(() => import("./pages/BallantyneDetailingPage").then(m => ({ default: m.BallantyneDetailingPage })));
-const MatthewsDetailingPage = lazy(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
-const FortMillDetailingPage = lazy(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
-const July4thSalePage = lazy(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
-const CeramicPromoPage = lazy(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
+// All other pages lazy-loaded (code splitting)
+const ServicesPage = lazyRetry(() => import("./pages/ServicesPage").then(m => ({ default: m.ServicesPage })));
+const PaintCorrectionPage = lazyRetry(() => import("./pages/PaintCorrectionPage").then(m => ({ default: m.PaintCorrectionPage })));
+const CeramicCoatingPage = lazyRetry(() => import("./pages/CeramicCoatingPage").then(m => ({ default: m.CeramicCoatingPage })));
+const BookingPage = lazyRetry(() => import("./pages/BookingPage").then(m => ({ default: m.BookingPage })));
+const AreasPage = lazyRetry(() => import("./pages/AreasPage").then(m => ({ default: m.AreasPage })));
+const ContactPage = lazyRetry(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
+const FleetPage = lazyRetry(() => import("./pages/FleetPage").then(m => ({ default: m.FleetPage })));
+const BoatDetailingPage = lazyRetry(() => import("./pages/BoatDetailingPage").then(m => ({ default: m.BoatDetailingPage })));
+const MaintenancePage = lazyRetry(() => import("./pages/MaintenancePage").then(m => ({ default: m.MaintenancePage })));
+const AdminPage = lazyRetry(() => import("./pages/AdminPage").then(m => ({ default: m.AdminPage })));
+const BlogPage = lazyRetry(() => import("./pages/BlogPage").then(m => ({ default: m.BlogPage })));
+const BlogPostPage = lazyRetry(() => import("./pages/BlogPostPage").then(m => ({ default: m.BlogPostPage })));
+const WaxhawPage = lazyRetry(() => import("./pages/WaxhawPage").then(m => ({ default: m.WaxhawPage })));
+const CeramicCoatingCharlottePage = lazyRetry(() => import("./pages/CeramicCoatingCharlottePage").then(m => ({ default: m.CeramicCoatingCharlottePage })));
+const MobileDetailingCostPage = lazyRetry(() => import("./pages/MobileDetailingCostPage").then(m => ({ default: m.MobileDetailingCostPage })));
+const MenuPage = lazyRetry(() => import("./pages/MenuPage").then(m => ({ default: m.MenuPage })));
+const CeramicCoatingVsWaxPage = lazyRetry(() => import("./pages/CeramicCoatingVsWaxPage").then(m => ({ default: m.CeramicCoatingVsWaxPage })));
+const GyeonCertifiedCharlottePage = lazyRetry(() => import("./pages/GyeonCertifiedCharlottePage").then(m => ({ default: m.GyeonCertifiedCharlottePage })));
+
+const PaintCorrectionCharlottePage = lazyRetry(() => import("./pages/PaintCorrectionCharlottePage").then(m => ({ default: m.PaintCorrectionCharlottePage })));
+const MobileDetailingCharlottePage = lazyRetry(() => import("./pages/MobileDetailingCharlottePage").then(m => ({ default: m.MobileDetailingCharlottePage })));
+const CarDetailingCharlottePage = lazyRetry(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
+const BoatDetailingCharlottePage = lazyRetry(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
+const CeramicCoatingSouthCharlottePage = lazyRetry(() => import("./pages/CeramicCoatingSouthCharlottePage").then(m => ({ default: m.CeramicCoatingSouthCharlottePage })));
+const AutoDetailingCharlottePage = lazyRetry(() => import("./pages/AutoDetailingCharlottePage").then(m => ({ default: m.AutoDetailingCharlottePage })));
+const InteriorDetailingCharlottePage = lazyRetry(() => import("./pages/InteriorDetailingCharlottePage").then(m => ({ default: m.InteriorDetailingCharlottePage })));
+const ExteriorDetailingCharlottePage = lazyRetry(() => import("./pages/ExteriorDetailingCharlottePage").then(m => ({ default: m.ExteriorDetailingCharlottePage })));
+const BallantyneDetailingPage = lazyRetry(() => import("./pages/BallantyneDetailingPage").then(m => ({ default: m.BallantyneDetailingPage })));
+const MatthewsDetailingPage = lazyRetry(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
+const FortMillDetailingPage = lazyRetry(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
+const NotFoundPage = lazyRetry(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+const July4thSalePage = lazyRetry(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
+const CeramicPromoPage = lazyRetry(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
 
 /** External redirect helper — replaces window.location for external URLs */
 export function ExternalRedirect({ url }: { url: string }) {
