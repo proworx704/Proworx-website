@@ -296,7 +296,7 @@ export function July4thSalePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/20 text-red-300 text-sm font-medium mb-5 border border-red-500/25">
             <Sparkles className="size-4" />
-            Limited Time · Ends July 31st
+            Limited Time · Ends July 4th
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-3 tracking-tight leading-[1.1]">
@@ -361,7 +361,7 @@ export function July4thSalePage() {
             </h2>
             <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
               Four ways to save big this summer. All offers valid through July
-              31st.
+              4th.
             </p>
           </div>
 
@@ -738,7 +738,7 @@ export function July4thSalePage() {
       <section className="py-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <p className="text-xs text-slate-400">
-            <strong>Terms & Conditions:</strong> Offers valid through July 31,
+            <strong>Terms & Conditions:</strong> Offers valid through July 4,
             2026. Cannot be combined with other discounts or promotions.
             Appointments must be scheduled or membership activated before the
             expiration date. All prices are subject to vehicle size and

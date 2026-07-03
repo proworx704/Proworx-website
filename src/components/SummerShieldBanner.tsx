@@ -45,7 +45,7 @@ export function SummerShieldBanner() {
             {" "}
             <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono text-xs tracking-widest">$300 OFF</span>
             <span className="mx-1 hidden sm:inline">·</span>
-            <span className="hidden sm:inline text-white/80 text-xs">Through July 31</span>
+            <span className="hidden sm:inline text-white/80 text-xs">Ends July 4th</span>
             <span className="mx-2 hidden sm:inline">|</span>
             <a
               href="https://book.proworxdetailing.com/july4th"
