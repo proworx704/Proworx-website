@@ -218,7 +218,8 @@ export function MaintenancePage() {
           {/* ── Plan Type Selector ── */}
           <div className="mb-6">
             <p className="text-center text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">Plan Type</p>
-            <div className="flex flex-wrap justify-center gap-2">
+            {/* Desktop: button tabs */}
+            <div className="hidden md:flex flex-wrap justify-center gap-2">
               {PLAN_TYPE_ORDER.map((pt) => {
                 const plan = SUBSCRIPTION_PLANS[pt];
                 return (
@@ -238,26 +239,60 @@ export function MaintenancePage() {
                 );
               })}
             </div>
+            {/* Mobile: dropdown select */}
+            <div className="md:hidden flex justify-center">
+              <select
+                value={planType}
+                onChange={(e) => setPlanType(e.target.value as SubscriptionPlanType)}
+                className="w-full max-w-sm px-4 py-3 rounded-xl bg-card border border-border text-foreground text-sm font-semibold appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%239ca3af%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.23%207.21a.75.75%200%20011.06.02L10%2011.168l3.71-3.938a.75.75%200%20111.08%201.04l-4.25%204.5a.75.75%200%2001-1.08%200l-4.25-4.5a.75.75%200%2001.02-1.06z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat pr-10"
+              >
+                <optgroup label="Standard Plans">
+                  {PLAN_TYPE_ORDER.filter((pt) => !SUBSCRIPTION_PLANS[pt].ceramic).map((pt) => (
+                    <option key={pt} value={pt}>{SUBSCRIPTION_PLANS[pt].shortName}</option>
+                  ))}
+                </optgroup>
+                <optgroup label="Ceramic Plans">
+                  {PLAN_TYPE_ORDER.filter((pt) => SUBSCRIPTION_PLANS[pt].ceramic).map((pt) => (
+                    <option key={pt} value={pt}>{SUBSCRIPTION_PLANS[pt].shortName}</option>
+                  ))}
+                </optgroup>
+              </select>
+            </div>
             <p className="text-center text-sm text-muted-foreground mt-3 max-w-xl mx-auto">{currentPlan.description}</p>
           </div>
 
           {/* ── Vehicle Size Selector (shown for Inside/Out with detailed pricing) ── */}
           {planType === "inside-out" && (
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {VEHICLE_SIZES.map((s) => (
-                <button
-                  key={s.key}
-                  onClick={() => setVehicleSize(s.key)}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                    vehicleSize === s.key
-                      ? "bg-gold-dark text-gold-foreground shadow-sm"
-                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
-                  }`}
+            <>
+              {/* Desktop: button tabs */}
+              <div className="hidden md:flex flex-wrap justify-center gap-2 mb-8">
+                {VEHICLE_SIZES.map((s) => (
+                  <button
+                    key={s.key}
+                    onClick={() => setVehicleSize(s.key)}
+                    className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                      vehicleSize === s.key
+                        ? "bg-gold-dark text-gold-foreground shadow-sm"
+                        : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+              {/* Mobile: dropdown select */}
+              <div className="md:hidden flex justify-center mb-6">
+                <select
+                  value={vehicleSize}
+                  onChange={(e) => setVehicleSize(e.target.value as VehicleSize)}
+                  className="w-full max-w-sm px-4 py-3 rounded-xl bg-card border border-border text-foreground text-sm font-semibold appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%239ca3af%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.23%207.21a.75.75%200%20011.06.02L10%2011.168l3.71-3.938a.75.75%200%20111.08%201.04l-4.25%204.5a.75.75%200%2001-1.08%200l-4.25-4.5a.75.75%200%2001.02-1.06z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat pr-10"
                 >
-                  {s.label}
-                </button>
-              ))}
-            </div>
+                  {VEHICLE_SIZES.map((s) => (
+                    <option key={s.key} value={s.key}>{s.label}</option>
+                  ))}
+                </select>
+              </div>
+            </>
           )}
 
           {/* ── Frequency Cards ── */}
