@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef, FormEvent } from "react";
+import { useEffect, useState, useRef } from "react";
+import type { FormEvent } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -35,8 +36,6 @@ const VEHICLE_PRICING = [
 /* ── Contract terms ── */
 const COATING_VALUE = "$899";
 const MONTHLY_CREDIT = "$74.92";
-const CONTRACT_MONTHS = 12;
-
 /* ── What happens EVERY monthly visit ── */
 const MONTHLY_VISIT_STEPS = [
   { label: "Full Exterior Hand Wash & Dry", detail: "Thorough two-bucket wash, no automated brushes" },
