@@ -208,7 +208,7 @@ export function ServicesPage() {
         { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$257.78" },
         { label: "Van", duration: "3 hrs", price: "$309.27" },
       ],
-      notes: ["$100/hr base rate + processing fees.", "Surface-level clean only — not a full detail."],
+      notes: ["Surface-level clean only — not a full detail."],
     },
     {
       name: "Standard Inside & Out",
