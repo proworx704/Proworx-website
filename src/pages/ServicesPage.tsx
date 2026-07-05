@@ -189,8 +189,27 @@ export function ServicesPage() {
   const exteriorAddons = services?.exteriorAddons ?? [];
   const ceramicAddons = services?.ceramicAddons ?? [];
 
-  /* ── Inside & Out tiers (4 tiers) ────────────────────────────────────── */
+  /* ── Inside & Out tiers ───────────────────────────────────────────────── */
   const insideOutTiers = [
+    {
+      name: "Express Detail",
+      slug: "express-detail",
+      description: "A quick, surface-level clean inside and out — perfect for vehicles that just need a basic refresh without the full detail treatment.",
+      features: [
+        "Exterior hand wash & dry",
+        "Interior vacuum (seats, carpets, mats)",
+        "Surface wipe-down (dash, console, doors)",
+        "Interior & exterior glass",
+        "Basic tire dressing",
+      ],
+      priceTiers: [
+        { label: "Sedan / Coupe", duration: "1 hr 30 min", price: "$150" },
+        { label: "Small SUV / Truck", duration: "2 hrs", price: "$200" },
+        { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$250" },
+        { label: "Van", duration: "3 hrs", price: "$300" },
+      ],
+      notes: ["$100/hr rate.", "Surface-level clean only — not a full detail."],
+    },
     {
       name: "Standard Inside & Out",
       slug: "standard-inside-out",
