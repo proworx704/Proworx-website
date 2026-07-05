@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef } from "react";
-import type { FormEvent } from "react";
+import { useEffect } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -15,15 +14,15 @@ import {
   MapPin,
   AlertTriangle,
   FileText,
-  ChevronDown,
-  Send,
-  User,
-  Mail,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageSEO } from "@/components/PageSEO";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
 import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
+
+/* ── Square Promo Plan checkout link ── */
+const PROMO_CHECKOUT_URL = "https://square.link/u/BudQ53hh";
 
 /* ── Vehicle-size pricing ── */
 const VEHICLE_PRICING = [
@@ -36,6 +35,7 @@ const VEHICLE_PRICING = [
 /* ── Contract terms ── */
 const COATING_VALUE = "$899";
 const MONTHLY_CREDIT = "$74.92";
+
 /* ── What happens EVERY monthly visit ── */
 const MONTHLY_VISIT_STEPS = [
   { label: "Full Exterior Hand Wash & Dry", detail: "Thorough two-bucket wash, no automated brushes" },
@@ -74,67 +74,18 @@ const AREAS = [
 ];
 
 export function CeramicPromoPage() {
-  const formRef = useRef<HTMLDivElement>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    vehicle: "",
-    vehicleSize: "",
-    message: "",
-  });
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
   useEffect(() => {
     window.scrollTo(0, 0);
     trackViewContent("Ceramic Membership Promo", "Promo");
   }, []);
 
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleSubscribeClick = () => {
+    trackSubscribeClick("Ceramic Promo Subscribe", PROMO_CHECKOUT_URL);
+    window.open(PROMO_CHECKOUT_URL, "_blank", "noopener,noreferrer");
   };
 
   const handlePhone = () => {
     trackPhoneClick();
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setFormStatus("sending");
-
-    // Fire Lead pixel event
-    trackSubscribeClick("Ceramic Coating Lead Form", window.location.href);
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/detailing@proworxdetailing.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: `🛡️ New Ceramic Coating Lead — ${formData.name} (${formData.vehicleSize})`,
-          _template: "table",
-          _captcha: "false",
-          Name: formData.name,
-          Phone: formData.phone,
-          Email: formData.email || "Not provided",
-          Vehicle: formData.vehicle,
-          "Vehicle Size": formData.vehicleSize,
-          "Monthly Rate": VEHICLE_PRICING.find((v) => v.size === formData.vehicleSize)?.monthly || "TBD",
-          Notes: formData.message || "None",
-          Source: "Ceramic Promo Landing Page",
-        }),
-      });
-
-      if (response.ok) {
-        setFormStatus("success");
-      } else {
-        setFormStatus("error");
-      }
-    } catch {
-      setFormStatus("error");
-    }
   };
 
   return (
@@ -172,10 +123,10 @@ export function CeramicPromoPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Button
-              onClick={scrollToForm}
+              onClick={handleSubscribeClick}
               className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
             >
-              Book Your Free Inspection <ArrowRight className="size-5 ml-2" />
+              Subscribe Now <ArrowRight className="size-5 ml-2" />
             </Button>
             <a
               href={PHONE_LINK}
@@ -251,8 +202,8 @@ export function CeramicPromoPage() {
         </div>
       </section>
 
-      {/* ══════ VEHICLE PRICING ══════ */}
-      <section className="py-16 sm:py-20">
+      {/* ══════ VEHICLE PRICING + SUBSCRIBE ══════ */}
+      <section className="py-16 sm:py-20" id="pricing">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -263,33 +214,38 @@ export function CeramicPromoPage() {
             </p>
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-zinc-800">
-                  <th className="text-left px-6 py-4 text-zinc-400 font-semibold text-sm">Vehicle Size</th>
-                  <th className="text-right px-6 py-4 text-zinc-400 font-semibold text-sm">Monthly</th>
-                  <th className="text-right px-6 py-4 text-zinc-400 font-semibold text-sm hidden sm:table-cell">Annual Pre-Pay</th>
-                </tr>
-              </thead>
-              <tbody>
-                {VEHICLE_PRICING.map((v, i) => (
-                  <tr key={v.size} className={i < VEHICLE_PRICING.length - 1 ? "border-b border-zinc-800/50" : ""}>
-                    <td className="px-6 py-4 text-white font-medium">{v.size}</td>
-                    <td className="px-6 py-4 text-right">
-                      <span className="text-amber-400 font-bold text-lg">{v.monthly}</span>
-                      <span className="text-zinc-500 text-sm">/mo</span>
-                    </td>
-                    <td className="px-6 py-4 text-right text-zinc-400 hidden sm:table-cell">{v.annual}/yr</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="px-6 py-4 bg-amber-500/10 border-t border-amber-500/20">
-              <p className="text-amber-400 text-sm font-medium text-center">
-                🛡️ Every plan includes a FREE $899 3-Year Ceramic Coating with 12-month agreement
-              </p>
-            </div>
+          <div className="grid gap-4">
+            {VEHICLE_PRICING.map((v) => (
+              <div
+                key={v.size}
+                className="bg-zinc-900 border border-zinc-800 hover:border-amber-500/40 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-colors"
+              >
+                <div>
+                  <h3 className="text-lg font-bold text-white">{v.size}</h3>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-2xl font-black text-amber-400">{v.monthly}</span>
+                    <span className="text-zinc-500">/mo</span>
+                    <span className="text-zinc-600 text-sm hidden sm:inline">· {v.annual}/yr pre-pay</span>
+                  </div>
+                  <p className="text-zinc-500 text-sm mt-1 sm:hidden">{v.annual}/yr if pre-paid annually</p>
+                </div>
+                <a
+                  href={PROMO_CHECKOUT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackSubscribeClick(`Ceramic Promo - ${v.size}`, PROMO_CHECKOUT_URL)}
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-6 py-3 rounded-xl shadow-lg shadow-amber-500/20 transition-all hover:shadow-amber-400/30 hover:scale-105 text-sm whitespace-nowrap w-full sm:w-auto justify-center"
+                >
+                  Subscribe Now <ExternalLink className="size-4" />
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 px-6 py-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl">
+            <p className="text-amber-400 text-sm font-medium text-center">
+              🛡️ Every plan includes a FREE $899 3-Year Ceramic Coating with 12-month agreement
+            </p>
           </div>
         </div>
       </section>
@@ -472,10 +428,10 @@ export function CeramicPromoPage() {
           </div>
 
           <Button
-            onClick={scrollToForm}
+            onClick={handleSubscribeClick}
             className="mt-10 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
           >
-            Book Your Free Inspection <ArrowRight className="size-5 ml-2" />
+            Subscribe Now <ArrowRight className="size-5 ml-2" />
           </Button>
         </div>
       </section>
@@ -555,157 +511,28 @@ export function CeramicPromoPage() {
         </div>
       </section>
 
-      {/* ══════ LEAD FORM ══════ */}
-      <section ref={formRef} className="py-16 sm:py-24" id="book">
+      {/* ══════ FINAL CTA ══════ */}
+      <section className="py-16 sm:py-24">
         <div className="max-w-2xl mx-auto px-4">
-          <div className="bg-gradient-to-br from-amber-500/15 to-zinc-900 border border-amber-500/20 rounded-3xl p-8 sm:p-12">
-            <div className="text-center mb-8">
-              <Sparkles className="size-10 text-amber-400 mx-auto mb-4" />
-              <h2 className="text-3xl sm:text-4xl font-black mb-3">
-                Book Your Free Paint Inspection
-              </h2>
-              <p className="text-zinc-300 text-lg max-w-md mx-auto">
-                We'll inspect your vehicle, discuss paint correction options, and get your FREE ceramic coating scheduled.
-              </p>
-            </div>
+          <div className="bg-gradient-to-br from-amber-500/15 to-zinc-900 border border-amber-500/20 rounded-3xl p-8 sm:p-12 text-center">
+            <Sparkles className="size-10 text-amber-400 mx-auto mb-4" />
+            <h2 className="text-3xl sm:text-4xl font-black mb-3">
+              Ready for Your Free Ceramic Coating?
+            </h2>
+            <p className="text-zinc-300 text-lg max-w-md mx-auto mb-8">
+              Pick your vehicle size, subscribe, and we'll handle the rest. Your $899 GYEON ceramic coating is on us.
+            </p>
 
-            {formStatus === "success" ? (
-              <div className="text-center py-8">
-                <CheckCircle2 className="size-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">We Got Your Info!</h3>
-                <p className="text-zinc-300 text-lg mb-2">Charles will reach out within 24 hours to schedule your free paint inspection.</p>
-                <p className="text-zinc-400 text-sm">Can't wait? Call us now:</p>
-                <a
-                  href={PHONE_LINK}
-                  onClick={handlePhone}
-                  className="inline-flex items-center gap-2 text-amber-400 font-bold text-lg mt-2 hover:text-amber-300 transition-colors"
-                >
-                  <Phone className="size-5" /> {PHONE}
-                </a>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Full Name *</label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-zinc-500" />
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                      className="w-full pl-11 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50"
-                      placeholder="Your name"
-                    />
-                  </div>
-                </div>
+            <Button
+              onClick={handleSubscribeClick}
+              className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
+            >
+              Subscribe & Get Your Free Coating <ArrowRight className="size-5 ml-2" />
+            </Button>
 
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Phone Number *</label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-zinc-500" />
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
-                      className="w-full pl-11 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Email <span className="text-zinc-500">(optional)</span></label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-zinc-500" />
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                      className="w-full pl-11 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-
-                {/* Vehicle */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Vehicle (Year / Make / Model) *</label>
-                  <div className="relative">
-                    <Car className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-zinc-500" />
-                    <input
-                      type="text"
-                      required
-                      value={formData.vehicle}
-                      onChange={(e) => setFormData((p) => ({ ...p, vehicle: e.target.value }))}
-                      className="w-full pl-11 pr-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50"
-                      placeholder="e.g. 2024 BMW X5"
-                    />
-                  </div>
-                </div>
-
-                {/* Vehicle Size */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Vehicle Size *</label>
-                  <div className="relative">
-                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-5 text-zinc-500 pointer-events-none" />
-                    <select
-                      required
-                      value={formData.vehicleSize}
-                      onChange={(e) => setFormData((p) => ({ ...p, vehicleSize: e.target.value }))}
-                      className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white appearance-none focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50"
-                    >
-                      <option value="" disabled>Select your vehicle size</option>
-                      {VEHICLE_PRICING.map((v) => (
-                        <option key={v.size} value={v.size}>
-                          {v.size} — {v.monthly}/mo
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5">Anything else we should know? <span className="text-zinc-500">(optional)</span></label>
-                  <textarea
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-xl text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 resize-none"
-                    placeholder="Paint concerns, preferred schedule, questions..."
-                  />
-                </div>
-
-                {formStatus === "error" && (
-                  <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
-                    <p className="text-red-400 text-sm">Something went wrong. Please call us at {PHONE} or try again.</p>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  disabled={formStatus === "sending"}
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
-                >
-                  {formStatus === "sending" ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="size-5 mr-2" /> Get My Free Ceramic Coating
-                    </>
-                  )}
-                </Button>
-
-                <p className="text-zinc-500 text-xs text-center pt-2">
-                  We'll contact you within 24 hours to schedule your free paint inspection. No obligation until you sign the agreement.
-                </p>
-              </form>
-            )}
+            <p className="text-zinc-500 text-xs text-center mt-4">
+              You'll choose your vehicle size at checkout. A Ceramic Coating Protection Agreement will be signed before application.
+            </p>
 
             <div className="mt-8 pt-6 border-t border-zinc-700/50 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-zinc-400">
               <a href={PHONE_LINK} onClick={handlePhone} className="flex items-center gap-2 hover:text-white transition-colors">
