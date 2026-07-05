@@ -203,12 +203,12 @@ export function ServicesPage() {
         "Basic tire dressing",
       ],
       priceTiers: [
-        { label: "Sedan / Coupe", duration: "1 hr 30 min", price: "$150" },
-        { label: "Small SUV / Truck", duration: "2 hrs", price: "$200" },
-        { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$250" },
-        { label: "Van", duration: "3 hrs", price: "$300" },
+        { label: "Sedan / Coupe", duration: "1 hr 30 min", price: "$154.79" },
+        { label: "Small SUV / Truck", duration: "2 hrs", price: "$206.28" },
+        { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$257.78" },
+        { label: "Van", duration: "3 hrs", price: "$309.27" },
       ],
-      notes: ["$100/hr rate.", "Surface-level clean only — not a full detail."],
+      notes: ["$100/hr base rate + processing fees.", "Surface-level clean only — not a full detail."],
     },
     {
       name: "Standard Inside & Out",
