@@ -194,6 +194,7 @@ export function ServicesPage() {
     {
       name: "Express Detail",
       slug: "express-detail",
+      badge: "Quick Refresh",
       description: "A quick, surface-level clean inside and out — perfect for vehicles that just need a basic refresh without the full detail treatment.",
       features: [
         "Exterior hand wash & dry",
