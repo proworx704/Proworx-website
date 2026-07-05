@@ -39,12 +39,12 @@ const MONTHLY_CREDIT = "$74.92";
 /* ── What happens EVERY monthly visit ── */
 const MONTHLY_VISIT_STEPS = [
   { label: "Full Exterior Hand Wash & Dry", detail: "Thorough two-bucket wash, no automated brushes" },
-  { label: "Complete Interior Detail", detail: "Vacuum, wipe-down, dashboard, console & door panels" },
+  { label: "Complete Interior Vacuum", detail: "Carpets, seats, crevices — every surface hit" },
+  { label: "Interior Surface Wipe-Down", detail: "Dashboard, console, door panels & cupholders" },
   { label: "Leather / Vinyl Conditioning", detail: "Keeps your seats soft, protected & crack-free" },
-  { label: "GYEON Ceramic Top-Coat Refresh", detail: "Restores hydrophobic beading & gloss every visit" },
-  { label: "Iron Decontamination", detail: "Removes embedded brake dust & industrial fallout" },
-  { label: "Ceramic Trim & Plastic Refresh", detail: "Keeps exterior trim looking factory-new" },
-  { label: "Interior + Exterior Windows", detail: "Streak-free glass inside and out" },
+  { label: "Interior + Exterior Glass", detail: "Streak-free windows inside and out" },
+  { label: "Wheels & Tires Cleaned", detail: "Brake dust removed, tires dressed & shined" },
+  { label: "Light Spray Wax", detail: "Added gloss and protection after every wash" },
   { label: "Tire Shine & Dressing", detail: "Deep black finish on tires & wheel wells" },
 ];
 
@@ -306,7 +306,7 @@ export function CeramicPromoPage() {
               Here's What Happens Each Visit
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-              A GYEON-certified detailer arrives at your home or office and performs a complete ceramic-grade detail — inside and out.
+              A professional detailer arrives at your home or office and performs a complete inside &amp; out detail — wash, vacuum, wipe-down, glass, wheels &amp; more.
             </p>
           </div>
 
@@ -373,7 +373,7 @@ export function CeramicPromoPage() {
               ))}
             </ul>
             <p className="text-zinc-500 text-sm mt-6 pt-4 border-t border-zinc-700/50">
-              Applied at your first visit after a professional paint inspection. Your monthly ceramic maintenance refreshes and extends the coating's life indefinitely.
+              Applied at your first visit after a professional paint inspection. Your monthly maintenance visits keep your vehicle in pristine condition while the coating protects your paint.
             </p>
           </div>
         </div>
@@ -443,7 +443,7 @@ export function CeramicPromoPage() {
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 sm:p-10">
             <div className="space-y-4 text-left">
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
-                <span className="text-zinc-300">12 monthly ceramic-grade details</span>
+                <span className="text-zinc-300">12 monthly Inside &amp; Out details</span>
                 <span className="text-zinc-400 font-semibold">$1,981.08</span>
               </div>
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
