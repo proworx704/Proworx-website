@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
-import { useSiteConfig, useServices, useMemberships } from "@/hooks/useCms";
+import { useSiteConfig, useServices } from "@/hooks/useCms";
 
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
   return (
@@ -181,7 +181,6 @@ function TieredPackageSection({
 export function ServicesPage() {
   const { config } = useSiteConfig();
   const { services } = useServices();
-  const { memberships } = useMemberships();
 
   const interiorPackages = services?.interiorPackages ?? [];
   const interiorAddons = services?.interiorAddons ?? [];
@@ -343,20 +342,6 @@ export function ServicesPage() {
     },
   ];
 
-  // Map membership key → siteConfig subscribe URL key
-  const subscribeKeyMap: Record<string, string> = {
-    clean: "subscribeUrl:membership-exterior",
-    shield: "subscribeUrl:membership-interior",
-    armor: "subscribeUrl:membership-full",
-    ceramic: "subscribeUrl:membership-ceramic",
-  };
-
-  // Build membership plan display data
-  const membershipPlans = (memberships ?? []).map((m) => ({
-    ...m,
-    url: config[subscribeKeyMap[m.key] ?? ""] || m.url,
-    icon: m.key === "clean" ? <Droplets className="size-6" /> : m.key === "shield" ? <Shield className="size-6" /> : <Sparkles className="size-6" />,
-  }));
 
   return (
     <div className="flex-1 flex flex-col">
@@ -538,33 +523,21 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* Membership Plans */}
-      <section id="memberships" className="py-20 md:py-28 bg-card/50">
-        <div className="container">
-          <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Memberships</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Monthly Detailing Plans</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Keep your vehicle looking its best year-round. Cancel anytime.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {membershipPlans.map((plan) => (
-              <div key={plan._id} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${plan.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Best Value</div>}
-                <div className="size-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold mb-4">{plan.icon}</div>
-                <h3 className="font-bold text-xl mb-1">{plan.name}</h3>
-                <p className="text-3xl font-black mb-5">${plan.price}<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />{f}
-                    </li>
-                  ))}
-                </ul>
-                <Button className={plan.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <a href={plan.url} target="_blank" rel="noopener noreferrer">Subscribe <ArrowRight className="size-4" /></a>
-                </Button>
-              </div>
-            ))}
+      {/* Maintenance CTA */}
+      <section className="py-20 md:py-28 bg-card/50">
+        <div className="container text-center">
+          <div className="max-w-2xl mx-auto">
+            <div className="size-14 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mx-auto mb-6">
+              <Shield className="size-7" />
+            </div>
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Stay Protected</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Keep Your Vehicle Looking Its Best</h2>
+            <p className="text-muted-foreground text-lg mb-8">
+              Regular maintenance keeps your paint protected, your interior fresh, and your vehicle's value intact. Explore our monthly plans designed to fit your schedule and budget.
+            </p>
+            <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
+              <Link to="/maintenance">View Maintenance Plans <ArrowRight className="size-5" /></Link>
+            </Button>
           </div>
         </div>
       </section>
