@@ -65,6 +65,7 @@ const BallantyneDetailingPage = lazyRetry(() => import("./pages/BallantyneDetail
 const MatthewsDetailingPage = lazyRetry(() => import("./pages/MatthewsDetailingPage").then(m => ({ default: m.MatthewsDetailingPage })));
 const FortMillDetailingPage = lazyRetry(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
 const NotFoundPage = lazyRetry(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+const PrivacyPolicyPage = lazyRetry(() => import("./pages/PrivacyPolicyPage").then(m => ({ default: m.PrivacyPolicyPage })));
 const July4thSalePage = lazyRetry(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
 const CeramicPromoPage = lazyRetry(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
 
@@ -140,6 +141,7 @@ function App() {
           <Route path="/4thsummersale" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
           <Route path="/summer-shield" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
           <Route path="/ceramic-promo" element={<SiteLayout><Suspense fallback={<PageLoader />}><CeramicPromoPage /></Suspense></SiteLayout>} />
+          <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicyPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />
           <Route path="*" element={<SiteLayout><NotFoundPage /></SiteLayout>} />
         </Routes>
