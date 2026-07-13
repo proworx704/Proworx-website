@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Clock, Droplets, Phone, Shield, Sparkles, Truck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Droplets, Gift, Phone, Shield, Sparkles, Truck } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -224,6 +224,32 @@ export function ServicesPage() {
                 Build Your Package <ArrowRight className="size-5" />
               </BookNowLink>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ FIRST-TIME CUSTOMER PROMO ═══════════ */}
+      <section className="py-0">
+        <div className="container">
+          <div className="-mt-8 relative z-10 max-w-3xl mx-auto rounded-2xl border-2 border-gold/40 bg-gradient-to-r from-card to-card/80 backdrop-blur p-6 shadow-lg">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex items-center gap-3 flex-1">
+                <div className="size-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center shrink-0">
+                  <Gift className="size-6" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-lg">First-Time Customer?</h2>
+                  <p className="text-sm text-muted-foreground">
+                    Get <span className="text-gold font-bold">10% off</span> your first standard detail service — applied at checkout after your service is completed.
+                  </p>
+                </div>
+              </div>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold shrink-0" size="lg" asChild>
+                <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>
+                  Book Now <ArrowRight className="size-5" />
+                </BookNowLink>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
