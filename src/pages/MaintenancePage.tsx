@@ -89,9 +89,9 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($109/mo), and Ceramic Inside & Out ($184.76/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers five monthly detailing plans: Exterior Only ($59/mo), Interior Only ($99/mo), Full Inside & Out ($159/mo with ceramic wet-coat protection), Ceramic Exterior ($109/mo), and Ceramic Inside & Out ($185/mo with GYEON ceramic top-coat refresh and iron decontamination). All plans include mobile service, multiple billing frequencies, and can be canceled anytime." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans are billed monthly with no long-term contracts. Cancel anytime with no penalty." }},
-                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($109/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($184.76/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
+                { "@type": "Question", "name": "What is the ceramic maintenance membership?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two ceramic maintenance tiers for ceramic coating owners: Ceramic Exterior ($109/mo) for exterior-focused care with GYEON ceramic top-coat refresh, and Ceramic Inside & Out ($185/mo) for full interior and exterior detail with iron decontamination and ceramic trim care. Both include professional ceramic maintenance to maximize your coating's lifespan." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, or quarterly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
               ]
             },
@@ -100,7 +100,7 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans with 5 tiers from $59/mo to $184.76/mo. Professional hand wash, interior detail, ceramic coating maintenance, and more.",
+              "description": "Monthly mobile detailing maintenance plans with 5 tiers from $59/mo to $185/mo. Professional hand wash, interior detail, ceramic coating maintenance, and more.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
