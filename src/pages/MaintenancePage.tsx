@@ -35,10 +35,10 @@ const VEHICLE_SIZES: { key: VehicleSize; label: string }[] = [
 
 /* ── Per-Visit Pricing by Vehicle Size (annually = pre-paid 12 monthly visits at 8% off) ── */
 const MAINTENANCE_PRICING: Record<VehicleSize, Record<Frequency, string>> = {
-  sedan: { biweekly: "134.19", monthly: "165.09", quarterly: "226.88", annually: "1,822.59" },
-  "small-suv": { biweekly: "154.79", monthly: "185.68", quarterly: "257.78", annually: "2,050.22" },
-  "large-suv": { biweekly: "175.39", monthly: "206.28", quarterly: "288.67", annually: "2,277.85" },
-  van: { biweekly: "195.98", monthly: "226.88", quarterly: "319.57", annually: "2,505.48" },
+  sedan: { biweekly: "135", monthly: "166", quarterly: "227", annually: "1,823" },
+  "small-suv": { biweekly: "155", monthly: "186", quarterly: "258", annually: "2,051" },
+  "large-suv": { biweekly: "176", monthly: "207", quarterly: "289", annually: "2,278" },
+  van: { biweekly: "196", monthly: "227", quarterly: "320", annually: "2,506" },
 };
 
 /* ── What's included in every maintenance visit ── */
@@ -109,7 +109,7 @@ export function MaintenancePage() {
                   { "@type": "Offer", "name": "Interior Only", "price": "99", "priceCurrency": "USD", "description": "Monthly full interior detail, dashboard & console, leather conditioning, air freshener" },
                   { "@type": "Offer", "name": "Full Inside & Out", "price": "159", "priceCurrency": "USD", "description": "Monthly complete interior and exterior detail with ceramic wet-coat protection and 10% off add-ons" },
                   { "@type": "Offer", "name": "Ceramic Exterior", "price": "109", "priceCurrency": "USD", "description": "Monthly professional exterior detail with GYEON ceramic top-coat refresh for ceramic coating owners" },
-                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "184.76", "priceCurrency": "USD", "description": "Monthly full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
+                  { "@type": "Offer", "name": "Ceramic Inside & Out", "price": "185", "priceCurrency": "USD", "description": "Monthly full I&O detail with GYEON ceramic top-coat refresh, iron decontamination, and 15% off add-ons" }
                 ]
               }
             }
