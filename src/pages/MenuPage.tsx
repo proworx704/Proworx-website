@@ -126,15 +126,12 @@ export function MenuPage() {
 
   // Inside & Out widgets
   const bookStdIO    = config["widgetUrl:homepage-cta"] || `${SQ}/3462dsfn0cvfuh${LOC}`;
-  const bookEliteIO   = `${SQ}/m7bilxz8z549j1${LOC}`;
 
   // Interior Only widgets
   const bookStdInt   = `${SQ}/3s57oeuq7958xd${LOC}`;
-  const bookEliteInt = `${SQ}/vm4n9e5q56f6vl${LOC}`;
 
   // Exterior Only widgets
   const bookStdExt   = `${SQ}/hayrfl98qvan4m${LOC}`;
-  const bookEliteExt = `${SQ}/ve9f9u6kfgnpaw${LOC}`;
 
   // Other widgets
   const bookMain = bookStdIO; // fallback for "Build Your Package" CTAs
@@ -222,7 +219,7 @@ export function MenuPage() {
           <SectionHeader
             label="Full Service"
             title="Inside & Out"
-            subtitle="Full-vehicle detail — interior + exterior combined. Choose your tier:"
+            subtitle="Full-vehicle detail — interior + exterior combined."
           />
           <div className="grid sm:grid-cols-2 gap-4">
             <TierCard
@@ -246,27 +243,7 @@ export function MenuPage() {
               ]}
               bookHref={bookStdIO}
             />
-            <TierCard
-              name="Elite Inside & Out — Ceramic"
-              badge="Best Protection"
-              highlight
-              description="Standard Inside & Out plus ceramic protection products bundled at 15% off — the ultimate long-lasting shield for interior and exterior."
-              features={[
-                "Everything in Standard, plus:",
-                "Fabric protection / weather guard",
-                "GYEON leather shield",
-                "Ceramic tire dressing",
-                "Plastic & trim ceramic coating",
-                "12-month ceramic wax",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "5h 15m", price: "$599" },
-                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$652" },
-                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$705" },
-                { label: "Van", duration: "6h 45m", price: "$758" },
-              ]}
-              bookHref={bookEliteIO}
-            />
+
           </div>
           <p className="text-[10px] text-muted-foreground/60 mt-3">Pet Hair Fee: Additional time charged at base rate. Condition surcharge may apply for neglected vehicles.</p>
         </Section>
@@ -278,7 +255,7 @@ export function MenuPage() {
           <SectionHeader
             label="Interior Only"
             title="Interior Packages"
-            subtitle="Comprehensive interior reset — Standard or Ceramic:"
+            subtitle="Comprehensive interior reset for daily-driven vehicles."
           />
           <div className="grid sm:grid-cols-2 gap-4">
             <TierCard
@@ -294,30 +271,13 @@ export function MenuPage() {
               ]}
               prices={[
                 { label: "Sedan", duration: "1h 45m", price: "$181" },
-                { label: "Sm SUV/Truck", duration: "2h", price: "$206" },
+                { label: "Sm SUV/Truck", duration: "2h", price: "$207" },
                 { label: "Lg SUV/Truck", duration: "2h 30m", price: "$258" },
-                { label: "Van", duration: "3h", price: "$309" },
+                { label: "Van", duration: "3h", price: "$310" },
               ]}
               bookHref={bookStdInt}
             />
-            <TierCard
-              name="Ceramic Interior Only"
-              badge="Best Protection"
-              highlight
-              description="Standard Interior plus ceramic interior protection products bundled at 15% off — advanced fabric and leather shield."
-              features={[
-                "Everything in Standard Interior, plus:",
-                "Fabric protection / weather guard",
-                "GYEON leather shield",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "2h 15m", price: "$300" },
-                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$325" },
-                { label: "Lg SUV/Truck", duration: "3h", price: "$377" },
-                { label: "Van", duration: "3h 30m", price: "$428" },
-              ]}
-              bookHref={bookEliteInt}
-            />
+
           </div>
         </Section>
 
@@ -328,7 +288,7 @@ export function MenuPage() {
           <SectionHeader
             label="Exterior Only"
             title="Exterior Packages"
-            subtitle="Professional exterior care — all mobile at your location:"
+            subtitle="Professional exterior care — all mobile at your location."
           />
           <div className="grid sm:grid-cols-2 gap-4">
             <TierCard
@@ -342,32 +302,14 @@ export function MenuPage() {
                 "Light spray wax for shine & short-term protection",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 15m", price: "$129" },
+                { label: "Sedan", duration: "1h 15m", price: "$130" },
                 { label: "Sm SUV/Truck", duration: "1h 30m", price: "$155" },
                 { label: "Lg SUV/Truck", duration: "1h 45m", price: "$181" },
-                { label: "Van", duration: "2h", price: "$206" },
+                { label: "Van", duration: "2h", price: "$207" },
               ]}
               bookHref={bookStdExt}
             />
-            <TierCard
-              name="Ceramic Exterior Only"
-              badge="Best Protection"
-              highlight
-              description="Standard Exterior plus ceramic exterior protection products bundled at 15% off — the ultimate long-lasting exterior shield."
-              features={[
-                "Everything in Standard Exterior, plus:",
-                "Ceramic tire dressing",
-                "Plastic & trim ceramic coating",
-                "12-month ceramic wax",
-              ]}
-              prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$333" },
-                { label: "Sm SUV/Truck", duration: "3h 45m", price: "$359" },
-                { label: "Lg SUV/Truck", duration: "4h", price: "$385" },
-                { label: "Van", duration: "4h 15m", price: "$410" },
-              ]}
-              bookHref={bookEliteExt}
-            />
+
           </div>
         </Section>
 
@@ -378,7 +320,7 @@ export function MenuPage() {
           <SectionHeader
             label="Customize"
             title="Add-On Services"
-            subtitle="Enhance any package. Ceramic protection products are bundled at 15% off in Ceramic packages."
+            subtitle="Enhance any package with additional services and ceramic protection products."
           />
           <AddOnGroup title="Interior Add-Ons" items={[
             { name: "Hot Water Extraction / Shampoo", price: "$100" },
@@ -595,19 +537,33 @@ export function MenuPage() {
               { key: "large-suv", label: "Large SUV / Off-Road" },
               { key: "van", label: "Van" },
             ];
-            const MAINT_PRICING: Record<string, { biweekly: string; monthly: string; quarterly: string; annually: string }> = {
-              sedan: { biweekly: "$135", monthly: "$166", quarterly: "$227", annually: "$1,823" },
-              "small-suv": { biweekly: "$155", monthly: "$186", quarterly: "$258", annually: "$2,051" },
-              "large-suv": { biweekly: "$176", monthly: "$207", quarterly: "$289", annually: "$2,278" },
-              van: { biweekly: "$196", monthly: "$227", quarterly: "$320", annually: "$2,506" },
+            const ALL_PRICING: Record<string, Record<string, { biweekly: string; monthly: string; quarterly: string; annually: string }>> = {
+              "inside-out": {
+                sedan: { biweekly: "$135", monthly: "$166", quarterly: "$227", annually: "$1,823" },
+                "small-suv": { biweekly: "$155", monthly: "$186", quarterly: "$258", annually: "$2,051" },
+                "large-suv": { biweekly: "$176", monthly: "$207", quarterly: "$289", annually: "$2,278" },
+                van: { biweekly: "$196", monthly: "$227", quarterly: "$320", annually: "$2,506" },
+              },
+              exterior: {
+                sedan: { biweekly: "$48", monthly: "$64", quarterly: "$120", annually: "$697" },
+                "small-suv": { biweekly: "$58", monthly: "$74", quarterly: "$136", annually: "$813" },
+                "large-suv": { biweekly: "$69", monthly: "$84", quarterly: "$151", annually: "$929" },
+                van: { biweekly: "$79", monthly: "$95", quarterly: "$167", annually: "$1,045" },
+              },
+              interior: {
+                sedan: { biweekly: "$80", monthly: "$106", quarterly: "$202", annually: "$1,142" },
+                "small-suv": { biweekly: "$95", monthly: "$126", quarterly: "$233", annually: "$1,369" },
+                "large-suv": { biweekly: "$111", monthly: "$147", quarterly: "$263", annually: "$1,596" },
+                van: { biweekly: "$126", monthly: "$168", quarterly: "$294", annually: "$1,823" },
+              },
             };
             const MAINT_FREQ = [
-              { key: "biweekly" as const, label: "Biweekly", suffix: "/visit", desc: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep." },
-              { key: "monthly" as const, label: "Monthly", suffix: "/visit", desc: "The Sweet Spot. Keeps your vehicle consistently fresh and protected.", badge: "Most Popular" },
-              { key: "quarterly" as const, label: "Quarterly", suffix: "/visit", desc: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment." },
+              { key: "biweekly" as const, label: "Biweekly", suffix: "/visit", desc: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep. Billing starts the 1st of the month following signup." },
+              { key: "monthly" as const, label: "Monthly", suffix: "/visit", desc: "The Sweet Spot. Keeps your vehicle consistently fresh and protected. Billing starts the 1st of the month following signup.", badge: "Most Popular" },
+              { key: "quarterly" as const, label: "Quarterly", suffix: "/visit", desc: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment. Billing starts the 1st of the month following signup." },
             ];
             const [menuSize, setMenuSize] = useState<string>("sedan");
-            const prices = MAINT_PRICING[menuSize];
+            const prices = ALL_PRICING[menuPlanType]?.[menuSize] || ALL_PRICING["inside-out"][menuSize];
             const currentMenuPlan = SUBSCRIPTION_PLANS[menuPlanType];
             return (
               <div>
@@ -621,9 +577,7 @@ export function MenuPage() {
                         onClick={() => setMenuPlanType(pt)}
                         className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                           menuPlanType === pt
-                            ? plan.ceramic
-                              ? "bg-sky-500 text-white shadow-sm"
-                              : "bg-gold-dark text-gold-foreground shadow-sm"
+                            ? "bg-gold-dark text-gold-foreground shadow-sm"
                             : "bg-card border border-border text-muted-foreground hover:text-foreground"
                         }`}
                       >
@@ -634,19 +588,17 @@ export function MenuPage() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-5">{currentMenuPlan.description}</p>
                 {/* Vehicle size selector (shown for Inside/Out with detailed pricing) */}
-                {menuPlanType === "inside-out" && (
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {MAINT_SIZES.map((s) => (
-                      <button
-                        key={s.key}
-                        onClick={() => setMenuSize(s.key)}
-                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold-dark text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
-                      >
-                        {s.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {MAINT_SIZES.map((s) => (
+                    <button
+                      key={s.key}
+                      onClick={() => setMenuSize(s.key)}
+                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold-dark text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
+                    >
+                      {s.label}
+                    </button>
+                  ))}
+                </div>
                 {/* Frequency cards */}
                 <div className="grid sm:grid-cols-3 gap-4">
                   {MAINT_FREQ.map((f) => {
@@ -655,11 +607,7 @@ export function MenuPage() {
                       <div key={f.key} className={`rounded-2xl bg-card border p-5 relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                         {f.badge && <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">{f.badge}</div>}
                         <h3 className="font-bold text-base mt-1 mb-1">{f.label}</h3>
-                        {menuPlanType === "inside-out" ? (
-                          <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">{f.suffix}</span></p>
-                        ) : (
-                          <p className="text-base font-semibold text-gold mb-1">Pricing at checkout</p>
-                        )}
+                        <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">{f.suffix}</span></p>
                         <p className="text-xs text-muted-foreground leading-relaxed mb-4">{f.desc}</p>
                         <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
                       </div>
@@ -675,11 +623,7 @@ export function MenuPage() {
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-1">
                         <div className="flex-1">
                           <h3 className="font-bold text-base mb-1">Annual Pre-Pay</h3>
-                          {menuPlanType === "inside-out" ? (
-                            <p className="text-2xl font-black mb-1">{prices.annually}<span className="text-sm font-normal text-muted-foreground">/yr</span></p>
-                          ) : (
-                            <p className="text-base font-semibold text-emerald-400 mb-1">Pricing at checkout</p>
-                          )}
+                          <p className="text-2xl font-black mb-1">{prices.annually}<span className="text-sm font-normal text-muted-foreground">/yr</span></p>
                           <p className="text-xs text-muted-foreground leading-relaxed">12 monthly {currentMenuPlan.shortName.toLowerCase()} visits, completely pre-paid. Plus 10% off any specialty add-on services.</p>
                         </div>
                         <BookBtn href={annualUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Annual`, annualUrl)}>Pre-Pay Now <ArrowRight className="size-4" /></BookBtn>
