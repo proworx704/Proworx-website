@@ -26,15 +26,15 @@ const PROMO_CHECKOUT_URL = "https://square.link/u/BudQ53hh";
 
 /* ── Vehicle-size pricing ── */
 const VEHICLE_PRICING = [
-  { size: "Sedan", monthly: "$165.09", annual: "$1,822.59" },
-  { size: "Small SUV / Truck", monthly: "$185.68", annual: "$2,050.22" },
-  { size: "Large SUV / Off-Road", monthly: "$206.28", annual: "$2,277.85" },
-  { size: "Van", monthly: "$226.88", annual: "$2,505.48" },
+  { size: "Sedan", monthly: "$166", annual: "$1,823" },
+  { size: "Small SUV / Truck", monthly: "$186", annual: "$2,051" },
+  { size: "Large SUV / Off-Road", monthly: "$207", annual: "$2,278" },
+  { size: "Van", monthly: "$227", annual: "$2,506" },
 ];
 
 /* ── Contract terms ── */
 const COATING_VALUE = "$899";
-const MONTHLY_CREDIT = "$74.92";
+const MONTHLY_CREDIT = "$75";
 
 /* ── What happens EVERY monthly visit ── */
 const MONTHLY_VISIT_STEPS = [
@@ -118,7 +118,7 @@ export function CeramicPromoPage() {
           </p>
 
           <p className="text-lg text-amber-400 font-semibold mb-10">
-            Starting at $165.09/mo · We come to you · GYEON Certified
+            Starting at $166/mo · We come to you · GYEON Certified
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -395,7 +395,7 @@ export function CeramicPromoPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">The Math Speaks for Itself</h2>
-          <p className="text-zinc-400 text-lg mb-10">Example: Sedan at $165.09/mo</p>
+          <p className="text-zinc-400 text-lg mb-10">Example: Sedan at $166/mo</p>
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 sm:p-10">
             <div className="space-y-4 text-left">
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
@@ -404,7 +404,7 @@ export function CeramicPromoPage() {
               </div>
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
                 <span className="text-zinc-300">Q² Pure EVO 3-Year Ceramic Coating</span>
-                <span className="text-zinc-400 font-semibold">$899.00</span>
+                <span className="text-zinc-400 font-semibold">$899</span>
               </div>
               <div className="flex justify-between items-center py-3 border-b border-zinc-800">
                 <span className="text-zinc-300">Priority scheduling & 15% add-on savings</span>
@@ -417,7 +417,7 @@ export function CeramicPromoPage() {
               <div className="flex justify-between items-center py-4 bg-amber-500/10 rounded-xl px-4 -mx-4">
                 <div>
                   <span className="text-amber-400 font-bold text-lg">You pay</span>
-                  <span className="text-zinc-500 block text-sm">$165.09/mo × 12 months</span>
+                  <span className="text-zinc-500 block text-sm">$166/mo × 12 months</span>
                 </div>
                 <span className="text-amber-400 font-black text-2xl">$1,981.08</span>
               </div>

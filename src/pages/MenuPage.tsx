@@ -239,10 +239,10 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 30m", price: "$257.78" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$309.27" },
-                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$360.76" },
-                { label: "Van", duration: "4h", price: "$412.26" },
+                { label: "Sedan", duration: "2h 30m", price: "$258" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$310" },
+                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$361" },
+                { label: "Van", duration: "4h", price: "$413" },
               ]}
               bookHref={bookStdIO}
             />
@@ -260,10 +260,10 @@ export function MenuPage() {
                 "12-month ceramic wax",
               ]}
               prices={[
-                { label: "Sedan", duration: "5h 15m", price: "$598.66" },
-                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$651.18" },
-                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$704.74" },
-                { label: "Van", duration: "6h 45m", price: "$757.26" },
+                { label: "Sedan", duration: "5h 15m", price: "$599" },
+                { label: "Sm SUV/Truck", duration: "5h 45m", price: "$652" },
+                { label: "Lg SUV/Truck", duration: "6h 15m", price: "$705" },
+                { label: "Van", duration: "6h 45m", price: "$758" },
               ]}
               bookHref={bookEliteIO}
             />
@@ -596,10 +596,10 @@ export function MenuPage() {
               { key: "van", label: "Van" },
             ];
             const MAINT_PRICING: Record<string, { biweekly: string; monthly: string; quarterly: string; annually: string }> = {
-              sedan: { biweekly: "$134.19", monthly: "$165.09", quarterly: "$226.88", annually: "$1,822.59" },
-              "small-suv": { biweekly: "$154.79", monthly: "$185.68", quarterly: "$257.78", annually: "$2,050.22" },
-              "large-suv": { biweekly: "$175.39", monthly: "$206.28", quarterly: "$288.67", annually: "$2,277.85" },
-              van: { biweekly: "$195.98", monthly: "$226.88", quarterly: "$319.57", annually: "$2,505.48" },
+              sedan: { biweekly: "$135", monthly: "$166", quarterly: "$227", annually: "$1,823" },
+              "small-suv": { biweekly: "$155", monthly: "$186", quarterly: "$258", annually: "$2,051" },
+              "large-suv": { biweekly: "$176", monthly: "$207", quarterly: "$289", annually: "$2,278" },
+              van: { biweekly: "$196", monthly: "$227", quarterly: "$320", annually: "$2,506" },
             };
             const MAINT_FREQ = [
               { key: "biweekly" as const, label: "Biweekly", suffix: "/visit", desc: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep." },
