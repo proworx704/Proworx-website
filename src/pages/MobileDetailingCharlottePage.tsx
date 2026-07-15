@@ -86,7 +86,7 @@ export function MobileDetailingCharlottePage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="mobile-detailing-clt-hero" fallback="/images/mobile-tent.jpg" alt="ProWorx mobile detailing setup in Charlotte NC" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="mobile-detailing-clt-hero" fallback="/images/porsche-van.jpg" alt="ProWorx mobile detailing setup in Charlotte NC" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
