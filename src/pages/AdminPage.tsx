@@ -497,11 +497,11 @@ function OverviewTab() {
     { name: "escalade-front.jpg", used: "Homepage Hero" },
     { name: "escalade-rear.jpg", used: "Ceramic Coating Hero" },
     { name: "porsche-van.jpg", used: "About Section" },
-    { name: "ferrari-van.jpg", used: "Gallery" },
+    { name: "ferrari-side.jpg", used: "Gallery" },
     { name: "corvette-front.jpg", used: "Services Hero, Gallery" },
     { name: "tesla-bay.jpg", used: "Paint Correction Hero" },
     { name: "aston-front.jpg", used: "Ceramic Why Section" },
-    { name: "fleet-real.jpg", used: "Fleet Section" },
+    { name: "aston-rear.jpg", used: "Fleet Section" },
     { name: "rangerover-interior.jpg", used: "Interior Services" },
   ];
 

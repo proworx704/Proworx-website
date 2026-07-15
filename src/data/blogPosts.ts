@@ -486,7 +486,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "Mobile detailing in Charlotte ranges from $150 to $2,500+ depending on the service. Here\'s an honest breakdown of what you should expect to pay — and what affects the price.",
     category: "Car Care Tips",
-    image: "/images/mobile-tent.jpg",
+    image: "/images/porsche-van.jpg",
     imageAlt: "ProWorx mobile detailing tent set up at a customer location in Charlotte",
     publishedAt: "2026-04-12",
     readingTime: "7 min read",

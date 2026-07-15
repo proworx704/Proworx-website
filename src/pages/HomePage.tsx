@@ -45,7 +45,7 @@ const SERVICES = [
     title: "Full Detail Packages",
     description: "Interior and exterior detailing tailored to your vehicle. From standard maintenance to elite full details.",
     href: "/services",
-    image: "/images/ferrari-van.jpg",
+    image: "/images/ferrari-side.jpg",
     slot: "card-full-detail",
     imageAlt: "ProWorx van on-site with Ferrari during full detail service",
   },
@@ -63,7 +63,7 @@ const SERVICES = [
     title: "Fleet Detailing",
     description: "Professional fleet detailing services with volume pricing. Keep your business vehicles looking sharp.",
     href: "/fleet",
-    image: "/images/fleet-real.jpg",
+    image: "/images/aston-rear.jpg",
     slot: "card-fleet",
     imageAlt: "ProWorx detailing a fleet vehicle on-site at a business location",
   },
@@ -366,7 +366,7 @@ export function HomePage() {
             <div className="space-y-5">
               <CmsImg
                 slot="homepage-fleet"
-                fallback="/images/fleet-real.jpg"
+                fallback="/images/aston-rear.jpg"
                 alt="Fleet vehicle detailed on-site by ProWorx with van in background"
                 className="rounded-2xl w-full aspect-[3/2] object-cover shadow-xl"
               />
@@ -394,14 +394,14 @@ export function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
             {[
               { slot: "gallery-1", fallback: "/images/corvette-front.jpg", alt: "Black Corvette ZR1 front view showing flawless paint after multi-stage correction by ProWorx", label: "Corvette ZR1" },
-              { slot: "gallery-2", fallback: "/images/ferrari-van.jpg", alt: "Red Ferrari Roma parked next to the ProWorx mobile detailing van during on-site service", label: "Ferrari Roma" },
+              { slot: "gallery-2", fallback: "/images/ferrari-side.jpg", alt: "Red Ferrari Roma parked next to the ProWorx mobile detailing van during on-site service", label: "Ferrari Roma" },
               { slot: "gallery-3", fallback: "/images/vanquish-interior.jpg", alt: "Aston Martin Vanquish quilted leather interior after deep cleaning and conditioning by ProWorx", label: "Aston Martin Interior" },
               { slot: "gallery-4", fallback: "/images/escalade-rear.jpg", alt: "Cadillac Escalade rear showing mirror-like ceramic coating reflections under studio lighting", label: "Escalade Ceramic Coating" },
               { slot: "gallery-5", fallback: "/images/aston-rear.jpg", alt: "Blue Aston Martin rear quarter panel gleaming after full exterior detail by ProWorx", label: "Aston Martin" },
               { slot: "gallery-6", fallback: "/images/rangerover-front.jpg", alt: "White Range Rover Sport front view with showroom-quality finish after ProWorx full detail", label: "Range Rover Sport" },
               { slot: "gallery-7", fallback: "/images/tesla-bay.jpg", alt: "Tesla Model S in the ProWorx detailing bay prepped for paint correction under bright work lights", label: "Tesla Model S" },
               { slot: "gallery-8", fallback: "/images/rangerover-interior.jpg", alt: "Range Rover pristine white leather interior after thorough cleaning and protection by ProWorx", label: "Range Rover Interior" },
-              { slot: "gallery-9", fallback: "/images/mobile-tent.jpg", alt: "ProWorx inflatable detailing tent set up at a customer location for professional mobile service", label: "Mobile Setup" },
+              { slot: "gallery-9", fallback: "/images/porsche-van.jpg", alt: "ProWorx inflatable detailing tent set up at a customer location for professional mobile service", label: "Mobile Setup" },
             ].map((photo, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl aspect-[4/3]">
                 <CmsImg slot={photo.slot} fallback={photo.fallback} alt={photo.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />

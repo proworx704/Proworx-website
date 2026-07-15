@@ -511,7 +511,7 @@ export function ServicesPage() {
                 desc: "Volume pricing for business vehicles",
                 link: "/fleet",
                 slot: "fleet-hero",
-                fallback: "/images/fleet-real.jpg",
+                fallback: "/images/aston-rear.jpg",
               },
             ].map((s) => (
               <Link key={s.title} to={s.link}>

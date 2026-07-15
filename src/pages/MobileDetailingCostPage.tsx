@@ -44,7 +44,7 @@ export function MobileDetailingCostPage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="cost-hero" fallback="/images/ferrari-van.jpg" alt="ProWorx mobile detailing van with professional equipment" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="cost-hero" fallback="/images/ferrari-side.jpg" alt="ProWorx mobile detailing van with professional equipment" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">

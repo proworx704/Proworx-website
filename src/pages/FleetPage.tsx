@@ -118,7 +118,7 @@ export function FleetPage() {
       {/* Hero */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="fleet-hero" fallback="/images/fleet-real.jpg" alt="ProWorx fleet detailing on-site service" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="fleet-hero" fallback="/images/aston-rear.jpg" alt="ProWorx fleet detailing on-site service" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
@@ -292,7 +292,7 @@ export function FleetPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="fleet-process" fallback="/images/mobile-tent.jpg" alt="ProWorx mobile detailing setup" className="w-full h-full object-cover" />
+          <CmsImg slot="fleet-process" fallback="/images/porsche-van.jpg" alt="ProWorx mobile detailing setup" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
         </div>
         <div className="container text-center">

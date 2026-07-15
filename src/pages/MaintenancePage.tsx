@@ -427,7 +427,7 @@ export function MaintenancePage() {
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <CmsImg slot="maintenance-visit" fallback="/images/mobile-tent.jpg" alt="ProWorx mobile detailing setup at customer location" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <CmsImg slot="maintenance-visit" fallback="/images/porsche-van.jpg" alt="ProWorx mobile detailing setup at customer location" className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
             <div>
               <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Your Monthly Visit</p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">What to Expect</h2>
