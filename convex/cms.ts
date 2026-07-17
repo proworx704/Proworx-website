@@ -478,18 +478,18 @@ export const checkAndSeed = mutation({
       // Home page
       { slot: "homepage-hero", label: "Homepage Hero", page: "Home", staticPath: "/images/escalade-front.jpg" },
       { slot: "homepage-about", label: "About Section", page: "Home", staticPath: "/images/porsche-van.jpg" },
-      { slot: "homepage-fleet", label: "Fleet Section", page: "Home", staticPath: "/images/fleet-real.jpg" },
+      { slot: "homepage-fleet", label: "Fleet Section", page: "Home", staticPath: "/images/porsche-van.jpg" },
       { slot: "homepage-interior", label: "Interior Section", page: "Home", staticPath: "/images/vanquish-interior.jpg" },
       { slot: "homepage-cta", label: "CTA / Why Choose Us", page: "Home", staticPath: "/images/ferrari-profile.jpg" },
       { slot: "gallery-1", label: "Gallery — Corvette ZR1", page: "Gallery", staticPath: "/images/corvette-front.jpg" },
-      { slot: "gallery-2", label: "Gallery — Ferrari Roma", page: "Gallery", staticPath: "/images/ferrari-van.jpg" },
+      { slot: "gallery-2", label: "Gallery — Ferrari Roma", page: "Gallery", staticPath: "/images/ferrari-profile.jpg" },
       { slot: "gallery-3", label: "Gallery — Vanquish Interior", page: "Gallery", staticPath: "/images/vanquish-interior.jpg" },
       { slot: "gallery-4", label: "Gallery — Escalade Ceramic", page: "Gallery", staticPath: "/images/escalade-rear.jpg" },
       { slot: "gallery-5", label: "Gallery — Aston Martin", page: "Gallery", staticPath: "/images/aston-rear.jpg" },
       { slot: "gallery-6", label: "Gallery — Range Rover", page: "Gallery", staticPath: "/images/rangerover-front.jpg" },
       { slot: "gallery-7", label: "Gallery — Tesla", page: "Gallery", staticPath: "/images/tesla-bay.jpg" },
       { slot: "gallery-8", label: "Gallery — Range Rover Interior", page: "Gallery", staticPath: "/images/rangerover-interior.jpg" },
-      { slot: "gallery-9", label: "Gallery — Mobile Setup", page: "Gallery", staticPath: "/images/mobile-tent.jpg" },
+      { slot: "gallery-9", label: "Gallery — Mobile Setup", page: "Gallery", staticPath: "/images/full-insideout.jpg" },
       // Services
       { slot: "services-hero", label: "Services Hero", page: "Services", staticPath: "/images/corvette-front.jpg" },
       { slot: "services-standard", label: "Standard Detail", page: "Services", staticPath: "/images/full-insideout.jpg" },
@@ -503,14 +503,14 @@ export const checkAndSeed = mutation({
       { slot: "paint-hero", label: "Paint Correction Hero", page: "Paint Correction", staticPath: "/images/tesla-bay.jpg" },
       { slot: "paint-results", label: "Paint Correction Results", page: "Paint Correction", staticPath: "/images/corvette-front.jpg" },
       // Fleet
-      { slot: "fleet-hero", label: "Fleet Hero", page: "Fleet", staticPath: "/images/fleet-real.jpg" },
-      { slot: "fleet-process", label: "Fleet Process Section", page: "Fleet", staticPath: "/images/mobile-tent.jpg" },
+      { slot: "fleet-hero", label: "Fleet Hero", page: "Fleet", staticPath: "/images/porsche-van.jpg" },
+      { slot: "fleet-process", label: "Fleet Process Section", page: "Fleet", staticPath: "/images/full-insideout.jpg" },
       // Service cards (homepage)
-      { slot: "card-full-detail", label: "Card — Full Detail", page: "Home", staticPath: "/images/ferrari-van.jpg" },
+      { slot: "card-full-detail", label: "Card — Full Detail", page: "Home", staticPath: "/images/ferrari-profile.jpg" },
       { slot: "card-ceramic", label: "Card — Ceramic Coating", page: "Home", staticPath: "/images/escalade-rear.jpg" },
       { slot: "card-paint", label: "Card — Paint Correction", page: "Home", staticPath: "/images/corvette-rear.jpg" },
       { slot: "card-exterior", label: "Card — Exterior Detail", page: "Home", staticPath: "/images/rangerover-front.jpg" },
-      { slot: "card-fleet", label: "Card — Fleet Detailing", page: "Home", staticPath: "/images/fleet-real.jpg" },
+      { slot: "card-fleet", label: "Card — Fleet Detailing", page: "Home", staticPath: "/images/porsche-van.jpg" },
       { slot: "card-ceramic-why", label: "Card — Ceramic Protection", page: "Home", staticPath: "/images/aston-front.jpg" },
     ];
     for (const ps of photoSlots) {
