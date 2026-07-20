@@ -2,7 +2,6 @@ import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown } from "
 import { useState } from "react";
 import {
   INSIDE_OUT_LINKS, INTERIOR_LINKS, EXTERIOR_LINKS,
-  ADDON_LINKS, PROTECTION_LINKS,
 } from "@/lib/paymentLinks";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
