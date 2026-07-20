@@ -21,8 +21,8 @@ export const MEMBERSHIP_LINKS = {
 
 export const CERAMIC_DEPOSIT_URL = "https://square.link/u/NwnNJRm7";
 
-// Wisetack financing
-export const WISETACK_URL = "https://www.wisetack.com/";
+// Wisetack financing — REMOVED (replaced by Affirm)
+// export const WISETACK_URL = "https://www.wisetack.com/";
 
 // Services from Square Booking — exact pricing
 export const SERVICES = {
