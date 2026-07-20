@@ -5,6 +5,7 @@ import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
 import { SummerShieldBanner } from "./SummerShieldBanner";
+import { AffirmFinancingBanner } from "./AffirmFinancingBanner";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -34,6 +35,7 @@ export function SiteHeader() {
         Skip to main content
       </a>
 
+      <AffirmFinancingBanner />
       <SummerShieldBanner />
 
       {/* Top bar with phone */}
