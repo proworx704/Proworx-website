@@ -605,6 +605,65 @@ export const setPhotoFocalY = mutation({
 
 
 
+/**
+ * Migration: sync photo staticPaths with seed data.
+ * Call once after deploying to fix stale DB references
+ * (e.g. after renaming image files).
+ */
+export const syncPhotoStaticPaths = mutation({
+  args: {},
+  returns: v.number(), // number of records updated
+  handler: async (ctx) => {
+    // Canonical staticPaths — must match the photoSlots array in checkAndSeed
+    const canonical: Record<string, string> = {
+      "homepage-hero": "/images/escalade-front.jpg",
+      "homepage-about": "/images/porsche-van.jpg",
+      "homepage-fleet": "/images/porsche-van.jpg",
+      "homepage-interior": "/images/vanquish-interior.jpg",
+      "homepage-cta": "/images/ferrari-profile.jpg",
+      "gallery-1": "/images/corvette-front.jpg",
+      "gallery-2": "/images/ferrari-profile.jpg",
+      "gallery-3": "/images/vanquish-interior.jpg",
+      "gallery-4": "/images/escalade-rear.jpg",
+      "gallery-5": "/images/aston-rear.jpg",
+      "gallery-6": "/images/rangerover-front.jpg",
+      "gallery-7": "/images/tesla-bay.jpg",
+      "gallery-8": "/images/rangerover-interior.jpg",
+      "gallery-9": "/images/full-insideout.jpg",
+      "services-hero": "/images/corvette-front.jpg",
+      "services-standard": "/images/full-insideout.jpg",
+      "services-interior": "/images/rangerover-interior.jpg",
+      "services-exterior": "/images/porsche-foam.jpg",
+      "ceramic-hero": "/images/escalade-rear.jpg",
+      "ceramic-why": "/images/aston-front.jpg",
+      "ceramic-process": "/images/ferrari-side.jpg",
+      "paint-hero": "/images/tesla-bay.jpg",
+      "paint-results": "/images/corvette-front.jpg",
+      "fleet-hero": "/images/porsche-van.jpg",
+      "fleet-process": "/images/full-insideout.jpg",
+      "card-full-detail": "/images/ferrari-profile.jpg",
+      "card-ceramic": "/images/escalade-rear.jpg",
+      "card-paint": "/images/corvette-rear.jpg",
+      "card-exterior": "/images/rangerover-front.jpg",
+      "card-fleet": "/images/porsche-van.jpg",
+      "card-ceramic-why": "/images/aston-front.jpg",
+    };
+
+    let updated = 0;
+    for (const [slot, correctPath] of Object.entries(canonical)) {
+      const existing = await ctx.db
+        .query("sitePhotos")
+        .withIndex("by_slot", (q) => q.eq("slot", slot))
+        .first();
+      if (existing && existing.staticPath !== correctPath) {
+        await ctx.db.patch(existing._id, { staticPath: correctPath });
+        updated++;
+      }
+    }
+    return updated;
+  },
+});
+
 // Temporary stub - kept for backwards compat until Vercel deploys new bundle
 export const getWidgetUrls = query({
   args: {},
