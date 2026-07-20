@@ -520,7 +520,7 @@ export function MenuPage() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground/60 mt-3">*Lifetime warranty requires maintenance every 24 months with a GYEON Certified Detailer; 5-year base warranty without. Pricing varies by vehicle size. Drop-off required.</p>
-          <p className="text-xs text-gold/80 mt-2 font-medium">💳 Financing available via Affirm at checkout or Wisetack — pay over time with easy monthly payments.</p>
+          <p className="text-xs text-gold/80 mt-2 font-medium">💳 Affirm financing available — pay over time with easy monthly payments.</p>
         </Section>
 
         <div className="border-t border-border" />
@@ -656,7 +656,7 @@ export function MenuPage() {
             <p><strong className="text-foreground">Hours:</strong> Mon–Fri 9:30AM–6PM · Sat 9:30AM–3PM · Sun Closed</p>
             <p><strong className="text-foreground">Email:</strong> detailing@proworxdetailing.com</p>
             <p><strong className="text-foreground">Areas:</strong> Charlotte, Waxhaw, Matthews, Ballantyne, SouthPark, Indian Trail, Mint Hill, Pineville & more</p>
-            <p className="pt-2 text-muted-foreground/50">Financing available via Affirm & Wisetack — pay over time, no credit impact to prequalify</p>
+            <p className="pt-2 text-muted-foreground/50">Financing available via Affirm — pay over time with easy monthly payments</p>
           </div>
         </section>
       </div>
