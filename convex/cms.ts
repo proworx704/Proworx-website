@@ -328,7 +328,7 @@ export const checkAndSeed = mutation({
       { key: "giftCardsUrl", value: "https://app.squareup.com/gift/KAXAX104TMA6W/order" },
       { key: "bookingUrl", value: "https://book.squareup.com/appointments/wa9b2qyqjdx71w/location/9VRKFJAZZM3HG" },
       { key: "ceramicDepositUrl", value: "https://square.link/u/NwnNJRm7" },
-      { key: "wisetackUrl", value: "https://www.wisetack.com/" },
+      // wisetackUrl removed — Affirm financing is now used via Stripe payment links
       { key: "hoursWeekday", value: "9:30 AM – 6:00 PM" },
       { key: "hoursSaturday", value: "9:30 AM – 3:00 PM" },
       { key: "hoursSunday", value: "Closed" },
