@@ -40,7 +40,7 @@ export function CeramicCoatingCharlottePage() {
                 { "@type": "Question", "name": "Is ceramic coating worth the cost?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for most vehicle owners. Professional ceramic coating protects your paint from UV damage, chemical etching, and environmental contaminants for years — far longer than wax or sealant. It also reduces maintenance time, keeps your vehicle cleaner between washes, and maintains resale value. The 3-Year package at $899 is the best balance of value and protection." }},
                 { "@type": "Question", "name": "What's the difference between a $50 ceramic coating and a $900 one?", "acceptedAnswer": { "@type": "Answer", "text": "Consumer spray-on coatings ($30-$80) last weeks to months and offer minimal protection. Professional coatings from a certified installer ($499-$2,199+) involve paint decontamination, machine prep polish, and hand-applied professional-grade ceramic that bonds permanently to your paint. They last 1 year to a lifetime with manufacturer warranty." }},
                 { "@type": "Question", "name": "Do I need paint correction before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. Every ProWorx ceramic coating package includes a light prep polish. However, if your paint has swirls, scratches, or oxidation, adding paint correction ($618+) before coating locks in a flawless finish under the ceramic layer. We'll inspect your paint and recommend the best approach." }},
-                { "@type": "Question", "name": "Does ProWorx offer financing for ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer Wisetack financing (buy now, pay later) with no impact to your credit score for prequalification. We also only require a 30% deposit to reserve your coating appointment, with the balance due at completion." }}
+                { "@type": "Question", "name": "Does ProWorx offer financing for ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer Affirm financing (buy now, pay later) at checkout with easy monthly payments. We also only require a 30% deposit to reserve your coating appointment, with the balance due at completion." }}
               ]
             }
           ]
@@ -202,7 +202,7 @@ export function CeramicCoatingCharlottePage() {
                   { title: "Manufacturer Warranty", desc: "Every package comes with a GYEON manufacturer warranty — not just our word, but the product maker's guarantee." },
                   { title: "Proper Prep = Better Results", desc: "We never skip the decontamination and polish steps. Coating over dirty or damaged paint is a waste of money." },
                   { title: "12+ Years of Experience", desc: "We've been detailing vehicles in Charlotte since 2013. Your car is in experienced hands." },
-                  { title: "Financing Available", desc: "Prequalify with Wisetack — no impact to your credit score. Pay over time for any package." },
+                  { title: "Financing Available", desc: "Finance with Affirm — pay over time with easy monthly payments. Available at checkout." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <CheckCircle2 className="size-5 text-gold mt-0.5 shrink-0" />
@@ -230,7 +230,7 @@ export function CeramicCoatingCharlottePage() {
                 { q: "How long does ceramic coating last?", a: "ProWorx offers four tiers: 1-year (GYEON Q² One EVO), 3-year (Q² Pure EVO), and lifetime (GYEON Infinite Type 1 or Type 1 + 2). Longevity depends on proper maintenance — washing with pH-neutral soap, avoiding automatic car washes, and scheduled maintenance inspections." },
                 { q: "Can ceramic coating be applied to a new car?", a: "Absolutely — and it's the ideal time. New paint is typically in perfect condition, so you may not need paint correction. This saves money and locks in that factory-fresh finish from day one." },
                 { q: "Do you offer mobile ceramic coating?", a: "Ceramic coating can be done mobile, but drop-off is preferred for the best results — especially if paint correction is needed. The controlled environment ensures proper curing and inspection." },
-                { q: "What payment options are available?", a: "We require just 30% down to reserve your appointment, with the balance due at completion. We also offer Wisetack financing (buy now, pay later) with no credit impact for prequalification." },
+                { q: "What payment options are available?", a: "We require just 30% down to reserve your appointment, with the balance due at completion. We also offer Affirm financing — pay over time with easy monthly payments, available at checkout." },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>
