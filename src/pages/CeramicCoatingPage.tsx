@@ -32,6 +32,7 @@ const PACKAGES = [
     priceNum: 499,
     deposit: "$150",
     configKey: "ceramicDeposit1yr",
+    financeUrl: "https://buy.stripe.com/5kQeVd4qd6RN7iogZFbMQ0d",
     features: [
       "Prep wash & clay bar decontamination",
       "Light prep polish (paint prep)",
@@ -49,6 +50,7 @@ const PACKAGES = [
     priceNum: 899,
     deposit: "$270",
     configKey: "ceramicDeposit3yr",
+    financeUrl: "https://buy.stripe.com/fZu8wPaOB5NJgSY6l1bMQ0e",
     features: [
       "Prep wash & clay bar decontamination",
       "Light prep polish (paint prep)",
@@ -67,6 +69,7 @@ const PACKAGES = [
     priceNum: 1799,
     deposit: "$540",
     configKey: "ceramicDepositInfinite1",
+    financeUrl: "https://buy.stripe.com/14A4gz2i5b839qw38PbMQ0f",
     features: [
       "Prep wash & clay bar decontamination",
       "Light prep polish (paint prep)",
@@ -85,6 +88,7 @@ const PACKAGES = [
     priceNum: 2199,
     deposit: "$660",
     configKey: "ceramicDepositInfinite2",
+    financeUrl: "https://buy.stripe.com/aFabJ16yl0tp8ms8t9bMQ0g",
     features: [
       "Prep wash & clay bar decontamination",
       "Light prep polish (paint prep)",
@@ -525,6 +529,19 @@ export function CeramicCoatingPage() {
                       onClick={() => trackBookNowConversion(depositUrl)}
                     >
                       Reserve Now <ArrowRight className="size-4" />
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-full font-bold border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 mt-2"
+                    asChild
+                  >
+                    <a
+                      href={pkg.financeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      💳 Finance with Affirm
                     </a>
                   </Button>
                 </div>
