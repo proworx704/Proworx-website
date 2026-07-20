@@ -41,8 +41,13 @@ export function CombinedPromoBanner() {
             className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity group"
           >
             <span className="text-blue-300">💳</span>
-            <span className="hidden sm:inline text-white/90">Finance with</span>
-            <span className="sm:hidden text-white/90">Pay with</span>
+            <span className="hidden sm:inline text-white/90">
+              <span className="text-blue-300 font-bold">0% APR</span> Financing
+              — As low as <span className="text-blue-300 font-bold">$46/mo</span> with
+            </span>
+            <span className="sm:hidden text-white/90">
+              <span className="text-blue-300 font-bold">0% APR</span> from <span className="text-blue-300 font-bold">$46/mo</span> w/
+            </span>
             <AffirmLogo className="h-3.5 sm:h-4 text-white" />
           </Link>
 
