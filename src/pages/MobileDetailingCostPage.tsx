@@ -295,7 +295,7 @@ export function MobileDetailingCostPage() {
               {[
                 { q: "Is there a trip fee for mobile detailing?", a: "No trip fee for locations within our standard service area (Charlotte metro, Waxhaw, Matthews, Indian Trail, Ballantyne, etc.). For locations outside our area, give us a call — we may still be able to accommodate." },
                 { q: "Do I need to provide water or electricity?", a: "Nope! We're fully self-reliant. Our mobile setup includes our own water supply, power, and professional-grade equipment. All you need is a parking spot." },
-                { q: "How do I pay?", a: "We accept all major credit/debit cards, Apple Pay, Google Pay, and cash. Payment is collected at the end of service via Square. We also offer Wisetack financing for larger services like ceramic coating." },
+                { q: "How do I pay?", a: "We accept all major credit/debit cards, Apple Pay, Google Pay, and cash. Payment is collected at the end of service via Square. We also offer Affirm financing for larger services like ceramic coating and paint correction." },
                 { q: "Can I combine services for a discount?", a: "Our Inside & Out packages already bundle interior and exterior at a better value than booking separately. For additional savings, check out our monthly membership plans starting at $59/mo." },
                 { q: "What if my car is really dirty?", a: "No judgment here — we've seen it all! Heavily soiled vehicles may require additional time, which we'll discuss before starting. Pet hair removal and extreme conditions are charged at our base hourly rate. We always provide a clear quote upfront." },
               ].map((faq) => (
