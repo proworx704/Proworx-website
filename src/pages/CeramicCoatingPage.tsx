@@ -525,10 +525,7 @@ export function CeramicCoatingPage() {
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-lg mx-auto">
             30% deposit is applied to your final service total. Financing available through{" "}
-            <a href={config.wisetackUrl} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
-              Wisetack
-            </a>{" "}
-            or <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments.
+            <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments.
           </p>
         </div>
       </section>
@@ -809,17 +806,17 @@ export function CeramicCoatingPage() {
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">Buy Now, Pay Later</h2>
             <p className="text-muted-foreground mb-5 text-sm">
               Flexible monthly payments on all ceramic coating and paint correction services.
-              Finance through <span className="font-semibold text-foreground">Affirm</span> at checkout or prequalify with <span className="font-semibold text-foreground">Wisetack</span> — no credit impact.
+              Finance through <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments. No hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button className="bg-blue-600 text-white hover:bg-blue-700 font-bold" asChild>
-                <a href={config.wisetackUrl} target="_blank" rel="noopener noreferrer">
-                  Prequalify with Wisetack <ArrowRight className="size-4" />
+                <a href="#packages">
+                  View Packages & Finance <ArrowRight className="size-4" />
                 </a>
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-4">
-              Affirm available at checkout on all ceramic coating and paint correction services. Subject to eligibility.
+              Affirm financing available at checkout on all ceramic coating and paint correction services. Subject to eligibility.
             </p>
           </div>
         </div>
