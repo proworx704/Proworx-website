@@ -19,7 +19,7 @@ const DEFAULTS: Record<string, string> = {
   ceramicDeposit3yr: "",
   ceramicDepositInfinite1: "",
   ceramicDepositInfinite2: "",
-  wisetackUrl: "https://www.wisetack.com/",
+  // wisetackUrl removed — Affirm financing is now used instead
   // Per-section booking links (empty = use /book page)
   bookingUrlFullDetail: "",
   bookingUrlInterior: "",
