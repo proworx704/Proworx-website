@@ -116,6 +116,7 @@ export function PaintCorrectionPage() {
               );
             })}
           </div>
+          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available at checkout — pay over time with easy monthly payments.</p>
         </div>
       </section>
 
