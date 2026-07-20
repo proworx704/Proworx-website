@@ -4,8 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion } from "@/lib/tracking";
 import { Button } from "./ui/button";
-import { SummerShieldBanner } from "./SummerShieldBanner";
-import { AffirmFinancingBanner } from "./AffirmFinancingBanner";
+import { CombinedPromoBanner } from "./CombinedPromoBanner";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -35,8 +34,7 @@ export function SiteHeader() {
         Skip to main content
       </a>
 
-      <AffirmFinancingBanner />
-      <SummerShieldBanner />
+      <CombinedPromoBanner />
 
       {/* Top bar with phone */}
       <div className="bg-gold/10 border-b border-gold/20">
