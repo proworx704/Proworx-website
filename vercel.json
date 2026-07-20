@@ -2,6 +2,66 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/images/ferrari-van.jpg",
+      "destination": "/images/ferrari-profile.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/ferrari-van-640w.webp",
+      "destination": "/images/ferrari-profile-640w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/ferrari-van-960w.webp",
+      "destination": "/images/ferrari-profile-960w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/ferrari-van-1200w.webp",
+      "destination": "/images/ferrari-profile-1200w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/fleet-real.jpg",
+      "destination": "/images/porsche-van.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/fleet-real-640w.webp",
+      "destination": "/images/porsche-van-640w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/fleet-real-960w.webp",
+      "destination": "/images/porsche-van-960w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/fleet-real-1200w.webp",
+      "destination": "/images/porsche-van-1200w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/mobile-tent.jpg",
+      "destination": "/images/full-insideout.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/mobile-tent-640w.webp",
+      "destination": "/images/full-insideout-640w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/mobile-tent-960w.webp",
+      "destination": "/images/full-insideout-960w.webp",
+      "permanent": true
+    },
+    {
+      "source": "/images/mobile-tent-1200w.webp",
+      "destination": "/images/full-insideout-1200w.webp",
+      "permanent": true
+    },
+    {
       "source": "/ceramic-coating-ballantyne-nc",
       "destination": "/ceramic-coating-south-charlotte-nc",
       "permanent": true
