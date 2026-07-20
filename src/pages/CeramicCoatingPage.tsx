@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
+import { AffirmMonthlyEstimate } from "@/components/AffirmMonthlyEstimate";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion, trackViewContent } from "@/lib/tracking";
 
@@ -28,6 +29,7 @@ const PACKAGES = [
     name: "GYEON Q² One EVO",
     tag: "1-Year Protection",
     priceFrom: "$499",
+    priceNum: 499,
     deposit: "$150",
     configKey: "ceramicDeposit1yr",
     features: [
@@ -44,6 +46,7 @@ const PACKAGES = [
     name: "GYEON Q² Pure EVO",
     tag: "3-Year Protection",
     priceFrom: "$899",
+    priceNum: 899,
     deposit: "$270",
     configKey: "ceramicDeposit3yr",
     features: [
@@ -61,6 +64,7 @@ const PACKAGES = [
     name: "GYEON Infinite Type 1",
     tag: "Lifetime Protection*",
     priceFrom: "$1,799",
+    priceNum: 1799,
     deposit: "$540",
     configKey: "ceramicDepositInfinite1",
     features: [
@@ -78,6 +82,7 @@ const PACKAGES = [
     name: "GYEON Infinite Type 1 + 2",
     tag: "Ultimate Lifetime Protection*",
     priceFrom: "$2,199",
+    priceNum: 2199,
     deposit: "$660",
     configKey: "ceramicDepositInfinite2",
     features: [
@@ -492,6 +497,10 @@ export function CeramicCoatingPage() {
                     <p className="text-xs text-muted-foreground mt-1">
                       30% deposit ({pkg.deposit}) to reserve
                     </p>
+                    <AffirmMonthlyEstimate
+                      amount={pkg.priceNum}
+                      className="text-xs mt-1.5 [&_a]:text-blue-400 [&_a]:no-underline"
+                    />
                   </div>
                   <ul className="space-y-2 flex-1 mb-6">
                     {pkg.features.map((f) => (
@@ -524,8 +533,8 @@ export function CeramicCoatingPage() {
           </div>
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-lg mx-auto">
-            30% deposit is applied to your final service total. Financing available through{" "}
-            <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments.
+            30% deposit is applied to your final service total. Finance with{" "}
+            <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments. Subject to eligibility.
           </p>
         </div>
       </section>
