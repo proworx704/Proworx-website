@@ -4,12 +4,18 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import {
+  BOAT_WASH_LINKS, BOAT_INTERIOR_LINKS, BOAT_EXTERIOR_LINKS,
+  BOAT_FULL_LINKS, BOAT_OXIDATION_LINKS,
+  MARINE_CERAMIC_2YR_LINKS, MARINE_CERAMIC_5YR_LINKS,
+} from "@/lib/paymentLinks";
 
 /* ── Boat service pricing by size bracket ── */
 const BOAT_SERVICES = [
   {
     name: "Basic Boat Wash",
     slug: "basic-boat-wash",
+    financeLinks: BOAT_WASH_LINKS,
     description: "Exterior hand wash, rinse, and dry. Ideal for routine upkeep between deep cleans.",
     tiers: [
       { label: "Up to 20 ft", price: "$206" },
@@ -21,6 +27,7 @@ const BOAT_SERVICES = [
   {
     name: "Interior Detail",
     slug: "interior-boat-detail",
+    financeLinks: BOAT_INTERIOR_LINKS,
     description: "Deep clean of all interior surfaces — seats, cushions, compartments, cup holders, dash, and floor. Restore your cabin to like-new condition.",
     tiers: [
       { label: "Up to 20 ft", price: "$309" },
@@ -32,6 +39,7 @@ const BOAT_SERVICES = [
   {
     name: "Exterior Detail + Wax",
     slug: "exterior-boat-detail",
+    financeLinks: BOAT_EXTERIOR_LINKS,
     description: "Full exterior wash, decontamination, and hand wax application for lasting shine and UV protection on the water.",
     tiers: [
       { label: "Up to 20 ft", price: "$412" },
@@ -43,6 +51,7 @@ const BOAT_SERVICES = [
   {
     name: "Full Boat Detail",
     slug: "full-boat-detail",
+    financeLinks: BOAT_FULL_LINKS,
     description: "The works — comprehensive interior deep clean plus exterior wash, decontamination, and wax. Top-to-bottom restoration.",
     tiers: [
       { label: "Up to 20 ft", price: "$618" },
@@ -55,6 +64,7 @@ const BOAT_SERVICES = [
   {
     name: "Oxidation Removal",
     slug: "boat-oxidation",
+    financeLinks: BOAT_OXIDATION_LINKS,
     description: "Machine compound and polish to remove oxidation, chalking, and heavy water spots from gelcoat and fiberglass surfaces.",
     tiers: [
       { label: "Up to 20 ft", price: "$375" },
@@ -69,6 +79,7 @@ const CERAMIC_PACKAGES = [
   {
     name: "Marine Ceramic — 2-Year",
     slug: "boat-ceramic-2yr",
+    financeLinks: MARINE_CERAMIC_2YR_LINKS,
     protection: "2-Year Protection",
     description: "Professional marine-grade ceramic coating providing hydrophobic protection, UV resistance, and easy maintenance for two full seasons.",
     tiers: [
@@ -82,6 +93,7 @@ const CERAMIC_PACKAGES = [
   {
     name: "Marine Ceramic — 5-Year",
     slug: "boat-ceramic-5yr",
+    financeLinks: MARINE_CERAMIC_5YR_LINKS,
     protection: "5-Year Protection",
     description: "Our premium marine ceramic package — maximum durability against saltwater, UV, and the elements. Ideal for boats that stay in the water or see heavy use.",
     tiers: [
@@ -246,12 +258,25 @@ export function BoatDetailingPage() {
                   </Button>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {svc.tiers.map((tier) => (
+                  {svc.tiers.map((tier) => {
+                    const finUrl = svc.financeLinks?.[tier.label];
+                    return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
                       <p className="font-bold text-gold text-lg">{tier.price}</p>
+                      {finUrl && (
+                        <a
+                          href={finUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-1.5 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors"
+                        >
+                          💳 Finance
+                        </a>
+                      )}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -280,12 +305,25 @@ export function BoatDetailingPage() {
                 <p className="text-gold text-sm font-medium mb-3">{pkg.protection}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">{pkg.description}</p>
                 <div className="grid grid-cols-2 gap-3 mb-5">
-                  {pkg.tiers.map((tier) => (
+                  {pkg.tiers.map((tier) => {
+                    const finUrl = pkg.financeLinks?.[tier.label];
+                    return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
                       <p className="font-bold text-gold">{tier.price}</p>
+                      {finUrl && (
+                        <a
+                          href={finUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 mt-1.5 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors"
+                        >
+                          💳 Finance
+                        </a>
+                      )}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
                 <ul className="space-y-2 flex-1 mb-6">
                   {[

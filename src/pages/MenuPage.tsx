@@ -1,5 +1,9 @@
 import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import {
+  INSIDE_OUT_LINKS, INTERIOR_LINKS, EXTERIOR_LINKS,
+  ADDON_LINKS, PROTECTION_LINKS,
+} from "@/lib/paymentLinks";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackCeramicDepositClick } from "@/lib/tracking";
@@ -57,6 +61,7 @@ function TierCard({
   highlight,
   bookHref,
   bookLabel = "Book Now",
+  financeLinks,
 }: {
   name: string;
   badge?: string;
@@ -66,6 +71,7 @@ function TierCard({
   highlight?: boolean;
   bookHref: string;
   bookLabel?: string;
+  financeLinks?: Record<string, string>;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -99,15 +105,28 @@ function TierCard({
 
       {/* Price grid */}
       <div className="space-y-1 mb-4">
-        {prices.map((p) => (
+        {prices.map((p) => {
+          const finUrl = financeLinks?.[p.label];
+          return (
           <div key={p.label} className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">{p.label}</span>
             <div className="flex items-center gap-3">
               <span className="text-[10px] text-muted-foreground/60">{p.duration}</span>
               <span className="font-bold tabular-nums">{p.price}</span>
+              {finUrl && (
+                <a
+                  href={finUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[9px] font-semibold hover:bg-blue-600/20 transition-colors"
+                >
+                  💳
+                </a>
+              )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
       <BookBtn href={bookHref}>
         {bookLabel} <ArrowRight className="size-4" />
@@ -241,6 +260,12 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "3h 30m", price: "$361" },
                 { label: "Van", duration: "4h", price: "$413" },
               ]}
+              financeLinks={{
+                "Sedan": INSIDE_OUT_LINKS["Sedan / Coupe"],
+                "Sm SUV/Truck": INSIDE_OUT_LINKS["Small SUV / Truck"],
+                "Lg SUV/Truck": INSIDE_OUT_LINKS["Large SUV / Off-Road Truck"],
+                "Van": INSIDE_OUT_LINKS["Van"],
+              }}
               bookHref={bookStdIO}
             />
 
@@ -275,6 +300,12 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "2h 30m", price: "$258" },
                 { label: "Van", duration: "3h", price: "$310" },
               ]}
+              financeLinks={{
+                "Sedan": INTERIOR_LINKS["Sedan / Coupe"],
+                "Sm SUV/Truck": INTERIOR_LINKS["Small SUV / Truck"],
+                "Lg SUV/Truck": INTERIOR_LINKS["Large SUV / Off-Road Truck"],
+                "Van": INTERIOR_LINKS["Van"],
+              }}
               bookHref={bookStdInt}
             />
 
@@ -307,6 +338,12 @@ export function MenuPage() {
                 { label: "Lg SUV/Truck", duration: "1h 45m", price: "$181" },
                 { label: "Van", duration: "2h", price: "$207" },
               ]}
+              financeLinks={{
+                "Sedan": EXTERIOR_LINKS["Sedan / Coupe"],
+                "Sm SUV/Truck": EXTERIOR_LINKS["Small SUV / Truck"],
+                "Lg SUV/Truck": EXTERIOR_LINKS["Large SUV / Off-Road Truck"],
+                "Van": EXTERIOR_LINKS["Van"],
+              }}
               bookHref={bookStdExt}
             />
 

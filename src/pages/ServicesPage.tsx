@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig, useServices } from "@/hooks/useCms";
+import { INSIDE_OUT_LINKS, INTERIOR_LINKS, EXTERIOR_LINKS } from "@/lib/paymentLinks";
 
 /* ── Small row for an add-on service from CMS ──────────────────────────── */
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
@@ -56,6 +57,7 @@ const BASE_PACKAGES = [
       "Condition: Extra time/cost may apply for neglected vehicles.",
     ],
     highlight: true,
+    financeLinks: INSIDE_OUT_LINKS,
     photoSlot: "services-standard",
     photoFallback: "/images/full-insideout.jpg",
     imageAlt: "Ferrari Roma full inside & out detail by ProWorx",
@@ -87,6 +89,7 @@ const BASE_PACKAGES = [
       "Condition: Extra time/cost may apply for neglected vehicles.",
     ],
     highlight: false,
+    financeLinks: INTERIOR_LINKS,
     photoSlot: "services-interior",
     photoFallback: "/images/rangerover-interior.jpg",
     imageAlt: "Interior detail by ProWorx",
@@ -112,6 +115,7 @@ const BASE_PACKAGES = [
     ],
     notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
     highlight: false,
+    financeLinks: EXTERIOR_LINKS,
     photoSlot: "services-exterior",
     photoFallback: "/images/porsche-foam.jpg",
     imageAlt: "White Porsche covered in foam — exterior detail by ProWorx",
@@ -398,7 +402,9 @@ export function ServicesPage() {
                       <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">
                         Pricing by Vehicle Size
                       </p>
-                      {pkg.priceTiers.map((t) => (
+                      {pkg.priceTiers.map((t) => {
+                        const finUrl = pkg.financeLinks?.[t.label];
+                        return (
                         <div
                           key={t.label}
                           className="flex items-center justify-between py-3 border-b border-border/30 last:border-0"
@@ -410,9 +416,22 @@ export function ServicesPage() {
                               {t.duration}
                             </p>
                           </div>
-                          <p className="font-bold text-gold text-lg">{t.price}</p>
+                          <div className="flex items-center gap-3">
+                            <p className="font-bold text-gold text-lg">{t.price}</p>
+                            {finUrl && (
+                              <a
+                                href={finUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
+                              >
+                                💳 Finance
+                              </a>
+                            )}
+                          </div>
                         </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
