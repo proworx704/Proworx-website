@@ -639,7 +639,7 @@ function ContactTab() {
         <EditableRow label="Booking URL" value={config.bookingUrl || ""} onSave={(v) => handleSave("bookingUrl", v)} />
         <EditableRow label="Ceramic Deposit (default)" value={config.ceramicDepositUrl || ""} onSave={(v) => handleSave("ceramicDepositUrl", v)} />
         <EditableRow label="Gift Cards" value={config.giftCardsUrl || ""} onSave={(v) => handleSave("giftCardsUrl", v)} />
-        <EditableRow label="Wisetack" value={config.wisetackUrl || ""} onSave={(v) => handleSave("wisetackUrl", v)} />
+        {/* Wisetack removed — now using Affirm via Stripe */}
       </Section>
 
       <Section title="Ceramic Deposit Links (30%)" icon={<Link2 className="size-5" />}>
