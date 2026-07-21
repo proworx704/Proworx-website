@@ -80,7 +80,7 @@ export function PaintCorrectionPage() {
       {/* Hero with image */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <CmsImg slot="paint-hero" fallback="/images/tesla-bay.jpg" alt="Tesla in ProWorx detailing bay for paint correction" className="w-full h-full object-cover" loading="eager" />
+          <CmsImg slot="paint-hero" fallback="/images/aston-front.jpg" alt="Aston Martin with flawless mirror-finish paint correction by ProWorx" className="w-full h-full object-cover" loading="eager" focalY={40} />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/50" />
         </div>
         <div className="container">
