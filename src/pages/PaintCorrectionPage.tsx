@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { PAINT_CORRECTION_LINKS } from "@/lib/paymentLinks";
 
 const STAGES = [
   {
@@ -12,6 +13,12 @@ const STAGES = [
     description: "Removes light swirls and minor imperfections. Restores depth and gloss for vehicles in good condition needing a refresh.",
     ideal: "Daily drivers with light swirl marks",
     improvement: "~60-70% defect removal",
+    linkPrefix: "1-Step",
+    tiers: [
+      { label: "Compact / 2-Door", price: "$570", key: "1-Step — Compact" },
+      { label: "Midsize Sedan", price: "$760", key: "1-Step — Sedan" },
+      { label: "SUV / Truck", price: "$950", key: "1-Step — SUV" },
+    ],
   },
   {
     title: "2-Step Paint Correction",
@@ -19,6 +26,12 @@ const STAGES = [
     description: "A compounding stage to remove deeper scratches and heavy swirl marks, followed by a fine polishing stage for a mirror-like finish.",
     ideal: "Vehicles with moderate paint damage",
     improvement: "~85-95% defect removal",
+    linkPrefix: "2-Step",
+    tiers: [
+      { label: "Compact / 2-Door", price: "$950", key: "2-Step — Compact" },
+      { label: "Midsize Sedan", price: "$1,140", key: "2-Step — Sedan" },
+      { label: "SUV / Truck", price: "$1,330", key: "2-Step — SUV" },
+    ],
   },
   {
     title: "Multi-Stage Correction",
@@ -26,6 +39,12 @@ const STAGES = [
     description: "Our most thorough correction process with multiple cutting and polishing stages. Transforms neglected paint to showroom-quality perfection.",
     ideal: "Severely damaged or neglected paint",
     improvement: "~95-99% defect removal",
+    linkPrefix: "Multi",
+    tiers: [
+      { label: "Compact / 2-Door", price: "$1,567", key: "Multi — Compact" },
+      { label: "Midsize Sedan", price: "$1,900", key: "Multi — Sedan" },
+      { label: "SUV / Truck", price: "$2,280", key: "Multi — SUV" },
+    ],
   },
 ];
 
@@ -104,10 +123,35 @@ export function PaintCorrectionPage() {
               return (
                 <div key={stage.title} className="rounded-2xl bg-card border border-border p-7 flex flex-col">
                   <h3 className="font-bold text-lg mb-3 text-gold">{stage.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{stage.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{stage.description}</p>
                   <div className="space-y-2 text-sm mb-5">
                     <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Ideal for:</strong> {stage.ideal}</span></div>
                     <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Result:</strong> {stage.improvement}</span></div>
+                  </div>
+                  {/* Pricing by vehicle size */}
+                  <div className="rounded-xl bg-muted/50 border border-border/50 p-4 mb-5 flex-1">
+                    <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing by Vehicle Size</p>
+                    {stage.tiers.map((t) => {
+                      const finUrl = PAINT_CORRECTION_LINKS[t.key];
+                      return (
+                        <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
+                          <p className="text-sm font-medium">{t.label}</p>
+                          <div className="flex items-center gap-2.5">
+                            <p className="font-bold text-gold">{t.price}</p>
+                            {finUrl && (
+                              <a
+                                href={finUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
+                              >
+                                💳 Finance
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                   <Button size="sm" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-semibold mt-auto" asChild>
                     <BookNowLink href={bookUrl}>Book Now <ArrowRight className="size-4" /></BookNowLink>
@@ -116,7 +160,7 @@ export function PaintCorrectionPage() {
               );
             })}
           </div>
-          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available at checkout — pay over time with easy monthly payments.</p>
+          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available — pay over time with 0% APR monthly payments.</p>
         </div>
       </section>
 
