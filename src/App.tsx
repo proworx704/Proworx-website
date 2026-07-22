@@ -8,8 +8,9 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { Toaster } from "./components/ui/sonner";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-// Homepage loaded eagerly (landing page — needs fast LCP)
-import { HomePage } from "./pages/HomePage";
+// Homepage lazy-loaded like other pages — hero poster is preloaded in index.html
+// so LCP is still fast; the JS chunk loads in parallel with the preloaded image.
+const HomePage = lazyRetry(() => import("./pages/HomePage").then(m => ({ default: m.HomePage })));
 
 /**
  * Wrapper around React.lazy that auto-reloads on ChunkLoadError.
