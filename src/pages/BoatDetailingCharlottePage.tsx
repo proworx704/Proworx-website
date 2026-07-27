@@ -30,14 +30,14 @@ const BOAT_PACKAGES = [
     popular: true,
   },
   {
-    name: "Oxidation Removal",
+    name: "1-Step Enhancement Polish",
     tiers: [
-      { label: "Up to 20 ft", price: "$375" },
-      { label: "21–25 ft", price: "$500" },
-      { label: "26–30 ft", price: "$650" },
-      { label: "31–35 ft", price: "$800" },
+      { label: "Up to 20 ft", price: "$824" },
+      { label: "21–25 ft", price: "$927" },
+      { label: "26–30 ft", price: "$1,030" },
+      { label: "31–35 ft", price: "$1,133" },
     ],
-    desc: "Machine compound & polish to remove oxidation, chalking, and heavy water spots from gelcoat and fiberglass.",
+    desc: "Light oxidation removal and gloss restoration for well-maintained gelcoat. Also available: 2-Step and Multi-Stage correction.",
   },
 ];
 
@@ -55,8 +55,8 @@ export function BoatDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Boat Detailing Charlotte NC — Lake Norman"
-        description="Professional boat detailing in Charlotte, NC. Gelcoat restoration, oxidation removal, interior cleaning. Serving Lake Norman, Lake Wylie & all Charlotte-area lakes."
-        keywords="boat detailing Charlotte NC, boat detailing near me, boat cleaning Charlotte, marine detailing Charlotte NC, boat detailing Lake Norman, boat detailing Lake Wylie, gelcoat restoration Charlotte, boat oxidation removal Charlotte, boat wax Charlotte NC, yacht detailing Charlotte"
+        description="Professional boat detailing in Charlotte, NC. Gelcoat correction, GYEON marine ceramic coating, interior cleaning. Serving Lake Norman, Lake Wylie & all Charlotte-area lakes."
+        keywords="boat detailing Charlotte NC, boat detailing near me, boat cleaning Charlotte, marine detailing Charlotte NC, boat detailing Lake Norman, boat detailing Lake Wylie, gelcoat correction Charlotte, boat polish Charlotte, boat wax Charlotte NC, GYEON marine ceramic Charlotte"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -86,15 +86,15 @@ export function BoatDetailingCharlottePage() {
                 { "@type": "City", "name": "Mooresville" },
                 { "@type": "City", "name": "Fort Mill" }
               ],
-              "description": "Professional boat detailing, gelcoat restoration, oxidation removal, and marine ceramic coating for Charlotte-area lake boats.",
-              "offers": { "@type": "Offer", "priceRange": "$250-$1150+", "priceCurrency": "USD" }
+              "description": "Professional boat detailing, multi-stage gelcoat correction, and GYEON Q²R GelCoat marine ceramic coating for Charlotte-area lake boats.",
+              "offers": { "@type": "Offer", "priceRange": "$206-$2,472+", "priceCurrency": "USD" }
             },
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does boat detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Boat detailing in Charlotte ranges from $250 for a basic wash (up to 20ft) to $1,150+ for a full detail on larger vessels. Oxidation removal starts at $375. Pricing is based on boat length and condition. ProWorx offers free assessments and quotes." }},
+                { "@type": "Question", "name": "How much does boat detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Boat detailing in Charlotte ranges from $206 for a basic wash (up to 20ft) to $927+ for a full detail on larger vessels. Gelcoat correction starts at $824 (1-Step Enhancement Polish). Pricing is based on boat length and condition. ProWorx offers free assessments and quotes." }},
                 { "@type": "Question", "name": "Do you come to the marina or my home?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx is fully mobile and can detail your boat at your marina, driveway, or storage facility anywhere in the Charlotte area, including Lake Norman, Lake Wylie, and Mountain Island Lake locations." }},
-                { "@type": "Question", "name": "Can you remove oxidation from my boat's gelcoat?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our oxidation removal service uses professional machine compounding and polishing to restore faded, chalky gelcoat to its original shine. We treat fiberglass and gelcoat surfaces, removing oxidation, water spots, and surface staining." }}
+                { "@type": "Question", "name": "Can you remove oxidation from my boat's gelcoat?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We offer three levels of gelcoat correction: 1-Step Enhancement Polish for light oxidation, 2-Step Correction for moderate damage, and Multi-Stage Correction for heavily neglected boats. Each uses professional machine compounding and polishing to restore your gelcoat to a deep, glossy finish." }}
               ]
             }
           ]
@@ -147,8 +147,8 @@ export function BoatDetailingCharlottePage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: <Waves className="size-6" />, title: "Gelcoat Protection", desc: "Restore and protect fiberglass from UV damage, oxidation, and water staining." },
-                { icon: <Droplets className="size-6" />, title: "Oxidation Removal", desc: "Machine compound & polish to bring faded, chalky gelcoat back to life." },
-                { icon: <Shield className="size-6" />, title: "Marine Ceramic Coating", desc: "Long-lasting hydrophobic protection that makes cleaning a breeze." },
+                { icon: <Droplets className="size-6" />, title: "Gelcoat Correction", desc: "From 1-Step polish to multi-stage correction — we bring faded, chalky gelcoat back to life." },
+                { icon: <Shield className="size-6" />, title: "GYEON Marine Ceramic", desc: "Purpose-built ceramic coating for gelcoat — long-lasting UV protection and hydrophobic gloss." },
                 { icon: <Sparkles className="size-6" />, title: "Interior Deep Clean", desc: "Seats, cushions, compartments, dash, and floor — restored to like-new." },
               ].map((item) => (
                 <div key={item.title} className="rounded-xl bg-card border border-border p-6 text-center">
@@ -192,7 +192,7 @@ export function BoatDetailingCharlottePage() {
             ))}
           </div>
           <p className="text-center mt-6 text-sm text-muted-foreground">
-            Also available: <Link to="/boat-detailing" className="text-gold underline underline-offset-2">Interior Detail, Exterior Detail + Wax, and Ceramic Coating</Link>. See our full boat detailing page for all services.
+            Also available: <Link to="/boat-detailing" className="text-gold underline underline-offset-2">Interior Detail, Exterior Detail + Wax, 2-Step &amp; Multi-Stage Correction, and GYEON Ceramic Coating</Link>. See our full boat detailing page for all services.
           </p>
         </div>
       </section>
@@ -227,11 +227,11 @@ export function BoatDetailingCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Boat Detailing FAQ — Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "How much does boat detailing cost in Charlotte?", a: "Boat detailing in Charlotte ranges from $250 for a basic exterior wash (up to 20ft) to $1,150+ for a full interior/exterior detail on boats 31–35ft. Oxidation removal starts at $375. Pricing is based on boat length and condition — we provide free assessments and quotes." },
+                { q: "How much does boat detailing cost in Charlotte?", a: "Boat detailing in Charlotte ranges from $206 for a basic exterior wash (up to 20ft) to $927+ for a full interior/exterior detail on boats 31–35ft. Gelcoat correction starts at $824 (1-Step Enhancement Polish). Pricing is based on boat length and condition — we provide free assessments and quotes." },
                 { q: "Do you come to my marina or can I drop off?", a: "Both! We're fully mobile and can detail your boat at any marina, dock, driveway, or storage facility in the Charlotte area. We service Lake Norman, Lake Wylie, Mountain Island Lake, and all surrounding locations. We also accept drop-offs at our Waxhaw facility." },
-                { q: "Can you remove oxidation from gelcoat?", a: "Absolutely. Our oxidation removal service uses professional machine compounding and polishing to restore faded, chalky gelcoat to its original shine. For severe cases, we recommend following up with marine ceramic coating to prevent future oxidation." },
+                { q: "Can you remove oxidation from gelcoat?", a: "Absolutely. We offer three levels of gelcoat correction: 1-Step Enhancement Polish for light oxidation, 2-Step Correction for moderate damage, and Multi-Stage Correction for heavily neglected boats. For lasting protection afterward, we recommend GYEON Q²R GelCoat marine ceramic coating." },
                 { q: "How often should I get my boat detailed?", a: "We recommend a full detail at least twice per season — once before the season starts (spring prep) and once after (winterization). Monthly wash & wax during active season keeps your boat looking great and protects the finish between full details." },
-                { q: "Do you offer ceramic coating for boats?", a: "Yes! Marine ceramic coating provides long-lasting hydrophobic protection that makes cleaning dramatically easier. It protects against UV damage, oxidation, algae, and water staining. Contact us for a custom quote based on your boat's size and type." },
+                { q: "Do you offer ceramic coating for boats?", a: "Yes! We apply GYEON Q²R GelCoat — a marine-specific ceramic coating engineered for gelcoat's porous surface. It provides long-lasting UV and oxidation protection with a hydrophobic, self-cleaning gloss. Pricing starts at $475 for boats up to 20ft." },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>

@@ -57,26 +57,34 @@ export const BOAT_FULL_LINKS: Record<string, string> = {
   "31–35 ft":    "https://buy.stripe.com/dRmcN509X3FB9qwgZFbMQ1x",
 };
 
-export const BOAT_OXIDATION_LINKS: Record<string, string> = {
-  "Up to 20 ft": "https://buy.stripe.com/8x25kDbSF5NJ1Y438PbMQ1u",
-  "21–25 ft":    "https://buy.stripe.com/bJe6oH4qda3ZeKQ10HbMQ1w",
-  "26–30 ft":    "https://buy.stripe.com/6oUeVd8Gt4JFfOU9xdbMQ1v",
-  "31–35 ft":    "https://buy.stripe.com/3cI4gz4qd0tp1Y48t9bMQ1s",
+/* ── Boat Correction / Polishing (replaces old Oxidation Removal) ──── */
+export const BOAT_1STEP_POLISH_LINKS: Record<string, string> = {
+  "Up to 20 ft": "https://buy.stripe.com/eVq8wPe0N2Bx328aBhbMQ2S",
+  "21–25 ft":    "https://buy.stripe.com/7sY00j3m98ZV8ms8t9bMQ2T",
+  "26–30 ft":    "https://buy.stripe.com/9B614n4qd0tpeKQfVBbMQ2U",
+  "31–35 ft":    "https://buy.stripe.com/7sY00j09Xdgb32838PbMQ30",
 };
 
-/* ── Marine Ceramic ────────────────────────────────────────────────── */
-export const MARINE_CERAMIC_2YR_LINKS: Record<string, string> = {
-  "Up to 20 ft": "https://buy.stripe.com/dRm4gz4qd1xt0U0eRxbMQ1r",
-  "21–25 ft":    "https://buy.stripe.com/bJebJ15uhdgbauA8t9bMQ1t",
-  "26–30 ft":    "https://buy.stripe.com/dRmbJ15uh2BxauAgZFbMQ1q",
-  "31–35 ft":    "https://buy.stripe.com/cNieVd4qdfoj46c4cTbMQ1p",
+export const BOAT_2STEP_CORRECTION_LINKS: Record<string, string> = {
+  "Up to 20 ft": "https://buy.stripe.com/5kQbJ1g8V1xt8msbFlbMQ2W",
+  "21–25 ft":    "https://buy.stripe.com/14AbJ14qdgsn1Y410HbMQ33",
+  "26–30 ft":    "https://buy.stripe.com/eVqcN54qd1xt6ekgZFbMQ2V",
+  "31–35 ft":    "https://buy.stripe.com/6oU28r3m91xtbyE24LbMQ2Y",
 };
 
-export const MARINE_CERAMIC_5YR_LINKS: Record<string, string> = {
-  "Up to 20 ft": "https://buy.stripe.com/bJe28rf4R0tp0U07p5bMQ1n",
-  "21–25 ft":    "https://buy.stripe.com/6oUcN52i5cc7cCI7p5bMQ1o",
-  "26–30 ft":    "https://buy.stripe.com/aFa9AT6ylfojauA24LbMQ1m",
-  "31–35 ft":    "https://buy.stripe.com/28EbJ1f4R4JF6ek10HbMQ1l",
+export const BOAT_MULTISTAGE_CORRECTION_LINKS: Record<string, string> = {
+  "Up to 20 ft": "https://buy.stripe.com/5kQ4gz8Gtcc732838PbMQ2X",
+  "21–25 ft":    "https://buy.stripe.com/7sYaEX2i54JFauAfVBbMQ31",
+  "26–30 ft":    "https://buy.stripe.com/00weVd9Kx2Bx5ag7p5bMQ2Z",
+  "31–35 ft":    "https://buy.stripe.com/8x29ATe0Na3Z1Y4dNtbMQ34",
+};
+
+/* ── Boat Ceramic — GYEON Q²R GelCoat (replaces old 2YR / 5YR) ───── */
+export const BOAT_CERAMIC_GELCOAT_LINKS: Record<string, string> = {
+  "Up to 20 ft": "https://buy.stripe.com/28EbJ17Cp3FBauA6l1bMQ32",
+  "21–25 ft":    "https://buy.stripe.com/4gMaEXbSF2BxbyE9xdbMQ35",
+  "26–30 ft":    "https://buy.stripe.com/9B69ATe0N8ZV1Y44cTbMQ36",
+  "31–35 ft":    "https://buy.stripe.com/dRm4gzaOB5NJ9qwdNtbMQ37",
 };
 
 /* ── Add-Ons ───────────────────────────────────────────────────────── */
