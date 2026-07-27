@@ -6,8 +6,9 @@ import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import {
   BOAT_WASH_LINKS, BOAT_INTERIOR_LINKS, BOAT_EXTERIOR_LINKS,
-  BOAT_FULL_LINKS, BOAT_OXIDATION_LINKS,
-  MARINE_CERAMIC_2YR_LINKS, MARINE_CERAMIC_5YR_LINKS,
+  BOAT_FULL_LINKS,
+  BOAT_1STEP_POLISH_LINKS, BOAT_2STEP_CORRECTION_LINKS,
+  BOAT_MULTISTAGE_CORRECTION_LINKS, BOAT_CERAMIC_GELCOAT_LINKS,
 } from "@/lib/paymentLinks";
 
 /* ── Boat service pricing by size bracket ── */
@@ -61,54 +62,69 @@ const BOAT_SERVICES = [
     ],
     popular: true,
   },
+];
+
+/* ── Boat Correction / Polishing tiers (mirrors car paint correction structure) ── */
+const BOAT_CORRECTION_TIERS = [
   {
-    name: "Oxidation Removal",
-    slug: "boat-oxidation",
-    financeLinks: BOAT_OXIDATION_LINKS,
-    description: "Machine compound and polish to remove oxidation, chalking, and heavy water spots from gelcoat and fiberglass surfaces.",
+    title: "Boat 1-Step Enhancement Polish",
+    slug: "boat-1step-polish",
+    financeLinks: BOAT_1STEP_POLISH_LINKS,
+    description: "Removes light oxidation and restores gloss on well-maintained gelcoat. Ideal for boats that have been regularly waxed and just need a refresh.",
+    ideal: "Well-maintained gelcoat with light oxidation",
+    improvement: "~60-70% defect removal",
     tiers: [
-      { label: "Up to 20 ft", price: "$375" },
-      { label: "21–25 ft", price: "$475" },
-      { label: "26–30 ft", price: "$575" },
-      { label: "31–35 ft", price: "$700" },
+      { label: "Up to 20 ft", price: "$824" },
+      { label: "21–25 ft", price: "$927" },
+      { label: "26–30 ft", price: "$1,030" },
+      { label: "31–35 ft", price: "$1,133" },
+    ],
+  },
+  {
+    title: "Boat 2-Step Correction",
+    slug: "boat-2step-correction",
+    financeLinks: BOAT_2STEP_CORRECTION_LINKS,
+    description: "A compounding stage to cut through moderate oxidation and swirl marks, followed by a fine polish to restore a deep, glossy finish on gelcoat and fiberglass.",
+    ideal: "Moderate oxidation, swirl marks, and surface wear",
+    improvement: "~85-95% defect removal",
+    tiers: [
+      { label: "Up to 20 ft", price: "$1,236" },
+      { label: "21–25 ft", price: "$1,339" },
+      { label: "26–30 ft", price: "$1,442" },
+      { label: "31–35 ft", price: "$1,545" },
+    ],
+  },
+  {
+    title: "Boat Multi-Stage Correction",
+    slug: "boat-multistage-correction",
+    financeLinks: BOAT_MULTISTAGE_CORRECTION_LINKS,
+    description: "Our most thorough gelcoat correction — multiple cutting and polishing stages to remove heavy oxidation, decal residue, deep scratches, and years of neglect. Restores severely weathered boats to like-new.",
+    ideal: "Heavy oxidation, decal residue, deeply neglected gelcoat",
+    improvement: "~95-99% defect removal",
+    tiers: [
+      { label: "Up to 20 ft", price: "$1,854" },
+      { label: "21–25 ft", price: "$2,060" },
+      { label: "26–30 ft", price: "$2,266" },
+      { label: "31–35 ft", price: "$2,472" },
     ],
   },
 ];
 
-const CERAMIC_PACKAGES = [
-  {
-    name: "Marine Ceramic — 2-Year",
-    slug: "boat-ceramic-2yr",
-    financeLinks: MARINE_CERAMIC_2YR_LINKS,
-    protection: "2-Year Protection",
-    description: "Professional marine-grade ceramic coating providing hydrophobic protection, UV resistance, and easy maintenance for two full seasons.",
-    tiers: [
-      { label: "Up to 20 ft", price: "$800" },
-      { label: "21–25 ft", price: "$1,000" },
-      { label: "26–30 ft", price: "$1,250" },
-      { label: "31–35 ft", price: "$1,500" },
-    ],
-    popular: false,
-  },
-  {
-    name: "Marine Ceramic — 5-Year",
-    slug: "boat-ceramic-5yr",
-    financeLinks: MARINE_CERAMIC_5YR_LINKS,
-    protection: "5-Year Protection",
-    description: "Our premium marine ceramic package — maximum durability against saltwater, UV, and the elements. Ideal for boats that stay in the water or see heavy use.",
-    tiers: [
-      { label: "Up to 20 ft", price: "$1,200" },
-      { label: "21–25 ft", price: "$1,550" },
-      { label: "26–30 ft", price: "$1,900" },
-      { label: "31–35 ft", price: "$2,250" },
-    ],
-    popular: true,
-  },
-];
+const CERAMIC_PACKAGE = {
+  name: "Ceramic Coating — GYEON Q²R GelCoat",
+  slug: "boat-ceramic-gelcoat",
+  description: "Purpose-built for marine use — GYEON Q²R GelCoat is a ceramic coating engineered specifically for gelcoat's porous surface, not a repurposed automotive product. It bonds deep into the gelcoat to deliver long-lasting UV and oxidation protection with a hydrophobic, self-cleaning gloss that makes maintenance effortless.",
+  tiers: [
+    { label: "Up to 20 ft", price: "$475" },
+    { label: "21–25 ft", price: "$525" },
+    { label: "26–30 ft", price: "$575" },
+    { label: "31–35 ft", price: "$950" },
+  ],
+};
 
 const ADDONS = [
   { name: "Interior Boat Ceramic", desc: "Ceramic protection for interior surfaces — vinyl, leather, and plastics stay protected from UV and stains." },
-  { name: "Hull Cleaning", desc: "Below-waterline cleaning to remove algae, barnacles, and buildup. Keep your hull smooth and efficient." },
+  { name: "Pontoon / Hull Bottom Cleaning", desc: "Below-waterline cleaning to remove algae, barnacles, and buildup. Keep your hull smooth and efficient." },
   { name: "Trailer Detail", desc: "Full clean and dress of your boat trailer — rinse, degrease, and protect. Starting at $75." },
   { name: "Teak Cleaning & Seal", desc: "Clean, brighten, and seal teak wood surfaces for lasting protection and natural beauty." },
   { name: "Metal & Brightwork Polish", desc: "Hand polish stainless steel, aluminum, and chrome hardware to a mirror finish." },
@@ -128,8 +144,8 @@ export function BoatDetailingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Boat Detailing — Charlotte, NC"
-        description="Mobile boat detailing in Charlotte, NC. Interior, exterior, oxidation removal & marine ceramic coating. Dockside or driveway — view pricing."
-        keywords="boat detailing Charlotte NC, mobile boat detailing, boat wash near me, marine ceramic coating, boat oxidation removal, boat detail pricing, Lake Norman boat detailing"
+        description="Mobile boat detailing in Charlotte, NC. Interior, exterior, gelcoat correction & GYEON marine ceramic coating. Dockside or driveway — view pricing."
+        keywords="boat detailing Charlotte NC, mobile boat detailing, boat wash near me, marine ceramic coating, boat gelcoat correction, boat detail pricing, Lake Norman boat detailing, GYEON GelCoat ceramic"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -143,9 +159,9 @@ export function BoatDetailingPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Does ProWorx offer mobile boat detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx provides professional mobile boat detailing in Charlotte, NC. We come to your dock, driveway, or storage lot with our fully self-contained mobile setup. Services include basic wash, interior detail, exterior detail with wax, full boat detail, oxidation removal, and marine ceramic coating." }},
-                { "@type": "Question", "name": "How much does boat detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "Boat detailing is priced by boat length. For example, a full boat detail starts at $600 for boats up to 20 ft, $775 for 21-25 ft, $950 for 26-30 ft, and $1,150 for 31-35 ft. Contact us for larger vessels." }},
-                { "@type": "Question", "name": "Do you offer ceramic coating for boats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer marine ceramic coating packages with 2-year and 5-year protection options. Prices range from $800-$2,250 depending on boat size and package selected." }}
+                { "@type": "Question", "name": "Does ProWorx offer mobile boat detailing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx provides professional mobile boat detailing in Charlotte, NC. We come to your dock, driveway, or storage lot with our fully self-contained mobile setup. Services include basic wash, interior detail, exterior detail with wax, full boat detail, multi-stage gelcoat correction, and GYEON marine ceramic coating." }},
+                { "@type": "Question", "name": "How much does boat detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "Boat detailing is priced by boat length. For example, a full boat detail starts at $618 for boats up to 20 ft. Gelcoat correction ranges from $824 (1-Step Enhancement) to $2,472 (Multi-Stage Correction) depending on severity and boat size. Contact us for larger vessels." }},
+                { "@type": "Question", "name": "Do you offer ceramic coating for boats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We apply GYEON Q²R GelCoat — a marine-specific ceramic coating engineered for gelcoat's porous surface. Unlike repurposed automotive coatings, it's built to protect against UV, oxidation, and the marine environment. Pricing starts at $475 for boats up to 20 ft." }}
               ]
             }
           ]
@@ -168,7 +184,7 @@ export function BoatDetailingPage() {
               Professional <span className="text-gradient-gold">Boat Detailing</span> in Charlotte, NC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Keep your boat looking showroom-fresh all season. From basic washes to full details and marine ceramic coatings — we bring the detail shop to your dock or driveway. Pricing based on boat length.
+              Keep your boat looking showroom-fresh all season. From basic washes to multi-stage gelcoat correction and GYEON marine ceramic coating — we bring the detail shop to your dock or driveway. Pricing based on boat length.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -199,8 +215,8 @@ export function BoatDetailingPage() {
                 { icon: <Waves className="size-5" />, title: "We Come to You", desc: "Dockside, driveway, or storage lot — our fully self-contained mobile setup means zero hassle for you." },
                 { icon: <Ruler className="size-5" />, title: "Size-Based Pricing", desc: "Transparent pricing based on your boat's length. No hidden fees — you know the cost before we start." },
                 { icon: <Shield className="size-5" />, title: "Marine-Grade Products", desc: "We use professional marine detailing products formulated for gelcoat, fiberglass, vinyl, and teak." },
-                { icon: <Sparkles className="size-5" />, title: "Oxidation Experts", desc: "Charlotte sun and lake water take a toll. We restore faded, chalky gelcoat to a deep, glossy finish." },
-                { icon: <Droplets className="size-5" />, title: "Ceramic Protection", desc: "Marine ceramic coatings provide years of hydrophobic, UV-resistant protection — perfect for boats." },
+                { icon: <Sparkles className="size-5" />, title: "Gelcoat Correction", desc: "From light oxidation to full multi-stage restoration — we bring faded, chalky gelcoat back to a deep, glossy finish." },
+                { icon: <Droplets className="size-5" />, title: "GYEON Marine Ceramic", desc: "Purpose-built ceramic coating for gelcoat — not a repurposed automotive product. Long-lasting UV and oxidation protection." },
                 { icon: <Anchor className="size-5" />, title: "Full-Service Detailing", desc: "Interior, exterior, hull, trailer, teak, metal — we handle every surface on your vessel." },
               ].map((item) => (
                 <div key={item.title} className="rounded-xl bg-card border border-border p-5">
@@ -287,30 +303,85 @@ export function BoatDetailingPage() {
         </div>
       </section>
 
-      {/* ── Marine Ceramic Coating ── */}
+      {/* ── Boat Correction / Polishing ── */}
+      <section id="correction" className="py-20 md:py-28">
+        <div className="container">
+          <div className="text-center mb-14">
+            <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Gelcoat Correction</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Boat Correction &amp; Polishing</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Restore faded, oxidized, or neglected gelcoat to a deep, glossy finish. We assess your boat's condition and recommend the right level of correction.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {BOAT_CORRECTION_TIERS.map((stage) => {
+              const widgetUrl = config[`widgetUrl:${stage.slug}`];
+              const bookUrl = widgetUrl || config["widgetUrl:boat-detail-cta"] || undefined;
+              return (
+                <div key={stage.title} className="rounded-2xl bg-card border border-border p-7 flex flex-col">
+                  <h3 className="font-bold text-lg mb-3 text-gold">{stage.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{stage.description}</p>
+                  <div className="space-y-2 text-sm mb-5">
+                    <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Ideal for:</strong> {stage.ideal}</span></div>
+                    <div className="flex items-start gap-2"><CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" /><span><strong>Result:</strong> {stage.improvement}</span></div>
+                  </div>
+                  <div className="rounded-xl bg-muted/50 border border-border/50 p-4 mb-5 flex-1">
+                    <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing by Boat Length</p>
+                    {stage.tiers.map((t) => {
+                      const finUrl = stage.financeLinks?.[t.label];
+                      return (
+                        <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
+                          <p className="text-sm font-medium">{t.label}</p>
+                          <div className="flex items-center gap-2.5">
+                            <p className="font-bold text-gold">{t.price}</p>
+                            {finUrl && (
+                              <a
+                                href={finUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
+                              >
+                                💳 Finance
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <Button size="sm" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-semibold mt-auto" asChild>
+                    <BookNowLink href={bookUrl}>Book Now <ArrowRight className="size-4" /></BookNowLink>
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available — pay over time with 0% APR monthly payments.</p>
+        </div>
+      </section>
+
+      {/* ── Marine Ceramic Coating — GYEON Q²R GelCoat ── */}
       <section id="ceramic" className="py-20 md:py-28">
         <div className="container">
           <div className="text-center mb-14">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Long-Term Protection</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Marine Ceramic Coating</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Professional-grade marine ceramic coatings that protect gelcoat and fiberglass from UV damage, water spots, and oxidation — for years, not weeks.
+              GYEON Q²R GelCoat — a ceramic coating engineered specifically for marine use, not a repurposed automotive product. Built for gelcoat's porous surface to deliver lasting protection.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {CERAMIC_PACKAGES.map((pkg) => (
-              <div key={pkg.name} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${pkg.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                {pkg.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Best Value</div>}
-                <h3 className="font-bold text-xl mb-1">{pkg.name}</h3>
-                <p className="text-gold text-sm font-medium mb-3">{pkg.protection}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">{pkg.description}</p>
-                <div className="grid grid-cols-2 gap-3 mb-5">
-                  {pkg.tiers.map((tier) => {
-                    const finUrl = pkg.financeLinks?.[tier.label];
-                    return (
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl bg-card border border-gold shadow-lg shadow-gold/10 p-7 relative">
+              <div className="absolute -top-3 left-6 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">GYEON Certified</div>
+              <h3 className="font-bold text-xl mb-1">{CERAMIC_PACKAGE.name}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{CERAMIC_PACKAGE.description}</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+                {CERAMIC_PACKAGE.tiers.map((tier) => {
+                  const finUrl = BOAT_CERAMIC_GELCOAT_LINKS[tier.label];
+                  return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
-                      <p className="font-bold text-gold">{tier.price}</p>
+                      <p className="font-bold text-gold text-lg">{tier.price}</p>
                       {finUrl && (
                         <a
                           href={finUrl}
@@ -322,27 +393,27 @@ export function BoatDetailingPage() {
                         </a>
                       )}
                     </div>
-                    );
-                  })}
-                </div>
-                <ul className="space-y-2 flex-1 mb-6">
-                  {[
-                    "Hydrophobic water repellency",
-                    "UV & oxidation resistance",
-                    "Easy-clean surface",
-                    "Professional application",
-                  ].map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                      <span className="text-muted-foreground">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className={pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                  <BookNowLink href={config[`widgetUrl:${pkg.slug}`] || undefined}>Book Now <ArrowRight className="size-4" /></BookNowLink>
-                </Button>
+                  );
+                })}
               </div>
-            ))}
+              <ul className="space-y-2 mb-6">
+                {[
+                  "Marine-specific formula — not an automotive coating",
+                  "Bonds deep into gelcoat's porous surface",
+                  "UV & oxidation protection for years",
+                  "Hydrophobic, self-cleaning gloss",
+                  "Professional application by GYEON certified installer",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
+                    <span className="text-muted-foreground">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold w-full" asChild>
+                <BookNowLink href={config["widgetUrl:boat-ceramic-gelcoat"] || config["widgetUrl:boat-detail-cta"] || undefined}>Book Ceramic Coating <ArrowRight className="size-4" /></BookNowLink>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

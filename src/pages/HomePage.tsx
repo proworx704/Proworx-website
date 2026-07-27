@@ -70,7 +70,7 @@ const SERVICES = [
   {
     icon: <Anchor className="size-6" />,
     title: "Boat Detailing",
-    description: "Expert marine detailing for boats of all sizes. Hull cleaning, oxidation removal, and ceramic protection for the water.",
+    description: "Expert marine detailing for boats of all sizes. Gelcoat correction, GYEON ceramic coating, and full interior/exterior services.",
     href: "/boat-detailing",
     image: "/images/boat-exterior.webp",
     slot: "card-boat",

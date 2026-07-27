@@ -41,9 +41,12 @@ const DEFAULTS: Record<string, string> = {
   "widgetUrl:interior-boat-detail": "https://book.squareup.com/appointments/0h1h4064nn0qpr/location/9VRKFJAZZM3HG/services",
   "widgetUrl:full-boat-detail": "https://book.squareup.com/appointments/jsboaz4gfhd8xt/location/9VRKFJAZZM3HG/services",
   "widgetUrl:exterior-boat-detail": "https://book.squareup.com/appointments/jtklllya08a78z/location/9VRKFJAZZM3HG",
-  "widgetUrl:boat-oxidation": "https://book.squareup.com/appointments/jtklllya08a78z/location/9VRKFJAZZM3HG",
-  "widgetUrl:boat-ceramic-2yr": "https://book.squareup.com/appointments/8n6fmuooxsb1j9/location/9VRKFJAZZM3HG/services",
-  "widgetUrl:boat-ceramic-5yr": "https://book.squareup.com/appointments/pvjjsw3dcl7yjj/location/9VRKFJAZZM3HG/services",
+  // Boat correction tiers (update these once new Square catalog items are live)
+  "widgetUrl:boat-1step-polish": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:boat-2step-correction": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
+  "widgetUrl:boat-multistage-correction": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
+  // Boat ceramic — GYEON Q²R GelCoat (single option, replaces 2yr/5yr)
+  "widgetUrl:boat-ceramic-gelcoat": "https://book.squareup.com/appointments/taxsipsy7h9n8x/location/9VRKFJAZZM3HG/services",
   // Detailing package widget URLs (used by ServicesPage slug-based lookup)
   "widgetUrl:standard-inside-out": "https://book.squareup.com/appointments/3462dsfn0cvfuh/location/9VRKFJAZZM3HG/services",
   "widgetUrl:elite-inside-out": "https://book.squareup.com/appointments/m7bilxz8z549j1/location/9VRKFJAZZM3HG/services",
