@@ -10,55 +10,29 @@ import {
   PLAN_TYPE_ORDER,
   getCheckoutUrl,
   type SubscriptionPlanType,
-  type SubscriptionFrequency,
 } from "@/lib/subscriptionUrls";
 
-/* ── Billing Frequencies ── */
-type Frequency = "biweekly" | "monthly" | "quarterly" | "annually";
+/* ── Vehicle Size Tiers per Plan Type ──
+   Inside-Out keeps Van as its own tier (interior size matters).
+   Exterior-Only merges Van into the Large SUV/Truck tier. */
+type VehicleTier = { key: string; label: string; price: number };
 
-const FREQUENCIES: { key: Frequency; label: string; suffix: string; badge?: string; description: string }[] = [
-  { key: "biweekly", label: "Biweekly", suffix: "/visit", description: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep. Billing starts the 1st of the month following signup." },
-  { key: "monthly", label: "Monthly", suffix: "/visit", badge: "Most Popular", description: "The Sweet Spot. Keeps your vehicle consistently fresh and protected. Billing starts the 1st of the month following signup." },
-  { key: "quarterly", label: "Quarterly", suffix: "/visit", description: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment. Billing starts the 1st of the month following signup." },
-  { key: "annually", label: "Annually", suffix: "/yr", badge: "Save 8%", description: "Our ultimate commitment to hassle-free care. Includes 12 monthly maintenance visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime." },
-];
-
-/* ── Vehicle Sizes ── */
-type VehicleSize = "sedan" | "small-suv" | "large-suv" | "van";
-
-const VEHICLE_SIZES: { key: VehicleSize; label: string }[] = [
-  { key: "sedan", label: "Sedan" },
-  { key: "small-suv", label: "Small SUV / Truck" },
-  { key: "large-suv", label: "Large SUV / Off-Road" },
-  { key: "van", label: "Van" },
-];
-
-/* ── Per-Visit Pricing by Plan Type & Vehicle Size ── */
-type PricingTable = Record<VehicleSize, Record<Frequency, string>>;
-
-const ALL_PRICING: Record<string, PricingTable> = {
-  "inside-out": {
-    sedan: { biweekly: "135", monthly: "166", quarterly: "227", annually: "1,823" },
-    "small-suv": { biweekly: "155", monthly: "186", quarterly: "258", annually: "2,051" },
-    "large-suv": { biweekly: "176", monthly: "207", quarterly: "289", annually: "2,278" },
-    van: { biweekly: "196", monthly: "227", quarterly: "320", annually: "2,506" },
-  },
-  exterior: {
-    sedan: { biweekly: "48", monthly: "64", quarterly: "120", annually: "697" },
-    "small-suv": { biweekly: "58", monthly: "74", quarterly: "136", annually: "813" },
-    "large-suv": { biweekly: "69", monthly: "84", quarterly: "151", annually: "929" },
-    van: { biweekly: "79", monthly: "95", quarterly: "167", annually: "1,045" },
-  },
-  interior: {
-    sedan: { biweekly: "80", monthly: "106", quarterly: "202", annually: "1,142" },
-    "small-suv": { biweekly: "95", monthly: "126", quarterly: "233", annually: "1,369" },
-    "large-suv": { biweekly: "111", monthly: "147", quarterly: "263", annually: "1,596" },
-    van: { biweekly: "126", monthly: "168", quarterly: "294", annually: "1,823" },
-  },
+const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
+  "inside-out": [
+    { key: "sedan", label: "Coupes & Sedans", price: 126 },
+    { key: "small-suv", label: "Small SUVs / Crossovers", price: 147 },
+    { key: "large-suv", label: "Large SUVs / Trucks", price: 168 },
+    { key: "van", label: "Vans / Minivans", price: 210 },
+  ],
+  exterior: [
+    { key: "sedan", label: "Coupes & Sedans", price: 63 },
+    { key: "small-suv", label: "Small SUVs / Crossovers", price: 95 },
+    { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 126 },
+  ],
 };
 
 /* ── What's included in each plan type ── */
-const PLAN_FEATURES: Record<string, string[]> = {
+const PLAN_FEATURES: Record<SubscriptionPlanType, string[]> = {
   "inside-out": [
     "Full interior vacuum (carpets, seats, crevices)",
     "Wipe-down of all interior surfaces",
@@ -69,18 +43,13 @@ const PLAN_FEATURES: Record<string, string[]> = {
     "Light spray wax & tire shine",
   ],
   exterior: [
-    "Hand wash with foam pre-treatment",
-    "Wheels & tires cleaned and dressed",
-    "Door jambs wiped down",
-    "Exterior glass cleaned",
-    "Light spray wax & tire shine",
-  ],
-  interior: [
-    "Full interior vacuum (carpets, seats, crevices)",
-    "Wipe-down of all interior surfaces",
-    "Door panels, cupholders, center console & vents",
-    "Interior glass cleaning",
-    "Light stain treatment (as applicable)",
+    "Gentle foam pre-wash",
+    "2-bucket contact wash",
+    "Wheel face & tire scrub",
+    "Streak-free blow dry",
+    "Spray sealant gloss boost",
+    "Tire dressing",
+    "Crystal-clear exterior glass",
   ],
 };
 
@@ -93,22 +62,31 @@ const WHO_ITS_FOR = [
 
 export function MaintenancePage() {
   const { config } = useSiteConfig();
-  const [vehicleSize, setVehicleSize] = useState<VehicleSize>("sedan");
   const [planType, setPlanType] = useState<SubscriptionPlanType>("inside-out");
-  const pricingTable = ALL_PRICING[planType] || ALL_PRICING["inside-out"];
-  const prices = pricingTable[vehicleSize];
+  const tiers = PLAN_TIERS[planType] || PLAN_TIERS["inside-out"];
+  const [vehicleKey, setVehicleKey] = useState<string>(tiers[0].key);
   const currentPlan = SUBSCRIPTION_PLANS[planType];
   const features = PLAN_FEATURES[planType] || PLAN_FEATURES["inside-out"];
+  const activeTier = tiers.find((t) => t.key === vehicleKey) || tiers[0];
+  const checkoutUrl = getCheckoutUrl(planType);
 
   useEffect(() => {
     trackViewContent("Maintenance Plans", "Membership");
   }, []);
 
+  function selectPlan(pt: SubscriptionPlanType) {
+    setPlanType(pt);
+    const newTiers = PLAN_TIERS[pt] || PLAN_TIERS["inside-out"];
+    if (!newTiers.some((t) => t.key === vehicleKey)) {
+      setVehicleKey(newTiers[0].key);
+    }
+  }
+
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $48/visit. 3 plans: Exterior Only, Interior Only, and Full Inside & Out. Mobile service, cancel anytime. First-time customers save 10%."
+        description="Monthly auto detailing plans in Charlotte, NC from $63/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. An initial detail is required before starting a plan."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",
@@ -123,10 +101,10 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers three core maintenance plans: Exterior Only (from $48/visit), Interior Only (from $80/visit), and Full Inside & Out (from $135/visit). Each is available in biweekly, monthly, quarterly, or annual pre-pay cadences. All plans include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $63/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
-                { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "No — there is no mandatory initial detail requirement. Initial detail results may vary based on vehicle condition. You can add additional labor time if more is needed, or the job is completed within the included labor, scope, and process." }},
-                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "All maintenance plans include service on your chosen frequency — biweekly, monthly, quarterly, or annual pre-pay. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring schedule." }}
+                { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An initial standard detail is required before you're eligible for a monthly maintenance plan — it gets the vehicle to a baseline we can maintain. In the same month as your initial cleaning you have the option to join the monthly membership, which is billed on the 1st of the following month. Initial detail results may vary based on vehicle condition; additional labor time can be added if more is needed." }},
+                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed and serviced monthly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
               ]
             },
             {
@@ -134,14 +112,13 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans — 3 core services from $48/visit. Professional hand wash, interior detail, and full inside & out. Ceramic vehicles welcome at the same price.",
+              "description": "Monthly mobile detailing maintenance plans — 2 core services from $63/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
                 "itemListElement": [
-                  { "@type": "Offer", "name": "Exterior Only", "price": "48", "priceCurrency": "USD", "description": "Professional hand wash, wheels & tires, door jambs, exterior glass, spray wax & tire shine" },
-                  { "@type": "Offer", "name": "Interior Only", "price": "80", "priceCurrency": "USD", "description": "Full interior vacuum, surface wipe-down, door panels, console & vents, interior glass, light stain treatment" },
-                  { "@type": "Offer", "name": "Full Inside & Out", "price": "135", "priceCurrency": "USD", "description": "Complete interior and exterior detail every visit — our most popular plan" }
+                  { "@type": "Offer", "name": "Exterior Only", "price": "62", "priceCurrency": "USD", "description": "Foam pre-wash, 2-bucket contact wash, wheel & tire scrub, blow dry, spray sealant, tire dressing, exterior glass" },
+                  { "@type": "Offer", "name": "Full Inside & Out", "price": "124", "priceCurrency": "USD", "description": "Complete interior and exterior detail every visit — our most popular plan" }
                 ]
               }
             }
@@ -165,7 +142,7 @@ export function MaintenancePage() {
               Keep Your Vehicle <span className="text-gradient-gold">Looking Its Best</span> — Every Month
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Professional mobile detailing on a schedule that works for you. Choose from 3 core plans — Exterior Only, Interior Only, or Full Inside & Out — and we'll show up to keep your vehicle clean, protected, and looking like it just left the shop. Cancel anytime. First-time customers save 10% on their first detail.
+              Professional mobile detailing on a schedule that works for you. Choose from 2 core plans — Exterior Only or Full Inside & Out — and we'll show up every month to keep your vehicle clean, protected, and looking like it just left the shop. Cancel anytime. An initial standard detail is required first — then you can join the monthly plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -241,9 +218,9 @@ export function MaintenancePage() {
         <div className="container">
           <div className="text-center mb-10">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Maintenance Plans</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{currentPlan.shortName} Subscriptions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{currentPlan.shortName} — Monthly</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Choose your plan type and vehicle size, then pick the frequency that fits your schedule.
+              Choose your plan type and vehicle size. Billed monthly, cancel anytime.
             </p>
           </div>
 
@@ -261,7 +238,7 @@ export function MaintenancePage() {
                   return (
                     <button
                       key={pt}
-                      onClick={() => setPlanType(pt)}
+                      onClick={() => selectPlan(pt)}
                       className={`px-5 py-3 rounded-xl text-sm font-bold transition-all ${
                         planType === pt
                           ? "bg-gold-dark text-gold-foreground shadow-md shadow-gold/20 ring-2 ring-gold/50 scale-105"
@@ -277,7 +254,7 @@ export function MaintenancePage() {
               <div className="md:hidden flex justify-center">
                 <select
                   value={planType}
-                  onChange={(e) => setPlanType(e.target.value as SubscriptionPlanType)}
+                  onChange={(e) => selectPlan(e.target.value as SubscriptionPlanType)}
                   className="w-full max-w-sm px-4 py-3.5 rounded-xl bg-card border-2 border-gold/30 text-foreground text-base font-bold appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%239ca3af%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.23%207.21a.75.75%200%20011.06.02L10%2011.168l3.71-3.938a.75.75%200%20111.08%201.04l-4.25%204.5a.75.75%200%2001-1.08%200l-4.25-4.5a.75.75%200%2001.02-1.06z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.5rem] bg-[right_0.75rem_center] bg-no-repeat pr-10"
                 >
                   {PLAN_TYPE_ORDER.map((pt) => (
@@ -292,133 +269,83 @@ export function MaintenancePage() {
           {/* ── Vehicle Size Selector ── */}
           {/* Desktop: button tabs */}
           <div className="hidden md:flex flex-wrap justify-center gap-2 mb-8">
-            {VEHICLE_SIZES.map((s) => (
+            {tiers.map((t) => (
               <button
-                key={s.key}
-                onClick={() => setVehicleSize(s.key)}
+                key={t.key}
+                onClick={() => setVehicleKey(t.key)}
                 className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                  vehicleSize === s.key
+                  vehicleKey === t.key
                     ? "bg-gold-dark text-gold-foreground shadow-sm"
                     : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-gold/30"
                 }`}
               >
-                {s.label}
+                {t.label}
               </button>
             ))}
           </div>
           {/* Mobile: dropdown select */}
           <div className="md:hidden flex justify-center mb-6">
             <select
-              value={vehicleSize}
-              onChange={(e) => setVehicleSize(e.target.value as VehicleSize)}
+              value={vehicleKey}
+              onChange={(e) => setVehicleKey(e.target.value)}
               className="w-full max-w-sm px-4 py-3 rounded-xl bg-card border border-border text-foreground text-sm font-semibold appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%239ca3af%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.23%207.21a.75.75%200%20011.06.02L10%2011.168l3.71-3.938a.75.75%200%20111.08%201.04l-4.25%204.5a.75.75%200%2001-1.08%200l-4.25-4.5a.75.75%200%2001.02-1.06z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat pr-10"
             >
-              {VEHICLE_SIZES.map((s) => (
-                <option key={s.key} value={s.key}>{s.label}</option>
+              {tiers.map((t) => (
+                <option key={t.key} value={t.key}>{t.label}</option>
               ))}
             </select>
           </div>
 
-          {/* ── Frequency Cards ── */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {FREQUENCIES.filter((f) => f.key !== "annually").map((f) => {
-              const checkoutUrl = getCheckoutUrl(planType, f.key as SubscriptionFrequency);
-              return (
-                <div key={f.key} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                  {f.badge && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{f.badge}</div>}
-                  <h3 className="font-bold text-xl mb-1">{f.label}</h3>
-                  <p className="text-3xl font-black mb-2">
-                    ${prices[f.key]}
-                    <span className="text-sm font-normal text-muted-foreground">{f.suffix}</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{f.description}</p>
-                  <ul className="space-y-2.5 flex-1 mb-6">
-                    {features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                        <span className="text-muted-foreground">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className={f.badge ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" : "bg-muted text-foreground hover:bg-muted/80 font-semibold"} asChild>
-                    <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
-                  </Button>
-                </div>
-              );
-            })}
+          {/* ── Monthly Price Card ── */}
+          <div className="max-w-md mx-auto">
+            <div className="rounded-2xl bg-card border-2 border-gold shadow-lg shadow-gold/10 p-7 flex flex-col relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Billed Monthly</div>
+              <h3 className="font-bold text-xl mb-1">{activeTier.label}</h3>
+              <p className="text-3xl font-black mb-2">
+                ${activeTier.price}
+                <span className="text-sm font-normal text-muted-foreground">/month</span>
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">Requires a completed initial detail. Join in the same month as your initial cleaning — billing starts the 1st of the following month, so you're never charged twice in your first month.</p>
+              <ul className="space-y-2.5 flex-1 mb-6">
+                {features.map((feat) => (
+                  <li key={feat} className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
+                    <span className="text-muted-foreground">{feat}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
+                <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} Monthly`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
+              </Button>
+            </div>
           </div>
 
-          {/* ── Annual Pre-Pay Card ── */}
-          {(() => {
-            const annualUrl = getCheckoutUrl(planType, "annually");
-            return (
-              <div className="max-w-5xl mx-auto mt-8">
-                <div className="rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-8 relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">Save 8%</div>
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h3 className="font-bold text-2xl mb-2">Annual Pre-Pay</h3>
-                      <p className="text-3xl font-black mb-1">
-                        ${prices.annually}
-                        <span className="text-sm font-normal text-muted-foreground">/yr</span>
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                        Our ultimate commitment to hassle-free care. 12 monthly {currentPlan.shortName.toLowerCase()} visits across the year, completely pre-paid. Plus, enjoy 10% off any specialty add-on services anytime.
-                      </p>
-                      <Button className="bg-emerald-500 text-white hover:bg-emerald-600 font-bold" asChild>
-                        <a href={annualUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} Annual`, annualUrl)}>Pre-Pay Now <ArrowRight className="size-4" /></a>
-                      </Button>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold mb-3">What&rsquo;s included in every visit:</p>
-                      <ul className="space-y-2">
-                        {features.map((feat) => (
-                          <li key={feat} className="flex items-start gap-2 text-sm">
-                            <CheckCircle2 className="size-4 text-emerald-500 mt-0.5 shrink-0" />
-                            <span className="text-muted-foreground">{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-
           {/* ── Full Pricing Table ── */}
-          <div className="max-w-4xl mx-auto mt-12">
+          <div className="max-w-2xl mx-auto mt-12">
             <div className="rounded-2xl bg-card border border-border overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-border bg-muted/30">
                       <th className="text-left p-4 font-semibold">Vehicle Size</th>
-                      <th className="p-4 font-semibold text-center">Biweekly</th>
                       <th className="p-4 font-semibold text-center bg-gold/5">Monthly</th>
-                      <th className="p-4 font-semibold text-center">Quarterly</th>
-                      <th className="p-4 font-semibold text-center bg-emerald-500/5">Annually <span className="text-emerald-400 text-xs">(Save 8%)</span></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {VEHICLE_SIZES.map((s) => (
-                      <tr key={s.key} className="border-b border-border/50 last:border-0">
-                        <td className="p-4 font-medium">{s.label}</td>
-                        <td className="p-4 text-center tabular-nums">${pricingTable[s.key].biweekly}</td>
-                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${pricingTable[s.key].monthly}</td>
-                        <td className="p-4 text-center tabular-nums">${pricingTable[s.key].quarterly}</td>
-                        <td className="p-4 text-center tabular-nums font-bold text-emerald-400 bg-emerald-500/5">${pricingTable[s.key].annually}</td>
+                    {tiers.map((t) => (
+                      <tr key={t.key} className="border-b border-border/50 last:border-0">
+                        <td className="p-4 font-medium">{t.label}</td>
+                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${t.price}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground text-center mt-3">Per-visit rates shown for Biweekly, Monthly, and Quarterly. Annual is a one-time pre-pay for 12 monthly visits. Billing starts the 1st of the month following signup — you're never charged twice in your first month.</p>
           </div>
 
           <p className="text-center text-sm text-muted-foreground mt-8">
-            No long-term contracts — cancel anytime with no penalty. Annual pre-pay plans include 10% off add-on services.
+            No long-term contracts — cancel anytime with no penalty.
           </p>
         </div>
       </section>
@@ -471,21 +398,21 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── New Customer Discount ── */}
+      {/* ── Initial Detail Required ── */}
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <div className="rounded-2xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-transparent p-8 md:p-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-4">
                 <Star className="size-3.5" />
-                New Customer Offer
+                How to Join
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">First-Time Customers Save 10%</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Start With an Initial Detail</h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-6">
-                New to ProWorx? Enjoy 10% off your first detail — whether it's a one-time package or your initial maintenance visit. Applied at checkout.
+                Every maintenance plan begins with a one-time standard detail so we can bring your vehicle to a baseline worth maintaining. In the same month as your initial cleaning you have the option to join the monthly membership — billed on the 1st of the following month, so you're never charged twice up front.
               </p>
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
-                <a href="#plans">View Plans <ArrowRight className="size-5" /></a>
+                <a href="/services">Book Your Initial Detail <ArrowRight className="size-5" /></a>
               </Button>
             </div>
           </div>

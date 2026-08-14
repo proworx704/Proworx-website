@@ -1,8 +1,5 @@
 import { ArrowRight, CheckCircle2, Phone, Shield, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import {
-  INSIDE_OUT_LINKS, INTERIOR_LINKS, EXTERIOR_LINKS,
-} from "@/lib/paymentLinks";
 import { PageSEO } from "@/components/PageSEO";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackSubscribeClick, trackCeramicDepositClick } from "@/lib/tracking";
@@ -11,7 +8,6 @@ import {
   PLAN_TYPE_ORDER,
   getCheckoutUrl,
   type SubscriptionPlanType,
-  type SubscriptionFrequency,
 } from "@/lib/subscriptionUrls";
 
 /* ── helpers ─────────────────────────────────────────────────────────── */
@@ -60,7 +56,6 @@ function TierCard({
   highlight,
   bookHref,
   bookLabel = "Book Now",
-  financeLinks,
 }: {
   name: string;
   badge?: string;
@@ -70,7 +65,6 @@ function TierCard({
   highlight?: boolean;
   bookHref: string;
   bookLabel?: string;
-  financeLinks?: Record<string, string>;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -104,28 +98,15 @@ function TierCard({
 
       {/* Price grid */}
       <div className="space-y-1 mb-4">
-        {prices.map((p) => {
-          const finUrl = financeLinks?.[p.label];
-          return (
+        {prices.map((p) => (
           <div key={p.label} className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">{p.label}</span>
             <div className="flex items-center gap-3">
               <span className="text-[10px] text-muted-foreground/60">{p.duration}</span>
               <span className="font-bold tabular-nums">{p.price}</span>
-              {finUrl && (
-                <a
-                  href={finUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[9px] font-semibold hover:bg-blue-600/20 transition-colors"
-                >
-                  💳
-                </a>
-              )}
             </div>
           </div>
-          );
-        })}
+        ))}
       </div>
       <BookBtn href={bookHref}>
         {bookLabel} <ArrowRight className="size-4" />
@@ -254,17 +235,11 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 30m", price: "$258" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$310" },
-                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$361" },
-                { label: "Van", duration: "4h", price: "$413" },
+                { label: "Sedan", duration: "2h 30m", price: "$210" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$252" },
+                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$294" },
+                { label: "Van", duration: "4h 30m", price: "$378" },
               ]}
-              financeLinks={{
-                "Sedan": INSIDE_OUT_LINKS["Sedan / Coupe"],
-                "Sm SUV/Truck": INSIDE_OUT_LINKS["Small SUV / Truck"],
-                "Lg SUV/Truck": INSIDE_OUT_LINKS["Large SUV / Off-Road Truck"],
-                "Van": INSIDE_OUT_LINKS["Van"],
-              }}
               bookHref={bookStdIO}
             />
 
@@ -294,17 +269,11 @@ export function MenuPage() {
                 "Light stain treatment (as applicable)",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 45m", price: "$181" },
-                { label: "Sm SUV/Truck", duration: "2h", price: "$207" },
-                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$258" },
-                { label: "Van", duration: "3h", price: "$310" },
+                { label: "Sedan", duration: "1h 30m", price: "$142" },
+                { label: "Sm SUV/Truck", duration: "2h", price: "$189" },
+                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$236" },
+                { label: "Van", duration: "3h", price: "$283" },
               ]}
-              financeLinks={{
-                "Sedan": INTERIOR_LINKS["Sedan / Coupe"],
-                "Sm SUV/Truck": INTERIOR_LINKS["Small SUV / Truck"],
-                "Lg SUV/Truck": INTERIOR_LINKS["Large SUV / Off-Road Truck"],
-                "Van": INTERIOR_LINKS["Van"],
-              }}
               bookHref={bookStdInt}
             />
 
@@ -332,17 +301,10 @@ export function MenuPage() {
                 "Light spray wax for shine & short-term protection",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 15m", price: "$130" },
-                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$155" },
-                { label: "Lg SUV/Truck", duration: "1h 45m", price: "$181" },
-                { label: "Van", duration: "2h", price: "$207" },
+                { label: "Sedan", duration: "1h", price: "$95" },
+                { label: "Sm SUV/Truck", duration: "1h 15m", price: "$121" },
+                { label: "Lg SUV/Truck/Van", duration: "1h 30m", price: "$142" },
               ]}
-              financeLinks={{
-                "Sedan": EXTERIOR_LINKS["Sedan / Coupe"],
-                "Sm SUV/Truck": EXTERIOR_LINKS["Small SUV / Truck"],
-                "Lg SUV/Truck": EXTERIOR_LINKS["Large SUV / Off-Road Truck"],
-                "Van": EXTERIOR_LINKS["Van"],
-              }}
               bookHref={bookStdExt}
             />
 
@@ -561,48 +523,33 @@ export function MenuPage() {
 
         <div className="border-t border-border" />
 
-        {/* ═══ MEMBERSHIPS — Plan Type + Vehicle Size ═══ */}
+        {/* ═══ MEMBERSHIPS — Plan Type + Vehicle Size (Monthly Only) ═══ */}
         <Section id="memberships">
           <SectionHeader
             label="Maintenance Plans"
-            title={`${SUBSCRIPTION_PLANS[menuPlanType].shortName} Subscriptions`}
-            subtitle="Choose your plan type and vehicle size, then pick the frequency that fits your schedule. All rates are per visit."
+            title={`${SUBSCRIPTION_PLANS[menuPlanType].shortName} — Monthly`}
+            subtitle="Choose your plan type and vehicle size. Billed monthly, cancel anytime."
           />
           {(() => {
-            const MAINT_SIZES = [
-              { key: "sedan", label: "Sedan" },
-              { key: "small-suv", label: "Small SUV / Truck" },
-              { key: "large-suv", label: "Large SUV / Off-Road" },
-              { key: "van", label: "Van" },
-            ];
-            const ALL_PRICING: Record<string, Record<string, { biweekly: string; monthly: string; quarterly: string; annually: string }>> = {
-              "inside-out": {
-                sedan: { biweekly: "$135", monthly: "$166", quarterly: "$227", annually: "$1,823" },
-                "small-suv": { biweekly: "$155", monthly: "$186", quarterly: "$258", annually: "$2,051" },
-                "large-suv": { biweekly: "$176", monthly: "$207", quarterly: "$289", annually: "$2,278" },
-                van: { biweekly: "$196", monthly: "$227", quarterly: "$320", annually: "$2,506" },
-              },
-              exterior: {
-                sedan: { biweekly: "$48", monthly: "$64", quarterly: "$120", annually: "$697" },
-                "small-suv": { biweekly: "$58", monthly: "$74", quarterly: "$136", annually: "$813" },
-                "large-suv": { biweekly: "$69", monthly: "$84", quarterly: "$151", annually: "$929" },
-                van: { biweekly: "$79", monthly: "$95", quarterly: "$167", annually: "$1,045" },
-              },
-              interior: {
-                sedan: { biweekly: "$80", monthly: "$106", quarterly: "$202", annually: "$1,142" },
-                "small-suv": { biweekly: "$95", monthly: "$126", quarterly: "$233", annually: "$1,369" },
-                "large-suv": { biweekly: "$111", monthly: "$147", quarterly: "$263", annually: "$1,596" },
-                van: { biweekly: "$126", monthly: "$168", quarterly: "$294", annually: "$1,823" },
-              },
+            type VehicleTier = { key: string; label: string; price: number };
+            const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
+              "inside-out": [
+                { key: "sedan", label: "Coupes & Sedans", price: 126 },
+                { key: "small-suv", label: "Small SUVs / Crossovers", price: 147 },
+                { key: "large-suv", label: "Large SUVs / Trucks", price: 168 },
+                { key: "van", label: "Vans / Minivans", price: 210 },
+              ],
+              exterior: [
+                { key: "sedan", label: "Coupes & Sedans", price: 63 },
+                { key: "small-suv", label: "Small SUVs / Crossovers", price: 95 },
+                { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 126 },
+              ],
             };
-            const MAINT_FREQ = [
-              { key: "biweekly" as const, label: "Biweekly", suffix: "/visit", desc: "Our best per-visit rate. Perfect for daily drivers and pristine upkeep. Billing starts the 1st of the month following signup." },
-              { key: "monthly" as const, label: "Monthly", suffix: "/visit", desc: "The Sweet Spot. Keeps your vehicle consistently fresh and protected. Billing starts the 1st of the month following signup.", badge: "Most Popular" },
-              { key: "quarterly" as const, label: "Quarterly", suffix: "/visit", desc: "The Seasonal Refresh. A deep maintenance clean every 3 months to reset and protect your investment. Billing starts the 1st of the month following signup." },
-            ];
-            const [menuSize, setMenuSize] = useState<string>("sedan");
-            const prices = ALL_PRICING[menuPlanType]?.[menuSize] || ALL_PRICING["inside-out"][menuSize];
+            const tiers = PLAN_TIERS[menuPlanType] || PLAN_TIERS["inside-out"];
+            const [menuSize, setMenuSize] = useState<string>(tiers[0].key);
+            const activeTier = tiers.find((t) => t.key === menuSize) || tiers[0];
             const currentMenuPlan = SUBSCRIPTION_PLANS[menuPlanType];
+            const checkoutUrl = getCheckoutUrl(menuPlanType);
             return (
               <div>
                 {/* Plan type selector */}
@@ -612,7 +559,11 @@ export function MenuPage() {
                     return (
                       <button
                         key={pt}
-                        onClick={() => setMenuPlanType(pt)}
+                        onClick={() => {
+                          setMenuPlanType(pt);
+                          const newTiers = PLAN_TIERS[pt] || PLAN_TIERS["inside-out"];
+                          if (!newTiers.some((t) => t.key === menuSize)) setMenuSize(newTiers[0].key);
+                        }}
                         className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                           menuPlanType === pt
                             ? "bg-gold-dark text-gold-foreground shadow-sm"
@@ -625,50 +576,26 @@ export function MenuPage() {
                   })}
                 </div>
                 <p className="text-xs text-muted-foreground mb-5">{currentMenuPlan.description}</p>
-                {/* Vehicle size selector (shown for Inside/Out with detailed pricing) */}
+                {/* Vehicle size selector */}
                 <div className="flex flex-wrap gap-2 mb-5">
-                  {MAINT_SIZES.map((s) => (
+                  {tiers.map((t) => (
                     <button
-                      key={s.key}
-                      onClick={() => setMenuSize(s.key)}
-                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === s.key ? "bg-gold-dark text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
+                      key={t.key}
+                      onClick={() => setMenuSize(t.key)}
+                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${menuSize === t.key ? "bg-gold-dark text-gold-foreground shadow-sm" : "bg-card border border-border text-muted-foreground hover:text-foreground"}`}
                     >
-                      {s.label}
+                      {t.label}
                     </button>
                   ))}
                 </div>
-                {/* Frequency cards */}
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {MAINT_FREQ.map((f) => {
-                    const checkoutUrl = getCheckoutUrl(menuPlanType, f.key as SubscriptionFrequency);
-                    return (
-                      <div key={f.key} className={`rounded-2xl bg-card border p-5 relative ${f.badge ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
-                        {f.badge && <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">{f.badge}</div>}
-                        <h3 className="font-bold text-base mt-1 mb-1">{f.label}</h3>
-                        <p className="text-2xl font-black mb-1">{prices[f.key]}<span className="text-sm font-normal text-muted-foreground">{f.suffix}</span></p>
-                        <p className="text-xs text-muted-foreground leading-relaxed mb-4">{f.desc}</p>
-                        <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} ${f.label}`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
-                      </div>
-                    );
-                  })}
+                {/* Monthly price card */}
+                <div className="max-w-sm rounded-2xl bg-card border-2 border-gold shadow-lg shadow-gold/10 p-5 relative">
+                  <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">Billed Monthly</div>
+                  <h3 className="font-bold text-base mt-1 mb-1">{activeTier.label}</h3>
+                  <p className="text-2xl font-black mb-1">${activeTier.price}<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">Billing starts the 1st of the month following signup — you're never charged twice in your first month.</p>
+                  <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Monthly`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
                 </div>
-                {/* Annual Pre-Pay Card */}
-                {(() => {
-                  const annualUrl = getCheckoutUrl(menuPlanType, "annually");
-                  return (
-                    <div className="mt-5 rounded-2xl bg-card border border-emerald-500/40 shadow-lg shadow-emerald-500/10 p-5 relative">
-                      <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-emerald-500 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Save 8%</div>
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-1">
-                        <div className="flex-1">
-                          <h3 className="font-bold text-base mb-1">Annual Pre-Pay</h3>
-                          <p className="text-2xl font-black mb-1">{prices.annually}<span className="text-sm font-normal text-muted-foreground">/yr</span></p>
-                          <p className="text-xs text-muted-foreground leading-relaxed">12 monthly {currentMenuPlan.shortName.toLowerCase()} visits, completely pre-paid. Plus 10% off any specialty add-on services.</p>
-                        </div>
-                        <BookBtn href={annualUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Annual`, annualUrl)}>Pre-Pay Now <ArrowRight className="size-4" /></BookBtn>
-                      </div>
-                    </div>
-                  );
-                })()}
               </div>
             );
           })()}

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig, useServices } from "@/hooks/useCms";
-import { INSIDE_OUT_LINKS, INTERIOR_LINKS, EXTERIOR_LINKS } from "@/lib/paymentLinks";
 
 /* ── Small row for an add-on service from CMS ──────────────────────────── */
 function ServiceRow({ service }: { service: { name: string; description: string; price: string; duration: string } }) {
@@ -47,17 +46,16 @@ const BASE_PACKAGES = [
       "Light spray wax & tire shine",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "2 hr 30 min", price: "$258" },
-      { label: "Small SUV / Truck", duration: "3 hrs", price: "$310" },
-      { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$361" },
-      { label: "Van", duration: "4 hrs", price: "$413" },
+      { label: "Sedan / Coupe", duration: "2 hr 30 min", price: "$210" },
+      { label: "Small SUV / Truck", duration: "3 hrs", price: "$252" },
+      { label: "Large SUV / Off-Road Truck", duration: "3 hr 30 min", price: "$294" },
+      { label: "Van", duration: "4 hr 30 min", price: "$378" },
     ],
     notes: [
       "Pet Hair Fee: Additional time charged at base rate.",
       "Condition: Extra time/cost may apply for neglected vehicles.",
     ],
     highlight: true,
-    financeLinks: INSIDE_OUT_LINKS,
     photoSlot: "services-standard",
     photoFallback: "/images/full-insideout.jpg",
     imageAlt: "Ferrari Roma full inside & out detail by ProWorx",
@@ -79,17 +77,16 @@ const BASE_PACKAGES = [
       "Light stain treatment (as applicable)",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "1 hr 45 min", price: "$181" },
-      { label: "Small SUV / Truck", duration: "2 hrs", price: "$207" },
-      { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$258" },
-      { label: "Van", duration: "3 hrs", price: "$310" },
+      { label: "Sedan / Coupe", duration: "1 hr 30 min", price: "$142" },
+      { label: "Small SUV / Truck", duration: "2 hrs", price: "$189" },
+      { label: "Large SUV / Off-Road Truck", duration: "2 hr 30 min", price: "$236" },
+      { label: "Van", duration: "3 hrs", price: "$283" },
     ],
     notes: [
       "Pet Hair Fee: Additional time charged at base rate.",
       "Condition: Extra time/cost may apply for neglected vehicles.",
     ],
     highlight: false,
-    financeLinks: INTERIOR_LINKS,
     photoSlot: "services-interior",
     photoFallback: "/images/rangerover-interior.jpg",
     imageAlt: "Interior detail by ProWorx",
@@ -108,14 +105,12 @@ const BASE_PACKAGES = [
       "Light spray wax for shine & short-term protection",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "1 hr 15 min", price: "$130" },
-      { label: "Small SUV / Truck", duration: "1 hr 30 min", price: "$155" },
-      { label: "Large SUV / Off-Road Truck", duration: "1 hr 45 min", price: "$181" },
-      { label: "Van", duration: "2 hrs", price: "$207" },
+      { label: "Sedan / Coupe", duration: "1 hr", price: "$95" },
+      { label: "Small SUV / Truck", duration: "1 hr 15 min", price: "$121" },
+      { label: "Large SUV / Truck / Van", duration: "1 hr 30 min", price: "$142" },
     ],
     notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
     highlight: false,
-    financeLinks: EXTERIOR_LINKS,
     photoSlot: "services-exterior",
     photoFallback: "/images/porsche-foam.jpg",
     imageAlt: "White Porsche covered in foam — exterior detail by ProWorx",
@@ -166,7 +161,7 @@ export function ServicesPage() {
                   name: "How much does a full detail cost in Charlotte NC?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "A full Inside & Out detail starts at $258 for a Sedan and goes up to $413 for a Van. Interior Only starts at $181 and Exterior Only starts at $130. Add-ons like hot water extraction, clay bar, ceramic protection, and headlight restoration are available to customize any package. SUV, truck, and van pricing available on our services page.",
+                    text: "A full Inside & Out detail starts at $210 for a Sedan and goes up to $378 for a Van. Interior Only starts at $142 and Exterior Only starts at $95. Add-ons like hot water extraction, clay bar, ceramic protection, and headlight restoration are available to customize any package. SUV, truck, and van pricing available on our services page.",
                   },
                 },
                 {
@@ -402,9 +397,7 @@ export function ServicesPage() {
                       <p className="text-xs font-bold text-gold uppercase tracking-widest mb-4">
                         Pricing by Vehicle Size
                       </p>
-                      {pkg.priceTiers.map((t) => {
-                        const finUrl = pkg.financeLinks?.[t.label];
-                        return (
+                      {pkg.priceTiers.map((t) => (
                         <div
                           key={t.label}
                           className="flex items-center justify-between py-3 border-b border-border/30 last:border-0"
@@ -416,22 +409,9 @@ export function ServicesPage() {
                               {t.duration}
                             </p>
                           </div>
-                          <div className="flex items-center gap-3">
-                            <p className="font-bold text-gold text-lg">{t.price}</p>
-                            {finUrl && (
-                              <a
-                                href={finUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
-                              >
-                                💳 Finance
-                              </a>
-                            )}
-                          </div>
+                          <p className="font-bold text-gold text-lg">{t.price}</p>
                         </div>
-                        );
-                      })}
+                      ))}
                     </div>
                   </div>
                 </div>
