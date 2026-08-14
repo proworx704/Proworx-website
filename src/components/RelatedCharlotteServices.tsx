@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CHARLOTTE_SERVICES = [
   { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc", desc: "Professional auto detailing — mobile or drop-off" },
-  { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc", desc: "Full interior & exterior detailing from $258" },
+  { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc", desc: "Full interior & exterior detailing from $206" },
   { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc", desc: "Professional detailing at your home or office" },
   { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc", desc: "GYEON certified — 1-year to lifetime protection" },
   { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc", desc: "Multi-stage swirl & scratch removal" },

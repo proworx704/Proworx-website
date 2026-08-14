@@ -17,10 +17,10 @@ const NEIGHBORHOODS = [
 ];
 
 const SERVICES_OVERVIEW = [
-  { name: "Full Detail (Inside & Out)", price: "From $258", desc: "Complete interior + exterior detail with spray wax protection." },
+  { name: "Full Detail (Inside & Out)", price: "From $206", desc: "Complete interior + exterior detail with spray wax protection." },
   { name: "Elite Ceramic Inside & Out", price: "From $581", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
-  { name: "Exterior Detail", price: "From $129", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
-  { name: "Interior Detail", price: "From $181", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
+  { name: "Exterior Detail", price: "From $103", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
+  { name: "Interior Detail", price: "From $144", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
   { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
   { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];
@@ -88,7 +88,7 @@ export function BallantyneDetailingPage() {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Ballantyne, Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Ballantyne and South Charlotte including SouthPark, Myers Park, Providence, Rea Road, Blakeney, and Ardrey Kell. We bring our fully equipped mobile setup directly to your home or office." }},
-                { "@type": "Question", "name": "How much does mobile detailing cost in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $258 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $129. Ceramic coating packages range from $499 to $2,199+." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $206 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $103. Ceramic coating packages range from $499 to $2,199+." }},
                 { "@type": "Question", "name": "Can I get ceramic coating in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties. Mobile application is available, or drop-off at our Waxhaw facility." }},
                 { "@type": "Question", "name": "Do I need to bring my car somewhere?", "acceptedAnswer": { "@type": "Answer", "text": "No! We come to you. ProWorx is a fully mobile detailing service. We arrive at your Ballantyne home, office, or parking spot with everything we need \u2014 water, power, and professional-grade products." }},
                 { "@type": "Question", "name": "How long does a full detail take?", "acceptedAnswer": { "@type": "Answer", "text": "A standard Inside & Out detail takes 2\u20133 hours depending on vehicle size and condition. Paint correction and ceramic coating services may take 4\u20138 hours. We\u2019ll give you an accurate time estimate when you book." }}

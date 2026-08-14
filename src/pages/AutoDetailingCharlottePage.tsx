@@ -8,12 +8,12 @@ import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
-  { name: "Standard Detail", price: "From $258", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your vehicle clean and fresh" },
+  { name: "Standard Detail", price: "From $206", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your vehicle clean and fresh" },
   { name: "Elite Ceramic Detail", price: "From $581", features: ["Everything in Standard", "Fabric protection & GYEON leather shield", "Ceramic tire dressing", "Plastic & trim ceramic coating", "12-month ceramic wax"], popular: true, best: "Ultimate protection — ceramic shield for the entire vehicle" },
 ];
 
 const SERVICES = [
-  { icon: <Car className="size-5" />, title: "Full Detailing", desc: "Complete interior & exterior detail packages from $258", link: "/services" },
+  { icon: <Car className="size-5" />, title: "Full Detailing", desc: "Complete interior & exterior detail packages from $206", link: "/services" },
   { icon: <Shield className="size-5" />, title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime paint protection from $499", link: "/ceramic-coating-charlotte-nc" },
   { icon: <Sparkles className="size-5" />, title: "Paint Correction", desc: "Multi-stage machine polishing — remove swirls, scratches & oxidation", link: "/paint-correction-charlotte-nc" },
   { icon: <Clock className="size-5" />, title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly subscription detailing from $59/mo", link: "/maintenance" },
@@ -81,7 +81,7 @@ export function AutoDetailingCharlottePage() {
                 "@type": "OfferCatalog",
                 "name": "Auto Detailing Services",
                 "itemListElement": [
-                  { "@type": "OfferCatalog", "name": "Auto Detailing", "itemListElement": [{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Auto Detail" }, "price": "258", "priceCurrency": "USD" }] },
+                  { "@type": "OfferCatalog", "name": "Auto Detailing", "itemListElement": [{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Auto Detail" }, "price": "206", "priceCurrency": "USD" }] },
                   { "@type": "OfferCatalog", "name": "Ceramic Coating", "itemListElement": [{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "1-Year Ceramic Coating" }, "price": "499", "priceCurrency": "USD" }] },
                   { "@type": "OfferCatalog", "name": "Paint Correction", "itemListElement": [{ "@type": "Offer", "itemOffered": { "@type": "Service", "name": "1-Step Enhancement Polish" }, "price": "350", "priceCurrency": "USD" }] }
                 ]
@@ -94,7 +94,7 @@ export function AutoDetailingCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does auto detailing cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Auto detailing in Charlotte starts at $258 for a Standard Detail (sedan, full interior and exterior) and goes up to $735 for an Elite Ceramic Detail on larger vehicles. Pricing depends on vehicle size and condition. ProWorx offers free quotes — call or book online." }},
+                { "@type": "Question", "name": "How much does auto detailing cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Auto detailing in Charlotte starts at $206 for a Standard Detail (sedan, full interior and exterior) and goes up to $735 for an Elite Ceramic Detail on larger vehicles. Pricing depends on vehicle size and condition. ProWorx offers free quotes — call or book online." }},
                 { "@type": "Question", "name": "What's included in a full auto detail?", "acceptedAnswer": { "@type": "Answer", "text": "A full auto detail at ProWorx includes exterior hand wash and dry, tire and wheel cleaning, interior vacuum and wipe-down, glass cleaning inside and out, dashboard and console detail. Ceramic packages add fabric protection, leather shield, ceramic tire dressing, trim coating, and 12-month ceramic wax." }},
                 { "@type": "Question", "name": "Do you offer mobile auto detailing in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx is a fully mobile auto detailing service. We bring everything — water, power, professional-grade products, and equipment — directly to your home or office anywhere in the Charlotte metro area. We also offer drop-off for services like ceramic coating and paint correction." }},
                 { "@type": "Question", "name": "How often should I get my car detailed in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "In Charlotte's climate with pollen, humidity, and road debris, we recommend a full auto detail every 4-8 weeks. For ceramic-coated vehicles, every 8-12 weeks is sufficient. ProWorx offers maintenance plans starting at $59/month so you never have to think about scheduling." }},
@@ -260,7 +260,7 @@ export function AutoDetailingCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Auto Detailing FAQ — Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "How much does auto detailing cost in Charlotte NC?", a: "Auto detailing in Charlotte starts at $258 for a Standard Detail (sedan, full interior and exterior). Elite Ceramic Detail packages start at $581 and include 12-month ceramic protection. Pricing depends on vehicle size and condition — SUVs, trucks, and vans cost more. We offer free quotes on every job." },
+                { q: "How much does auto detailing cost in Charlotte NC?", a: "Auto detailing in Charlotte starts at $206 for a Standard Detail (sedan, full interior and exterior). Elite Ceramic Detail packages start at $581 and include 12-month ceramic protection. Pricing depends on vehicle size and condition — SUVs, trucks, and vans cost more. We offer free quotes on every job." },
                 { q: "What's included in a full auto detail?", a: "A full auto detail includes exterior hand wash and dry, clay bar decontamination, tire & wheel deep cleaning, full interior vacuum and wipe-down, leather/vinyl conditioning, glass cleaning inside and out, dashboard & console detailing, and door jamb cleaning. Ceramic packages add fabric protection, GYEON leather shield, ceramic tire dressing, trim coating, and a 12-month ceramic wax layer." },
                 { q: "Do you offer mobile auto detailing in Charlotte?", a: "Yes! ProWorx is a fully mobile auto detailing service. We bring our own water, power, and professional-grade products to your home or office anywhere in the Charlotte metro. We're fully self-contained and eco-friendly. We also offer drop-off service for ceramic coating and paint correction." },
                 { q: "How often should I get my car detailed?", a: "In Charlotte's climate — with heavy pollen season, summer humidity, and road debris — we recommend a full auto detail every 4-8 weeks for unprotected vehicles. Ceramic-coated vehicles can go 8-12 weeks between details. Our maintenance plans start at $59/month and take the guesswork out of scheduling." },

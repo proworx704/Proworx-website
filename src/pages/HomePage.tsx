@@ -123,7 +123,7 @@ const AREAS = [
 const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "How much does auto detailing cost in Charlotte NC?",
-    answer: "Professional auto detailing in Charlotte ranges from $130 for an Exterior Only to $413 for a full Inside & Out on a Van. Paint correction starts at $618–$1,030 for single-stage, and ceramic coating packages range from $499–$2,499. First-time customers save 10% on their first detail. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size.",
+    answer: "Professional auto detailing in Charlotte ranges from $103 for an Exterior Only to $371 for a full Inside & Out on a Van. Paint correction starts at $618–$1,030 for single-stage, and ceramic coating packages range from $499–$2,499. First-time customers save 10% on their first detail. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size.",
   },
   {
     question: "Is mobile detailing as good as a shop?",

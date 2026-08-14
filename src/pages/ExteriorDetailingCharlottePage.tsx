@@ -9,7 +9,7 @@ import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices"
 
 const PACKAGES = [
   { name: "Standard Exterior", price: "From $138", features: ["Hand wash & dry", "Tire & wheel cleaning", "Tire dressing", "Exterior glass cleaning", "Door jamb wipe-down"], best: "Quick refresh \u2014 removes dirt, grime, and road film" },
-  { name: "Premium Exterior", price: "From $258", features: ["Everything in Standard", "Clay bar decontamination", "1-step polish", "Paint sealant application", "Plastic & trim dressing", "Exhaust tip polishing"], popular: true, best: "Deep clean & protect \u2014 removes contaminants and seals paint" },
+  { name: "Premium Exterior", price: "From $206", features: ["Everything in Standard", "Clay bar decontamination", "1-step polish", "Paint sealant application", "Plastic & trim dressing", "Exhaust tip polishing"], popular: true, best: "Deep clean & protect \u2014 removes contaminants and seals paint" },
   { name: "Elite Exterior", price: "From $499", features: ["Everything in Premium", "Multi-step paint correction", "12-month ceramic wax", "Ceramic tire dressing", "Trim ceramic coating", "Water spot removal"], best: "Show-car finish \u2014 correction, ceramic, and long-term protection" },
 ];
 
@@ -80,7 +80,7 @@ export function ExteriorDetailingCharlottePage() {
                 "name": "Exterior Detailing Packages",
                 "itemListElement": [
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard Exterior Detail" }, "price": "138", "priceCurrency": "USD" },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Exterior Detail" }, "price": "258", "priceCurrency": "USD" },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Exterior Detail" }, "price": "206", "priceCurrency": "USD" },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Elite Exterior Detail" }, "price": "499", "priceCurrency": "USD" }
                 ]
               }
@@ -88,7 +88,7 @@ export function ExteriorDetailingCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does exterior detailing cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Exterior detailing in Charlotte starts at $138 for a Standard Exterior (sedan) which includes hand wash, tire and wheel cleaning, and glass. Premium packages with clay bar and polish start at $258. Elite packages with paint correction and ceramic protection start at $499. Prices vary by vehicle size." }},
+                { "@type": "Question", "name": "How much does exterior detailing cost in Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Exterior detailing in Charlotte starts at $138 for a Standard Exterior (sedan) which includes hand wash, tire and wheel cleaning, and glass. Premium packages with clay bar and polish start at $206. Elite packages with paint correction and ceramic protection start at $499. Prices vary by vehicle size." }},
                 { "@type": "Question", "name": "What is the difference between a car wash and exterior detailing?", "acceptedAnswer": { "@type": "Answer", "text": "A car wash removes surface dirt. Exterior detailing goes much deeper: clay bar decontamination removes embedded particles, machine polishing corrects paint imperfections, and sealants or ceramic coatings provide lasting protection. Detailing restores and protects your paint; a wash just cleans it." }},
                 { "@type": "Question", "name": "Do you offer paint correction in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx offers single-stage and multi-stage paint correction. We use professional dual-action and rotary polishers with GYEON and Rupes compounds to safely remove swirl marks, light scratches, water spots, and oxidation. Results are dramatic and lasting, especially when followed by ceramic coating." }},
                 { "@type": "Question", "name": "How long does exterior detailing take?", "acceptedAnswer": { "@type": "Answer", "text": "A Standard Exterior takes about 1\u20131.5 hours. Premium with clay bar and polish takes 2\u20133 hours. Elite with full paint correction and ceramic application can take 4\u20138 hours depending on paint condition. We take the time needed to do it right." }},
@@ -248,7 +248,7 @@ export function ExteriorDetailingCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Exterior Detailing FAQ \u2014 Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "How much does exterior detailing cost in Charlotte NC?", a: "Exterior detailing in Charlotte starts at $138 for a Standard Exterior (sedan), which includes hand wash, tire and wheel cleaning, and glass. Premium packages with clay bar and polish start at $258. Elite packages with paint correction and ceramic protection start at $499. Prices vary by vehicle size and condition." },
+                { q: "How much does exterior detailing cost in Charlotte NC?", a: "Exterior detailing in Charlotte starts at $138 for a Standard Exterior (sedan), which includes hand wash, tire and wheel cleaning, and glass. Premium packages with clay bar and polish start at $206. Elite packages with paint correction and ceramic protection start at $499. Prices vary by vehicle size and condition." },
                 { q: "What is the difference between a car wash and exterior detailing?", a: "A car wash removes surface dirt. Exterior detailing is a multi-step process: thorough hand wash, clay bar decontamination to remove bonded contaminants, machine polishing to correct paint imperfections, and sealant or ceramic coating for lasting protection. Detailing restores and protects; a wash just cleans." },
                 { q: "Do you offer paint correction in Charlotte?", a: "Yes. ProWorx offers single-stage enhancement polishing and multi-stage paint correction. We use professional dual-action and rotary polishers with GYEON and Rupes compounds to safely remove swirl marks, light scratches, water spots, and oxidation. Correction is recommended before ceramic coating for the best results." },
                 { q: "How long does exterior detailing take?", a: "A Standard Exterior takes about 1\u20131.5 hours. Premium with clay bar and polish runs 2\u20133 hours. Elite with full paint correction and ceramic application can take 4\u20138 hours depending on paint condition and vehicle size. We never rush \u2014 the finish is worth the time." },
