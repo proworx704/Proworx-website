@@ -86,7 +86,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $63/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. First-time customers save 10%."
+        description="Monthly auto detailing plans in Charlotte, NC from $63/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. An initial detail is required before starting a plan."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",
@@ -103,7 +103,7 @@ export function MaintenancePage() {
               "mainEntity": [
                 { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $63/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
-                { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "No — there is no mandatory initial detail requirement. Initial detail results may vary based on vehicle condition. You can add additional labor time if more is needed, or the job is completed within the included labor, scope, and process." }},
+                { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An initial standard detail is required before you're eligible for a monthly maintenance plan — it gets the vehicle to a baseline we can maintain. In the same month as your initial cleaning you have the option to join the monthly membership, which is billed on the 1st of the following month. Initial detail results may vary based on vehicle condition; additional labor time can be added if more is needed." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed and serviced monthly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
               ]
             },
@@ -142,7 +142,7 @@ export function MaintenancePage() {
               Keep Your Vehicle <span className="text-gradient-gold">Looking Its Best</span> — Every Month
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Professional mobile detailing on a schedule that works for you. Choose from 2 core plans — Exterior Only or Full Inside & Out — and we'll show up every month to keep your vehicle clean, protected, and looking like it just left the shop. Cancel anytime. First-time customers save 10% on their first detail.
+              Professional mobile detailing on a schedule that works for you. Choose from 2 core plans — Exterior Only or Full Inside & Out — and we'll show up every month to keep your vehicle clean, protected, and looking like it just left the shop. Cancel anytime. An initial standard detail is required first — then you can join the monthly plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -305,7 +305,7 @@ export function MaintenancePage() {
                 ${activeTier.price}
                 <span className="text-sm font-normal text-muted-foreground">/month</span>
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">Billing starts the 1st of the month following signup — you're never charged twice in your first month.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">Requires a completed initial detail. Join in the same month as your initial cleaning — billing starts the 1st of the following month, so you're never charged twice in your first month.</p>
               <ul className="space-y-2.5 flex-1 mb-6">
                 {features.map((feat) => (
                   <li key={feat} className="flex items-start gap-2 text-sm">
@@ -398,21 +398,21 @@ export function MaintenancePage() {
         </div>
       </section>
 
-      {/* ── New Customer Discount ── */}
+      {/* ── Initial Detail Required ── */}
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <div className="rounded-2xl border-2 border-gold/30 bg-gradient-to-b from-gold/5 to-transparent p-8 md:p-10">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-4">
                 <Star className="size-3.5" />
-                New Customer Offer
+                How to Join
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">First-Time Customers Save 10%</h2>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Start With an Initial Detail</h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-6">
-                New to ProWorx? Enjoy 10% off your first detail — whether it's a one-time package or your initial maintenance visit. Applied at checkout.
+                Every maintenance plan begins with a one-time standard detail so we can bring your vehicle to a baseline worth maintaining. In the same month as your initial cleaning you have the option to join the monthly membership — billed on the 1st of the following month, so you're never charged twice up front.
               </p>
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
-                <a href="#plans">View Plans <ArrowRight className="size-5" /></a>
+                <a href="/services">Book Your Initial Detail <ArrowRight className="size-5" /></a>
               </Button>
             </div>
           </div>
