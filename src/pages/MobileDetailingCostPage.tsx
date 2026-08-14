@@ -13,7 +13,7 @@ export function MobileDetailingCostPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Cost in Charlotte, NC"
-        description="How much does mobile detailing cost in Charlotte, NC? Interior from $144, exterior from $103, full details from $206. See all packages & pricing."
+        description="How much does mobile detailing cost in Charlotte, NC? Interior from $142, exterior from $95, full details from $210. See all packages & pricing."
         keywords="how much does detailing cost Charlotte, mobile detailing cost Charlotte NC, car detailing prices Charlotte, auto detailing cost near me, mobile car wash pricing Charlotte, interior detailing cost, exterior detailing price"
         schema={{
           "@context": "https://schema.org",
@@ -29,12 +29,12 @@ export function MobileDetailingCostPage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $103 for a standard exterior detail (sedan) to $735 for an elite ceramic full inside & out detail (van). ProWorx offers Standard and Ceramic tiers. Standard Inside & Out starts at $206 and Elite Inside & Out — Ceramic starts at $581 for sedans. Add-ons are available on all packages. Pricing varies by vehicle size." }},
-                { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $144 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Ceramic Interior starts at $300 and adds fabric protection and GYEON leather shield at 15% off. Add-ons like shampooing, steam cleaning, and pet hair removal are available on any package." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Mobile detailing in Charlotte ranges from $95 for a standard exterior detail (sedan) to $735 for an elite ceramic full inside & out detail (van). ProWorx offers Standard and Ceramic tiers. Standard Inside & Out starts at $210 and Elite Inside & Out — Ceramic starts at $581 for sedans. Add-ons are available on all packages. Pricing varies by vehicle size." }},
+                { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $142 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Ceramic Interior starts at $300 and adds fabric protection and GYEON leather shield at 15% off. Add-ons like shampooing, steam cleaning, and pet hair removal are available on any package." }},
                 { "@type": "Question", "name": "Is mobile detailing more expensive than going to a shop?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Mobile detailing saves you the time and hassle of driving to a shop and waiting. ProWorx brings professional-grade equipment and products directly to your location. Our pricing is competitive with Charlotte-area detail shops, plus you get the convenience of service at your home or office." }},
                 { "@type": "Question", "name": "Do I need to tip my mobile detailer?", "acceptedAnswer": { "@type": "Answer", "text": "Tipping is not required but always appreciated. If you're happy with the service, 15-20% is a common tip for auto detailing services. You can also leave a Google review — that helps us just as much!" }},
                 { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard or Ceramic. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction ($100), ceramic wax, or pet hair removal." }},
-                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $206 (sedan), $247 (small SUV/truck), $289 (large SUV/truck), and $371 (van). This reflects the additional time and materials needed for larger vehicles." }}
+                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $210 (sedan), $252 (small SUV/truck), $294 (large SUV/truck), and $378 (van). This reflects the additional time and materials needed for larger vehicles." }}
               ]
             }
           ]
@@ -55,7 +55,7 @@ export function MobileDetailingCostPage() {
               Cost?
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $103 for exterior and $144 for interior.
+              Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $95 for exterior and $142 for interior.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -80,9 +80,9 @@ export function MobileDetailingCostPage() {
           </div>
           <div className="max-w-4xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { label: "Exterior Detail", from: "$103", time: "1 hr 15 min", tier: "Standard" },
-              { label: "Interior Detail", from: "$144", time: "1 hr 45 min", tier: "Standard" },
-              { label: "Full Inside & Out", from: "$206", time: "2 hr 30 min", tier: "Standard" },
+              { label: "Exterior Detail", from: "$95", time: "1 hr", tier: "Standard" },
+              { label: "Interior Detail", from: "$142", time: "1 hr 30 min", tier: "Standard" },
+              { label: "Full Inside & Out", from: "$210", time: "2 hr 30 min", tier: "Standard" },
               { label: "Elite Ceramic I&O", from: "$581", time: "5 hr 15 min", tier: "Ceramic" },
             ].map((item) => (
               <div key={item.label} className="rounded-2xl bg-card border border-border p-6 text-center hover:border-gold/30 transition-colors">
@@ -119,10 +119,10 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$206", ceramic: "$581" },
-                        { size: "Small SUV / Small Truck", standard: "$247", ceramic: "$632" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$289", ceramic: "$684" },
-                        { size: "Van", standard: "$371", ceramic: "$735" },
+                        { size: "Sedan", standard: "$210", ceramic: "$581" },
+                        { size: "Small SUV / Small Truck", standard: "$252", ceramic: "$632" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$294", ceramic: "$684" },
+                        { size: "Van", standard: "$378", ceramic: "$735" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
@@ -153,10 +153,10 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$144", ceramic: "$300" },
-                        { size: "Small SUV / Small Truck", standard: "$165", ceramic: "$325" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$206", ceramic: "$377" },
-                        { size: "Van", standard: "$247", ceramic: "$428" },
+                        { size: "Sedan", standard: "$142", ceramic: "$300" },
+                        { size: "Small SUV / Small Truck", standard: "$189", ceramic: "$325" },
+                        { size: "Large SUV / Off-Road Truck", standard: "$236", ceramic: "$377" },
+                        { size: "Van", standard: "$283", ceramic: "$428" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
@@ -187,10 +187,9 @@ export function MobileDetailingCostPage() {
                     </thead>
                     <tbody>
                       {[
-                        { size: "Sedan", standard: "$103", ceramic: "$333" },
-                        { size: "Small SUV / Small Truck", standard: "$124", ceramic: "$359" },
-                        { size: "Large SUV / Off-Road Truck", standard: "$144", ceramic: "$385" },
-                        { size: "Van", standard: "$206", ceramic: "$410" },
+                        { size: "Sedan", standard: "$95", ceramic: "$333" },
+                        { size: "Small SUV / Small Truck", standard: "$121", ceramic: "$359" },
+                        { size: "Large SUV / Truck / Van", standard: "$142", ceramic: "$410" },
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
@@ -237,7 +236,7 @@ export function MobileDetailingCostPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">What Affects Detailing Cost?</h2>
               <div className="space-y-4">
                 {[
-                  { title: "Vehicle Size", desc: "Sedans are the base price. SUVs, trucks, and vans require more time and materials, so pricing increases by $25–$124 depending on the service." },
+                  { title: "Vehicle Size", desc: "Sedans are the base price. SUVs, trucks, and vans require more time and materials, so pricing increases by $25–$142 depending on the service." },
                   { title: "Service Tier", desc: "Standard covers the essentials. Ceramic packages add ceramic protection products (fabric guard, leather shield, ceramic wax, trim ceramic) bundled at 15% off. Add-ons like shampooing, steam cleaning, and clay bar are available on any package." },
                   { title: "Vehicle Condition", desc: "Heavily soiled, pet hair, or neglected interiors may require extra time, charged at the base hourly rate. We'll always discuss this before starting." },
                   { title: "Add-On Services", desc: "Hot water extraction ($100), ceramic add-ons, headlight restoration, and other enhancements can be added to any base package." },

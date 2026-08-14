@@ -235,10 +235,10 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h 30m", price: "$206" },
-                { label: "Sm SUV/Truck", duration: "3h", price: "$247" },
-                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$289" },
-                { label: "Van", duration: "4h 30m", price: "$371" },
+                { label: "Sedan", duration: "2h 30m", price: "$210" },
+                { label: "Sm SUV/Truck", duration: "3h", price: "$252" },
+                { label: "Lg SUV/Truck", duration: "3h 30m", price: "$294" },
+                { label: "Van", duration: "4h 30m", price: "$378" },
               ]}
               bookHref={bookStdIO}
             />
@@ -269,10 +269,10 @@ export function MenuPage() {
                 "Light stain treatment (as applicable)",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 45m", price: "$144" },
-                { label: "Sm SUV/Truck", duration: "2h", price: "$165" },
-                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$206" },
-                { label: "Van", duration: "3h", price: "$247" },
+                { label: "Sedan", duration: "1h 30m", price: "$142" },
+                { label: "Sm SUV/Truck", duration: "2h", price: "$189" },
+                { label: "Lg SUV/Truck", duration: "2h 30m", price: "$236" },
+                { label: "Van", duration: "3h", price: "$283" },
               ]}
               bookHref={bookStdInt}
             />
@@ -301,10 +301,9 @@ export function MenuPage() {
                 "Light spray wax for shine & short-term protection",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 15m", price: "$103" },
-                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$124" },
-                { label: "Lg SUV/Truck", duration: "1h 45m", price: "$144" },
-                { label: "Van", duration: "2h", price: "$165" },
+                { label: "Sedan", duration: "1h", price: "$95" },
+                { label: "Sm SUV/Truck", duration: "1h 15m", price: "$121" },
+                { label: "Lg SUV/Truck/Van", duration: "1h 30m", price: "$142" },
               ]}
               bookHref={bookStdExt}
             />
@@ -535,15 +534,15 @@ export function MenuPage() {
             type VehicleTier = { key: string; label: string; price: number };
             const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
               "inside-out": [
-                { key: "sedan", label: "Coupes & Sedans", price: 124 },
-                { key: "small-suv", label: "Small SUVs / Crossovers", price: 144 },
-                { key: "large-suv", label: "Large SUVs / Trucks", price: 165 },
-                { key: "van", label: "Vans / Minivans", price: 206 },
+                { key: "sedan", label: "Coupes & Sedans", price: 126 },
+                { key: "small-suv", label: "Small SUVs / Crossovers", price: 147 },
+                { key: "large-suv", label: "Large SUVs / Trucks", price: 168 },
+                { key: "van", label: "Vans / Minivans", price: 210 },
               ],
               exterior: [
-                { key: "sedan", label: "Coupes & Sedans", price: 62 },
-                { key: "small-suv", label: "Small SUVs / Crossovers", price: 93 },
-                { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 124 },
+                { key: "sedan", label: "Coupes & Sedans", price: 63 },
+                { key: "small-suv", label: "Small SUVs / Crossovers", price: 95 },
+                { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 126 },
               ],
             };
             const tiers = PLAN_TIERS[menuPlanType] || PLAN_TIERS["inside-out"];

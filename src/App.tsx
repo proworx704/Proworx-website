@@ -67,7 +67,6 @@ const MatthewsDetailingPage = lazyRetry(() => import("./pages/MatthewsDetailingP
 const FortMillDetailingPage = lazyRetry(() => import("./pages/FortMillDetailingPage").then(m => ({ default: m.FortMillDetailingPage })));
 const NotFoundPage = lazyRetry(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 const PrivacyPolicyPage = lazyRetry(() => import("./pages/PrivacyPolicyPage").then(m => ({ default: m.PrivacyPolicyPage })));
-const July4thSalePage = lazyRetry(() => import("./pages/July4thSalePage").then(m => ({ default: m.July4thSalePage })));
 const CeramicPromoPage = lazyRetry(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
 
 /** External redirect helper — replaces window.location for external URLs */
@@ -138,9 +137,6 @@ function App() {
           <Route path="/mobile-detailing-ballantyne-nc" element={<SiteLayout><BallantyneDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
-          {/* 4th of July Sale landing pages — standalone (no SiteLayout) */}
-          <Route path="/4thsummersale" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
-          <Route path="/summer-shield" element={<Suspense fallback={<PageLoader />}><July4thSalePage /></Suspense>} />
           <Route path="/ceramic-promo" element={<SiteLayout><Suspense fallback={<PageLoader />}><CeramicPromoPage /></Suspense></SiteLayout>} />
           <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicyPage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />

@@ -19,15 +19,15 @@ type VehicleTier = { key: string; label: string; price: number };
 
 const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
   "inside-out": [
-    { key: "sedan", label: "Coupes & Sedans", price: 124 },
-    { key: "small-suv", label: "Small SUVs / Crossovers", price: 144 },
-    { key: "large-suv", label: "Large SUVs / Trucks", price: 165 },
-    { key: "van", label: "Vans / Minivans", price: 206 },
+    { key: "sedan", label: "Coupes & Sedans", price: 126 },
+    { key: "small-suv", label: "Small SUVs / Crossovers", price: 147 },
+    { key: "large-suv", label: "Large SUVs / Trucks", price: 168 },
+    { key: "van", label: "Vans / Minivans", price: 210 },
   ],
   exterior: [
-    { key: "sedan", label: "Coupes & Sedans", price: 62 },
-    { key: "small-suv", label: "Small SUVs / Crossovers", price: 93 },
-    { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 124 },
+    { key: "sedan", label: "Coupes & Sedans", price: 63 },
+    { key: "small-suv", label: "Small SUVs / Crossovers", price: 95 },
+    { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 126 },
   ],
 };
 
@@ -86,7 +86,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $62/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. First-time customers save 10%."
+        description="Monthly auto detailing plans in Charlotte, NC from $63/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. First-time customers save 10%."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",
@@ -101,7 +101,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $62/month) and Full Inside & Out (from $124/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $63/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
                 { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "No — there is no mandatory initial detail requirement. Initial detail results may vary based on vehicle condition. You can add additional labor time if more is needed, or the job is completed within the included labor, scope, and process." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed and serviced monthly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
@@ -112,7 +112,7 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans — 2 core services from $62/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
+              "description": "Monthly mobile detailing maintenance plans — 2 core services from $63/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",

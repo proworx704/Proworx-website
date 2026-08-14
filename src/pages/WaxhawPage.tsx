@@ -17,10 +17,10 @@ const NEIGHBORHOODS = [
 ];
 
 const SERVICES_OVERVIEW = [
-  { name: "Full Detail (Inside & Out)", price: "From $206", desc: "Complete interior + exterior detail with spray wax protection." },
+  { name: "Full Detail (Inside & Out)", price: "From $210", desc: "Complete interior + exterior detail with spray wax protection." },
   { name: "Elite Ceramic Inside & Out", price: "From $581", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
-  { name: "Exterior Detail", price: "From $103", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
-  { name: "Interior Detail", price: "From $144", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
+  { name: "Exterior Detail", price: "From $95", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
+  { name: "Interior Detail", price: "From $142", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
   { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
   { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];
@@ -88,7 +88,7 @@ export function WaxhawPage() {
               "@type": "FAQPage",
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Waxhaw, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing is based in Waxhaw, NC at 3008 Collaroy Rd. We serve Waxhaw, Marvin, Weddington, Wesley Chapel, Providence Country Club, Cureton, and surrounding Union County neighborhoods." }},
-                { "@type": "Question", "name": "How much does mobile detailing cost in Waxhaw?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $206 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $103. Ceramic coating packages range from $499 to $2,199+." }},
+                { "@type": "Question", "name": "How much does mobile detailing cost in Waxhaw?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $210 for sedans. Elite Ceramic packages start at $581 with ceramic protection products bundled at 15% off. Exterior-only starts at $95. Ceramic coating packages range from $499 to $2,199+." }},
                 { "@type": "Question", "name": "Can I get ceramic coating in Waxhaw, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer based in Waxhaw. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }}
               ]
             }
