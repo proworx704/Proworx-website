@@ -15,9 +15,9 @@ const STAGES = [
     improvement: "~60-70% defect removal",
     linkPrefix: "1-Step",
     tiers: [
-      { label: "Compact / 2-Door", price: "$570", key: "1-Step — Compact" },
-      { label: "Midsize Sedan", price: "$760", key: "1-Step — Sedan" },
-      { label: "SUV / Truck", price: "$950", key: "1-Step — SUV" },
+      { label: "Compact / 2-Door", price: "$618", key: "1-Step — Compact" },
+      { label: "Midsize Sedan", price: "$824", key: "1-Step — Sedan" },
+      { label: "SUV / Truck", price: "$1,030", key: "1-Step — SUV" },
     ],
   },
   {
@@ -28,9 +28,9 @@ const STAGES = [
     improvement: "~85-95% defect removal",
     linkPrefix: "2-Step",
     tiers: [
-      { label: "Compact / 2-Door", price: "$950", key: "2-Step — Compact" },
-      { label: "Midsize Sedan", price: "$1,140", key: "2-Step — Sedan" },
-      { label: "SUV / Truck", price: "$1,330", key: "2-Step — SUV" },
+      { label: "Compact / 2-Door", price: "$1,030", key: "2-Step — Compact" },
+      { label: "Midsize Sedan", price: "$1,236", key: "2-Step — Sedan" },
+      { label: "SUV / Truck", price: "$1,442", key: "2-Step — SUV" },
     ],
   },
   {
@@ -41,9 +41,9 @@ const STAGES = [
     improvement: "~95-99% defect removal",
     linkPrefix: "Multi",
     tiers: [
-      { label: "Compact / 2-Door", price: "$1,567", key: "Multi — Compact" },
-      { label: "Midsize Sedan", price: "$1,900", key: "Multi — Sedan" },
-      { label: "SUV / Truck", price: "$2,280", key: "Multi — SUV" },
+      { label: "Compact / 2-Door", price: "$1,700", key: "Multi — Compact" },
+      { label: "Midsize Sedan", price: "$2,060", key: "Multi — Sedan" },
+      { label: "SUV / Truck", price: "$2,472", key: "Multi — SUV" },
     ],
   },
 ];
