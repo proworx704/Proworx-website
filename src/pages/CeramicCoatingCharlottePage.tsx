@@ -85,7 +85,7 @@ export function CeramicCoatingCharlottePage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Pricing</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                All packages include prep wash, clay bar decontamination, and light prep polish. Pricing shown is for sedans — SUVs, trucks, and larger vehicles may be higher.
+                All packages include a decontamination wash and dry, prep spray, and light prep polish. Clay bar treatment is not included — it is available as an optional add-on when the paint requires it. Pricing shown is for sedans — SUVs, trucks, and larger vehicles may be higher.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -119,7 +119,7 @@ export function CeramicCoatingCharlottePage() {
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
               {[
-                { step: "1", title: "Prep Wash & Decontamination", desc: "Full exterior wash, clay bar treatment, and iron removal to strip all contaminants from the paint surface." },
+                { step: "1", title: "Prep Wash & Decontamination", desc: "Full decontamination wash and dry, followed by a dedicated prep spray to strip contaminants and polishing oils from the paint surface." },
                 { step: "2", title: "Light Prep Polish", desc: "Single-step machine polish to create the ideal bonding surface for the ceramic coating. Removes light marring." },
                 { step: "3", title: "Ceramic Coating Application", desc: "Professional hand-applied GYEON ceramic coating. Each panel is coated and inspected under LED lighting for full coverage." },
                 { step: "4", title: "Cure & Inspection", desc: "Proper cure time is observed. Final full-vehicle inspection ensures even coverage and maximum bonding." },

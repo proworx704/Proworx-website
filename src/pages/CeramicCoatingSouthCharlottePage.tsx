@@ -159,7 +159,7 @@ export function CeramicCoatingSouthCharlottePage() {
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Packages</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages for South Charlotte</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              All packages include prep wash, clay bar decontamination, and light prep polish. 30% deposit to book.
+              All packages include a decontamination wash and dry, prep spray, and light prep polish. Clay bar treatment is not included — available as an optional add-on when the paint requires it. 30% deposit to book.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -246,7 +246,7 @@ export function CeramicCoatingSouthCharlottePage() {
               {[
                 { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes! ProWorx Detailing serves South Charlotte with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~18 min from South Charlotte. We're GYEON & IGL certified with 63+ five-star Google reviews." },
                 { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), $1,799 for lifetime (GYEON Infinite Type 1), and $2,199 for ultimate lifetime (Infinite Type 1 + 2). Pricing varies by vehicle size. We require a 30% deposit to book." },
-                { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough prep wash, clay bar decontamination, iron decontamination, and a light prep polish before coating application. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
+                { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough decontamination wash and dry, a dedicated prep spray, and a light prep polish before coating application. A clay bar treatment is not included by default — not every vehicle needs one — but it is available as an optional add-on when the paint is holding bonded contaminants. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
               ].map((item, i) => (
                 <div key={i} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-lg mb-2">{item.q}</h3>

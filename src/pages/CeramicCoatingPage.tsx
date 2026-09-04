@@ -34,7 +34,7 @@ const PACKAGES = [
     configKey: "ceramicDeposit1yr",
     financeUrl: "https://buy.stripe.com/5kQeVd4qd6RN7iogZFbMQ0d",
     features: [
-      "Prep wash & clay bar decontamination",
+      "Decontamination wash, dry & prep spray",
       "Light prep polish (paint prep)",
       "Single-layer GYEON Q² One EVO",
       "Hydrophobic protection & UV shield",
@@ -52,7 +52,7 @@ const PACKAGES = [
     configKey: "ceramicDeposit3yr",
     financeUrl: "https://buy.stripe.com/fZu8wPaOB5NJgSY6l1bMQ0e",
     features: [
-      "Prep wash & clay bar decontamination",
+      "Decontamination wash, dry & prep spray",
       "Light prep polish (paint prep)",
       "GYEON Q² Pure EVO professional coating",
       "Superior chemical & UV resistance",
@@ -71,7 +71,7 @@ const PACKAGES = [
     configKey: "ceramicDepositInfinite1",
     financeUrl: "https://buy.stripe.com/14A4gz2i5b839qw38PbMQ0f",
     features: [
-      "Prep wash & clay bar decontamination",
+      "Decontamination wash, dry & prep spray",
       "Light prep polish (paint prep)",
       "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
       "Extreme chemical resistance & self-cleaning",
@@ -90,7 +90,7 @@ const PACKAGES = [
     configKey: "ceramicDepositInfinite2",
     financeUrl: "https://buy.stripe.com/aFabJ16yl0tp8ms8t9bMQ0g",
     features: [
-      "Prep wash & clay bar decontamination",
+      "Decontamination wash, dry & prep spray",
       "Light prep polish (paint prep)",
       "GYEON Infinite Base Type 1 + Type 2 TopCoat",
       "Maximum gloss, depth & color enhancement",
@@ -140,7 +140,7 @@ const GALLERY_ITEMS = [
 const PRO_VS_CONSUMER = [
   { feature: "Coating Type", pro: "SiO₂ professional-grade (GYEON / IGL)", consumer: "Spray-on sealant" },
   { feature: "Longevity", pro: "1 year – lifetime", consumer: "1–3 months" },
-  { feature: "Surface Prep", pro: "Clay bar, iron decon & machine polish", consumer: "Basic wash" },
+  { feature: "Surface Prep", pro: "Decontamination wash, prep spray & machine polish", consumer: "Basic wash" },
   { feature: "Hardness", pro: "True 9H hardness rating", consumer: "No measurable hardness" },
   { feature: "Warranty", pro: "GYEON manufacturer warranty", consumer: "None" },
   { feature: "Hydrophobic", pro: "Extreme water beading for years", consumer: "Fades in weeks" },
@@ -569,7 +569,7 @@ export function CeramicCoatingPage() {
                   {
                     icon: <Droplets className="size-5" />,
                     title: "Prep Wash & Decontamination",
-                    desc: "Full exterior wash, clay bar treatment, and iron removal to ensure a perfectly clean surface before coating.",
+                    desc: "Full decontamination wash and dry, followed by a dedicated prep spray to ensure a perfectly clean, oil-free surface before coating.",
                   },
                   {
                     icon: <Sparkles className="size-5" />,
