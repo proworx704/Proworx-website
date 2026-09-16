@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
@@ -132,6 +133,7 @@ export function BoatDetailingCharlottePage() {
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
               </Button>
             </div>
+            <BookingPriceNote />
           </div>
         </div>
       </section>
@@ -262,6 +264,7 @@ export function BoatDetailingCharlottePage() {
               <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
             </Button>
           </div>
+          <BookingPriceNote />
         </div>
       </section>
     </div>

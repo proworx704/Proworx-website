@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { BookNowLink } from "@/components/BookNowLink";
+import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { Button } from "@/components/ui/button";
 import { getBlogPost, BLOG_POSTS } from "@/data/blogPosts";
 
@@ -195,6 +196,7 @@ export function BlogPostPage() {
                     <Link to="/services">View All Services</Link>
                   </Button>
                 </div>
+                <BookingPriceNote />
               </div>
             </div>
 

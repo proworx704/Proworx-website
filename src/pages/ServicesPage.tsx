@@ -3,6 +3,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig, useServices } from "@/hooks/useCms";
 
@@ -249,6 +250,7 @@ export function ServicesPage() {
                 </BookNowLink>
               </Button>
             </div>
+            <BookingPriceNote />
           </div>
         </div>
       </section>
@@ -628,6 +630,7 @@ export function ServicesPage() {
               </a>
             </Button>
           </div>
+          <BookingPriceNote />
         </div>
       </section>
     </div>

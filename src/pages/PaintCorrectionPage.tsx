@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { PAINT_CORRECTION_LINKS } from "@/lib/paymentLinks";
@@ -103,6 +104,7 @@ export function PaintCorrectionPage() {
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
               </Button>
             </div>
+            <BookingPriceNote />
           </div>
         </div>
       </section>

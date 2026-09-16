@@ -19,3 +19,16 @@ export function PricingDisclaimer() {
     </aside>
   );
 }
+
+/**
+ * Compact one-line version placed directly under booking CTAs so customers
+ * see the condition-based pricing policy before they book.
+ */
+export function BookingPriceNote({ className = "" }: { className?: string }) {
+  return (
+    <p className={`mt-3 text-xs leading-snug text-muted-foreground ${className}`}>
+      Prices are starting estimates — final price depends on your vehicle's condition, and any
+      additional labor required is an extra cost. We confirm your total before we start.
+    </p>
+  );
+}

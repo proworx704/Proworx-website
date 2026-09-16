@@ -17,6 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
+import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { PageSEO } from "@/components/PageSEO";
@@ -229,6 +230,7 @@ export function HomePage() {
                 <a href={config.phoneLink}><Phone className="size-5" /> Call {config.phone}</a>
               </Button>
             </div>
+            <BookingPriceNote />
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               {["Up to Lifetime Ceramic Protection", "GYEON & IGL Certified", "Mobile & Drop-Off", "12+ Years Experience"].map((item) => (
@@ -582,6 +584,7 @@ export function HomePage() {
                 <a href={config.phoneLink}><Phone className="size-5" /> {config.phone}</a>
               </Button>
             </div>
+            <BookingPriceNote />
           </div>
         </div>
       </section>
