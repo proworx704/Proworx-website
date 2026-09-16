@@ -2,6 +2,7 @@ import { lazy, Suspense, type ComponentType } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { SiteHeader } from "./components/SiteHeader";
+import { PricingDisclaimer } from "./components/PricingDisclaimer";
 import { SiteFooter } from "./components/SiteFooter";
 import { PhotoProvider } from "./components/CmsImg";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -94,6 +95,7 @@ function SiteLayout({ children }: { children: React.ReactNode }) {
           {children}
         </Suspense>
       </main>
+      <PricingDisclaimer />
       <SiteFooter />
     </div>
   );
