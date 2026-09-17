@@ -223,115 +223,111 @@
     },
     {
       "source": "/services",
-      "destination": "/index.html"
+      "destination": "/services.html"
     },
     {
       "source": "/paint-correction",
-      "destination": "/index.html"
+      "destination": "/paint-correction.html"
     },
     {
       "source": "/ceramic-coating",
-      "destination": "/index.html"
+      "destination": "/ceramic-coating.html"
     },
     {
       "source": "/book",
-      "destination": "/index.html"
+      "destination": "/book.html"
     },
     {
       "source": "/fleet",
-      "destination": "/index.html"
+      "destination": "/fleet.html"
     },
     {
       "source": "/boat-detailing",
-      "destination": "/index.html"
+      "destination": "/boat-detailing.html"
     },
     {
       "source": "/maintenance",
-      "destination": "/index.html"
+      "destination": "/maintenance.html"
     },
     {
       "source": "/areas",
-      "destination": "/index.html"
+      "destination": "/areas.html"
     },
     {
       "source": "/contact",
-      "destination": "/index.html"
+      "destination": "/contact.html"
     },
     {
       "source": "/blog",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/index.html"
+      "destination": "/blog.html"
     },
     {
       "source": "/waxhaw",
-      "destination": "/index.html"
+      "destination": "/waxhaw.html"
     },
     {
       "source": "/ceramic-coating-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/ceramic-coating-charlotte-nc.html"
     },
     {
       "source": "/mobile-detailing-cost",
-      "destination": "/index.html"
+      "destination": "/mobile-detailing-cost.html"
     },
     {
       "source": "/menu",
-      "destination": "/index.html"
+      "destination": "/menu.html"
     },
     {
       "source": "/ceramic-coating-vs-wax",
-      "destination": "/index.html"
+      "destination": "/ceramic-coating-vs-wax.html"
     },
     {
       "source": "/gyeon-certified-installer-charlotte",
-      "destination": "/index.html"
+      "destination": "/gyeon-certified-installer-charlotte.html"
     },
     {
       "source": "/ceramic-coating-south-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/ceramic-coating-south-charlotte-nc.html"
     },
     {
       "source": "/paint-correction-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/paint-correction-charlotte-nc.html"
     },
     {
       "source": "/mobile-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/mobile-detailing-charlotte-nc.html"
     },
     {
       "source": "/car-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/car-detailing-charlotte-nc.html"
     },
     {
       "source": "/boat-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/boat-detailing-charlotte-nc.html"
     },
     {
       "source": "/auto-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/auto-detailing-charlotte-nc.html"
     },
     {
       "source": "/interior-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/interior-detailing-charlotte-nc.html"
     },
     {
       "source": "/exterior-detailing-charlotte-nc",
-      "destination": "/index.html"
+      "destination": "/exterior-detailing-charlotte-nc.html"
     },
     {
       "source": "/mobile-detailing-ballantyne-nc",
-      "destination": "/index.html"
+      "destination": "/mobile-detailing-ballantyne-nc.html"
     },
     {
       "source": "/mobile-detailing-matthews-nc",
-      "destination": "/index.html"
+      "destination": "/mobile-detailing-matthews-nc.html"
     },
     {
       "source": "/mobile-detailing-fort-mill-sc",
-      "destination": "/index.html"
+      "destination": "/mobile-detailing-fort-mill-sc.html"
     },
     {
       "source": "/summer-shield",
@@ -343,10 +339,78 @@
     },
     {
       "source": "/ceramic-promo",
-      "destination": "/index.html"
+      "destination": "/ceramic-promo.html"
     },
     {
       "source": "/admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/blog/benefits-of-mobile-auto-detailing",
+      "destination": "/blog/benefits-of-mobile-auto-detailing.html"
+    },
+    {
+      "source": "/blog/best-auto-detailing-charlotte-nc",
+      "destination": "/blog/best-auto-detailing-charlotte-nc.html"
+    },
+    {
+      "source": "/blog/boat-detailing-guide",
+      "destination": "/blog/boat-detailing-guide.html"
+    },
+    {
+      "source": "/blog/ceramic-coating-maintenance-guide",
+      "destination": "/blog/ceramic-coating-maintenance-guide.html"
+    },
+    {
+      "source": "/blog/ceramic-coating-vs-wax-which-is-better",
+      "destination": "/blog/ceramic-coating-vs-wax-which-is-better.html"
+    },
+    {
+      "source": "/blog/how-often-should-you-detail-your-car",
+      "destination": "/blog/how-often-should-you-detail-your-car.html"
+    },
+    {
+      "source": "/blog/how-to-maintain-your-car-between-details",
+      "destination": "/blog/how-to-maintain-your-car-between-details.html"
+    },
+    {
+      "source": "/blog/index",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/interior-detailing-what-to-expect",
+      "destination": "/blog/interior-detailing-what-to-expect.html"
+    },
+    {
+      "source": "/blog/is-ceramic-coating-worth-it",
+      "destination": "/blog/is-ceramic-coating-worth-it.html"
+    },
+    {
+      "source": "/blog/mobile-detailing-cost-charlotte",
+      "destination": "/blog/mobile-detailing-cost-charlotte.html"
+    },
+    {
+      "source": "/blog/new-car-ceramic-coating",
+      "destination": "/blog/new-car-ceramic-coating.html"
+    },
+    {
+      "source": "/blog/pollen-season-car-care-charlotte",
+      "destination": "/blog/pollen-season-car-care-charlotte.html"
+    },
+    {
+      "source": "/blog/tesla-ev-detailing-guide",
+      "destination": "/blog/tesla-ev-detailing-guide.html"
+    },
+    {
+      "source": "/blog/what-is-paint-correction",
+      "destination": "/blog/what-is-paint-correction.html"
+    },
+    {
+      "source": "/blog/:slug",
       "destination": "/index.html"
     }
   ],
