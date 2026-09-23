@@ -151,7 +151,7 @@ The `dist/` folder is a static site. Deploy to Netlify, Cloudflare Pages, or any
 ## Admin Panel
 
 **URL:** `/admin`  
-**Password:** `proworx2026`
+**Password:** `(stored privately, not in this repo)`
 
 The admin panel lets you edit:
 - Contact info (phone, email, address)
