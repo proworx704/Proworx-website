@@ -1,15 +1,16 @@
 // Generates Cloudflare Pages _redirects and _headers from vercel.json (Pages ignores vercel.json).
 // Runs as part of `bun run build`; writes into dist/.
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, copyFileSync } from "node:fs";
 const v = JSON.parse(readFileSync("vercel.json", "utf8"));
 const conv = (p) => p.replace(/:(\w+)\*/g, "*").replace(/\(\.\*\)/g, "*");
 const lines = [];
 for (const r of v.redirects || []) lines.push(`${conv(r.source)} ${conv(r.destination)} ${r.permanent ? 301 : 302}`);
-// SPA-only routes (no prerendered file) must return index.html with 200.
+// SPA-only routes (no prerendered file): give each its own copy of index.html so Pages serves 200
+// (Pages turns a `/x /index.html 200` rewrite into a 308 to /).
 for (const r of v.rewrites || []) {
   if (r.destination !== "/index.html" || r.source === "/" || r.source.includes(":")) continue;
   if (existsSync(`dist${r.source}.html`) || existsSync(`dist${r.source}/index.html`)) continue;
-  lines.push(`${r.source} / 200`);
+  copyFileSync("dist/index.html", `dist${r.source}.html`);
 }
 writeFileSync("dist/_redirects", lines.join("\n") + "\n");
 const hdr = [];
