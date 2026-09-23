@@ -9,7 +9,7 @@ for (const r of v.redirects || []) lines.push(`${conv(r.source)} ${conv(r.destin
 for (const r of v.rewrites || []) {
   if (r.destination !== "/index.html" || r.source === "/" || r.source.includes(":")) continue;
   if (existsSync(`dist${r.source}.html`) || existsSync(`dist${r.source}/index.html`)) continue;
-  lines.push(`${r.source} /index.html 200`);
+  lines.push(`${r.source} / 200`);
 }
 writeFileSync("dist/_redirects", lines.join("\n") + "\n");
 const hdr = [];
