@@ -54,9 +54,23 @@ function routeMap() {
 
 /* ── 2. pull title/description out of each page's <PageSEO ... /> ───────── */
 
+// Source strings can contain \", the (unnecessary but valid-JS) \' some
+// content uses for apostrophes, and \uXXXX escapes (em dashes, stars, etc).
+// JSON.parse decodes all standard JS escapes in one pass; \' isn't valid JSON
+// so it's normalized to a bare ' first. Falls back to a raw \" swap if the
+// content isn't valid JSON once wrapped (e.g. an unescaped control char).
+function unescapeJsString(raw) {
+  const withoutTickApostrophe = raw.replace(/\\'/g, "'");
+  try {
+    return JSON.parse(`"${withoutTickApostrophe}"`);
+  } catch {
+    return withoutTickApostrophe.replace(/\\"/g, '"');
+  }
+}
+
 function readString(block, prop) {
   const m = block.match(new RegExp(`${prop}=\\{?"((?:[^"\\\\]|\\\\.)*)"`, "s"));
-  return m ? m[1].replace(/\\"/g, '"').replace(/\s+/g, " ").trim() : null;
+  return m ? unescapeJsString(m[1]).replace(/\s+/g, " ").trim() : null;
 }
 
 function pageMeta(file) {
@@ -85,8 +99,8 @@ function blogRoutes() {
     out.push({
       path: `/blog/${m[1]}`,
       meta: {
-        title: title[1].replace(/\\"/g, '"'),
-        description: excerpt[1].replace(/\\"/g, '"').replace(/\s+/g, " ").trim(),
+        title: unescapeJsString(title[1]),
+        description: unescapeJsString(excerpt[1]).replace(/\s+/g, " ").trim(),
       },
     });
   }
