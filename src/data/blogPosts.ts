@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "how-often-should-you-detail-your-car",
     title: "How Often Should You Detail Your Car?",
     excerpt:
-      "Most car owners wait too long between details. Learn the recommended schedule based on your driving habits, environment, and vehicle type — plus how a maintenance plan saves you money long-term.",
+      "Most car owners wait too long between details. Learn the recommended schedule based on driving habits, environment & vehicle type.",
     category: "Car Care Tips",
     image: "/images/rangerover-front.jpg",
     imageAlt: "Freshly detailed Range Rover showcasing a showroom-quality finish",
@@ -68,7 +68,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "ceramic-coating-vs-wax-which-is-better",
     title: "Ceramic Coating vs. Wax: Which Is Better?",
     excerpt:
-      "Wax gives you a beautiful shine that lasts weeks. Ceramic coating gives you protection that lasts years. Here's an honest comparison to help you decide which is right for your vehicle and budget.",
+      "Wax gives a beautiful shine that lasts weeks. Ceramic coating gives protection that lasts years. An honest comparison to help you decide.",
     category: "Paint Protection",
     image: "/images/escalade-rear.jpg",
     imageAlt: "Cadillac Escalade with deep gloss ceramic coating reflecting the surroundings",
@@ -116,7 +116,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "what-is-paint-correction",
     title: "What Is Paint Correction?",
     excerpt:
-      "Swirl marks, scratches, water spots, and oxidation — paint correction removes them all. Learn what the process involves, how it works, and when your vehicle actually needs it.",
+      "Swirl marks, scratches, water spots & oxidation — paint correction removes them all. What the process involves and when you need it.",
     category: "Paint Protection",
     image: "/images/corvette-rear.jpg",
     imageAlt: "Corvette showing mirror-like finish after professional paint correction",
@@ -172,7 +172,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "benefits-of-mobile-auto-detailing",
     title: "Benefits of Mobile Auto Detailing",
     excerpt:
-      "No drop-off. No waiting room. No rearranging your schedule. Mobile detailing brings the shop to your driveway — and the results are just as good (if not better). Here's why it's taking over.",
+      "No drop-off, no waiting room, no rearranging your schedule. Mobile detailing brings the shop to your driveway. Here's why it's taking over.",
     category: "Industry Insights",
     image: "/images/porsche-van.jpg",
     imageAlt: "ProWorx mobile detailing van set up next to a Porsche in a residential driveway",
@@ -213,7 +213,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "how-to-maintain-your-car-between-details",
     title: "How to Maintain Your Car Between Details",
     excerpt:
-      "Your detail shouldn't start fading the day after. Here are the pro tips and common mistakes to avoid so your vehicle stays looking freshly detailed for weeks longer.",
+      "Your detail shouldn't start fading the next day. Pro tips and common mistakes to avoid so your car stays freshly detailed for weeks longer.",
     category: "Car Care Tips",
     image: "/images/porsche-foam.jpg",
     imageAlt: "Porsche covered in foam during a professional maintenance wash",
@@ -265,7 +265,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "is-ceramic-coating-worth-it",
     title: "Is Ceramic Coating Worth It?",
     excerpt:
-      "Ceramic coating isn't cheap — packages range from $499 to $2,499+. But when you break down the math over 3–10 years of ownership, it often pays for itself. Here's the real breakdown.",
+      "Ceramic coating isn't cheap — packages range from $499 to $2,499+. But over 3-10 years of ownership, it often pays for itself. The real breakdown.",
     category: "Paint Protection",
     image: "/images/aston-front.jpg",
     imageAlt: "Aston Martin with professional ceramic coating showing brilliant reflections",
@@ -322,7 +322,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "interior-detailing-what-to-expect",
     title: "Interior Detailing: What to Expect",
     excerpt:
-      "A professional interior detail goes far beyond vacuuming. From steam cleaning and leather conditioning to odor treatment and UV protection — here's exactly what happens when we clean your car's interior.",
+      "A professional interior detail goes far beyond vacuuming. From steam cleaning to odor treatment — here's what happens to your car's interior.",
     category: "Car Care Tips",
     image: "/images/porsche-interior.jpg",
     imageAlt: "Porsche interior meticulously detailed with conditioned leather and clean surfaces",
@@ -372,7 +372,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "boat-detailing-guide",
     title: "Boat Detailing 101: A Complete Guide",
     excerpt:
-      "Your boat takes a beating from sun, salt, algae, and water. Professional marine detailing preserves its value and keeps it looking showroom-ready. Here's what every boat owner should know.",
+      "Your boat takes a beating from sun, salt, algae & water. Professional marine detailing preserves its value and keeps it showroom-ready.",
     category: "Marine Care",
     image: "/images/boat-exterior.webp",
     imageAlt: "Freshly detailed boat exterior showing restored gel coat shine",
@@ -421,7 +421,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "best-auto-detailing-charlotte-nc",
     title: "Best Auto Detailing in Charlotte NC (2026 Guide)",
     excerpt:
-      "Looking for the best auto detailing in Charlotte? We break down what separates a great detailer from an average one — and why ProWorx has been Charlotte\'s trusted choice for over 12 years.",
+      "Looking for the best auto detailing in Charlotte? What separates a great detailer from an average one — and why ProWorx has led for 12+ years.",
     category: "Industry Insights",
     image: "/images/ferrari-profile.jpg",
     imageAlt: "Ferrari with flawless paint finish after professional detailing by ProWorx in Charlotte NC",
@@ -482,9 +482,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "mobile-detailing-cost-charlotte",
-    title: "How Much Does Mobile Detailing Cost in Charlotte? (2026 Pricing)",
+    title: "Mobile Detailing Cost in Charlotte (2026)",
     excerpt:
-      "Mobile detailing in Charlotte ranges from $150 to $2,500+ depending on the service. Here\'s an honest breakdown of what you should expect to pay — and what affects the price.",
+      "Mobile detailing in Charlotte ranges from $150 to $2,500+ depending on service. Here\'s an honest breakdown of what to expect to pay.",
     category: "Car Care Tips",
     image: "/images/porsche-van.jpg",
     imageAlt: "ProWorx mobile detailing tent set up at a customer location in Charlotte",
@@ -546,9 +546,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "ceramic-coating-maintenance-guide",
-    title: "Ceramic Coating Maintenance: How to Care for Your Coated Car",
+    title: "Ceramic Coating Maintenance Guide",
     excerpt:
-      "You invested in ceramic coating — now protect that investment. Here\'s exactly how to wash, maintain, and care for a ceramic-coated vehicle to maximize its lifespan and performance.",
+      "You invested in ceramic coating — protect it. Here\'s exactly how to wash and maintain a coated vehicle to maximize its lifespan and performance.",
     category: "Paint Protection",
     image: "/images/audi-rear.jpg",
     imageAlt: "Audi showing extreme water beading on ceramic-coated paint surface",
@@ -623,9 +623,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "pollen-season-car-care-charlotte",
-    title: "Pollen Season Car Care: Protecting Your Paint in Charlotte",
+    title: "Pollen Season Car Care in Charlotte",
     excerpt:
-      "Charlotte\'s pollen season coats everything in a thick yellow layer from March to May. Here\'s how to protect your paint, when to wash, and why you should never dry-wipe pollen off your car.",
+      "Charlotte\'s pollen season coats everything in yellow from March to May. Here\'s how to protect your paint and why you should never dry-wipe pollen off.",
     category: "Car Care Tips",
     image: "/images/porsche-foam.jpg",
     imageAlt: "Car being foam-washed to safely remove pollen during Charlotte spring season",
@@ -695,9 +695,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "tesla-ev-detailing-guide",
-    title: "Tesla & EV Detailing Guide: What Every Electric Vehicle Owner Should Know",
+    title: "Tesla & EV Detailing Guide",
     excerpt:
-      "Electric vehicles have unique detailing needs — from sensitive matte finishes to touchscreen care and regenerative brake dust patterns. Here\'s the complete EV detailing guide.",
+      "Electric vehicles have unique detailing needs — sensitive matte finishes, touchscreen care and brake dust patterns. Here\'s the complete EV guide.",
     category: "Car Care Tips",
     image: "/images/tesla-bay.jpg",
     imageAlt: "Tesla being professionally detailed inside a ProWorx mobile detailing setup",
@@ -760,9 +760,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "new-car-ceramic-coating",
-    title: "New Car Ceramic Coating: Why You Should Coat Before Your First Wash",
+    title: "New Car Ceramic Coating: Coat Before First Wash",
     excerpt:
-      "Just bought a new car? The best time to apply ceramic coating is right now — before your first wash, before swirl marks appear, and before the paint takes any damage. Here\'s why.",
+      "Just bought a new car? The best time for ceramic coating is now — before your first wash and before swirl marks or damage appear. Here\'s why.",
     category: "Paint Protection",
     image: "/images/aston-rear.jpg",
     imageAlt: "Brand new Aston Martin with pristine ceramic-coated paint showing deep gloss",

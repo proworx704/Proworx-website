@@ -91,7 +91,7 @@ export function CeramicPromoPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
       <PageSEO
-        title="Free 3-Year Ceramic Coating — $0 Down | ProWorx Charlotte"
+        title="Free 3-Year Ceramic Coating — $0 Down | ProWorx"
         description="Get a FREE $899 ceramic coating with your Inside & Out membership. $0 down, $0 extra — just stay 12 months. Charlotte's GYEON-certified detailer comes to you."
         keywords="ceramic coating Charlotte NC, free ceramic coating, car detailing membership, GYEON certified, monthly detailing subscription, mobile detailing"
       />

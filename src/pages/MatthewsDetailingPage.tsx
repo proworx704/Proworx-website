@@ -33,7 +33,7 @@ export function MatthewsDetailingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Matthews NC & Indian Trail"
-        description="ProWorx Mobile Detailing serves Matthews, Indian Trail, Stallings & Mint Hill. 5-star rated, GYEON certified. Full detailing, ceramic coating & paint correction \u2014 we come to you!"
+        description="ProWorx Mobile Detailing serves Matthews, Indian Trail & Mint Hill. 5-star rated, GYEON certified. Ceramic coating & full detailing \u2014 we come to you!"
         keywords="Matthews NC mobile detailing, car detailing Matthews NC, auto detailing Indian Trail NC, Stallings car detailing, mobile car wash Matthews, ceramic coating Matthews NC, Mint Hill detailing, mobile detailing near me Matthews"
         schema={{
           "@context": "https://schema.org",

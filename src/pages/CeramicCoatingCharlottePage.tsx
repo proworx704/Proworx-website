@@ -20,7 +20,7 @@ export function CeramicCoatingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating Cost in Charlotte, NC"
-        description="How much does ceramic coating cost in Charlotte, NC? GYEON certified from $499–$2,199+. Up to lifetime warranty with GYEON Infinite. See pricing & what's included."
+        description="How much does ceramic coating cost in Charlotte, NC? GYEON certified from $499–$2,199+, up to lifetime warranty. See pricing & what's included."
         keywords="ceramic coating cost Charlotte NC, how much is ceramic coating Charlotte, ceramic coating price Charlotte NC, GYEON ceramic coating Charlotte, professional ceramic coating near me, ceramic coating Charlotte reviews"
         schema={{
           "@context": "https://schema.org",

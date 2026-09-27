@@ -134,7 +134,7 @@ export function ServicesPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Auto Detailing Services & Pricing — Charlotte, NC"
-        description="Mobile auto detailing in Charlotte, NC. Inside & Out, Interior Only, and Exterior Only packages with customizable add-ons. Ceramic coating, paint correction & monthly plans available."
+        description="Mobile auto detailing in Charlotte, NC. Inside & Out, Interior Only & Exterior Only packages with add-ons. Ceramic coating, paint correction & monthly plans."
         keywords="auto detailing services Charlotte NC, mobile detailing pricing, car interior cleaning Charlotte, exterior detail Waxhaw NC, mobile car wash pricing near me, paint correction packages Charlotte, ceramic coating Charlotte NC, auto detailing packages, car detail cost Charlotte"
         schema={{
           "@context": "https://schema.org",

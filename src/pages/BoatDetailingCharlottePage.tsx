@@ -56,7 +56,7 @@ export function BoatDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Boat Detailing Charlotte NC — Lake Norman"
-        description="Professional boat detailing in Charlotte, NC. Gelcoat correction, GYEON marine ceramic coating, interior cleaning. Serving Lake Norman, Lake Wylie & all Charlotte-area lakes."
+        description="Professional boat detailing in Charlotte, NC. Gelcoat correction, GYEON marine ceramic coating & interior cleaning. Serving Lake Norman & Lake Wylie."
         keywords="boat detailing Charlotte NC, boat detailing near me, boat cleaning Charlotte, marine detailing Charlotte NC, boat detailing Lake Norman, boat detailing Lake Wylie, gelcoat correction Charlotte, boat polish Charlotte, boat wax Charlotte NC, GYEON marine ceramic Charlotte"
         schema={{
           "@context": "https://schema.org",

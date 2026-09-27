@@ -296,7 +296,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating Charlotte NC — Gyeon Certified"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. Starting at $499 — up to lifetime protection with GYEON Infinite. 63+ 5-star reviews, 12+ years experience. Reserve with 30% down."
+        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. From $499 — up to lifetime protection with GYEON Infinite. 63+ 5-star reviews. Reserve with 30% down."
         keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",

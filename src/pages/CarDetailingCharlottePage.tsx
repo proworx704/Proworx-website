@@ -37,7 +37,7 @@ export function CarDetailingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Car Detailing Charlotte NC — Mobile Service"
-        description="Professional car detailing in Charlotte, NC. Interior & exterior detail, paint correction, ceramic coating. Mobile or drop-off. 5.0★ rated, 12+ years experience."
+        description="Professional car detailing in Charlotte, NC. Interior & exterior detail, paint correction, ceramic coating. Mobile or drop-off. 5.0★, 12+ years experience."
         keywords="car detailing Charlotte NC, auto detailing Charlotte, best car detailing Charlotte NC, car detailing near me, professional car detailing Charlotte, interior car detailing Charlotte, exterior car detailing Charlotte NC, luxury car detailing Charlotte, car cleaning Charlotte NC, auto detail Charlotte NC"
         schema={{
           "@context": "https://schema.org",

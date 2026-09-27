@@ -42,8 +42,8 @@ export function InteriorDetailingCharlottePage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Interior Detailing Charlotte NC \u2014 Mobile Service"
-        description="Professional interior detailing in Charlotte, NC. Deep cleaning, leather care, steam cleaning, stain & odor removal. Mobile service. 5.0\u2605 rated with 63+ reviews. Book today."
+        title="Interior Detailing Charlotte NC \u2014 Mobile"
+        description="Professional interior detailing in Charlotte, NC. Deep cleaning, leather care, steam cleaning, stain & odor removal. 5.0\u2605, 63+ reviews. Book today."
         keywords="interior detailing charlotte nc, interior car detailing charlotte, interior auto detailing charlotte nc, car interior cleaning charlotte nc, interior detail charlotte, leather cleaning charlotte nc, steam cleaning car interior charlotte, car upholstery cleaning charlotte nc, interior detailing near me charlotte, best interior detailing charlotte nc, mobile interior detailing charlotte"
         schema={{
           "@context": "https://schema.org",

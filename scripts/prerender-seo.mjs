@@ -118,8 +118,17 @@ function buildHtml(shell, routePath, meta) {
     `<meta name="twitter:image" content="${OG_IMAGE}" />`,
   ].join("\n    ");
 
-  // Drop any title the shell already carries so we never emit two.
-  const cleaned = shell.replace(/<title>[\s\S]*?<\/title>\s*/i, "");
+  // Drop every static SSR-fallback tag the shell carries (title, description,
+  // og:*, twitter:*) so we never emit duplicates. These are all marked
+  // data-rh="true" in index.html specifically so this script can find them;
+  // the old version only stripped a bare `<title>` and missed `<title
+  // data-rh="true">` (and never touched the fallback meta description at
+  // all), which is why Google/view-source saw two <title> and two
+  // <meta name="description"> tags on every prerendered page.
+  const cleaned = shell
+    .split("\n")
+    .filter((line) => !line.includes('data-rh="true"'))
+    .join("\n");
   return cleaned.replace(/<\/head>/i, `  ${tags}\n  </head>`);
 }
 

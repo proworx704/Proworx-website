@@ -32,7 +32,7 @@ export function PaintCorrectionCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Paint Correction Charlotte NC — Scratch Removal"
-        description="Professional paint correction in Charlotte, NC. Remove swirls, scratches & oxidation with multi-stage machine polishing. 12+ years experience. Free paint assessment."
+        description="Professional paint correction in Charlotte, NC. Remove swirls, scratches & oxidation with multi-stage polishing. 12+ years experience. Free assessment."
         keywords="paint correction Charlotte NC, swirl removal Charlotte, scratch removal Charlotte NC, paint polishing Charlotte, paint restoration near me, multi-stage paint correction Charlotte, car paint correction south Charlotte, paint correction Waxhaw NC, paint correction near me"
         schema={{
           "@context": "https://schema.org",

@@ -33,7 +33,7 @@ export function BallantyneDetailingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing in Ballantyne, Charlotte NC"
-        description="ProWorx Mobile Detailing serves Ballantyne, SouthPark, Myers Park & South Charlotte. 5-star rated, GYEON certified. Ceramic coating, paint correction & full detailing \u2014 we come to you!"
+        description="ProWorx Mobile Detailing serves Ballantyne, SouthPark & Myers Park. 5-star rated, GYEON certified. Ceramic coating & full detailing \u2014 we come to you!"
         keywords="Ballantyne mobile detailing, car detailing Ballantyne NC, auto detailing SouthPark Charlotte, Myers Park car detailing, mobile car wash Ballantyne, ceramic coating Ballantyne, South Charlotte detailing, Ballantyne auto detail"
         schema={{
           "@context": "https://schema.org",

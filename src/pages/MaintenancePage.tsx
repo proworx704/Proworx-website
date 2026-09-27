@@ -86,7 +86,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly auto detailing plans in Charlotte, NC from $63/month. 2 plans: Exterior Only and Full Inside & Out. Mobile service, cancel anytime. An initial detail is required before starting a plan."
+        description="Monthly detailing plans in Charlotte, NC from $63/month. Exterior Only or Full Inside & Out. Mobile service, cancel anytime. Initial detail required to start."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",

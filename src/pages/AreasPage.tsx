@@ -39,7 +39,7 @@ export function AreasPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Service Areas — Charlotte, NC"
-        description="ProWorx serves Charlotte, Ballantyne, Myers Park, South Charlotte, Fort Mill, Matthews, Davidson, Huntersville & all surrounding areas. Premium mobile detailing & ceramic coating — we come to you!"
+        description="ProWorx serves Charlotte, Ballantyne, Myers Park, South Charlotte, Fort Mill, Matthews & Huntersville. Mobile detailing & ceramic coating — we come to you!"
         keywords="mobile detailing near me, auto detailing Charlotte NC, car detailing Ballantyne NC, Myers Park detailing, South Charlotte auto detail, Fort Mill detailing, Matthews car detailing, ceramic coating near me Charlotte, Lake Norman auto detailing"
         schema={{
           "@context": "https://schema.org",

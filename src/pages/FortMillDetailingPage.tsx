@@ -33,7 +33,7 @@ export function FortMillDetailingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Fort Mill SC & Tega Cay"
-        description="ProWorx Mobile Detailing serves Fort Mill, Tega Cay, Indian Land & Lake Wylie, SC. 5-star rated, GYEON certified. Ceramic coating, paint correction & full detailing \u2014 we come to you!"
+        description="ProWorx Mobile Detailing serves Fort Mill, Tega Cay & Indian Land, SC. 5-star rated, GYEON certified. Ceramic coating & full detailing \u2014 we come to you!"
         keywords="Fort Mill SC mobile detailing, car detailing Fort Mill SC, auto detailing Tega Cay, Indian Land detailing, mobile car wash Fort Mill, ceramic coating Fort Mill SC, Lake Wylie detailing, mobile detailing near me Fort Mill"
         schema={{
           "@context": "https://schema.org",
