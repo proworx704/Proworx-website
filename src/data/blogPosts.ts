@@ -327,7 +327,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image: "/images/porsche-interior.jpg",
     imageAlt: "Porsche interior meticulously detailed with conditioned leather and clean surfaces",
     publishedAt: "2026-01-15",
-    readingTime: "5 min read",
+    readingTime: "7 min read",
     content: [
       {
         body: `<p>When most people think of "getting the inside of the car cleaned," they picture a quick vacuum and wipe-down. A professional interior detail is a completely different experience. Here's what actually happens — and why it makes such a dramatic difference.</p>`,
@@ -363,7 +363,21 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Why Interior Detailing Matters for Your Health",
         body: `<p>Here's something most people don't think about: your car's interior is a <strong>breeding ground for bacteria</strong>. Studies have shown that the average steering wheel has more bacteria than a public toilet seat. Cup holders, door handles, and gear shifters aren't much better.</p>
-<p>Our steam cleaning process reaches 300°F+ and kills 99.9% of bacteria and allergens. If you have allergies, young kids, or just want a genuinely clean environment, professional interior detailing isn't a luxury — it's hygiene.</p>
+<p>Our steam cleaning process reaches 300°F+ and kills 99.9% of bacteria and allergens. If you have allergies, young kids, or just want a genuinely clean environment, professional interior detailing isn't a luxury — it's hygiene.</p>`,
+      },
+      {
+        heading: "Interior Detailing vs. Paint Correction: Not the Same Job",
+        body: `<p>We get this question a lot: "If I book a detail, does that fix my paint too?" Not automatically — interior detailing and <a href="/paint-correction-charlotte-nc">paint correction</a> are two completely different services that address different problems.</p>
+<ul>
+<li><strong>Interior detailing</strong> is about the cabin — seats, carpets, vents, leather, and air quality. It's the service in this article.</li>
+<li><strong>Paint correction</strong> is a separate, exterior-only process that uses machine polishing to remove swirls, scratches, and oxidation from the clear coat. It doesn't touch the inside of the car at all.</li>
+</ul>
+<p>Most Charlotte customers who want a car that looks and feels brand new book both as part of a <a href="/services">full detail package</a> — but they're priced, scheduled, and performed as separate work.</p>`,
+      },
+      {
+        heading: "What Charlotte-Area Drivers Should Know",
+        body: `<p>Charlotte's climate makes interior care more urgent than it is in cooler regions. Long summers with intense UV exposure fade and crack leather and vinyl faster, and pollen season (usually March–May) tracks a fine yellow dust into cabins through vents and open windows. Humidity also means odor and mildew show up faster if a spill or wet gear sits in the car.</p>
+<p>We serve Charlotte, Ballantyne, SouthPark, Waxhaw, Fort Mill, and the surrounding area with mobile service — same steam-cleaning and conditioning process described above, done at your home or office.</p>
 <p>Ready for a fresh interior? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book online</a> and we'll transform your car's cabin.</p>`,
       },
     ],

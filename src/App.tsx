@@ -57,7 +57,6 @@ const GyeonCertifiedCharlottePage = lazyRetry(() => import("./pages/GyeonCertifi
 
 const PaintCorrectionCharlottePage = lazyRetry(() => import("./pages/PaintCorrectionCharlottePage").then(m => ({ default: m.PaintCorrectionCharlottePage })));
 const MobileDetailingCharlottePage = lazyRetry(() => import("./pages/MobileDetailingCharlottePage").then(m => ({ default: m.MobileDetailingCharlottePage })));
-const CarDetailingCharlottePage = lazyRetry(() => import("./pages/CarDetailingCharlottePage").then(m => ({ default: m.CarDetailingCharlottePage })));
 const BoatDetailingCharlottePage = lazyRetry(() => import("./pages/BoatDetailingCharlottePage").then(m => ({ default: m.BoatDetailingCharlottePage })));
 const CeramicCoatingSouthCharlottePage = lazyRetry(() => import("./pages/CeramicCoatingSouthCharlottePage").then(m => ({ default: m.CeramicCoatingSouthCharlottePage })));
 const AutoDetailingCharlottePage = lazyRetry(() => import("./pages/AutoDetailingCharlottePage").then(m => ({ default: m.AutoDetailingCharlottePage })));
@@ -130,7 +129,6 @@ function App() {
 
           <Route path="/paint-correction-charlotte-nc" element={<SiteLayout><PaintCorrectionCharlottePage /></SiteLayout>} />
           <Route path="/mobile-detailing-charlotte-nc" element={<SiteLayout><MobileDetailingCharlottePage /></SiteLayout>} />
-          <Route path="/car-detailing-charlotte-nc" element={<SiteLayout><CarDetailingCharlottePage /></SiteLayout>} />
           <Route path="/boat-detailing-charlotte-nc" element={<SiteLayout><BoatDetailingCharlottePage /></SiteLayout>} />
           <Route path="/ceramic-coating-south-charlotte-nc" element={<SiteLayout><CeramicCoatingSouthCharlottePage /></SiteLayout>} />
           <Route path="/auto-detailing-charlotte-nc" element={<SiteLayout><AutoDetailingCharlottePage /></SiteLayout>} />

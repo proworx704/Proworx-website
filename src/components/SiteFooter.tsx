@@ -168,7 +168,7 @@ export function SiteFooter() {
               {[
                 { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc" },
                 { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc" },
-                { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc" },
+                { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc" },
                 { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc" },
                 { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc" },
                 { label: "All Areas We Serve", href: "/areas" },

@@ -867,7 +867,7 @@ export function CeramicCoatingPage() {
           <div className="flex flex-wrap justify-center gap-3 mt-4 max-w-3xl mx-auto">
             {[
               { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc" },
-              { label: "Car Detailing Charlotte", href: "/car-detailing-charlotte-nc" },
+              { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc" },
               { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc" },
               { label: "Boat Detailing Charlotte", href: "/boat-detailing-charlotte-nc" },
               { label: "GYEON Certified Installer", href: "/gyeon-certified-installer-charlotte" },

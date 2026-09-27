@@ -578,7 +578,7 @@ export function ServicesPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
-              { label: "Car Detailing Charlotte NC", href: "/car-detailing-charlotte-nc" },
+              { label: "Auto Detailing Charlotte NC", href: "/auto-detailing-charlotte-nc" },
               { label: "Mobile Detailing Charlotte NC", href: "/mobile-detailing-charlotte-nc" },
               { label: "Ceramic Coating Charlotte NC", href: "/ceramic-coating-charlotte-nc" },
               { label: "Paint Correction Charlotte NC", href: "/paint-correction-charlotte-nc" },

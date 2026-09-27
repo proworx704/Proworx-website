@@ -10,7 +10,7 @@ const AREAS = [
   { name: "Charlotte", state: "NC", description: "Our primary service area — covering all Charlotte neighborhoods including Ballantyne, SouthPark, Myers Park, Dilworth, NoDa, and uptown.", pages: [
     { label: "Ceramic Coating", href: "/ceramic-coating-charlotte-nc" },
     { label: "Paint Correction", href: "/paint-correction-charlotte-nc" },
-    { label: "Car Detailing", href: "/car-detailing-charlotte-nc" },
+    { label: "Auto Detailing", href: "/auto-detailing-charlotte-nc" },
     { label: "Mobile Detailing", href: "/mobile-detailing-charlotte-nc" },
     { label: "Boat Detailing", href: "/boat-detailing-charlotte-nc" },
   ]},

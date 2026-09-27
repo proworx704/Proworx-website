@@ -2,6 +2,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/car-detailing-charlotte-nc",
+      "destination": "/auto-detailing-charlotte-nc",
+      "permanent": true
+    },
+    {
       "source": "/images/ferrari-van.jpg",
       "destination": "/images/ferrari-profile.jpg",
       "permanent": true
@@ -296,10 +301,6 @@
     {
       "source": "/mobile-detailing-charlotte-nc",
       "destination": "/mobile-detailing-charlotte-nc.html"
-    },
-    {
-      "source": "/car-detailing-charlotte-nc",
-      "destination": "/car-detailing-charlotte-nc.html"
     },
     {
       "source": "/boat-detailing-charlotte-nc",
