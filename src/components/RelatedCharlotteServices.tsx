@@ -2,7 +2,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CHARLOTTE_SERVICES = [
-  { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc", desc: "Full interior & exterior detailing from $210 — mobile or drop-off" },
+  { label: "Auto Detailing Charlotte", href: "/auto-detailing-charlotte-nc", desc: "Full interior & exterior detailing from $195 — mobile or drop-off" },
   { label: "Mobile Detailing Charlotte", href: "/mobile-detailing-charlotte-nc", desc: "Professional detailing at your home or office" },
   { label: "Ceramic Coating Charlotte", href: "/ceramic-coating-charlotte-nc", desc: "GYEON certified — 1-year to lifetime protection" },
   { label: "Paint Correction Charlotte", href: "/paint-correction-charlotte-nc", desc: "Multi-stage swirl & scratch removal" },
