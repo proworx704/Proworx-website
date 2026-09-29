@@ -366,7 +366,7 @@ export function MenuPage() {
           <SectionHeader
             label="Specialty"
             title="Paint Correction"
-            subtitle="Multi-stage machine polishing to remove swirls, scratches & oxidation. Includes full decontamination, clay bar, iron removal, IPA wipe-down & documentation."
+            subtitle="Multi-stage machine polishing to remove swirls, scratches & oxidation. Includes a prep wash of the surfaces being polished. Clay bar and wax or ceramic protection available as add-ons."
           />
           <div className="grid sm:grid-cols-3 gap-4">
             {[

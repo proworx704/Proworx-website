@@ -174,12 +174,12 @@ export function PaintCorrectionPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">What's Included</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
-                  "Full paint decontamination & clay bar",
-                  "Iron & tar removal",
-                  "Machine polish with Rupes tools",
+                  "Basic prep wash of surfaces being polished",
+                  "Machine polish with Rupes tools to your desired level of correction",
                   "Paint depth measurements",
                   "IPA wipe-down for true finish evaluation",
-                  "Final sealant or wax protection",
+                  "Clay bar available as an add-on if needed",
+                  "Wax or ceramic protection available as an add-on",
                   "Panel-by-panel inspection",
                   "Before & after documentation",
                 ].map((item) => (

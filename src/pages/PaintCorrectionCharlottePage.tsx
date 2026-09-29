@@ -181,9 +181,9 @@ export function PaintCorrectionCharlottePage() {
             <div className="grid sm:grid-cols-2 gap-5">
               {[
                 { step: "1", title: "Paint Inspection & Measurement", desc: "We inspect your paint under LED lighting and measure clear coat thickness with a paint depth gauge. This determines the safest correction approach." },
-                { step: "2", title: "Decontamination & Clay Bar", desc: "Full wash, iron removal, tar removal, and clay bar treatment to strip all bonded contaminants from the paint surface." },
+                { step: "2", title: "Prep Wash", desc: "A basic prep wash of the surfaces being polished. Clay bar treatment is available as an add-on if the paint needs it." },
                 { step: "3", title: "Machine Polishing", desc: "Using Rupes precision polishers, we systematically correct each panel. Compound stage removes defects, polish stage refines to a mirror finish." },
-                { step: "4", title: "IPA Wipe & Final Inspection", desc: "Isopropyl alcohol wipe reveals the true finish without fillers. Final panel-by-panel inspection under LED ensures perfection." },
+                { step: "4", title: "IPA Wipe & Final Inspection", desc: "Isopropyl alcohol wipe reveals the true finish without fillers. Final panel-by-panel inspection under LED ensures perfection. Wax or ceramic coating protection can be added after correction." },
               ].map((item) => (
                 <div key={item.step} className="rounded-xl bg-card border border-border p-6 flex gap-4">
                   <div className="size-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold font-bold shrink-0">{item.step}</div>
