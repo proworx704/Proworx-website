@@ -31,7 +31,7 @@ export const SERVICES = {
     name: "Standard Inside & Out",
     description: "A full-vehicle refresh combining interior and exterior services into one streamlined appointment.",
     price: "Price varies",
-    duration: "2 hr 30 min+",
+    duration: "3 hr 30 min+",
     features: ["All Standard Exterior services", "All Standard Interior services", "Unified final quality inspection"],
   },
   // Interior — Packages (core standalone services)
