@@ -429,7 +429,7 @@ export function MenuPage() {
           <SectionHeader
             label="Certified Protection"
             title="Ceramic Coating"
-            subtitle="Professional-grade GYEON ceramic coatings by a certified installer. Each includes prep wash, decontamination & light prep polish. Reserve with just 30% down."
+            subtitle="Professional-grade GYEON ceramic coatings by a certified installer. Each includes a decontamination pre-wash & panel prep spray. Polishing requires separate paint correction. Reserve with just 30% down."
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -441,7 +441,7 @@ export function MenuPage() {
                 depositUrl: bookCeramic1yr,
                 features: [
                   "Prep wash & decontamination",
-                  "Light prep polish",
+                  "Panel prep spray",
                   "Single-layer GYEON Q² One EVO",
                   "Hydrophobic + UV shield",
                   "1-year manufacturer warranty",
@@ -456,7 +456,7 @@ export function MenuPage() {
                 popular: true,
                 features: [
                   "Prep wash & decontamination",
-                  "Light prep polish",
+                  "Panel prep spray",
                   "GYEON Q² Pure EVO professional coating",
                   "Superior chemical & UV resistance",
                   "3-year warranty + annual inspection",
@@ -470,7 +470,7 @@ export function MenuPage() {
                 depositUrl: bookCeramicInfinite1,
                 features: [
                   "Prep wash & decontamination",
-                  "Light prep polish",
+                  "Panel prep spray",
                   "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
                   "Extreme chemical resistance & self-cleaning",
                   "Lifetime warranty* + biennial maintenance",
@@ -484,7 +484,7 @@ export function MenuPage() {
                 depositUrl: bookCeramicInfinite2,
                 features: [
                   "Prep wash & decontamination",
-                  "Light prep polish",
+                  "Panel prep spray",
                   "GYEON Infinite Base Type 1 + Type 2 TopCoat",
                   "Maximum gloss, depth & watermark resistance",
                   "Dual-layer ultimate protection",

@@ -53,7 +53,7 @@ const CERT_BENEFITS = [
 
 const WHY_CERTIFIED = [
   { bad: "Uncertified installer uses consumer-grade product", good: "Certified installer uses professional-grade GYEON Q² EVO series" },
-  { bad: "No surface prep — coating applied over swirls and defects", good: "Full decontamination, clay bar, and prep polish before coating" },
+  { bad: "No surface prep — coating applied over swirls and defects", good: "Full decontamination pre-wash and panel prep spray before coating" },
   { bad: "No warranty — you're on your own if it fails", good: "GYEON manufacturer warranty up to lifetime" },
   { bad: "Applied in a dusty garage or driveway", good: "Controlled environment with LED inspection lighting" },
   { bad: "Single quick layer — done in 2 hours", good: "Multi-layer application with proper cure time between coats" },
@@ -89,7 +89,7 @@ export function GyeonCertifiedCharlottePage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Is ProWorx a certified GYEON installer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is a GYEON and IGL certified ceramic coating installer in Charlotte, NC. Our installers are factory-trained and use only genuine professional-grade GYEON Q² EVO series coatings backed by manufacturer warranty." }},
                 { "@type": "Question", "name": "Why does GYEON certification matter?", "acceptedAnswer": { "@type": "Answer", "text": "Certified installers receive proper training, access to professional-grade products (not available to consumers), and can offer manufacturer warranties. Non-certified installers may use consumer-grade products, skip proper prep work, and cannot provide a GYEON warranty." }},
-                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON professional series: Q² One EVO (1-year, from $499), Q² Pure EVO (3-year, from $899), Infinite Type 1 (lifetime, from $1,799), and Infinite Type 1 + Type 2 (lifetime, from $2,199). All include prep wash, decontamination, and light prep polish." }},
+                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON professional series: Q² One EVO (1-year, from $499), Q² Pure EVO (3-year, from $899), Infinite Type 1 (lifetime, from $1,799), and Infinite Type 1 + Type 2 (lifetime, from $2,199). All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
                 { "@type": "Question", "name": "Does GYEON ceramic coating come with a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when installed by a certified installer like ProWorx. GYEON provides manufacturer warranties: 1 year for Q² One EVO, 3 years for Q² Pure EVO, and a lifetime Infinite Warranty for the Infinite series (with biennial maintenance). The warranty covers coating performance." }}
               ]
             }

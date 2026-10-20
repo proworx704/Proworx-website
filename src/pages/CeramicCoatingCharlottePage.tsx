@@ -36,10 +36,10 @@ export function CeramicCoatingCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does ceramic coating cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Charlotte typically costs $499–$2,199+ depending on the coating tier and vehicle size. ProWorx offers GYEON certified packages: 1-Year Q² One EVO ($499+), 3-Year Q² Pure EVO ($899+), Infinite Type 1 ($1,799+), and Infinite Type 1 + Type 2 ($2,199+) with lifetime warranty. All include prep wash, decontamination, and light prep polish." }},
+                { "@type": "Question", "name": "How much does ceramic coating cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Charlotte typically costs $499–$2,199+ depending on the coating tier and vehicle size. ProWorx offers GYEON certified packages: 1-Year Q² One EVO ($499+), 3-Year Q² Pure EVO ($899+), Infinite Type 1 ($1,799+), and Infinite Type 1 + Type 2 ($2,199+) with lifetime warranty. All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
                 { "@type": "Question", "name": "Is ceramic coating worth the cost?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for most vehicle owners. Professional ceramic coating protects your paint from UV damage, chemical etching, and environmental contaminants for years — far longer than wax or sealant. It also reduces maintenance time, keeps your vehicle cleaner between washes, and maintains resale value. The 3-Year package at $899 is the best balance of value and protection." }},
-                { "@type": "Question", "name": "What's the difference between a $50 ceramic coating and a $900 one?", "acceptedAnswer": { "@type": "Answer", "text": "Consumer spray-on coatings ($30-$80) last weeks to months and offer minimal protection. Professional coatings from a certified installer ($499-$2,199+) involve paint decontamination, machine prep polish, and hand-applied professional-grade ceramic that bonds permanently to your paint. They last 1 year to a lifetime with manufacturer warranty." }},
-                { "@type": "Question", "name": "Do I need paint correction before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. Every ProWorx ceramic coating package includes a light prep polish. However, if your paint has swirls, scratches, or oxidation, adding paint correction ($618+) before coating locks in a flawless finish under the ceramic layer. We'll inspect your paint and recommend the best approach." }},
+                { "@type": "Question", "name": "What's the difference between a $50 ceramic coating and a $900 one?", "acceptedAnswer": { "@type": "Answer", "text": "Consumer spray-on coatings ($30-$80) last weeks to months and offer minimal protection. Professional coatings from a certified installer ($499-$2,199+) involve paint decontamination, panel prep, and hand-applied professional-grade ceramic that bonds permanently to your paint. They last 1 year to a lifetime with manufacturer warranty." }},
+                { "@type": "Question", "name": "Do I need paint correction before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. ProWorx ceramic packages include a decontamination pre-wash and prep spray only, with no polishing. If your paint has swirls, scratches, or oxidation, adding paint correction ($618+) before coating locks in a flawless finish under the ceramic layer. We'll inspect your paint and recommend the best approach." }},
                 { "@type": "Question", "name": "Does ProWorx offer financing for ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer Affirm financing (buy now, pay later) at checkout with easy monthly payments. We also only require a 30% deposit to reserve your coating appointment, with the balance due at completion." }}
               ]
             }
@@ -85,7 +85,7 @@ export function CeramicCoatingCharlottePage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Pricing</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                All packages include a decontamination wash and dry, prep spray, and light prep polish. Clay bar treatment is not included — it is available as an optional add-on when the paint requires it. Pricing shown is for sedans — SUVs, trucks, and larger vehicles may be higher.
+                All packages include a decontamination wash and dry and a prep spray. Polishing is not included; paint correction is a separate service. Clay bar treatment is not included — it is available as an optional add-on when the paint requires it. Pricing shown is for sedans — SUVs, trucks, and larger vehicles may be higher.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -119,8 +119,8 @@ export function CeramicCoatingCharlottePage() {
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
               {[
-                { step: "1", title: "Prep Wash & Decontamination", desc: "Full decontamination wash and dry, followed by a dedicated prep spray to strip contaminants and polishing oils from the paint surface." },
-                { step: "2", title: "Light Prep Polish", desc: "Single-step machine polish to create the ideal bonding surface for the ceramic coating. Removes light marring." },
+                { step: "1", title: "Prep Wash & Decontamination", desc: "Full decontamination pre-wash and dry to remove dirt and surface contaminants." },
+                { step: "2", title: "Panel Prep Spray", desc: "A dedicated prep spray strips oils and residue so the ceramic bonds to the paint. No polishing is included; add paint correction separately if needed." },
                 { step: "3", title: "Ceramic Coating Application", desc: "Professional hand-applied GYEON ceramic coating. Each panel is coated and inspected under LED lighting for full coverage." },
                 { step: "4", title: "Cure & Inspection", desc: "Proper cure time is observed. Final full-vehicle inspection ensures even coverage and maximum bonding." },
               ].map((item) => (
@@ -200,7 +200,7 @@ export function CeramicCoatingCharlottePage() {
                 {[
                   { title: "Certified GYEON & IGL Installer", desc: "Not all coatings are equal. We use professional-grade products only available to certified installers." },
                   { title: "Manufacturer Warranty", desc: "Every package comes with a GYEON manufacturer warranty — not just our word, but the product maker's guarantee." },
-                  { title: "Proper Prep = Better Results", desc: "We never skip the decontamination and polish steps. Coating over dirty or damaged paint is a waste of money." },
+                  { title: "Proper Prep = Better Results", desc: "We never skip the decontamination and prep steps. Coating over dirty or damaged paint is a waste of money." },
                   { title: "12+ Years of Experience", desc: "We've been detailing vehicles in Charlotte since 2013. Your car is in experienced hands." },
                   { title: "Financing Available", desc: "Finance with Affirm — pay over time with easy monthly payments. Available at checkout." },
                 ].map((item) => (

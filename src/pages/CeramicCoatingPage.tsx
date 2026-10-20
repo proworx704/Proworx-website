@@ -35,7 +35,7 @@ const PACKAGES = [
     financeUrl: "https://buy.stripe.com/5kQeVd4qd6RN7iogZFbMQ0d",
     features: [
       "Decontamination wash, dry & prep spray",
-      "Light prep polish (paint prep)",
+      "Panel prep spray for coating bond",
       "Single-layer GYEON Q² One EVO",
       "Hydrophobic protection & UV shield",
       "Enhanced gloss & depth",
@@ -53,7 +53,7 @@ const PACKAGES = [
     financeUrl: "https://buy.stripe.com/fZu8wPaOB5NJgSY6l1bMQ0e",
     features: [
       "Decontamination wash, dry & prep spray",
-      "Light prep polish (paint prep)",
+      "Panel prep spray for coating bond",
       "GYEON Q² Pure EVO professional coating",
       "Superior chemical & UV resistance",
       "Extreme hydrophobic properties",
@@ -72,7 +72,7 @@ const PACKAGES = [
     financeUrl: "https://buy.stripe.com/14A4gz2i5b839qw38PbMQ0f",
     features: [
       "Decontamination wash, dry & prep spray",
-      "Light prep polish (paint prep)",
+      "Panel prep spray for coating bond",
       "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
       "Extreme chemical resistance & self-cleaning",
       "Superior UV protection & hydrophobic effect",
@@ -91,7 +91,7 @@ const PACKAGES = [
     financeUrl: "https://buy.stripe.com/aFabJ16yl0tp8ms8t9bMQ0g",
     features: [
       "Decontamination wash, dry & prep spray",
-      "Light prep polish (paint prep)",
+      "Panel prep spray for coating bond",
       "GYEON Infinite Base Type 1 + Type 2 TopCoat",
       "Maximum gloss, depth & color enhancement",
       "Extreme watermark resistance (ideal for NC heat)",
@@ -140,7 +140,7 @@ const GALLERY_ITEMS = [
 const PRO_VS_CONSUMER = [
   { feature: "Coating Type", pro: "SiO₂ professional-grade (GYEON / IGL)", consumer: "Spray-on sealant" },
   { feature: "Longevity", pro: "1 year – lifetime", consumer: "1–3 months" },
-  { feature: "Surface Prep", pro: "Decontamination wash, prep spray & machine polish", consumer: "Basic wash" },
+  { feature: "Surface Prep", pro: "Decontamination pre-wash & panel prep spray", consumer: "Basic wash" },
   { feature: "Hardness", pro: "True 9H hardness rating", consumer: "No measurable hardness" },
   { feature: "Warranty", pro: "GYEON manufacturer warranty", consumer: "None" },
   { feature: "Hydrophobic", pro: "Extreme water beading for years", consumer: "Fades in weeks" },
@@ -165,7 +165,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do I need paint correction before ceramic coating?",
-    a: "Not necessarily — every package includes a light prep polish to create the ideal bonding surface. However, if your paint has swirl marks, scratches, or oxidation, adding a paint correction service first will give you the best possible result under the coating.",
+    a: "Not necessarily. Every package includes a decontamination pre-wash and a prep spray so the coating bonds properly, but no polishing. If your paint has swirl marks, scratches, or oxidation, adding a paint correction service first will give you the best possible result under the coating.",
   },
   {
     q: "Is ProWorx a certified installer?",
@@ -468,7 +468,7 @@ export function CeramicCoatingPage() {
               Ceramic Coating <span className="text-gradient-gold">Packages</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Professional-grade GYEON ceramic coatings applied by a certified installer. Every package includes prep cleaning & light polish. Pricing varies by vehicle size.
+              Professional-grade GYEON ceramic coatings applied by a certified installer. Every package includes a decontamination pre-wash & panel prep spray. Polishing is not included; paint correction is a separate service. Pricing varies by vehicle size.
             </p>
           </div>
 
@@ -573,8 +573,8 @@ export function CeramicCoatingPage() {
                   },
                   {
                     icon: <Sparkles className="size-5" />,
-                    title: "Light Prep Polish",
-                    desc: "A single-step machine polish to create the ideal bonding surface. This is paint prep — not correction.",
+                    title: "Panel Prep Spray",
+                    desc: "A dedicated prep spray removes oils and residue so the ceramic bonds to the paint. No polishing is included; paint correction is booked separately.",
                   },
                   {
                     icon: <Shield className="size-5" />,

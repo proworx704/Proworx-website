@@ -221,7 +221,7 @@ export function FortMillDetailingPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Fort Mill</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include proper paint decontamination, prep polish, and come with a manufacturer warranty. No extra charge for Fort Mill {"\u2014"} we{"\u2019"}re right across the border.
+                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. No extra charge for Fort Mill {"\u2014"} we{"\u2019"}re right across the border.
               </p>
               <div className="space-y-3 mb-6">
                 {[

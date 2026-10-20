@@ -222,7 +222,7 @@ export function BallantyneDetailingPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Ballantyne</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Protect your investment with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include proper paint decontamination, prep polish, and come with a manufacturer warranty {"\u2014"} perfect for Ballantyne{"\u2019"}s luxury and performance vehicles.
+                Protect your investment with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty {"\u2014"} perfect for Ballantyne{"\u2019"}s luxury and performance vehicles.
               </p>
               <div className="space-y-3 mb-6">
                 {[

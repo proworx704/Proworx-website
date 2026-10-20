@@ -220,7 +220,7 @@ export function WaxhawPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Waxhaw</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                As a certified GYEON and IGL installer based right here in Waxhaw, we offer professional-grade ceramic coatings with up to a lifetime warranty. Unlike consumer spray-ons, our coatings include proper paint decontamination, prep polish, and come with a GYEON manufacturer warranty.
+                As a certified GYEON and IGL installer based right here in Waxhaw, we offer professional-grade ceramic coatings with up to a lifetime warranty. Unlike consumer spray-ons, our coatings include a decontamination pre-wash, panel prep spray, and come with a GYEON manufacturer warranty.
               </p>
               <div className="space-y-3 mb-6">
                 {[
