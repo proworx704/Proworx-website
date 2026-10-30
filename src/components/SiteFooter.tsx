@@ -205,6 +205,9 @@ export function SiteFooter() {
               <Link to="/privacy-policy" className="hover:text-foreground transition-colors min-h-[44px] flex items-center px-2 py-2">
                 Privacy Policy
               </Link>
+              <Link to="/terms" className="hover:text-foreground transition-colors min-h-[44px] flex items-center px-2 py-2">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

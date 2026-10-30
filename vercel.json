@@ -351,6 +351,10 @@
       "destination": "/privacy-policy.html"
     },
     {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
       "source": "/blog/benefits-of-mobile-auto-detailing",
       "destination": "/blog/benefits-of-mobile-auto-detailing.html"
     },
