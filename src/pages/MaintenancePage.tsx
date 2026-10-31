@@ -14,7 +14,7 @@ import {
 
 /* ── Vehicle Size Tiers per Plan Type ──
    Inside-Out keeps Van as its own tier (interior size matters).
-   Exterior-Only merges Van into the Large SUV/Truck tier. */
+   Exterior-Only has 4 tiers (Nov 2026 pricing), monthly or biweekly. */
 type VehicleTier = { key: string; label: string; price: number };
 
 const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
@@ -25,29 +25,36 @@ const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
     { key: "van", label: "Vans / Minivans", price: 210 },
   ],
   exterior: [
-    { key: "sedan", label: "Coupes & Sedans", price: 63 },
-    { key: "small-suv", label: "Small SUVs / Crossovers", price: 95 },
-    { key: "large-suv-van", label: "Large SUVs, Trucks & Vans", price: 126 },
+    { key: "sedan", label: "Sedan", price: 89 },
+    { key: "small-suv", label: "Small SUV or Truck", price: 95 },
+    { key: "large-suv", label: "Large SUV or Off-Road Truck", price: 105 },
+    { key: "van", label: "Van", price: 109 },
   ],
 };
 
-/* ── Exterior Only — Bi-weekly option (Oct 2026) ──
-   Two exterior washes a month (~every two weeks), billed monthly on the 1st.
-   Van is its own tier here. No Square checkout exists for this option yet,
-   so its button goes to call/text until billing (QuickBooks) is wired up. */
+/* ── Exterior Only: Monthly + Biweekly (new-member pricing, Oct 2026) ──
+   Biweekly = two exterior washes a month (about every two weeks), billed monthly on the 1st.
+   Memberships bill through QuickBooks, so Exterior buttons go to call/text (no Square checkout). */
 type Frequency = "monthly" | "biweekly";
 
 const EXTERIOR_BIWEEKLY_TIERS: VehicleTier[] = [
-  { key: "sedan", label: "Sedan", price: 159 },
-  { key: "small-suv", label: "Small SUV or Truck", price: 195 },
-  { key: "large-suv", label: "Large SUV or Off-Road Truck", price: 215 },
-  { key: "van", label: "Van", price: 255 },
+  { key: "sedan", label: "Sedan", price: 165 },
+  { key: "small-suv", label: "Small SUV or Truck", price: 180 },
+  { key: "large-suv", label: "Large SUV or Off-Road Truck", price: 199 },
+  { key: "van", label: "Van", price: 205 },
 ];
 
-const EXTERIOR_BIWEEKLY = {
-  heading: "Exterior Only Membership — Bi-weekly",
-  description:
-    "Two exterior hand washes a month, scheduled about every two weeks, with wheels, tires and a spray sealant topper on every visit. Billed monthly on the 1st.",
+const EXTERIOR_COPY: Record<Frequency, { heading: string; description: string }> = {
+  monthly: {
+    heading: "Exterior Only Monthly Membership",
+    description:
+      "One exterior hand wash a month. Billed monthly on the 1st. An initial exterior detail is required to join, then we maintain it from there.",
+  },
+  biweekly: {
+    heading: "Exterior Only Biweekly Membership",
+    description:
+      "Two exterior hand washes a month, scheduled about every two weeks. Billed monthly on the 1st. An initial exterior detail is required to join, then we maintain it from there.",
+  },
 };
 
 /* ── What's included in each plan type ── */
@@ -83,7 +90,8 @@ export function MaintenancePage() {
   const { config } = useSiteConfig();
   const [planType, setPlanType] = useState<SubscriptionPlanType>("inside-out");
   const [frequency, setFrequency] = useState<Frequency>("monthly");
-  const isBiweekly = planType === "exterior" && frequency === "biweekly";
+  const isExterior = planType === "exterior";
+  const isBiweekly = isExterior && frequency === "biweekly";
   const tiersFor = (pt: SubscriptionPlanType, f: Frequency) =>
     pt === "exterior" && f === "biweekly" ? EXTERIOR_BIWEEKLY_TIERS : PLAN_TIERS[pt] || PLAN_TIERS["inside-out"];
   const tiers = tiersFor(planType, frequency);
@@ -91,9 +99,9 @@ export function MaintenancePage() {
   const currentPlan = SUBSCRIPTION_PLANS[planType];
   const features = PLAN_FEATURES[planType] || PLAN_FEATURES["inside-out"];
   const activeTier = tiers.find((t) => t.key === vehicleKey) || tiers[0];
-  const checkoutUrl = isBiweekly ? config.phoneLink : getCheckoutUrl(planType);
-  const planHeading = isBiweekly ? EXTERIOR_BIWEEKLY.heading : `${currentPlan.shortName} — Monthly`;
-  const planDescription = isBiweekly ? EXTERIOR_BIWEEKLY.description : currentPlan.description;
+  const checkoutUrl = isExterior ? config.phoneLink : getCheckoutUrl(planType);
+  const planHeading = isExterior ? EXTERIOR_COPY[frequency].heading : `${currentPlan.shortName} — Monthly`;
+  const planDescription = isExterior ? EXTERIOR_COPY[frequency].description : currentPlan.description;
 
   useEffect(() => {
     trackViewContent("Maintenance Plans", "Membership");
@@ -119,7 +127,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly detailing plans in Charlotte, NC from $63/month. Exterior Only or Full Inside & Out. Mobile service, cancel anytime. Initial detail required to start."
+        description="Monthly detailing plans in Charlotte, NC from $89/month. Exterior Only or Full Inside & Out. Mobile service, cancel anytime. Initial detail required to start."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",
@@ -134,10 +142,10 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $63/month, or bi-weekly with two washes a month from $159/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $89/month, or biweekly with two washes a month from $165/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
                 { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An initial standard detail is required before you're eligible for a monthly maintenance plan — it gets the vehicle to a baseline we can maintain. In the same month as your initial cleaning you have the option to join the monthly membership, which is billed on the 1st of the following month. Initial detail results may vary based on vehicle condition; additional labor time can be added if more is needed." }},
-                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed monthly. Full Inside & Out is serviced once a month; Exterior Only is available monthly or bi-weekly (two washes a month, about every two weeks). We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
+                { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed monthly. Full Inside & Out is serviced once a month; Exterior Only is available monthly or biweekly (two washes a month, about every two weeks). We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
               ]
             },
             {
@@ -145,13 +153,13 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans — 2 core services from $63/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
+              "description": "Monthly mobile detailing maintenance plans — 2 core services from $89/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
                 "itemListElement": [
-                  { "@type": "Offer", "name": "Exterior Only", "price": "62", "priceCurrency": "USD", "description": "Foam pre-wash, 2-bucket contact wash, wheel & tire scrub, blow dry, spray sealant, tire dressing, exterior glass" },
-                  { "@type": "Offer", "name": "Exterior Only — Bi-weekly", "price": "159", "priceCurrency": "USD", "description": "Two exterior hand washes a month, about every two weeks, with wheels, tires and a spray sealant topper on every visit. Billed monthly." },
+                  { "@type": "Offer", "name": "Exterior Only Monthly", "price": "89", "priceCurrency": "USD", "description": "Foam pre-wash, 2-bucket contact wash, wheel & tire scrub, blow dry, spray sealant, tire dressing, exterior glass" },
+                  { "@type": "Offer", "name": "Exterior Only Biweekly", "price": "165", "priceCurrency": "USD", "description": "Two exterior hand washes a month, scheduled about every two weeks. Billed monthly on the 1st." },
                   { "@type": "Offer", "name": "Full Inside & Out", "price": "124", "priceCurrency": "USD", "description": "Complete interior and exterior detail every visit — our most popular plan" }
                 ]
               }
@@ -296,12 +304,12 @@ export function MaintenancePage() {
                   ))}
                 </select>
               </div>
-              {/* Exterior Only: Monthly vs Bi-weekly */}
+              {/* Exterior Only: Monthly vs Biweekly */}
               {planType === "exterior" && (
                 <div className="flex justify-center gap-2 mt-5" role="group" aria-label="Exterior Only visit frequency">
                   {([
                     { f: "monthly" as Frequency, label: "Monthly", sub: "1 wash / month" },
-                    { f: "biweekly" as Frequency, label: "Bi-weekly", sub: "2 washes / month" },
+                    { f: "biweekly" as Frequency, label: "Biweekly", sub: "2 washes / month" },
                   ]).map((o) => (
                     <button
                       key={o.f}
@@ -356,7 +364,7 @@ export function MaintenancePage() {
           {/* ── Monthly Price Card ── */}
           <div className="max-w-md mx-auto">
             <div className="rounded-2xl bg-card border-2 border-gold shadow-lg shadow-gold/10 p-7 flex flex-col relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{isBiweekly ? "Bi-weekly · Billed Monthly" : "Billed Monthly"}</div>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">{isBiweekly ? "Biweekly · Billed Monthly" : "Billed Monthly"}</div>
               <h3 className="font-bold text-xl mb-1">{activeTier.label}</h3>
               <p className="text-3xl font-black mb-2">
                 ${activeTier.price}
@@ -372,8 +380,8 @@ export function MaintenancePage() {
                 ))}
               </ul>
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
-                {isBiweekly ? (
-                  <a href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentPlan.shortName} Bi-weekly`, checkoutUrl)}><Phone className="size-4" /> Call or Text to Join</a>
+                {isExterior ? (
+                  <a href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${isBiweekly ? "Biweekly" : "Monthly"}`, checkoutUrl)}><Phone className="size-4" /> Call or Text to Get Started</a>
                 ) : (
                   <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} Monthly`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
                 )}
@@ -389,7 +397,7 @@ export function MaintenancePage() {
                   <thead>
                     <tr className="border-b border-border bg-muted/30">
                       <th className="text-left p-4 font-semibold">Vehicle Size</th>
-                      <th className="p-4 font-semibold text-center bg-gold/5">{isBiweekly ? "Bi-weekly (per month)" : "Monthly"}</th>
+                      <th className="p-4 font-semibold text-center bg-gold/5">{isBiweekly ? "Biweekly (per month)" : "Monthly"}</th>
                     </tr>
                   </thead>
                   <tbody>
