@@ -19,10 +19,10 @@ type VehicleTier = { key: string; label: string; price: number };
 
 const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
   "inside-out": [
-    { key: "sedan", label: "Coupes & Sedans", price: 126 },
-    { key: "small-suv", label: "Small SUVs / Crossovers", price: 147 },
-    { key: "large-suv", label: "Large SUVs / Trucks", price: 168 },
-    { key: "van", label: "Vans / Minivans", price: 210 },
+    { key: "sedan", label: "Coupes & Sedans", price: 145 },
+    { key: "small-suv", label: "Small SUVs / Crossovers", price: 163 },
+    { key: "large-suv", label: "Large SUVs / Trucks", price: 181 },
+    { key: "van", label: "Vans / Minivans", price: 218 },
   ],
   exterior: [
     { key: "sedan", label: "Sedan", price: 89 },
@@ -142,7 +142,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $89/month, or biweekly with two washes a month from $165/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $89/month, or biweekly with two washes a month from $165/month) and Full Inside & Out (from $145/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
                 { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An initial standard detail is required before you're eligible for a monthly maintenance plan — it gets the vehicle to a baseline we can maintain. In the same month as your initial cleaning you have the option to join the monthly membership, which is billed on the 1st of the following month. Initial detail results may vary based on vehicle condition; additional labor time can be added if more is needed." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed monthly. Full Inside & Out is serviced once a month; Exterior Only is available monthly or biweekly (two washes a month, about every two weeks). We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
@@ -160,7 +160,7 @@ export function MaintenancePage() {
                 "itemListElement": [
                   { "@type": "Offer", "name": "Exterior Only Monthly", "price": "89", "priceCurrency": "USD", "description": "Foam pre-wash, 2-bucket contact wash, wheel & tire scrub, blow dry, spray sealant, tire dressing, exterior glass" },
                   { "@type": "Offer", "name": "Exterior Only Biweekly", "price": "165", "priceCurrency": "USD", "description": "Two exterior hand washes a month, scheduled about every two weeks. Billed monthly on the 1st." },
-                  { "@type": "Offer", "name": "Full Inside & Out", "price": "124", "priceCurrency": "USD", "description": "Complete interior and exterior detail every visit — our most popular plan" }
+                  { "@type": "Offer", "name": "Full Inside & Out", "price": "145", "priceCurrency": "USD", "description": "Complete interior and exterior detail every visit — our most popular plan" }
                 ]
               }
             }
