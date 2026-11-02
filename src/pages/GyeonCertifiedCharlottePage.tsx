@@ -62,10 +62,8 @@ const WHY_CERTIFIED = [
 export function GyeonCertifiedCharlottePage() {
   const { config } = useSiteConfig();
 
-  const getDepositUrl = (configKey: string) => {
-    const url = config[configKey];
-    return url || config.ceramicDepositUrl;
-  };
+  // Payments run through QuickBooks: no Square deposit links, reserve by call/text
+  const getDepositUrl = (_configKey: string) => config.phoneLink || "tel:+19802721903";
 
   return (
     <div className="flex-1 flex flex-col">
@@ -222,8 +220,8 @@ export function GyeonCertifiedCharlottePage() {
                   ))}
                 </ul>
                 <Button className={`w-full font-bold ${pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
-                  <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
-                    Book — 30% Deposit <ArrowRight className="size-4" />
+                  <a href={getDepositUrl(pkg.configKey)}>
+                    Call or Text to Reserve <ArrowRight className="size-4" />
                   </a>
                 </Button>
               </div>

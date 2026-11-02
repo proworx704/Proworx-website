@@ -31,10 +31,8 @@ const NEARBY = [
 export function CeramicCoatingSouthCharlottePage() {
   const { config } = useSiteConfig();
 
-  const getDepositUrl = (configKey: string) => {
-    const url = config[configKey];
-    return url || config.ceramicDepositUrl;
-  };
+  // Payments run through QuickBooks: no Square deposit links, reserve by call/text
+  const getDepositUrl = (_configKey: string) => config.phoneLink || "tel:+19802721903";
 
   return (
     <div className="flex-1 flex flex-col">
@@ -175,8 +173,8 @@ export function CeramicCoatingSouthCharlottePage() {
                 <h3 className="text-lg font-bold mb-1">{pkg.name}</h3>
                 <p className="text-2xl font-black text-gold mb-4">{pkg.price}</p>
                 <Button className={`w-full font-bold ${pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
-                  <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
-                    Book Now <ArrowRight className="size-4" />
+                  <a href={getDepositUrl(pkg.configKey)}>
+                    Call or Text to Reserve <ArrowRight className="size-4" />
                   </a>
                 </Button>
               </div>

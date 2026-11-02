@@ -80,7 +80,7 @@ const SERVICES = [
   {
     icon: <Award className="size-6" />,
     title: "Gift Cards",
-    description: "Give the gift of a professional detail. Perfect for birthdays, holidays, or any occasion.",
+    description: "Give the gift of a professional detail. Perfect for birthdays, holidays, or any occasion. Call or text us to order one.",
     href: "__giftcards__",
     external: true,
     image: "/images/aston-front.jpg",
@@ -298,7 +298,7 @@ export function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {SERVICES.map((service) => {
-              const href = service.href === "__giftcards__" ? config.giftCardsUrl : service.href;
+              const href = service.href === "__giftcards__" ? (config.phoneLink || "tel:+19802721903") : service.href;
               const inner = (
                 <div className="group relative overflow-hidden rounded-2xl bg-card border border-border transition-all hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 h-full flex flex-col">
                   <div className="relative h-48 overflow-hidden">
@@ -317,12 +317,14 @@ export function HomePage() {
                     <h3 className="font-bold text-lg mb-2">{service.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed flex-1">{service.description}</p>
                     <div className="mt-4 flex items-center gap-1 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn More <ArrowRight className="size-3.5" />
+                      {service.href === "__giftcards__" ? "Call or Text to Order" : "Learn More"} <ArrowRight className="size-3.5" />
                     </div>
                   </div>
                 </div>
               );
-              return service.external ? (
+              return service.href === "__giftcards__" ? (
+                <a key={service.title} href={href} aria-label={`${service.title}: call or text to order`}>{inner}</a>
+              ) : service.external ? (
                 <a key={service.title} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${service.title} (opens in new tab)`}>{inner}</a>
               ) : (
                 <Link key={service.title} to={href}>{inner}</Link>

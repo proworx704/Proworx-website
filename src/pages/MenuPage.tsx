@@ -6,7 +6,6 @@ import { trackSubscribeClick, trackCeramicDepositClick } from "@/lib/tracking";
 import {
   SUBSCRIPTION_PLANS,
   PLAN_TYPE_ORDER,
-  getCheckoutUrl,
   type SubscriptionPlanType,
 } from "@/lib/subscriptionUrls";
 
@@ -15,8 +14,7 @@ function BookBtn({ href, children, variant = "gold", onClick }: { href: string; 
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(href.startsWith("tel:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all w-full sm:w-auto ${
         variant === "gold"
@@ -135,11 +133,12 @@ export function MenuPage() {
   // Other widgets
   const bookMain = bookStdIO; // fallback for "Build Your Package" CTAs
   const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || `${SQ}/14i1e4shwem0qb${LOC}`;
-  const ceramicFallback = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
-  const bookCeramic1yr = config.ceramicDeposit1yr || ceramicFallback;
-  const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
-  const bookCeramicInfinite1 = config.ceramicDepositInfinite1 || ceramicFallback;
-  const bookCeramicInfinite2 = config.ceramicDepositInfinite2 || ceramicFallback;
+  // Payments run through QuickBooks: ceramic reservations go to call/text (no Square deposit links)
+  const ceramicReserve = config.phoneLink || "tel:+19802721903";
+  const bookCeramic1yr = ceramicReserve;
+  const bookCeramic3yr = ceramicReserve;
+  const bookCeramicInfinite1 = ceramicReserve;
+  const bookCeramicInfinite2 = ceramicReserve;
   // Subscription plan type state for memberships section
   const [menuPlanType, setMenuPlanType] = useState<SubscriptionPlanType>("inside-out");
   const phoneLink = config.phoneLink || "tel:+19802721903";
@@ -513,7 +512,7 @@ export function MenuPage() {
                     </li>
                   ))}
                 </ul>
-                <BookBtn href={pkg.depositUrl} onClick={() => trackCeramicDepositClick(pkg.name, pkg.depositUrl)}>Reserve with 30% Down <ArrowRight className="size-4" /></BookBtn>
+                <BookBtn href={pkg.depositUrl} onClick={() => trackCeramicDepositClick(pkg.name, pkg.depositUrl)}>Call or Text to Reserve <ArrowRight className="size-4" /></BookBtn>
               </div>
             ))}
           </div>
@@ -549,7 +548,7 @@ export function MenuPage() {
             const [menuSize, setMenuSize] = useState<string>(tiers[0].key);
             const activeTier = tiers.find((t) => t.key === menuSize) || tiers[0];
             const currentMenuPlan = SUBSCRIPTION_PLANS[menuPlanType];
-            const checkoutUrl = getCheckoutUrl(menuPlanType);
+            const checkoutUrl = phoneLink;
             return (
               <div>
                 {/* Plan type selector */}
@@ -594,7 +593,7 @@ export function MenuPage() {
                   <h3 className="font-bold text-base mt-1 mb-1">{activeTier.label}</h3>
                   <p className="text-2xl font-black mb-1">${activeTier.price}<span className="text-sm font-normal text-muted-foreground">/month</span></p>
                   <p className="text-xs text-muted-foreground leading-relaxed mb-4">Billing starts the 1st of the month following signup — you're never charged twice in your first month.</p>
-                  <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Monthly`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
+                  <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Monthly`, checkoutUrl)}>Call or Text to Get Started <ArrowRight className="size-4" /></BookBtn>
                 </div>
               </div>
             );

@@ -285,10 +285,8 @@ export function CeramicCoatingPage() {
     trackViewContent("Ceramic Coating", "Services");
   }, []);
 
-  const getDepositUrl = (configKey: string) => {
-    const url = config[configKey];
-    return url || config.ceramicDepositUrl;
-  };
+  // Payments run through QuickBooks: no Square deposit links, reserve by call/text
+  const getDepositUrl = (_configKey: string) => config.phoneLink || "tel:+19802721903";
 
   const bookingUrl = config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book";
 
@@ -524,11 +522,9 @@ export function CeramicCoatingPage() {
                   >
                     <a
                       href={depositUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => trackBookNowConversion(depositUrl)}
                     >
-                      Reserve Now <ArrowRight className="size-4" />
+                      Call or Text to Reserve <ArrowRight className="size-4" />
                     </a>
                   </Button>
                   <Button

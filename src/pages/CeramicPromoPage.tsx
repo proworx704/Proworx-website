@@ -14,15 +14,13 @@ import {
   MapPin,
   AlertTriangle,
   FileText,
-  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageSEO } from "@/components/PageSEO";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
 import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
-/* ── Square Promo Plan checkout link ── */
-const PROMO_CHECKOUT_URL = "https://square.link/u/BudQ53hh";
+/* Payments run through QuickBooks: sign-up is by call/text (no Square checkout) */
 
 /* ── Vehicle-size pricing ── */
 const VEHICLE_PRICING = [
@@ -80,8 +78,8 @@ export function CeramicPromoPage() {
   }, []);
 
   const handleSubscribeClick = () => {
-    trackSubscribeClick("Ceramic Promo Subscribe", PROMO_CHECKOUT_URL);
-    window.open(PROMO_CHECKOUT_URL, "_blank", "noopener,noreferrer");
+    trackSubscribeClick("Ceramic Promo Subscribe", PHONE_LINK);
+    window.location.href = PHONE_LINK;
   };
 
   const handlePhone = () => {
@@ -126,7 +124,7 @@ export function CeramicPromoPage() {
               onClick={handleSubscribeClick}
               className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
             >
-              Subscribe Now <ArrowRight className="size-5 ml-2" />
+              Call or Text to Sign Up <ArrowRight className="size-5 ml-2" />
             </Button>
             <a
               href={PHONE_LINK}
@@ -228,13 +226,11 @@ export function CeramicPromoPage() {
                   </div>
                 </div>
                 <a
-                  href={PROMO_CHECKOUT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackSubscribeClick(`Ceramic Promo - ${v.size}`, PROMO_CHECKOUT_URL)}
+                  href={PHONE_LINK}
+                  onClick={() => trackSubscribeClick(`Ceramic Promo - ${v.size}`, PHONE_LINK)}
                   className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-6 py-3 rounded-xl shadow-lg shadow-amber-500/20 transition-all hover:shadow-amber-400/30 hover:scale-105 text-sm whitespace-nowrap w-full sm:w-auto justify-center"
                 >
-                  Subscribe Now <ExternalLink className="size-4" />
+                  Call or Text <Phone className="size-4" />
                 </a>
               </div>
             ))}
@@ -429,7 +425,7 @@ export function CeramicPromoPage() {
             onClick={handleSubscribeClick}
             className="mt-10 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
           >
-            Subscribe Now <ArrowRight className="size-5 ml-2" />
+            Call or Text to Sign Up <ArrowRight className="size-5 ml-2" />
           </Button>
         </div>
       </section>

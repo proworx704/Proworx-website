@@ -8,7 +8,6 @@ import { trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 import {
   SUBSCRIPTION_PLANS,
   PLAN_TYPE_ORDER,
-  getCheckoutUrl,
   type SubscriptionPlanType,
 } from "@/lib/subscriptionUrls";
 
@@ -34,7 +33,7 @@ const PLAN_TIERS: Record<SubscriptionPlanType, VehicleTier[]> = {
 
 /* ── Exterior Only: Monthly + Biweekly (new-member pricing, Oct 2026) ──
    Biweekly = two exterior washes a month (about every two weeks), billed monthly on the 1st.
-   Memberships bill through QuickBooks, so Exterior buttons go to call/text (no Square checkout). */
+   Memberships bill through QuickBooks, so plan buttons go to call/text (no Square checkout). */
 type Frequency = "monthly" | "biweekly";
 
 const EXTERIOR_BIWEEKLY_TIERS: VehicleTier[] = [
@@ -99,7 +98,7 @@ export function MaintenancePage() {
   const currentPlan = SUBSCRIPTION_PLANS[planType];
   const features = PLAN_FEATURES[planType] || PLAN_FEATURES["inside-out"];
   const activeTier = tiers.find((t) => t.key === vehicleKey) || tiers[0];
-  const checkoutUrl = isExterior ? config.phoneLink : getCheckoutUrl(planType);
+  const checkoutUrl = config.phoneLink || "tel:+19802721903";
   const planHeading = isExterior ? EXTERIOR_COPY[frequency].heading : `${currentPlan.shortName} — Monthly`;
   const planDescription = isExterior ? EXTERIOR_COPY[frequency].description : currentPlan.description;
 
@@ -380,11 +379,7 @@ export function MaintenancePage() {
                 ))}
               </ul>
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
-                {isExterior ? (
-                  <a href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${isBiweekly ? "Biweekly" : "Monthly"}`, checkoutUrl)}><Phone className="size-4" /> Call or Text to Get Started</a>
-                ) : (
-                  <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackSubscribeClick(`${currentPlan.shortName} Monthly`, checkoutUrl)}>Subscribe Now <ArrowRight className="size-4" /></a>
-                )}
+                <a href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentPlan.shortName} ${isBiweekly ? "Biweekly" : "Monthly"}`, checkoutUrl)}><Phone className="size-4" /> Call or Text to Get Started</a>
               </Button>
             </div>
           </div>
