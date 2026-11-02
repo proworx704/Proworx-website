@@ -521,7 +521,7 @@ export function CeramicPromoPage() {
               onClick={handleSubscribeClick}
               className="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-lg px-10 py-7 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
             >
-              Subscribe & Get Your Free Coating <ArrowRight className="size-5 ml-2" />
+              Call or Text to Claim Your Free Coating <ArrowRight className="size-5 ml-2" />
             </Button>
 
             <p className="text-zinc-500 text-xs text-center mt-4">
