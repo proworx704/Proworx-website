@@ -43,7 +43,7 @@ export function CombinedPromoBanner() {
             <span className="text-blue-300">💳</span>
             <span className="hidden sm:inline text-white/90">
               <span className="text-blue-300 font-bold">0% APR</span> Financing
-              — As low as <span className="text-blue-300 font-bold">$46/mo</span> with
+              · As low as <span className="text-blue-300 font-bold">$46/mo</span> with
             </span>
             <span className="sm:hidden text-white/90">
               <span className="text-blue-300 font-bold">0% APR</span> from <span className="text-blue-300 font-bold">$46/mo</span> w/

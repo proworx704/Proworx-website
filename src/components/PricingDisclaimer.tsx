@@ -1,7 +1,7 @@
 import { Info } from "lucide-react";
 
 export const PRICING_DISCLAIMER_TEXT =
-  "All prices shown are starting estimates. Final pricing is based on the actual condition of your vehicle — heavy soiling, pet hair, excessive dog hair, sand, stains, odors, water spots, heavy contamination, or any additional labor required will be quoted as an additional cost based on condition. We confirm final pricing with you before any work begins.";
+  "All prices shown are starting estimates. Final pricing is based on the actual condition of your vehicle. Heavy soiling, pet hair, excessive dog hair, sand, stains, odors, water spots, heavy contamination, or any additional labor required will be quoted as an additional cost based on condition. We confirm final pricing with you before any work begins.";
 
 /**
  * Site-wide pricing disclaimer. Rendered on every public page (see SiteLayout in App.tsx)
@@ -27,7 +27,7 @@ export function PricingDisclaimer() {
 export function BookingPriceNote({ className = "" }: { className?: string }) {
   return (
     <p className={`mt-3 text-xs leading-snug text-muted-foreground ${className}`}>
-      Prices are starting estimates — final price depends on your vehicle's condition, and any
+      Prices are starting estimates; final price depends on your vehicle's condition, and any
       additional labor required is an extra cost. We confirm your total before we start.
     </p>
   );
