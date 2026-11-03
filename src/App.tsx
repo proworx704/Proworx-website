@@ -69,6 +69,7 @@ const NotFoundPage = lazyRetry(() => import("./pages/NotFoundPage").then(m => ({
 const PrivacyPolicyPage = lazyRetry(() => import("./pages/PrivacyPolicyPage").then(m => ({ default: m.PrivacyPolicyPage })));
 const TermsOfServicePage = lazyRetry(() => import("./pages/TermsOfServicePage").then(m => ({ default: m.TermsOfServicePage })));
 const CeramicPromoPage = lazyRetry(() => import("./pages/CeramicPromoPage").then(m => ({ default: m.CeramicPromoPage })));
+const AnnualCeramicOfferPage = lazyRetry(() => import("./pages/AnnualCeramicOfferPage").then(m => ({ default: m.AnnualCeramicOfferPage })));
 
 /** External redirect helper — replaces window.location for external URLs */
 export function ExternalRedirect({ url }: { url: string }) {
@@ -139,6 +140,7 @@ function App() {
           <Route path="/mobile-detailing-matthews-nc" element={<SiteLayout><MatthewsDetailingPage /></SiteLayout>} />
           <Route path="/mobile-detailing-fort-mill-sc" element={<SiteLayout><FortMillDetailingPage /></SiteLayout>} />
           <Route path="/ceramic-promo" element={<SiteLayout><Suspense fallback={<PageLoader />}><CeramicPromoPage /></Suspense></SiteLayout>} />
+          <Route path="/free-ceramic-coating" element={<SiteLayout><Suspense fallback={<PageLoader />}><AnnualCeramicOfferPage /></Suspense></SiteLayout>} />
           <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicyPage /></SiteLayout>} />
           <Route path="/terms" element={<SiteLayout><TermsOfServicePage /></SiteLayout>} />
           <Route path="/admin" element={<Suspense fallback={<PageLoader />}><AdminPage /></Suspense>} />

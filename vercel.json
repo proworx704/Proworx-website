@@ -343,6 +343,10 @@
       "destination": "/ceramic-promo.html"
     },
     {
+      "source": "/free-ceramic-coating",
+      "destination": "/free-ceramic-coating.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     },
