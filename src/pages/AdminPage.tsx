@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation, useConvexAuth } from "convex/react";
+import { useAuthActions } from "@convex-dev/auth/react";
 import { api } from "../../convex/_generated/api";
 import type { Id } from "../../convex/_generated/dataModel";
 import { Button } from "@/components/ui/button";
@@ -11,22 +12,25 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-const ADMIN_PASSWORD = "proworx2026";
-
-// ─── PASSWORD GATE ───────────────────────────────────────────────────────────
-function PasswordGate({ onAuth }: { onAuth: () => void }) {
+// ─── SIGN IN ─────────────────────────────────────────────────────────────────
+function PasswordGate() {
+  const { signIn } = useAuthActions();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [flow, setFlow] = useState<"signIn" | "signUp">("signIn");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
-      localStorage.setItem("pw_admin", "1");
-      onAuth();
-    } else {
-      setError(true);
-      setTimeout(() => setError(false), 2000);
+    setBusy(true);
+    setError("");
+    try {
+      await signIn("password", { email, password, flow });
+    } catch {
+      setError(flow === "signUp" ? "Could not create the account. Sign-up is only open for the owner, once." : "Wrong email or password");
     }
+    setBusy(false);
   };
 
   return (
@@ -37,20 +41,17 @@ function PasswordGate({ onAuth }: { onAuth: () => void }) {
             <Lock className="size-8 text-gold" />
           </div>
           <h1 className="text-2xl font-bold mb-1">Admin Access</h1>
-          <p className="text-sm text-muted-foreground">Enter password to continue</p>
+          <p className="text-sm text-muted-foreground">{flow === "signIn" ? "Sign in to continue" : "Create the owner account"}</p>
         </div>
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={`mb-4 h-12 text-center text-lg ${error ? "border-red-500" : ""}`}
-          autoFocus
-        />
-        <Button type="submit" className="w-full bg-gold text-gold-foreground hover:bg-gold/90 h-12 font-bold">
-          Enter
+        <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="mb-3 h-12" autoFocus />
+        <Input type="password" placeholder="Password (8+ characters)" value={password} onChange={(e) => setPassword(e.target.value)} className="mb-4 h-12" />
+        <Button type="submit" disabled={busy} className="w-full bg-gold text-gold-foreground hover:bg-gold/90 h-12 font-bold">
+          {busy ? "One moment..." : flow === "signIn" ? "Sign in" : "Create account"}
         </Button>
-        {error && <p className="text-red-500 text-sm text-center mt-3">Incorrect password</p>}
+        {error && <p className="text-red-500 text-sm text-center mt-3">{error}</p>}
+        <button type="button" className="block mx-auto mt-4 text-xs text-muted-foreground underline" onClick={() => { setFlow(flow === "signIn" ? "signUp" : "signIn"); setError(""); }}>
+          {flow === "signIn" ? "First time? Create the owner account" : "Back to sign in"}
+        </button>
       </form>
     </div>
   );
@@ -919,6 +920,7 @@ function PhotosTab() {
 
 // ─── MAIN ADMIN DASHBOARD ────────────────────────────────────────────────────
 function AdminDashboard() {
+  const { signOut } = useAuthActions();
   const [tab, setTab] = useState<Tab>("overview");
   const seed = useMutation(api.cms.checkAndSeed);
   const allConfig = useQuery(api.cms.getAllConfig);
@@ -946,7 +948,7 @@ function AdminDashboard() {
             variant="ghost"
             size="sm"
             className="text-muted-foreground"
-            onClick={() => { localStorage.removeItem("pw_admin"); window.location.reload(); }}
+            onClick={() => { void signOut(); }}
           >
             <LogOut className="size-4 mr-1.5" /> Sign Out
           </Button>
@@ -978,17 +980,8 @@ function AdminDashboard() {
 
 // ─── ENTRY POINT ─────────────────────────────────────────────────────────────
 export function AdminPage() {
-  const [authed, setAuthed] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("pw_admin") === "1") {
-      setAuthed(true);
-    }
-  }, []);
-
-  if (!authed) {
-    return <PasswordGate onAuth={() => setAuthed(true)} />;
-  }
-
+  const { isAuthenticated, isLoading } = useConvexAuth();
+  if (isLoading) return <div className="min-h-screen bg-background" />;
+  if (!isAuthenticated) return <PasswordGate />;
   return <AdminDashboard />;
 }

@@ -1,11 +1,7 @@
 import { Password } from "@convex-dev/auth/providers/Password";
 import { convexAuth, getAuthUserId } from "@convex-dev/auth/server";
 import { query } from "./_generated/server";
-import { TestCredentials } from "./testAuth";
-import {
-  ViktorSpacesEmail,
-  ViktorSpacesPasswordReset,
-} from "./ViktorSpacesEmail";
+import { ADMIN_EMAILS } from "./admin";
 
 declare const process: { env: Record<string, string | undefined> };
 
@@ -37,13 +33,18 @@ if (jwtPrivateKey) {
 }
 
 export const { auth, signIn, signOut, store, isAuthenticated } = convexAuth({
-  providers: [
-    Password({
-      verify: ViktorSpacesEmail,
-      reset: ViktorSpacesPasswordReset,
-    }),
-    TestCredentials,
-  ],
+  // One admin account only: your email, and only while no account exists yet.
+  providers: [Password],
+  callbacks: {
+    async createOrUpdateUser(ctx, args) {
+      if (args.existingUserId) return args.existingUserId;
+      const email = String(args.profile.email ?? "").toLowerCase();
+      if (!ADMIN_EMAILS.includes(email)) throw new Error("Sign-up is closed");
+      const anyUser = await ctx.db.query("users").first();
+      if (anyUser) throw new Error("Sign-up is closed");
+      return await ctx.db.insert("users", { email });
+    },
+  },
 });
 
 export const currentUser = query({
