@@ -290,7 +290,7 @@ export function CeramicCoatingPage() {
     return url || config.ceramicDepositUrl;
   };
 
-  const bookingUrl = config["widgetUrl:header-book-now"] || config.bookingUrl || "https://book.proworxdetailing.com/book";
+  const bookingUrl = config["widgetUrl:header-book-now"] || config.bookingUrl || "https://ops.proworxdetailing.com/schedule";
 
   return (
     <div className="flex-1 flex flex-col">

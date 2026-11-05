@@ -6,20 +6,20 @@ export const ADDRESS = "3008 Collaroy Rd, Waxhaw, NC 28173";
 export const INSTAGRAM_URL = "https://www.instagram.com/proworxdetailing/";
 export const FACEBOOK_URL = "https://www.facebook.com/proworxdetailing";
 export const GOOGLE_BUSINESS_URL = "https://g.page/proworxdetailing";
-export const GIFT_CARDS_URL = "https://app.squareup.com/gift/KAXAX104TMA6W/order";
+export const GIFT_CARDS_URL = "https://ops.proworxdetailing.com/gift";
 
 // Square Online Booking Widget
-export const SQUARE_BOOKING_URL = "https://book.proworxdetailing.com/book";
+export const SQUARE_BOOKING_URL = "https://ops.proworxdetailing.com/schedule";
 export const BOOKING_URL = SQUARE_BOOKING_URL;
 
 // Square Payment Links
 export const MEMBERSHIP_LINKS = {
-  clean: { url: "https://square.link/u/54XGORz0", price: 59, name: "Exterior Only" },
-  shield: { url: "https://square.link/u/DaeUhkOb", price: 99, name: "Interior Only" },
-  armor: { url: "https://square.link/u/wJuv5fsT", price: 159, name: "Full Inside & Out" },
+  clean: { url: "https://ops.proworxdetailing.com/schedule/membership", price: 59, name: "Exterior Only" },
+  shield: { url: "https://ops.proworxdetailing.com/schedule/membership", price: 99, name: "Interior Only" },
+  armor: { url: "https://ops.proworxdetailing.com/schedule/membership", price: 159, name: "Full Inside & Out" },
 };
 
-export const CERAMIC_DEPOSIT_URL = "https://square.link/u/NwnNJRm7";
+export const CERAMIC_DEPOSIT_URL = "https://ops.proworxdetailing.com/schedule";
 
 // Wisetack financing — REMOVED (replaced by Affirm)
 // export const WISETACK_URL = "https://www.wisetack.com/";

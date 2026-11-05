@@ -60,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>You can see swirl marks or scratches in direct sunlight</li>
 <li>Dashboard and trim look faded or chalky</li>
 </ul>
-<p>If any of these sound familiar, it's time. <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book a detail today</a> and we'll come to you — anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
+<p>If any of these sound familiar, it's time. <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">Book a detail today</a> and we'll come to you — anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
       },
     ],
   },
@@ -108,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
         body: `<p><strong>Choose wax if:</strong> You're on a tight budget, you enjoy waxing your car yourself as a hobby, or you're planning to sell the vehicle soon and just want it looking great for a few weeks.</p>
 <p><strong>Choose ceramic coating if:</strong> You want long-term protection, you hate re-waxing every month, your car sits outside, or you're investing in keeping the vehicle for years. The cost per year of a ceramic coating is often <em>less</em> than waxing monthly.</p>
 <p>Many of our clients start with a <a href="/services">full detail</a> to get the paint perfect, then add a ceramic coating for long-lasting protection. If your paint has swirl marks or scratches, <a href="/paint-correction">paint correction</a> before coating ensures you're locking in a flawless finish — not sealing in imperfections.</p>
-<p>Curious about pricing for your specific vehicle? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Get a quote</a> — we'll walk you through the options.</p>`,
+<p>Curious about pricing for your specific vehicle? <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">Get a quote</a> — we'll walk you through the options.</p>`,
       },
     ],
   },
@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "Paint Correction + Ceramic Coating: The Perfect Combo",
         body: `<p>Here's the thing most people don't realize: applying a ceramic coating to damaged paint just <em>locks in</em> the imperfections. That's why we always recommend paint correction <em>before</em> coating. You correct first, then protect.</p>
 <p>This combination gives you the absolute best result — a flawless, mirror-like finish protected for years. It's the single best investment you can make in your vehicle's appearance and value.</p>
-<p>Ready to see what your paint can really look like? <a href="/contact">Contact us</a> for a free assessment, or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a> today.</p>`,
+<p>Ready to see what your paint can really look like? <a href="/contact">Contact us</a> for a free assessment, or <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book online</a> today.</p>`,
       },
     ],
   },
@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "Ready to Try Mobile Detailing?",
-        body: `<p>If you've never tried professional mobile detailing, you're in for a treat. Browse our <a href="/services">full detail packages</a> or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book your first appointment</a> online. We'll handle the rest — you just enjoy the results.</p>`,
+        body: `<p>If you've never tried professional mobile detailing, you're in for a treat. Browse our <a href="/services">full detail packages</a> or <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book your first appointment</a> online. We'll handle the rest — you just enjoy the results.</p>`,
       },
     ],
   },
@@ -257,7 +257,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Consider a Maintenance Plan",
         body: `<p>The easiest way to keep your vehicle looking its best? Let us handle it. Our <a href="/maintenance">monthly maintenance plans</a> start at $59/month and include regular professional care so you never have to worry about it. We come to you on a regular schedule, keep your vehicle protected, and catch any issues before they become problems.</p>
-<p>Already a client? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book your next maintenance wash</a> and keep that shine going.</p>`,
+<p>Already a client? <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">Book your next maintenance wash</a> and keep that shine going.</p>`,
       },
     ],
   },
@@ -378,7 +378,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "What Charlotte-Area Drivers Should Know",
         body: `<p>Charlotte's climate makes interior care more urgent than it is in cooler regions. Long summers with intense UV exposure fade and crack leather and vinyl faster, and pollen season (usually March–May) tracks a fine yellow dust into cabins through vents and open windows. Humidity also means odor and mildew show up faster if a spill or wet gear sits in the car.</p>
 <p>We serve Charlotte, Ballantyne, SouthPark, Waxhaw, Fort Mill, and the surrounding area with mobile service — same steam-cleaning and conditioning process described above, done at your home or office.</p>
-<p>Ready for a fresh interior? <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book online</a> and we'll transform your car's cabin.</p>`,
+<p>Ready for a fresh interior? <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">Book online</a> and we'll transform your car's cabin.</p>`,
       },
     ],
   },
@@ -489,7 +489,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "Ready to Experience the Difference?",
-        body: `<p>If you\'re in the Charlotte metro area and want detailing that actually lives up to the promise, we\'d love to earn your business. Browse our <a href="/services">services</a>, check out our <a href="/menu">pricing</a>, or just <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a> and see for yourself why Charlotte keeps coming back to ProWorx.</p>
+        body: `<p>If you\'re in the Charlotte metro area and want detailing that actually lives up to the promise, we\'d love to earn your business. Browse our <a href="/services">services</a>, check out our <a href="/menu">pricing</a>, or just <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book online</a> and see for yourself why Charlotte keeps coming back to ProWorx.</p>
 <p>We serve the entire <a href="/areas">Charlotte metro area</a> — from Waxhaw and Matthews to Huntersville, Fort Mill, and everywhere in between. <a href="/contact">Contact us</a> with any questions.</p>`,
       },
     ],
@@ -554,7 +554,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: "Get an Exact Quote",
-        body: `<p>Every vehicle is different, which is why we provide personalized quotes. Browse our <a href="/menu">service menu</a> for baseline pricing, then <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a> or <a href="/contact">contact us</a> for a quote tailored to your vehicle and needs. We serve the entire <a href="/areas">Charlotte metro area</a> — no extra travel fees.</p>`,
+        body: `<p>Every vehicle is different, which is why we provide personalized quotes. Browse our <a href="/menu">service menu</a> for baseline pricing, then <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book online</a> or <a href="/contact">contact us</a> for a quote tailored to your vehicle and needs. We serve the entire <a href="/areas">Charlotte metro area</a> — no extra travel fees.</p>`,
       },
     ],
   },
@@ -631,7 +631,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>The surface feels less slick after washing</li>
 <li>Gloss and depth have noticeably diminished</li>
 </ul>
-<p>If you notice these signs, it doesn\'t necessarily mean a full recoat is needed. Often a professional decontamination wash and maintenance coating application can restore performance. <a href="/contact">Contact us</a> for a coating assessment, or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book a maintenance detail</a> and we\'ll evaluate it on-site.</p>`,
+<p>If you notice these signs, it doesn\'t necessarily mean a full recoat is needed. Often a professional decontamination wash and maintenance coating application can restore performance. <a href="/contact">Contact us</a> for a coating assessment, or <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book a maintenance detail</a> and we\'ll evaluate it on-site.</p>`,
       },
     ],
   },
@@ -703,7 +703,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Light polish if needed</strong> — Address any minor damage before it becomes permanent</li>
 <li><strong>Protection reapplication</strong> — Refresh your sealant, wax, or ceramic coating maintenance spray</li>
 </ul>
-<p>Think of it as a seasonal reset for your vehicle. <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">Book a spring recovery detail</a> and we\'ll get your car back to its best. We come to you anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
+<p>Think of it as a seasonal reset for your vehicle. <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">Book a spring recovery detail</a> and we\'ll get your car back to its best. We come to you anywhere in the <a href="/areas">Charlotte metro area</a>.</p>`,
       },
     ],
   },
@@ -768,7 +768,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "Book Your EV Detail",
         body: `<p>Whether you drive a Tesla, Rivian, BMW iX, Mercedes EQS, Lucid, or any other electric vehicle, our <a href="/services">detailing services</a> are optimized for EV-specific needs. We come to your home or office with our fully self-contained mobile setup — no need to find a charging station nearby.</p>
-<p>Browse our <a href="/menu">service menu</a> for pricing, or <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book your EV detail online</a>. Questions? <a href="/contact">Reach out anytime</a> — we love talking about cars (electric or otherwise).</p>`,
+<p>Browse our <a href="/menu">service menu</a> for pricing, or <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book your EV detail online</a>. Questions? <a href="/contact">Reach out anytime</a> — we love talking about cars (electric or otherwise).</p>`,
       },
     ],
   },
@@ -841,7 +841,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>GYEON Q² Skin EVO</strong> — 3-year coating, our most popular choice for new car owners</li>
 <li><strong>GYEON Infinite Type 1 + Type 2</strong> — lifetime warranty coating, the ultimate protection for long-term ownership</li>
 </ul>
-<p>Not sure which is right for your new car? <a href="/contact">Contact us</a> and we\'ll help you choose based on your ownership plans, budget, and goals. Or browse our <a href="/menu">full pricing menu</a> and <a href="https://book.proworxdetailing.com/book" target="_blank" rel="noopener noreferrer">book online</a>.</p>
+<p>Not sure which is right for your new car? <a href="/contact">Contact us</a> and we\'ll help you choose based on your ownership plans, budget, and goals. Or browse our <a href="/menu">full pricing menu</a> and <a href="https://ops.proworxdetailing.com/schedule" target="_blank" rel="noopener noreferrer">book online</a>.</p>
 <p>Just picked up a new car? Don\'t wait for the first scratch. Protect it now and enjoy that showroom finish for years to come.</p>`,
       },
     ],

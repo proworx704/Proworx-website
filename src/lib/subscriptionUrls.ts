@@ -6,7 +6,7 @@
  * Each Square plan contains multiple vehicle-size variations — the customer
  * picks their size at checkout.
  *
- * URL is a shareable Square checkout link (square.link/u/XXX).
+ * New members start with an initial detail on the ProWorx booking system; billing is a QuickBooks recurring invoice after that.
  */
 
 /* ── Plan types ── */
@@ -24,13 +24,13 @@ export const SUBSCRIPTION_PLANS: Record<SubscriptionPlanType, SubscriptionPlan> 
     name: "Inside/Out Maintenance",
     shortName: "Full Inside & Out",
     description: "Complete interior and exterior detail every visit — our most popular plan.",
-    monthlyUrl: "https://square.link/u/fTaLMr7B",
+    monthlyUrl: "https://ops.proworxdetailing.com/schedule/membership",
   },
   exterior: {
     name: "Exterior Only Maintenance",
     shortName: "Exterior Only",
     description: "Professional hand wash, wheels, tires, and exterior protection every visit.",
-    monthlyUrl: "https://square.link/u/6SG0qpPh",
+    monthlyUrl: "https://ops.proworxdetailing.com/schedule/membership",
   },
 };
 

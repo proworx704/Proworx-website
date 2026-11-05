@@ -1,6 +1,6 @@
 /**
  * Smart booking link — opens the booking app directly.
- * Links to book.proworxdetailing.com to avoid Safe Browsing cache issues
+ * Links to the ProWorx booking system (ops.proworxdetailing.com)
  * with the /book proxy route.
  * Also rewrites any legacy viktor.space URLs stored in the CMS.
  * Fires GA4 + Google Ads + Meta Pixel conversion events for tracking.
@@ -8,7 +8,7 @@
 
 import { trackBookNowConversion } from "@/lib/tracking";
 
-const BOOKING_APP = "https://book.proworxdetailing.com";
+const BOOKING_APP = "https://ops.proworxdetailing.com/schedule";
 const LEGACY_BOOKING_PATTERN = /https?:\/\/proworx-booking[^/]*\.viktor\.space/;
 
 function normalizeBookingUrl(url: string): string {

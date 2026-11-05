@@ -175,7 +175,7 @@ export function MaintenancePage() {
                 </div>
               </div>
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold shrink-0" size="lg" asChild>
-                <a href={config["widgetUrl:maintenance-booking"] || "https://book.proworxdetailing.com/book?category=membership"}>
+                <a href={config["widgetUrl:maintenance-booking"] || "https://ops.proworxdetailing.com/schedule/membership"}>
                   Book Here <ArrowRight className="size-5" />
                 </a>
               </Button>
