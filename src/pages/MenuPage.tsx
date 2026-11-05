@@ -234,10 +234,10 @@ export function MenuPage() {
                 "Light spray wax & tire shine",
               ]}
               prices={[
-                { label: "Sedan", duration: "3h 30m", price: "$249" },
-                { label: "Sm SUV/Truck", duration: "4h", price: "$299" },
-                { label: "Lg SUV/Truck", duration: "4h 30m", price: "$349" },
-                { label: "Van", duration: "5h", price: "$399" },
+                { label: "Sedan", duration: "3h", price: "$218" },
+                { label: "Sm SUV/Truck", duration: "3h 30m", price: "$254" },
+                { label: "Lg SUV/Truck", duration: "4h", price: "$291" },
+                { label: "Van", duration: "4h 30m", price: "$327" },
               ]}
               bookHref={bookStdIO}
             />
@@ -268,10 +268,10 @@ export function MenuPage() {
                 "Light stain treatment (as applicable)",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h", price: "$189" },
-                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$219" },
-                { label: "Lg SUV/Truck", duration: "3h", price: "$269" },
-                { label: "Van", duration: "3h 30m", price: "$319" },
+                { label: "Sedan", duration: "2h", price: "$166" },
+                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$208" },
+                { label: "Lg SUV/Truck", duration: "3h", price: "$249" },
+                { label: "Van", duration: "3h 30m", price: "$291" },
               ]}
               bookHref={bookStdInt}
             />
@@ -300,9 +300,9 @@ export function MenuPage() {
                 "Light spray wax for shine & short-term protection",
               ]}
               prices={[
-                { label: "Sedan", duration: "1h 15m", price: "$139" },
-                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$159" },
-                { label: "Lg SUV/Truck/Van", duration: "1h 45m", price: "$179" },
+                { label: "Sedan", duration: "1h 15m", price: "$104" },
+                { label: "Sm SUV/Truck", duration: "1h 30m", price: "$125" },
+                { label: "Lg SUV/Truck/Van", duration: "1h 45m", price: "$146" },
               ]}
               bookHref={bookStdExt}
             />
