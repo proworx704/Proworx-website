@@ -47,10 +47,10 @@ const BASE_PACKAGES = [
       "Light spray wax & tire shine",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "3 hr 30 min", price: "$249" },
-      { label: "Small SUV / Truck", duration: "4 hrs", price: "$299" },
-      { label: "Large SUV / Off-Road Truck", duration: "4 hr 30 min", price: "$349" },
-      { label: "Van", duration: "5 hrs", price: "$399" },
+      { label: "Sedan / Coupe", duration: "3 hrs", price: "$218" },
+      { label: "Small SUV / Truck", duration: "3 hr 30 min", price: "$254" },
+      { label: "Large SUV / Off-Road Truck", duration: "4 hrs", price: "$291" },
+      { label: "Van", duration: "4 hr 30 min", price: "$327" },
     ],
     notes: [
       "Pet Hair Fee: Additional time charged at base rate.",
@@ -78,10 +78,10 @@ const BASE_PACKAGES = [
       "Light stain treatment (as applicable)",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "2 hrs", price: "$189" },
-      { label: "Small SUV / Truck", duration: "2 hr 30 min", price: "$219" },
-      { label: "Large SUV / Off-Road Truck", duration: "3 hrs", price: "$269" },
-      { label: "Van", duration: "3 hr 30 min", price: "$319" },
+      { label: "Sedan / Coupe", duration: "2 hrs", price: "$166" },
+      { label: "Small SUV / Truck", duration: "2 hr 30 min", price: "$208" },
+      { label: "Large SUV / Off-Road Truck", duration: "3 hrs", price: "$249" },
+      { label: "Van", duration: "3 hr 30 min", price: "$291" },
     ],
     notes: [
       "Pet Hair Fee: Additional time charged at base rate.",
@@ -106,9 +106,9 @@ const BASE_PACKAGES = [
       "Light spray wax for shine & short-term protection",
     ],
     priceTiers: [
-      { label: "Sedan / Coupe", duration: "1 hr 15 min", price: "$139" },
-      { label: "Small SUV / Truck", duration: "1 hr 30 min", price: "$159" },
-      { label: "Large SUV / Truck / Van", duration: "1 hr 45 min", price: "$179" },
+      { label: "Sedan / Coupe", duration: "1 hr 15 min", price: "$104" },
+      { label: "Small SUV / Truck", duration: "1 hr 30 min", price: "$125" },
+      { label: "Large SUV / Truck / Van", duration: "1 hr 45 min", price: "$146" },
     ],
     notes: ["Condition: Extra time/cost may apply for neglected vehicles."],
     highlight: false,
@@ -162,7 +162,7 @@ export function ServicesPage() {
                   name: "How much does a full detail cost in Charlotte NC?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "A full Inside & Out detail starts at $249 for a Sedan and goes up to $399 for a Van. Interior Only starts at $189 and Exterior Only starts at $139. Add-ons like hot water extraction, clay bar, ceramic protection, and headlight restoration are available to customize any package. SUV, truck, and van pricing available on our services page.",
+                    text: "A full Inside & Out detail starts at $218 for a Sedan and goes up to $327 for a Van. Interior Only starts at $166 and Exterior Only starts at $104. Add-ons like hot water extraction, clay bar, ceramic protection, and headlight restoration are available to customize any package. SUV, truck, and van pricing available on our services page.",
                   },
                 },
                 {
