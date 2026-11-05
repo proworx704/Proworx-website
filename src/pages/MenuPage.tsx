@@ -119,23 +119,22 @@ function TierCard({
 export function MenuPage() {
   const { config } = useSiteConfig();
 
-  /* Booking URLs — each tier links to its own Square booking widget */
-  const SQ = "https://book.squareup.com/appointments";
-  const LOC = "/location/9VRKFJAZZM3HG/services";
+  /* Booking URLs: each package opens its own page on the ProWorx booking system */
+  const OPS = "https://ops.proworxdetailing.com/schedule";
 
-  // Inside & Out widgets
-  const bookStdIO    = config["widgetUrl:homepage-cta"] || `${SQ}/3462dsfn0cvfuh${LOC}`;
+  // Inside & Out
+  const bookStdIO    = config["widgetUrl:standard-inside-out"] || `${OPS}/standard-inside-and-out`;
 
-  // Interior Only widgets
-  const bookStdInt   = `${SQ}/3s57oeuq7958xd${LOC}`;
+  // Interior Only
+  const bookStdInt   = config["widgetUrl:standard-interior"] || `${OPS}/interior-only-detail`;
 
-  // Exterior Only widgets
-  const bookStdExt   = `${SQ}/hayrfl98qvan4m${LOC}`;
+  // Exterior Only
+  const bookStdExt   = config["widgetUrl:standard-exterior"] || `${OPS}/exterior-only-detail`;
 
   // Other widgets
   const bookMain = bookStdIO; // fallback for "Build Your Package" CTAs
-  const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || `${SQ}/14i1e4shwem0qb${LOC}`;
-  const ceramicFallback = config.ceramicDepositUrl || "https://square.link/u/NwnNJRm7";
+  const bookPaint = config["widgetUrl:paint-correction-cta"] || config.bookingUrlPaintCorrection || OPS;
+  const ceramicFallback = config.ceramicDepositUrl || "https://ops.proworxdetailing.com/schedule";
   const bookCeramic1yr = config.ceramicDeposit1yr || ceramicFallback;
   const bookCeramic3yr = config.ceramicDeposit3yr || ceramicFallback;
   const bookCeramicInfinite1 = config.ceramicDepositInfinite1 || ceramicFallback;

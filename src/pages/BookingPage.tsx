@@ -4,13 +4,13 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { useSiteConfig } from "@/hooks/useCms";
 
-const BOOKING_APP = "https://book.proworxdetailing.com";
+const BOOKING_APP = "https://ops.proworxdetailing.com/schedule";
 
 export function BookingPage() {
   const { config } = useSiteConfig();
 
   // Build booking URL
-  const bookingUrl = `${BOOKING_APP}/book`;
+  const bookingUrl = BOOKING_APP;
 
   // Auto-redirect after a short delay so users see the page
   useEffect(() => {

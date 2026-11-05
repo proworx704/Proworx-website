@@ -22,7 +22,7 @@ import { PHONE, PHONE_LINK } from "@/lib/constants";
 import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
 
 /* ── Square Promo Plan checkout link ── */
-const PROMO_CHECKOUT_URL = "https://square.link/u/BudQ53hh";
+const PROMO_CHECKOUT_URL = "https://ops.proworxdetailing.com/schedule";
 
 /* ── Vehicle-size pricing ── */
 const VEHICLE_PRICING = [
