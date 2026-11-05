@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { requireAdmin } from "./admin";
 
 // ─── SITE CONFIG ─────────────────────────────────────────────────────────────
 
@@ -24,6 +25,7 @@ export const setConfig = mutation({
   args: { key: v.string(), value: v.string() },
   returns: v.null(),
   handler: async (ctx, { key, value }) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("siteConfig").withIndex("by_key", (q) => q.eq("key", key)).unique();
     if (existing) {
       await ctx.db.patch(existing._id, { value });
@@ -38,6 +40,7 @@ export const setMultipleConfig = mutation({
   args: { items: v.array(v.object({ key: v.string(), value: v.string() })) },
   returns: v.null(),
   handler: async (ctx, { items }) => {
+    await requireAdmin(ctx);
     for (const { key, value } of items) {
       const existing = await ctx.db.query("siteConfig").withIndex("by_key", (q) => q.eq("key", key)).unique();
       if (existing) {
@@ -96,6 +99,7 @@ export const addService = mutation({
   },
   returns: v.id("services"),
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("services").withIndex("by_category", (q) => q.eq("category", args.category)).collect();
     const maxOrder = existing.length > 0 ? Math.max(...existing.map((s) => s.order)) : -1;
     return await ctx.db.insert("services", { ...args, order: maxOrder + 1 });
@@ -112,6 +116,7 @@ export const updateService = mutation({
   },
   returns: v.null(),
   handler: async (ctx, { id, ...updates }) => {
+    await requireAdmin(ctx);
     const clean: Record<string, string> = {};
     for (const [k, val] of Object.entries(updates)) {
       if (val !== undefined) clean[k] = val;
@@ -127,6 +132,7 @@ export const deleteService = mutation({
   args: { id: v.id("services") },
   returns: v.null(),
   handler: async (ctx, { id }) => {
+    await requireAdmin(ctx);
     await ctx.db.delete(id);
     return null;
   },
@@ -136,6 +142,7 @@ export const reorderService = mutation({
   args: { id: v.id("services"), newOrder: v.number() },
   returns: v.null(),
   handler: async (ctx, { id, newOrder }) => {
+    await requireAdmin(ctx);
     await ctx.db.patch(id, { order: newOrder });
     return null;
   },
@@ -170,6 +177,7 @@ export const updateStandardDetail = mutation({
   },
   returns: v.null(),
   handler: async (ctx, updates) => {
+    await requireAdmin(ctx);
     const all = await ctx.db.query("standardDetail").collect();
     const existing = all[0];
     const clean: Record<string, unknown> = {};
@@ -208,6 +216,7 @@ export const updateStandardInterior = mutation({
     notes: v.optional(v.array(v.string())),
   },
   handler: async (ctx, updates) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("standardInterior").first();
     if (!existing) return;
     const clean: Record<string, unknown> = {};
@@ -227,6 +236,7 @@ export const updateStandardExterior = mutation({
     notes: v.optional(v.array(v.string())),
   },
   handler: async (ctx, updates) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("standardExterior").first();
     if (!existing) return;
     const clean: Record<string, unknown> = {};
@@ -268,6 +278,7 @@ export const updateMembership = mutation({
   },
   returns: v.null(),
   handler: async (ctx, { id, ...updates }) => {
+    await requireAdmin(ctx);
     const clean: Record<string, unknown> = {};
     for (const [k, val] of Object.entries(updates)) {
       if (val !== undefined) clean[k] = val;
@@ -290,6 +301,7 @@ export const addMembership = mutation({
   },
   returns: v.id("memberships"),
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("memberships").withIndex("by_order").collect();
     const maxOrder = existing.length > 0 ? Math.max(...existing.map((m) => m.order)) : -1;
     return await ctx.db.insert("memberships", { ...args, order: maxOrder + 1 });
@@ -300,6 +312,7 @@ export const deleteMembership = mutation({
   args: { id: v.id("memberships") },
   returns: v.null(),
   handler: async (ctx, { id }) => {
+    await requireAdmin(ctx);
     await ctx.db.delete(id);
     return null;
   },
@@ -311,6 +324,7 @@ export const checkAndSeed = mutation({
   args: {},
   returns: v.boolean(), // true if seeded, false if already had data
   handler: async (ctx) => {
+    await requireAdmin(ctx);
     const existingConfig = await ctx.db.query("siteConfig").first();
     const alreadySeeded = !!existingConfig;
 
@@ -527,6 +541,7 @@ export const checkAndSeed = mutation({
 export const generateUploadUrl = mutation({
   args: {},
   handler: async (ctx) => {
+    await requireAdmin(ctx);
     return await ctx.storage.generateUploadUrl();
   },
 });
@@ -568,6 +583,7 @@ export const savePhoto = mutation({
     storageId: v.id("_storage"),
   },
   handler: async (ctx, { slot, storageId }) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
     if (existing) {
       // Delete old file from storage if it exists
@@ -583,6 +599,7 @@ export const savePhoto = mutation({
 export const resetPhoto = mutation({
   args: { slot: v.string() },
   handler: async (ctx, { slot }) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
     if (existing && existing.storageId) {
       await ctx.storage.delete(existing.storageId);
@@ -595,6 +612,7 @@ export const resetPhoto = mutation({
 export const setPhotoFocalY = mutation({
   args: { slot: v.string(), focalY: v.number() },
   handler: async (ctx, { slot, focalY }) => {
+    await requireAdmin(ctx);
     const existing = await ctx.db.query("sitePhotos").withIndex("by_slot", (q) => q.eq("slot", slot)).first();
     if (existing) {
       await ctx.db.patch(existing._id, { focalY: Math.max(0, Math.min(100, focalY)) });
@@ -614,6 +632,7 @@ export const syncPhotoStaticPaths = mutation({
   args: {},
   returns: v.number(), // number of records updated
   handler: async (ctx) => {
+    await requireAdmin(ctx);
     // Canonical staticPaths — must match the photoSlots array in checkAndSeed
     const canonical: Record<string, string> = {
       "homepage-hero": "/images/escalade-front.jpg",
