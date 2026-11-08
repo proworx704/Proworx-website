@@ -209,6 +209,39 @@
       fbq('track', 'PageView');
     </script>
 
+    <!-- Lead tracking: remember which ad or link brought the visitor, and pass it to the booking app
+         (ops.proworxdetailing.com) on every link there, so each booking knows its source. -->
+    <script>
+      (function () {
+        try {
+          var K = ['utm_source','utm_medium','utm_campaign','utm_content','gclid','gbraid','wbraid','fbclid'];
+          var u = new URL(location.href), t = { at: Date.now() }, tagged = false;
+          K.forEach(function (k) { var v = u.searchParams.get(k); if (v) { t[k] = v.slice(0, 200); tagged = true; } });
+          var r = document.referrer;
+          if (r && r.indexOf(location.hostname) < 0) { t.ref = r.slice(0, 300); tagged = true; }
+          t.lp = location.pathname.slice(0, 200);
+          var get = function (k) { try { var x = JSON.parse(localStorage.getItem(k) || 'null'); return x && Date.now() - x.at < 7776000000 ? x : null; } catch (e) { return null; } };
+          var put = function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+          if (!get('pwx_ft')) put('pwx_ft', t);
+          if (tagged) put('pwx_lt', t);
+          window.__pwxDecorate = function (href) {
+            try {
+              var d = new URL(href, location.href);
+              if (d.hostname !== 'ops.proworxdetailing.com') return href;
+              var a = get('pwx_lt') || get('pwx_ft') || {};
+              K.concat(['ref', 'lp']).forEach(function (k) { if (a[k] && !d.searchParams.has(k)) d.searchParams.set(k, a[k]); });
+              if (!d.searchParams.has('lp')) d.searchParams.set('lp', location.pathname);
+              return d.toString();
+            } catch (e) { return href; }
+          };
+          document.addEventListener('click', function (e) {
+            var a = e.target && e.target.closest && e.target.closest('a[href]');
+            if (a && a.hostname === 'ops.proworxdetailing.com') a.href = window.__pwxDecorate(a.href);
+          }, true);
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Affirm.js SDK — deferred to avoid blocking initial render -->
     <!-- Loaded after page is interactive, like GA4 below -->
 
