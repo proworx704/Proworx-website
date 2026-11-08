@@ -15,7 +15,9 @@ export function BookingPage() {
   // Auto-redirect after a short delay so users see the page
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = bookingUrl;
+      // Carries the ad or link that brought them (set up in index.html), so the booking knows its source.
+      const decorate = (window as unknown as { __pwxDecorate?: (h: string) => string }).__pwxDecorate;
+      window.location.href = decorate ? decorate(bookingUrl) : bookingUrl;
     }, 1500);
     return () => clearTimeout(timer);
   }, [bookingUrl]);
