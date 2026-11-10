@@ -21,7 +21,7 @@ const SERVICES_OVERVIEW = [
   { name: "Full Detail (Inside & Out)", price: "From $218", desc: "Complete interior + exterior detail with spray wax protection." },
   { name: "Elite Ceramic Inside & Out", price: "From $596", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
   { name: "Exterior Detail", price: "From $104", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
-  { name: "Interior Detail", price: "From $166", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
+  { name: "Interior Detail", price: "From $156", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
   { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
   { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];

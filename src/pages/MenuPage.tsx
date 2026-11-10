@@ -268,10 +268,10 @@ export function MenuPage() {
                 "Light stain treatment (as applicable)",
               ]}
               prices={[
-                { label: "Sedan", duration: "2h", price: "$166" },
-                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$208" },
-                { label: "Lg SUV/Truck", duration: "3h", price: "$249" },
-                { label: "Van", duration: "3h 30m", price: "$291" },
+                { label: "Sedan", duration: "2h", price: "$156" },
+                { label: "Sm SUV/Truck", duration: "2h 30m", price: "$195" },
+                { label: "Lg SUV/Truck", duration: "3h", price: "$233" },
+                { label: "Van", duration: "3h 30m", price: "$272" },
               ]}
               bookHref={bookStdInt}
             />
