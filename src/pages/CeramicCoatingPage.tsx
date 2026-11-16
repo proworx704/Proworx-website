@@ -735,7 +735,7 @@ export function CeramicCoatingPage() {
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
-                {["GYEON Certified Detailer", "IGL Certified", "12+ years of experience"].map((c) => (
+                {["GYEON Certified Detailer", "IGL Certified", "STEK Certified", "12+ years of experience"].map((c) => (
                   <span
                     key={c}
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold"
@@ -837,9 +837,9 @@ export function CeramicCoatingPage() {
           <div className="max-w-3xl mx-auto mt-12 rounded-xl border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Also available by request</p>
-              <h3 className="font-bold text-sm mb-1">STEK paint protection film and ceramic</h3>
+              <h3 className="font-bold text-sm mb-1">STEK certified: paint protection film and ceramic</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Want rock chip protection on the front of your car? Ask about STEK film for front ends, or STEK ceramic coating, installed in my shop. Drop-off only.
+                I am STEK certified for both paint protection film and ceramic coating. Want rock chip protection on the front of your car? Ask about STEK film for front ends, or STEK ceramic coating, installed in my shop. Drop-off only.
               </p>
             </div>
             <Button variant="outline" className="shrink-0 font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
