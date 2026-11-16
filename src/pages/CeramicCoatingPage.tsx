@@ -195,6 +195,7 @@ const GARAGE_PHOTOS = {
   meet: { slot: "ceramic-meet-tyler", src: "/images/garage-range-rover.jpg", alt: "Black Range Rover Sport with a fresh ceramic coating under hex lighting in Tyler's Waxhaw detailing garage" },
   lift: { slot: "ceramic-garage-lift", src: "/images/garage-lotus-lift.jpg", alt: "Orange Lotus Elise raised on a lift in the ProWorx Waxhaw garage for wheel and lower panel work" },
   bay: { slot: "ceramic-garage-bay", src: "/images/garage-aston-front.jpg", alt: "Satin blue Aston Martin Vantage inside the clean, organized ProWorx detailing garage in Waxhaw, NC" },
+  owner: { slot: "ceramic-owner-tyler", src: "/images/tyler-owner.jpg", alt: "Tyler York, owner of ProWorx Detailing, in a black ProWorx polo" },
 };
 
 const REVIEWS = [
@@ -718,7 +719,22 @@ export function CeramicCoatingPage() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Your car comes to my garage. I inspect the paint under proper lighting and tell you what I see before any work starts. Your car stays here, under my eyes, until it is done. When it is ready, you pick it up from the person who did it.
               </p>
-              <p className="font-display italic text-xl text-foreground mb-6">Tyler York, Owner</p>
+              <div className="flex items-center gap-4 mb-6">
+                <CmsImg
+                  slot={GARAGE_PHOTOS.owner.slot}
+                  fallback={GARAGE_PHOTOS.owner.src}
+                  alt={GARAGE_PHOTOS.owner.alt}
+                  width={960}
+                  height={1200}
+                  sizes="112px"
+                  focalY={0}
+                  className="w-20 h-24 md:w-24 md:h-[7.5rem] rounded-xl object-cover ring-2 ring-gold/40 shadow-lg shrink-0"
+                />
+                <div>
+                  <p className="font-display italic text-xl text-foreground">Tyler York, Owner</p>
+                  <p className="text-sm text-muted-foreground">Owner-installer, ProWorx Detailing</p>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {["GYEON Certified Detailer", "IGL Certified", "12+ years of experience"].map((c) => (
                   <span
