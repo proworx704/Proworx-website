@@ -449,8 +449,8 @@ export function MenuPage() {
               {
                 name: "Q² Pure EVO",
                 protection: "3-Year",
-                price: "$899",
-                deposit: "~$270",
+                price: "$749",
+                deposit: "~$225",
                 depositUrl: bookCeramic3yr,
                 popular: true,
                 features: [

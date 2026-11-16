@@ -90,7 +90,7 @@ export function WaxhawPage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Waxhaw, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing is based in Waxhaw, NC at 3008 Collaroy Rd. We serve Waxhaw, Marvin, Weddington, Wesley Chapel, Providence Country Club, Cureton, and surrounding Union County neighborhoods." }},
                 { "@type": "Question", "name": "How much does mobile detailing cost in Waxhaw?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $218 for sedans. Elite Ceramic packages start at $596 with ceramic protection products bundled at 15% off. Exterior-only starts at $104. Ceramic coating packages range from $499 to $2,199+." }},
-                { "@type": "Question", "name": "Can I get ceramic coating in Waxhaw, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer based in Waxhaw. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }}
+                { "@type": "Question", "name": "Can I get ceramic coating in Waxhaw, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer based in Waxhaw. We offer 1-year ($499+), 3-year ($749+), 5-year class ($1,149+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }}
               ]
             }
           ]
@@ -225,7 +225,7 @@ export function WaxhawPage() {
               <div className="space-y-3 mb-6">
                 {[
                   { label: "1-Year Protection", price: "$499+", name: "GYEON Q² One EVO" },
-                  { label: "3-Year Protection", price: "$899+", name: "GYEON Q² Pure EVO" },
+                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q² Pure EVO" },
                   { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
                   { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (
@@ -257,7 +257,7 @@ export function WaxhawPage() {
                 { q: "How does mobile detailing work?", a: "We arrive at your location with everything we need — water, power, professional-grade products, and equipment. You don't need to provide anything. Just give us access to your vehicle, and we handle the rest in your driveway or parking spot." },
                 { q: "Do I need to be home during the detail?", a: "Nope! Many of our Waxhaw customers leave their keys and go about their day. We'll text you before, during, and after so you always know what's happening." },
                 { q: "What areas around Waxhaw do you serve?", a: "We serve all of Waxhaw and surrounding communities including Marvin, Weddington, Wesley Chapel, Providence Country Club, Cureton, Indian Trail, Stallings, Matthews, Monroe, and all of Charlotte." },
-                { q: "Can you do ceramic coating at my home in Waxhaw?", a: "Ceramic coating can be done mobile, but drop-off is preferred for best results — especially if paint correction is needed. We're happy to discuss the best option for your vehicle. Give us a call!" },
+                { q: "Can you do ceramic coating at my home in Waxhaw?", a: "Ceramic coating and paint correction are drop-off only, done in our Waxhaw garage. Regular detailing and maintenance are still mobile, so we can come to your home for those. Give us a call!" },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>

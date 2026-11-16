@@ -62,12 +62,12 @@ export function CombinedPromoBanner() {
             <span className="text-amber-400">🛡️</span>
             <span className="hidden sm:inline text-white/90">
               FREE Ceramic Coating{" "}
-              <span className="text-amber-400 font-semibold">($899 value)</span>{" "}
+              <span className="text-amber-400 font-semibold">($749 value)</span>{" "}
               w/ Membership
             </span>
             <span className="sm:hidden text-white/90">
               FREE Ceramic{" "}
-              <span className="text-amber-400 font-semibold">$899</span>{" "}
+              <span className="text-amber-400 font-semibold">$749</span>{" "}
               w/ Membership
             </span>
           </Link>

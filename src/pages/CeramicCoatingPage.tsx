@@ -7,11 +7,14 @@ import {
   ChevronDown,
   Clock,
   Droplets,
+  MapPin,
   Phone,
   Shield,
   ShieldCheck,
   Sparkles,
   Star,
+  User,
+  Warehouse,
   X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -24,7 +27,59 @@ import { trackPhoneClick, trackBookNowConversion, trackViewContent } from "@/lib
 
 /* ──────────────────────── DATA ──────────────────────── */
 
-const PACKAGES = [
+type ChoiceOption = { id: string; label: string; title: string; desc: string };
+
+/** Infinite Base choice (shown on both Lifetime cards). */
+const BASE_OPTIONS: ChoiceOption[] = [
+  {
+    id: "base-1",
+    label: "Type 1",
+    title: "Toughest",
+    desc: "Extreme chemical resistance and heavy contamination repellency, with a crisp, glassy shine. Works in every climate.",
+  },
+  {
+    id: "base-2",
+    label: "Type 2",
+    title: "Deepest gloss",
+    desc: "Thick quartz layer that darkens color and resists water spots. A great fit for NC heat and humidity.",
+  },
+];
+
+/** Infinite TopCoat choice (Ultimate Lifetime only). */
+const TOPCOAT_OPTIONS: ChoiceOption[] = [
+  {
+    id: "top-1",
+    label: "TopCoat Type 1",
+    title: "Longest beading",
+    desc: "Maximizes the durability of the water beading. Best for daily drivers exposed to the elements.",
+  },
+  {
+    id: "top-2",
+    label: "TopCoat Type 2",
+    title: "Slickest feel",
+    desc: "Extreme slickness and contamination release. Best for garaged or carefully washed cars.",
+  },
+];
+
+type CeramicPackage = {
+  name: string;
+  tag: string;
+  priceFrom: string;
+  priceNum: number;
+  deposit: string;
+  configKey: string;
+  /** Stripe/Affirm checkout link. Missing = "Ask about Affirm" (call/text). */
+  financeUrl?: string;
+  features: string[];
+  chooseIf: string;
+  popular?: boolean;
+  badge?: string;
+  subBadge?: string;
+  chooseBase?: boolean;
+  chooseTopcoat?: boolean;
+};
+
+const PACKAGES: CeramicPackage[] = [
   {
     name: "GYEON Q² One EVO",
     tag: "1-Year Protection",
@@ -41,15 +96,16 @@ const PACKAGES = [
       "Enhanced gloss & depth",
       "1-year GYEON manufacturer warranty",
     ],
-    popular: false,
+    chooseIf: "Choose it if you lease, plan to sell soon, or want to try ceramic before committing to more.",
   },
   {
     name: "GYEON Q² Pure EVO",
     tag: "3-Year Protection",
-    priceFrom: "$899",
-    priceNum: 899,
-    deposit: "$270",
+    priceFrom: "$749",
+    priceNum: 749,
+    deposit: "$225",
     configKey: "ceramicDeposit3yr",
+    // NOTE: this Stripe link was created for the old $899 price. Replace with a $749 link before publishing.
     financeUrl: "https://buy.stripe.com/fZu8wPaOB5NJgSY6l1bMQ0e",
     features: [
       "Decontamination wash, dry & prep spray",
@@ -60,10 +116,29 @@ const PACKAGES = [
       "3-year GYEON manufacturer warranty",
       "Annual inspection included",
     ],
+    chooseIf: "Choose it if you will keep the car three years or more and want the lowest cost per year of rated protection.",
     popular: true,
+    subBadge: "Best value per year",
   },
   {
-    name: "GYEON Infinite Type 1",
+    name: "GYEON Q² Syncro EVO",
+    tag: "5-Year Class Protection",
+    priceFrom: "$1,149",
+    priceNum: 1149,
+    deposit: "$345",
+    configKey: "ceramicDeposit5yr",
+    features: [
+      "Decontamination wash, dry & prep spray",
+      "Panel prep spray for coating bond",
+      "Two-layer system: hard base coat plus gloss topcoat",
+      "Rated up to 50 months by GYEON",
+      "Extra depth, gloss & slickness, especially on dark paint",
+    ],
+    chooseIf: "Choose it if you are keeping the car for the long haul and want multi-year protection with more depth than a single layer.",
+    badge: "New",
+  },
+  {
+    name: "GYEON Infinite Base",
     tag: "Lifetime Protection*",
     priceFrom: "$1,799",
     priceNum: 1799,
@@ -73,16 +148,15 @@ const PACKAGES = [
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
-      "GYEON Infinite Base Type 1 — fluoro-modified polysilazane",
-      "Extreme chemical resistance & self-cleaning",
-      "Superior UV protection & hydrophobic effect",
+      "One layer of GYEON Infinite Base, your choice of type",
       "Lifetime GYEON Infinite Warranty*",
       "Biennial maintenance inspection included",
     ],
-    popular: false,
+    chooseIf: "Choose it if you want to do it once, backed by a warranty, on a car you plan to keep.",
+    chooseBase: true,
   },
   {
-    name: "GYEON Infinite Type 1 + 2",
+    name: "GYEON Infinite Base + TopCoat",
     tag: "Ultimate Lifetime Protection*",
     priceFrom: "$2,199",
     priceNum: 2199,
@@ -92,16 +166,36 @@ const PACKAGES = [
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
-      "GYEON Infinite Base Type 1 + Type 2 TopCoat",
-      "Maximum gloss, depth & color enhancement",
-      "Extreme watermark resistance (ideal for NC heat)",
-      "Dual-layer protection — best scratch resistance",
+      "Dual-layer system: Infinite Base plus Infinite TopCoat",
       "Lifetime GYEON Infinite Warranty*",
       "Biennial maintenance inspection included",
     ],
-    popular: false,
+    chooseIf: "Choose it if the car is your pride and you want to tailor the finish and the protection, with a lifetime warranty.",
+    chooseBase: true,
+    chooseTopcoat: true,
   },
 ];
+
+const COMPARE_ROWS = [
+  { option: "1 Year", price: "$499", coating: "Q² One EVO", protection: "1 year", layers: "Single" },
+  { option: "3 Year", price: "$749", coating: "Q² Pure EVO", protection: "Up to 36 months", layers: "Single" },
+  { option: "5 Year Class", price: "$1,149", coating: "Q² Syncro EVO", protection: "Up to 50 months", layers: "Two" },
+  { option: "Lifetime", price: "$1,799", coating: "Infinite Base (Type 1 or 2)", protection: "Lifetime warranty", layers: "Single" },
+  { option: "Ultimate Lifetime", price: "$2,199", coating: "Infinite Base + TopCoat", protection: "Lifetime warranty", layers: "Dual" },
+];
+
+const CORRECTION_PRICES = [
+  { level: "1-Step", compact: "$618", sedan: "$824", suv: "$1,030" },
+  { level: "2-Step", compact: "$1,030", sedan: "$1,236", suv: "$1,442" },
+  { level: "Multi-Stage", compact: "$1,700", sedan: "$2,060", suv: "$2,472" },
+];
+
+/* Garage photos (no readable plates). Admin can override each through its CMS slot. */
+const GARAGE_PHOTOS = {
+  meet: { slot: "ceramic-meet-tyler", src: "/images/garage-range-rover.jpg", alt: "Black Range Rover Sport with a fresh ceramic coating under hex lighting in Tyler's Waxhaw detailing garage" },
+  lift: { slot: "ceramic-garage-lift", src: "/images/garage-lotus-lift.jpg", alt: "Orange Lotus Elise raised on a lift in the ProWorx Waxhaw garage for wheel and lower panel work" },
+  bay: { slot: "ceramic-garage-bay", src: "/images/garage-aston-front.jpg", alt: "Satin blue Aston Martin Vantage inside the clean, organized ProWorx detailing garage in Waxhaw, NC" },
+};
 
 const REVIEWS = [
   {
@@ -139,7 +233,7 @@ const GALLERY_ITEMS = [
 
 const PRO_VS_CONSUMER = [
   { feature: "Coating Type", pro: "SiO₂ professional-grade (GYEON / IGL)", consumer: "Spray-on sealant" },
-  { feature: "Longevity", pro: "1 year – lifetime", consumer: "1–3 months" },
+  { feature: "Longevity", pro: "1 year to lifetime", consumer: "1 to 3 months" },
   { feature: "Surface Prep", pro: "Decontamination pre-wash & panel prep spray", consumer: "Basic wash" },
   { feature: "Hardness", pro: "True 9H hardness rating", consumer: "No measurable hardness" },
   { feature: "Warranty", pro: "GYEON manufacturer warranty", consumer: "None" },
@@ -149,27 +243,31 @@ const PRO_VS_CONSUMER = [
 const FAQ_ITEMS = [
   {
     q: "What is ceramic coating?",
-    a: "Ceramic coating is a liquid polymer applied to your vehicle's exterior that creates a semi-permanent bond with the paint. It provides hydrophobic protection, UV resistance, chemical resistance, and enhanced gloss that lasts years — not weeks like wax or sealant.",
+    a: "Ceramic coating is a liquid polymer applied to your vehicle's exterior that creates a semi-permanent bond with the paint. It provides hydrophobic protection, UV resistance, chemical resistance, and enhanced gloss that lasts years, not weeks like wax or sealant.",
   },
   {
     q: "How much does ceramic coating cost in Charlotte?",
-    a: "ProWorx offers four GYEON ceramic coating packages: Q² One EVO (1 year) starting at $499, Q² Pure EVO (3 years) starting at $899, Infinite Type 1 (lifetime warranty) starting at $1,799, and Infinite Type 1 + Type 2 (ultimate lifetime protection) starting at $2,199. Reserve any package with just 30% down.",
+    a: "1 Year from $499, 3 Year from $749, 5 Year Class from $1,149, Lifetime from $1,799, and Ultimate Lifetime from $2,199. These are starting prices. They assume standard paint condition, sales tax is added at the appointment, and a 30% deposit books your spot.",
   },
   {
     q: "Is this a drop-off or mobile service?",
-    a: "Ceramic coating alone can be done mobile, but drop-off at our Waxhaw location is preferred for best results. If you need paint correction + ceramic coating, drop-off is required — the multi-stage process needs a controlled environment.",
+    a: "Drop-off only for ceramic coating and paint correction, done in my Waxhaw garage. Regular detailing and maintenance are still available as mobile services.",
+  },
+  {
+    q: "Who applies the coating?",
+    a: "I do. Tyler, the owner, personally does every ceramic coating and every paint correction.",
   },
   {
     q: "How long does ceramic coating last?",
-    a: "Depending on the package, ProWorx ceramic coatings last 1 year, 3 years, or a lifetime. All packages include a GYEON manufacturer warranty. Our Infinite packages carry a lifetime warranty with biennial maintenance, and our 3-year package includes annual inspections.",
+    a: "It depends on the coating. 1 Year (Q² One EVO) gives one year of protection. 3 Year (Q² Pure EVO) is rated up to 36 months. 5 Year Class (Q² Syncro EVO) is a two-layer system rated up to 50 months by GYEON. Lifetime and Ultimate Lifetime (GYEON Infinite) carry the Lifetime GYEON Infinite Warranty with a biennial maintenance inspection.",
   },
   {
     q: "Do I need paint correction before ceramic coating?",
-    a: "Not necessarily. Every package includes a decontamination pre-wash and a prep spray so the coating bonds properly, but no polishing. If your paint has swirl marks, scratches, or oxidation, adding a paint correction service first will give you the best possible result under the coating.",
+    a: "Not necessarily. Every package includes a decontamination wash and a prep wipe so the coating bonds properly, but no polishing. If your paint has swirl marks, scratches, or oxidation, adding a paint correction service first will give you the best possible result under the coating.",
   },
   {
     q: "Is ProWorx a certified installer?",
-    a: "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer with 12+ years of professional detailing experience. All coatings are applied by trained professionals with proper prep and curing procedures.",
+    a: "Yes. I am a GYEON Certified Detailer and IGL certified, with 12+ years of experience.",
   },
 ];
 
@@ -244,6 +342,151 @@ function GalleryCarousel() {
 }
 */
 
+function ChoiceSelector({
+  heading,
+  options,
+  value,
+  onChange,
+}: {
+  heading: string;
+  options: ChoiceOption[];
+  value: string;
+  onChange: (id: string) => void;
+}) {
+  const selected = options.find((o) => o.id === value) ?? options[0];
+  return (
+    <div className="mb-4">
+      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">{heading}</p>
+      <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label={heading}>
+        {options.map((o) => {
+          const active = o.id === selected.id;
+          return (
+            <button
+              key={o.id}
+              type="button"
+              role="radio"
+              aria-checked={active}
+              onClick={() => onChange(o.id)}
+              className={`rounded-lg border px-2.5 py-2 text-left transition-colors ${
+                active ? "border-gold bg-gold/10 ring-1 ring-gold/30" : "border-border hover:border-gold/40"
+              }`}
+            >
+              <span className={`block text-xs font-bold ${active ? "text-gold" : "text-foreground"}`}>{o.label}</span>
+              <span className="block text-[11px] text-muted-foreground leading-tight">{o.title}</span>
+            </button>
+          );
+        })}
+      </div>
+      <p className="text-xs text-muted-foreground leading-relaxed mt-2">{selected.desc}</p>
+    </div>
+  );
+}
+
+function PackageCard({
+  pkg,
+  depositUrl,
+  phoneLink,
+}: {
+  pkg: CeramicPackage;
+  depositUrl: string;
+  phoneLink: string;
+}) {
+  const [base, setBase] = useState(BASE_OPTIONS[0].id);
+  const [topcoat, setTopcoat] = useState(TOPCOAT_OPTIONS[0].id);
+  const baseLabel = BASE_OPTIONS.find((o) => o.id === base)?.label;
+  const topLabel = TOPCOAT_OPTIONS.find((o) => o.id === topcoat)?.label;
+  const pick = pkg.chooseBase
+    ? `Infinite Base ${baseLabel}${pkg.chooseTopcoat ? ` + ${topLabel}` : ""}`
+    : null;
+
+  return (
+    <div
+      className={`relative w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] rounded-2xl bg-card border p-6 flex flex-col transition-shadow hover:shadow-lg ${
+        pkg.popular ? "border-gold shadow-lg shadow-gold/10 ring-1 ring-gold/20" : "border-border"
+      }`}
+    >
+      {(pkg.popular || pkg.badge) && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full whitespace-nowrap">
+          {pkg.popular ? "Most Popular" : pkg.badge}
+        </div>
+      )}
+      <div className="mb-4">
+        <p className="text-gold text-xs font-bold uppercase tracking-wider mb-1">{pkg.tag}</p>
+        <h3 className="font-bold text-lg leading-tight">{pkg.name}</h3>
+        {pkg.subBadge && (
+          <span className="inline-block mt-2 px-2 py-0.5 rounded-full border border-gold/30 bg-gold/10 text-gold text-[11px] font-semibold">
+            {pkg.subBadge}
+          </span>
+        )}
+      </div>
+      <div className="mb-5">
+        <span className="text-3xl font-black">{pkg.priceFrom}</span>
+        <span className="text-sm text-muted-foreground ml-1">starting</span>
+        <p className="text-xs text-muted-foreground mt-1">30% deposit ({pkg.deposit}) to reserve</p>
+        <AffirmMonthlyEstimate
+          amount={pkg.priceNum}
+          className="text-xs mt-1.5 [&_a]:text-blue-400 [&_a]:no-underline"
+        />
+      </div>
+
+      {pkg.chooseBase && (
+        <ChoiceSelector heading="Choose your base" options={BASE_OPTIONS} value={base} onChange={setBase} />
+      )}
+      {pkg.chooseTopcoat && (
+        <>
+          <ChoiceSelector heading="Choose your topcoat" options={TOPCOAT_OPTIONS} value={topcoat} onChange={setTopcoat} />
+          <p className="text-[11px] text-muted-foreground leading-relaxed -mt-1 mb-4">
+            Any base pairs with any topcoat, all at $2,199. Driven daily and parked outside: Base 1 + TopCoat 1.
+            Best-looking finish for a garaged car: Base 2 + TopCoat 2.
+          </p>
+        </>
+      )}
+
+      <ul className="space-y-2 flex-1 mb-4">
+        {pkg.features.map((f) => (
+          <li key={f} className="flex items-start gap-2 text-sm">
+            <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
+            <span className="text-muted-foreground">{f}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p className="text-xs text-foreground/80 leading-relaxed border-t border-border pt-3 mb-5">{pkg.chooseIf}</p>
+
+      {pick && (
+        <p className="text-[11px] text-muted-foreground mb-2 text-center">
+          Your pick: <span className="text-gold font-semibold">{pick}</span>. Mention it when you book.
+        </p>
+      )}
+      <Button
+        className={`w-full font-bold ${
+          pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-muted text-foreground hover:bg-muted/80"
+        }`}
+        asChild
+      >
+        <a href={depositUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackBookNowConversion(depositUrl)}>
+          Reserve Now <ArrowRight className="size-4" />
+        </a>
+      </Button>
+      <Button
+        variant="outline"
+        className="w-full font-bold border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 mt-2"
+        asChild
+      >
+        {pkg.financeUrl ? (
+          <a href={pkg.financeUrl} target="_blank" rel="noopener noreferrer">
+            💳 Finance with Affirm
+          </a>
+        ) : (
+          <a href={phoneLink} onClick={trackPhoneClick}>
+            💳 Ask about Affirm financing
+          </a>
+        )}
+      </Button>
+    </div>
+  );
+}
+
 function FaqAccordion() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
@@ -295,9 +538,9 @@ export function CeramicCoatingPage() {
   return (
     <div className="flex-1 flex flex-col">
       <PageSEO
-        title="Ceramic Coating Charlotte NC — Gyeon Certified"
-        description="Gyeon & IGL certified ceramic coating in Charlotte, NC. From $499 — up to lifetime protection with GYEON Infinite. 63+ 5-star reviews. Reserve with 30% down."
-        keywords="ceramic coating Charlotte NC, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
+        title="GYEON Certified Ceramic Coating Charlotte NC"
+        description="GYEON Certified, owner-installed ceramic coating in Charlotte, NC. 1-year, 3-year, 5-year and lifetime packages from $499. Drop-off at our Waxhaw garage. 30% down."
+        keywords="ceramic coating Charlotte NC, GYEON Certified ceramic coating, owner-installed ceramic coating, 5-year ceramic coating, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
           "@graph": [
@@ -328,7 +571,7 @@ export function CeramicCoatingPage() {
                 },
               },
               areaServed: "Charlotte, NC",
-              description: "Professional GYEON & IGL certified ceramic coating with 1-year to lifetime protection packages.",
+              description: "GYEON Certified, owner-installed ceramic coating with 1-year, 3-year, 5-year and lifetime protection packages. Drop-off only at our Waxhaw, NC garage.",
               offers: {
                 "@type": "AggregateOffer",
                 lowPrice: "499",
@@ -370,11 +613,15 @@ export function CeramicCoatingPage() {
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold backdrop-blur-sm">
                 <Shield className="size-3" />
-                GYEON Certified
+                GYEON Certified Detailer
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold backdrop-blur-sm">
                 <Shield className="size-3" />
                 IGL Certified
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold backdrop-blur-sm">
+                <User className="size-3" />
+                Owner-installed
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-400 text-xs font-semibold backdrop-blur-sm">
                 <Star className="size-3 fill-current" />
@@ -386,7 +633,7 @@ export function CeramicCoatingPage() {
               Professional <span className="text-gradient-gold">Ceramic Coating</span> in Charlotte, NC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-foreground">up to a lifetime</strong> — backed by a GYEON manufacturer warranty. Applied by a certified installer with 12+ years of experience.
+              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-foreground">up to a lifetime</strong>, backed by a GYEON manufacturer warranty. Applied personally by Tyler, a GYEON and IGL certified installer with 12+ years of experience.
             </p>
             <p className="text-base text-gold font-semibold mb-8">
               Starting at $499 · Reserve with just 30% down
@@ -413,6 +660,15 @@ export function CeramicCoatingPage() {
                 </a>
               </Button>
             </div>
+
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-foreground/90">
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="size-4 text-gold shrink-0" /> Drop-off only, at my Waxhaw garage
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle2 className="size-4 text-gold shrink-0" /> Decontamination wash and prep wipe included
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -437,6 +693,43 @@ export function CeramicCoatingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ MEET TYLER ═══════════ */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-6xl mx-auto">
+            <CmsImg
+              slot={GARAGE_PHOTOS.meet.slot}
+              fallback={GARAGE_PHOTOS.meet.src}
+              alt={GARAGE_PHOTOS.meet.alt}
+              className="rounded-2xl w-full max-w-md mx-auto aspect-[4/5] object-cover shadow-xl"
+            />
+            <div>
+              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Meet Tyler</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">
+                Your paint is only touched by <span className="text-gradient-gold">the owner.</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                I built ProWorx from the ground up, and I personally do every ceramic coating and every paint correction. No handoffs and no rotating crew.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Your car comes to my garage. I inspect the paint under proper lighting and tell you what I see before any work starts. Your car stays here, under my eyes, until it is done. When it is ready, you pick it up from the person who did it.
+              </p>
+              <p className="font-display italic text-xl text-foreground mb-6">Tyler York, Owner</p>
+              <div className="flex flex-wrap gap-2">
+                {["GYEON Certified Detailer", "IGL Certified", "12+ years of experience"].map((c) => (
+                  <span
+                    key={c}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold"
+                  >
+                    <ShieldCheck className="size-3" /> {c}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -468,91 +761,78 @@ export function CeramicCoatingPage() {
               Ceramic Coating <span className="text-gradient-gold">Packages</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Professional-grade GYEON ceramic coatings applied by a certified installer. Every package includes a decontamination pre-wash & panel prep spray. Polishing is not included; paint correction is a separate service. Pricing varies by vehicle size.
+              Professional-grade GYEON ceramic coatings applied by a certified installer. Every package includes a decontamination pre-wash & panel prep spray. Polishing is not included; paint correction is a separate service. Pricing varies by vehicle size.{" "}
+              <span className="text-foreground font-medium">Ceramic coating and paint correction are drop-off only, at my Waxhaw garage.</span>
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {PACKAGES.map((pkg) => {
-              const depositUrl = getDepositUrl(pkg.configKey);
-              return (
-                <div
-                  key={pkg.name}
-                  className={`relative rounded-2xl bg-card border p-6 flex flex-col transition-shadow hover:shadow-lg ${
-                    pkg.popular
-                      ? "border-gold shadow-lg shadow-gold/10 ring-1 ring-gold/20"
-                      : "border-border"
-                  }`}
-                >
-                  {pkg.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full whitespace-nowrap">
-                      Most Popular
-                    </div>
-                  )}
-                  <div className="mb-4">
-                    <p className="text-gold text-xs font-bold uppercase tracking-wider mb-1">
-                      {pkg.tag}
-                    </p>
-                    <h3 className="font-bold text-lg leading-tight">{pkg.name}</h3>
-                  </div>
-                  <div className="mb-5">
-                    <span className="text-3xl font-black">{pkg.priceFrom}</span>
-                    <span className="text-sm text-muted-foreground ml-1">starting</span>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      30% deposit ({pkg.deposit}) to reserve
-                    </p>
-                    <AffirmMonthlyEstimate
-                      amount={pkg.priceNum}
-                      className="text-xs mt-1.5 [&_a]:text-blue-400 [&_a]:no-underline"
-                    />
-                  </div>
-                  <ul className="space-y-2 flex-1 mb-6">
-                    {pkg.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="size-4 text-gold mt-0.5 shrink-0" />
-                        <span className="text-muted-foreground">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full font-bold ${
-                      pkg.popular
-                        ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90"
-                        : "bg-muted text-foreground hover:bg-muted/80"
-                    }`}
-                    asChild
-                  >
-                    <a
-                      href={depositUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackBookNowConversion(depositUrl)}
-                    >
-                      Reserve Now <ArrowRight className="size-4" />
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full font-bold border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 mt-2"
-                    asChild
-                  >
-                    <a
-                      href={pkg.financeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      💳 Finance with Affirm
-                    </a>
-                  </Button>
-                </div>
-              );
-            })}
+          <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+            {PACKAGES.map((pkg) => (
+              <PackageCard
+                key={pkg.name}
+                pkg={pkg}
+                depositUrl={getDepositUrl(pkg.configKey)}
+                phoneLink={config.phoneLink}
+              />
+            ))}
           </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-8 max-w-2xl mx-auto leading-relaxed">
+            *Every Infinite option includes the Lifetime GYEON Infinite Warranty. Infinite coatings are available only through GYEON Certified Detailers.
+          </p>
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-lg mx-auto">
             30% deposit is applied to your final service total. Finance with{" "}
-            <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments. Subject to eligibility.
+            <span className="font-semibold text-foreground">Affirm</span>: pay over time with easy monthly payments. Subject to eligibility.
           </p>
+
+          {/* Side by side */}
+          <div className="max-w-4xl mx-auto mt-14">
+            <h3 className="text-2xl font-bold tracking-tight mb-5 text-center">
+              Side by <span className="text-gradient-gold">side</span>
+            </h3>
+            <div className="rounded-2xl bg-card border border-border overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm min-w-[560px]">
+                  <thead>
+                    <tr className="border-b border-border bg-muted/50">
+                      {["Option", "Price", "Coating", "Protection", "Layers"].map((h) => (
+                        <th key={h} className="text-left p-3 md:p-4 font-bold">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {COMPARE_ROWS.map((r) => (
+                      <tr key={r.option} className="border-b border-border/50 last:border-0">
+                        <td className="p-3 md:p-4 font-semibold">{r.option}</td>
+                        <td className="p-3 md:p-4 font-bold text-gold">{r.price}</td>
+                        <td className="p-3 md:p-4 text-muted-foreground">{r.coating}</td>
+                        <td className="p-3 md:p-4 text-muted-foreground">{r.protection}</td>
+                        <td className="p-3 md:p-4 text-muted-foreground">{r.layers}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground text-center mt-3">Starting prices. Pricing varies by vehicle size.</p>
+          </div>
+
+          {/* STEK (by request) */}
+          <div className="max-w-3xl mx-auto mt-12 rounded-xl border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Also available by request</p>
+              <h3 className="font-bold text-sm mb-1">STEK paint protection film and ceramic</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Want rock chip protection on the front of your car? Ask about STEK film for front ends, or STEK ceramic coating, installed in my garage. Drop-off only.
+              </p>
+            </div>
+            <Button variant="outline" className="shrink-0 font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
+              <a href={config.phoneLink} onClick={trackPhoneClick}>
+                Ask about STEK
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -607,7 +887,36 @@ export function CeramicCoatingPage() {
                   <a href="/paint-correction" className="text-gold hover:underline font-medium">
                     paint correction
                   </a>{" "}
-                  before your coating for the best result.
+                  before your coating for the best result. It is a separate service, also drop-off only.
+                </p>
+              </div>
+
+              {/* Paint correction pricing */}
+              <div className="mt-4 rounded-xl border border-border bg-card overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs sm:text-sm">
+                    <thead>
+                      <tr className="border-b border-border bg-muted/50">
+                        <th className="text-left p-3 font-bold">Paint correction</th>
+                        <th className="text-left p-3 font-bold">Compact 2-door</th>
+                        <th className="text-left p-3 font-bold">Midsize sedan</th>
+                        <th className="text-left p-3 font-bold">SUV / truck</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {CORRECTION_PRICES.map((r) => (
+                        <tr key={r.level} className="border-b border-border/50 last:border-0">
+                          <td className="p-3 font-semibold">{r.level}</td>
+                          <td className="p-3 text-muted-foreground">{r.compact}</td>
+                          <td className="p-3 text-muted-foreground">{r.sedan}</td>
+                          <td className="p-3 text-muted-foreground">{r.suv}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xs text-muted-foreground px-3 py-2.5 border-t border-border">
+                  Add-ons: wheels and calipers ceramic coating $400 · GYEON View windshield coating $120
                 </p>
               </div>
             </div>
@@ -633,7 +942,7 @@ export function CeramicCoatingPage() {
                   <h3 className="font-bold text-sm">Ceramic Coating Only</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Available as mobile service or drop-off at our Waxhaw location. <span className="text-foreground font-medium">Drop-off preferred</span> for best results.
+                  <span className="text-foreground font-medium">Drop-off only</span> at my Waxhaw garage, so the coating is applied and cured in a controlled space.
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-card p-5">
@@ -642,9 +951,39 @@ export function CeramicCoatingPage() {
                   <h3 className="font-bold text-sm">Paint Correction + Ceramic</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-foreground font-medium">Drop-off required</span> — the multi-stage paint correction process requires a controlled environment for the best finish.
+                  <span className="text-foreground font-medium">Drop-off only</span>. Paint correction needs proper lighting and a controlled environment for the best finish.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ GARAGE ═══════════ */}
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3 inline-flex items-center gap-2">
+                <Warehouse className="size-4" /> Waxhaw, NC
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                Where your car <span className="text-gradient-gold">stays</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                A dedicated detailing garage built for paint work: bright inspection lighting, a lift for wheels and lower panels, and a clean, organized workspace.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+              {[GARAGE_PHOTOS.lift, GARAGE_PHOTOS.bay].map((p) => (
+                <CmsImg
+                  key={p.slot}
+                  slot={p.slot}
+                  fallback={p.src}
+                  alt={p.alt}
+                  className="rounded-2xl w-full aspect-[4/5] object-cover shadow-xl"
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -670,7 +1009,7 @@ export function CeramicCoatingPage() {
                   { title: "UV & Chemical Resistance", desc: "Shields against sun damage, bird droppings, tree sap, and road grime." },
                   { title: "Showroom Gloss & Depth", desc: "Deepens your paint color and adds a candy-like wet look that lasts." },
                   { title: "Easier Maintenance", desc: "Cuts wash time in half. Your car stays cleaner, longer between washes." },
-                  { title: "GYEON Manufacturer Warranty", desc: "Real warranty from GYEON — not a detailer promise. Annual inspections keep it valid." },
+                  { title: "GYEON Manufacturer Warranty", desc: "A real warranty from GYEON, not a detailer promise. Inspections keep it valid." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <CheckCircle2 className="size-5 text-gold mt-0.5 shrink-0" />
@@ -770,7 +1109,7 @@ export function CeramicCoatingPage() {
                 <p className="text-sm text-muted-foreground leading-relaxed mt-3 flex-1">
                   "{review.text}"
                 </p>
-                <p className="font-semibold text-sm mt-3">— {review.name}</p>
+                <p className="font-semibold text-sm mt-3">{review.name}</p>
               </div>
             ))}
           </div>
@@ -807,7 +1146,7 @@ export function CeramicCoatingPage() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground mt-5 max-w-md mx-auto">
-              ProWorx is trained, tested, and certified by both GYEON and IGL Coatings. Every application meets manufacturer standards.
+              Tyler is trained, tested, and certified by both GYEON and IGL Coatings, and personally applies every coating to manufacturer standards.
             </p>
           </div>
         </div>
@@ -832,7 +1171,7 @@ export function CeramicCoatingPage() {
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">Buy Now, Pay Later</h2>
             <p className="text-muted-foreground mb-5 text-sm">
               Flexible monthly payments on all ceramic coating and paint correction services.
-              Finance through <span className="font-semibold text-foreground">Affirm</span> — pay over time with easy monthly payments. No hidden fees.
+              Finance through <span className="font-semibold text-foreground">Affirm</span> and pay over time with easy monthly payments. No hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button className="bg-blue-600 text-white hover:bg-blue-700 font-bold" asChild>
@@ -901,7 +1240,7 @@ export function CeramicCoatingPage() {
               Ready to Protect Your Vehicle for <span className="text-gradient-gold">Years to Come?</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Reserve your spot with just 30% down. Free consultation available — we'll inspect your paint and recommend the ideal package.
+              Reserve your spot with just 30% down. Free consultation available. I'll inspect your paint and recommend the ideal package.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button

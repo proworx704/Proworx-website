@@ -8,7 +8,7 @@ import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices"
 
 const COST_BREAKDOWN = [
   { tier: "1-Year Protection", product: "GYEON Q² One EVO", price: "$499+", deposit: "~$150", best: "Daily drivers, lease vehicles, budget-conscious owners" },
-  { tier: "3-Year Protection", product: "GYEON Q² Pure EVO", price: "$899+", deposit: "~$270", best: "Most popular — ideal balance of protection and value" },
+  { tier: "3-Year Protection", product: "GYEON Q² Pure EVO", price: "$749+", deposit: "~$225", best: "Most popular — ideal balance of protection and value" },
   { tier: "Lifetime Protection*", product: "GYEON Infinite Type 1", price: "$1,799+", deposit: "~$540", best: "Enthusiasts seeking lifetime certified protection" },
   { tier: "Ultimate Lifetime*", product: "GYEON Infinite Type 1 + 2", price: "$2,199+", deposit: "~$660", best: "Luxury vehicles, maximum gloss & dual-layer protection" },
 ];
@@ -36,8 +36,8 @@ export function CeramicCoatingCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does ceramic coating cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Charlotte typically costs $499–$2,199+ depending on the coating tier and vehicle size. ProWorx offers GYEON certified packages: 1-Year Q² One EVO ($499+), 3-Year Q² Pure EVO ($899+), Infinite Type 1 ($1,799+), and Infinite Type 1 + Type 2 ($2,199+) with lifetime warranty. All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
-                { "@type": "Question", "name": "Is ceramic coating worth the cost?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for most vehicle owners. Professional ceramic coating protects your paint from UV damage, chemical etching, and environmental contaminants for years — far longer than wax or sealant. It also reduces maintenance time, keeps your vehicle cleaner between washes, and maintains resale value. The 3-Year package at $899 is the best balance of value and protection." }},
+                { "@type": "Question", "name": "How much does ceramic coating cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in Charlotte typically costs $499–$2,199+ depending on the coating tier and vehicle size. ProWorx offers GYEON certified packages: 1-Year Q² One EVO ($499+), 3-Year Q² Pure EVO ($749+), 5-Year Class Q² Syncro EVO ($1,149+), Infinite Type 1 ($1,799+), and Infinite Type 1 + Type 2 ($2,199+) with lifetime warranty. All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
+                { "@type": "Question", "name": "Is ceramic coating worth the cost?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for most vehicle owners. Professional ceramic coating protects your paint from UV damage, chemical etching, and environmental contaminants for years — far longer than wax or sealant. It also reduces maintenance time, keeps your vehicle cleaner between washes, and maintains resale value. The 3-Year package at $749 is the best balance of value and protection." }},
                 { "@type": "Question", "name": "What's the difference between a $50 ceramic coating and a $900 one?", "acceptedAnswer": { "@type": "Answer", "text": "Consumer spray-on coatings ($30-$80) last weeks to months and offer minimal protection. Professional coatings from a certified installer ($499-$2,199+) involve paint decontamination, panel prep, and hand-applied professional-grade ceramic that bonds permanently to your paint. They last 1 year to a lifetime with manufacturer warranty." }},
                 { "@type": "Question", "name": "Do I need paint correction before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. ProWorx ceramic packages include a decontamination pre-wash and prep spray only, with no polishing. If your paint has swirls, scratches, or oxidation, adding paint correction ($618+) before coating locks in a flawless finish under the ceramic layer. We'll inspect your paint and recommend the best approach." }},
                 { "@type": "Question", "name": "Does ProWorx offer financing for ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer Affirm financing (buy now, pay later) at checkout with easy monthly payments. We also only require a 30% deposit to reserve your coating appointment, with the balance due at completion." }}
@@ -172,7 +172,7 @@ export function CeramicCoatingCharlottePage() {
                     <tr className="border-b border-border/50 bg-gold/5">
                       <td className="p-4 font-semibold">Mid-tier professional</td>
                       <td className="p-4 text-muted-foreground">$700–$1,200</td>
-                      <td className="p-4 font-bold text-gold">$899+</td>
+                      <td className="p-4 font-bold text-gold">$749+</td>
                       <td className="p-4 text-muted-foreground flex items-center gap-1"><Clock className="size-3" /> 3 years</td>
                     </tr>
                     <tr>
@@ -229,7 +229,7 @@ export function CeramicCoatingCharlottePage() {
                 { q: "Is ceramic coating worth the money?", a: "For most vehicle owners, yes. A professional ceramic coating protects your paint from UV damage, chemical etching, bird droppings, and tree sap for years. It dramatically reduces wash time, keeps your car cleaner between washes, and preserves resale value. Even the 1-year package pays for itself in reduced maintenance." },
                 { q: "How long does ceramic coating last?", a: "ProWorx offers four tiers: 1-year (GYEON Q² One EVO), 3-year (Q² Pure EVO), and lifetime (GYEON Infinite Type 1 or Type 1 + 2). Longevity depends on proper maintenance — washing with pH-neutral soap, avoiding automatic car washes, and scheduled maintenance inspections." },
                 { q: "Can ceramic coating be applied to a new car?", a: "Absolutely — and it's the ideal time. New paint is typically in perfect condition, so you may not need paint correction. This saves money and locks in that factory-fresh finish from day one." },
-                { q: "Do you offer mobile ceramic coating?", a: "Ceramic coating can be done mobile, but drop-off is preferred for the best results — especially if paint correction is needed. The controlled environment ensures proper curing and inspection." },
+                { q: "Do you offer mobile ceramic coating?", a: "No. Ceramic coating and paint correction are drop-off only, done in our Waxhaw garage, where the controlled environment ensures proper curing and inspection. Regular detailing and maintenance are still mobile." },
                 { q: "What payment options are available?", a: "We require just 30% down to reserve your appointment, with the balance due at completion. We also offer Affirm financing — pay over time with easy monthly payments, available at checkout." },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">

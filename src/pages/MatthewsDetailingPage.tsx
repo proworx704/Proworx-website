@@ -90,7 +90,7 @@ export function MatthewsDetailingPage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Matthews and surrounding areas including Indian Trail, Stallings, Mint Hill, Idlewild, and Hemby Bridge. We bring our fully equipped mobile setup directly to your home or office." }},
                 { "@type": "Question", "name": "How much does mobile detailing cost in Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $218 for sedans. Elite Ceramic packages start at $596 with ceramic protection products bundled at 15% off. Exterior-only starts at $104. Ceramic coating packages range from $499 to $2,199+." }},
-                { "@type": "Question", "name": "Can I get ceramic coating in Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
+                { "@type": "Question", "name": "Can I get ceramic coating in Matthews, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($749+), 5-year class ($1,149+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
                 { "@type": "Question", "name": "How far is ProWorx from Matthews?", "acceptedAnswer": { "@type": "Answer", "text": "We're based in Waxhaw, NC \u2014 just 15\u201320 minutes from Matthews. As a mobile service, we come to your location with everything we need. No trip to the shop required!" }}
               ]
             }
@@ -221,12 +221,12 @@ export function MatthewsDetailingPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Matthews</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. Mobile application available or drop-off at our Waxhaw facility.
+                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. Ceramic coating is drop-off only at our Waxhaw garage.
               </p>
               <div className="space-y-3 mb-6">
                 {[
                   { label: "1-Year Protection", price: "$499+", name: "GYEON Q\u00B2 One EVO" },
-                  { label: "3-Year Protection", price: "$899+", name: "GYEON Q\u00B2 Pure EVO" },
+                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q\u00B2 Pure EVO" },
                   { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
                   { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (

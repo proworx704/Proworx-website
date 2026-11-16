@@ -90,7 +90,7 @@ export function FortMillDetailingPage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Fort Mill, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Fort Mill and surrounding York County areas including Tega Cay, Indian Land, Baxter Village, Riverwalk, and Lake Wylie. We\u2019re based in Waxhaw, NC \u2014 just across the state line." }},
                 { "@type": "Question", "name": "How much does mobile detailing cost in Fort Mill?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $218 for sedans. Elite Ceramic packages start at $596 with ceramic protection products bundled at 15% off. Exterior-only starts at $104. Ceramic coating packages range from $499 to $2,199+." }},
-                { "@type": "Question", "name": "Can I get ceramic coating in Fort Mill, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
+                { "@type": "Question", "name": "Can I get ceramic coating in Fort Mill, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($749+), 5-year class ($1,149+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
                 { "@type": "Question", "name": "Do you charge extra for crossing into South Carolina?", "acceptedAnswer": { "@type": "Answer", "text": "No! Fort Mill and York County are part of our regular service area. There\u2019s no extra charge for crossing the state line \u2014 we\u2019re based in Waxhaw, NC, just minutes from Fort Mill." }}
               ]
             }
@@ -226,7 +226,7 @@ export function FortMillDetailingPage() {
               <div className="space-y-3 mb-6">
                 {[
                   { label: "1-Year Protection", price: "$499+", name: "GYEON Q\u00B2 One EVO" },
-                  { label: "3-Year Protection", price: "$899+", name: "GYEON Q\u00B2 Pure EVO" },
+                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q\u00B2 Pure EVO" },
                   { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
                   { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (

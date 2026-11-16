@@ -17,6 +17,7 @@ const DEFAULTS: Record<string, string> = {
   ceramicDepositUrl: "https://ops.proworxdetailing.com/schedule",
   ceramicDeposit1yr: "",
   ceramicDeposit3yr: "",
+  ceramicDeposit5yr: "",
   ceramicDepositInfinite1: "",
   ceramicDepositInfinite2: "",
   // wisetackUrl removed — Affirm financing is now used instead

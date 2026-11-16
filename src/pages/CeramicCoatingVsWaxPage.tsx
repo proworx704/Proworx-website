@@ -62,7 +62,7 @@ export function CeramicCoatingVsWaxPage() {
                 { "@type": "Question", "name": "Is ceramic coating better than wax?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for long-term protection. Professional ceramic coating lasts 1 year to a lifetime and provides superior scratch resistance, UV protection, and hydrophobic properties. Wax lasts only 2–4 weeks and offers minimal protection. However, ceramic coating costs more upfront ($499–$2,199+) compared to wax ($20–$50 DIY)." }},
                 { "@type": "Question", "name": "How long does ceramic coating last vs wax?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating lasts 1 year to a lifetime depending on the product tier. GYEON Q² One EVO lasts 1 year, Q² Pure EVO lasts 3 years, and the GYEON Infinite series carries a lifetime warranty with biennial maintenance. Traditional carnauba wax lasts only 2–4 weeks before needing reapplication." }},
                 { "@type": "Question", "name": "Can you wax over ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "You shouldn't need to. Ceramic coating provides superior protection and gloss on its own. Applying wax over ceramic coating can actually reduce the hydrophobic properties. Instead, use a ceramic-safe maintenance spray (like GYEON Cure) to boost the coating between professional maintenance visits." }},
-                { "@type": "Question", "name": "Is ceramic coating worth the money?", "acceptedAnswer": { "@type": "Answer", "text": "For most vehicle owners, yes. While the upfront cost is higher ($499–$2,199+), you save money over time by eliminating frequent waxing, reducing wash frequency, and protecting your paint from damage that would lower resale value. A 3-year ceramic coating at $899 costs roughly $25/month — less than monthly waxing." }},
+                { "@type": "Question", "name": "Is ceramic coating worth the money?", "acceptedAnswer": { "@type": "Answer", "text": "For most vehicle owners, yes. While the upfront cost is higher ($499–$2,199+), you save money over time by eliminating frequent waxing, reducing wash frequency, and protecting your paint from damage that would lower resale value. A 3-year ceramic coating at $749 costs roughly $21/month — less than monthly waxing." }},
                 { "@type": "Question", "name": "What's the best paint protection: ceramic coating, wax, or sealant?", "acceptedAnswer": { "@type": "Answer", "text": "Ceramic coating offers the best overall protection. It's harder (9H rated), lasts longer (1 year to a lifetime), and provides superior resistance to scratches, chemicals, UV, and environmental contaminants. Sealants are a middle ground lasting 3–6 months, while wax is the shortest-lived at 2–4 weeks." }}
               ]
             }
@@ -117,7 +117,7 @@ export function CeramicCoatingVsWaxPage() {
                 <strong className="text-foreground">Ceramic coating is better than wax in almost every measurable way</strong> — it lasts 50–250x longer, provides real scratch resistance, and actually protects your paint from chemical damage. The tradeoff is cost: professional ceramic coating starts at $499 vs $20–50 for DIY wax.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                However, if you break it down per month, a 3-year ceramic coating at $899 costs about <strong className="text-foreground">$25/month</strong> — and during that time you're spending zero on wax, less on car washes, and getting better protection. For most vehicle owners, ceramic coating is the smarter long-term investment.
+                However, if you break it down per month, a 3-year ceramic coating at $749 costs about <strong className="text-foreground">$21/month</strong> — and during that time you're spending zero on wax, less on car washes, and getting better protection. For most vehicle owners, ceramic coating is the smarter long-term investment.
               </p>
             </div>
           </div>
@@ -230,7 +230,7 @@ export function CeramicCoatingVsWaxPage() {
             {[
               { label: "Wax (Every 2 Weeks)", total: "$1,800–$3,600", math: "75+ applications × $24–$48 each", perMonth: "$50–$100/mo", highlight: false },
               { label: "Sealant (Every 4 Months)", total: "$900–$2,700", math: "9 applications × $100–$300 each", perMonth: "$25–$75/mo", highlight: false },
-              { label: "Ceramic Coating (3-Year)", total: "$899 one-time", math: "Single application, 3-year warranty", perMonth: "~$25/mo", highlight: true },
+              { label: "Ceramic Coating (3-Year)", total: "$749 one-time", math: "Single application, 3-year warranty", perMonth: "~$21/mo", highlight: true },
             ].map((item, i) => (
               <div key={i} className={`rounded-2xl p-6 text-center ${item.highlight ? "bg-gold/10 border-2 border-gold/30" : "bg-card border border-border"}`}>
                 <h3 className={`font-bold text-lg mb-3 ${item.highlight ? "text-gold" : ""}`}>{item.label}</h3>

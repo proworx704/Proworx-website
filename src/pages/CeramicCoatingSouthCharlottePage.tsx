@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Clock, MapPin, Phone, Shield, Star, Truck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, MapPin, Phone, Shield, Star, Warehouse } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -7,13 +7,14 @@ import { useSiteConfig } from "@/hooks/useCms";
 
 const PACKAGES = [
   { name: "GYEON Q² One EVO", protection: "1-Year", price: "From $499", configKey: "ceramicDeposit1yr" },
-  { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "From $899", popular: true, configKey: "ceramicDeposit3yr" },
-  { name: "GYEON Infinite Type 1", protection: "Lifetime*", price: "From $1,799", configKey: "ceramicDepositInfinite1" },
-  { name: "GYEON Infinite Type 1 + 2", protection: "Lifetime*", price: "From $2,199", configKey: "ceramicDepositInfinite2" },
+  { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "From $749", popular: true, configKey: "ceramicDeposit3yr" },
+  { name: "GYEON Q² Syncro EVO", protection: "5-Year Class", price: "From $1,149", configKey: "ceramicDeposit5yr" },
+  { name: "GYEON Infinite Base", protection: "Lifetime*", price: "From $1,799", configKey: "ceramicDepositInfinite1" },
+  { name: "GYEON Infinite Base + TopCoat", protection: "Ultimate Lifetime*", price: "From $2,199", configKey: "ceramicDepositInfinite2" },
 ];
 
 const SERVICES = [
-  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime protection packages", link: "/ceramic-coating" },
+  { title: "Ceramic Coating", desc: "GYEON & IGL certified. 1-year, 3-year, 5-year and lifetime protection packages", link: "/ceramic-coating" },
   { title: "Paint Correction", desc: "Multi-stage correction to remove swirls, scratches & oxidation", link: "/paint-correction" },
   { title: "Full Detailing", desc: "Standard & Ceramic interior and exterior packages", link: "/services" },
   { title: "Maintenance Plans", desc: "Biweekly, monthly or quarterly membership plans", link: "/maintenance" },
@@ -40,7 +41,7 @@ export function CeramicCoatingSouthCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating South Charlotte, NC"
-        description="Ceramic coating in South Charlotte, NC by GYEON & IGL certified installers. 1-year to lifetime protection from $499. Mobile or drop-off. 5-star rated."
+        description="GYEON Certified, owner-installed ceramic coating for South Charlotte, NC. 1-year, 3-year, 5-year and lifetime protection from $499. Drop-off in Waxhaw."
         keywords="ceramic coating South Charlotte NC, auto detailing South Charlotte, paint correction South Charlotte, car detailing South Charlotte NC, mobile detailing South Charlotte, GYEON ceramic coating South Charlotte, luxury car detailing South Charlotte"
         schema={{
           "@context": "https://schema.org",
@@ -56,7 +57,7 @@ export function CeramicCoatingSouthCharlottePage() {
             {
               "@type": "LocalBusiness",
               "name": "ProWorx Detailing",
-              "description": "GYEON & IGL certified ceramic coating and auto detailing serving South Charlotte, NC. Mobile service and drop-off available.",
+              "description": "GYEON Certified, owner-installed ceramic coating serving South Charlotte, NC. Ceramic coating and paint correction are drop-off only at our Waxhaw garage.",
               "url": "https://www.proworxdetailing.com/ceramic-coating-south-charlotte-nc",
               "telephone": "+19802721903",
               "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
@@ -67,9 +68,9 @@ export function CeramicCoatingSouthCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Is there a ceramic coating installer near South Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is ~18 min from South Charlotte. We offer mobile service (we come to your South Charlotte home) and drop-off at our Waxhaw location. GYEON & IGL certified with 63+ five-star Google reviews." } },
-                { "@type": "Question", "name": "How much does ceramic coating cost in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), $1,799 for lifetime (GYEON Infinite Type 1), and $2,199 for ultimate lifetime (Infinite Type 1 + 2). Price varies by vehicle size. All packages include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." } },
-                { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We offer both mobile service and drop-off. For ceramic coating, drop-off is recommended for best results, but we accommodate mobile installations. Call (980) 272-1903 to discuss options." } }
+                { "@type": "Question", "name": "Is there a ceramic coating installer near South Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is ~18 min from South Charlotte. Ceramic coating is drop-off only at our Waxhaw garage, and the owner applies every coating. GYEON & IGL certified with 63+ five-star Google reviews." } },
+                { "@type": "Question", "name": "How much does ceramic coating cost in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $749 for 3-year (Q² Pure EVO), $1,149 for 5-year class (Q² Syncro EVO), $1,799 for lifetime (GYEON Infinite Base), and $2,199 for ultimate lifetime (Infinite Base + TopCoat). Price varies by vehicle size. All packages include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." } },
+                { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "No. Ceramic coating and paint correction are drop-off only, done in our Waxhaw garage about 18 minutes from South Charlotte. Regular detailing and maintenance are still available as mobile services. Call (980) 272-1903 to book." } }
               ]
             }
           ]
@@ -94,7 +95,7 @@ export function CeramicCoatingSouthCharlottePage() {
               <span className="text-gradient-gold">South Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Professional ceramic coating for South Charlotte residents. GYEON &amp; IGL certified installers with 12+ years experience and 63+ five-star reviews. Mobile service or convenient drop-off — ~18 min from our Waxhaw location.
+              Professional ceramic coating for South Charlotte residents. Applied personally by the owner, a GYEON &amp; IGL certified installer with 12+ years of experience and 63+ five-star reviews. Drop-off only at our Waxhaw garage, about 18 minutes away.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -105,7 +106,7 @@ export function CeramicCoatingSouthCharlottePage() {
               </Button>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              {["GYEON & IGL Certified", "Mobile & Drop-Off", "5.0 Stars (63+ Reviews)", "~18 min from South Charlotte"].map((item) => (
+              {["GYEON & IGL Certified", "Owner-installed, drop-off only", "5.0 Stars (63+ Reviews)", "~18 min from South Charlotte"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-gold" /><span>{item}</span>
                 </div>
@@ -125,7 +126,7 @@ export function CeramicCoatingSouthCharlottePage() {
                 Why South Charlotte Residents Choose ProWorx
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                South Charlotte encompasses some of the most affluent neighborhoods in the metro area — from Providence Country Club to Rea Road and the Arboretum district. This stretch of Charlotte is home to executives, entrepreneurs, and families who drive everything from Audi Q7s to Porsche Cayennes. The vehicles in every driveway here tell the story of success.
+                South Charlotte encompasses some of the most affluent neighborhoods in the metro area, from Providence Country Club to Rea Road and the Arboretum district. This stretch of Charlotte is home to executives, entrepreneurs, and families who drive everything from Audi Q7s to Porsche Cayennes. The vehicles in every driveway here tell the story of success.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 South Charlotte professionals demand the same quality in vehicle care as they do in everything else. ProWorx's certified ceramic coating delivers that premium standard, protecting luxury vehicles from the inside out.
@@ -133,7 +134,7 @@ export function CeramicCoatingSouthCharlottePage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <Shield className="size-5" />, label: "Certified Installers", sub: "GYEON & IGL" },
-                  { icon: <Truck className="size-5" />, label: "Mobile Service", sub: "We come to South Charlotte" },
+                  { icon: <Warehouse className="size-5" />, label: "Waxhaw Garage", sub: "Drop-off, ~18 min away" },
                   { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "63+ Google Reviews" },
                   { icon: <Clock className="size-5" />, label: "12+ Years", sub: "Experience" },
                 ].map((item) => (
@@ -159,12 +160,12 @@ export function CeramicCoatingSouthCharlottePage() {
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">Packages</p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating Packages for South Charlotte</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              All packages include a decontamination wash and dry and a prep spray. Polishing is not included; paint correction is a separate service. Clay bar treatment is not included — available as an optional add-on when the paint requires it. 30% deposit to book.
+              All packages include a decontamination wash and dry and a prep spray. Polishing is not included; paint correction is a separate service. Clay bar treatment is not included; it is available as an optional add-on when the paint requires it. 30% deposit to book.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {PACKAGES.map((pkg, i) => (
-              <div key={i} className={`rounded-2xl p-6 text-center ${pkg.popular ? "bg-gold/5 border-2 border-gold/30 relative" : "bg-card border border-border"}`}>
+              <div key={i} className={`w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] rounded-2xl p-6 text-center ${pkg.popular ? "bg-gold/5 border-2 border-gold/30 relative" : "bg-card border border-border"}`}>
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">
                     Most Popular
@@ -241,12 +242,12 @@ export function CeramicCoatingSouthCharlottePage() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3 text-center">FAQ</p>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions — South Charlotte</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions: South Charlotte</h2>
             <div className="space-y-6">
               {[
-                { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes! ProWorx Detailing serves South Charlotte with both mobile service (we come to your home or office) and drop-off at our Waxhaw location, ~18 min from South Charlotte. We're GYEON & IGL certified with 63+ five-star Google reviews." },
-                { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $899 for 3-year (Q² Pure EVO), $1,799 for lifetime (GYEON Infinite Type 1), and $2,199 for ultimate lifetime (Infinite Type 1 + 2). Pricing varies by vehicle size. We require a 30% deposit to book." },
-                { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough decontamination wash and dry and a dedicated prep spray before coating application. A clay bar treatment is not included by default — not every vehicle needs one — but it is available as an optional add-on when the paint is holding bonded contaminants. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
+                { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes. Ceramic coating is drop-off only at our Waxhaw garage, about 18 minutes from South Charlotte, and the owner applies every coating. We're GYEON & IGL certified with 63+ five-star Google reviews." },
+                { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $749 for 3-year (Q² Pure EVO), $1,149 for 5-year class (Q² Syncro EVO), $1,799 for lifetime (GYEON Infinite Base), and $2,199 for ultimate lifetime (Infinite Base + TopCoat). Pricing varies by vehicle size. We require a 30% deposit to book." },
+                { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough decontamination wash and dry and a dedicated prep spray before coating application. A clay bar treatment is not included by default (not every vehicle needs one), but it is available as an optional add-on when the paint is holding bonded contaminants. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
               ].map((item, i) => (
                 <div key={i} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-lg mb-2">{item.q}</h3>
@@ -266,7 +267,7 @@ export function CeramicCoatingSouthCharlottePage() {
               Ready to <span className="text-gradient-gold">Protect Your Vehicle</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Book a ceramic coating consultation with Charlotte's certified specialists. Mobile service to your South Charlotte home or drop-off at our Waxhaw facility.
+              Book a ceramic coating consultation with Charlotte's certified specialist. Drop your car off at our Waxhaw garage, about 18 minutes from South Charlotte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>

@@ -90,7 +90,7 @@ export function BallantyneDetailingPage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Does ProWorx serve Ballantyne, Charlotte NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Ballantyne and South Charlotte including SouthPark, Myers Park, Providence, Rea Road, Blakeney, and Ardrey Kell. We bring our fully equipped mobile setup directly to your home or office." }},
                 { "@type": "Question", "name": "How much does mobile detailing cost in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $218 for sedans. Elite Ceramic packages start at $596 with ceramic protection products bundled at 15% off. Exterior-only starts at $104. Ceramic coating packages range from $499 to $2,199+." }},
-                { "@type": "Question", "name": "Can I get ceramic coating in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($899+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties. Mobile application is available, or drop-off at our Waxhaw facility." }},
+                { "@type": "Question", "name": "Can I get ceramic coating in Ballantyne?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($749+), 5-year class ($1,149+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties. Ceramic coating is drop-off only at our Waxhaw garage." }},
                 { "@type": "Question", "name": "Do I need to bring my car somewhere?", "acceptedAnswer": { "@type": "Answer", "text": "No! We come to you. ProWorx is a fully mobile detailing service. We arrive at your Ballantyne home, office, or parking spot with everything we need \u2014 water, power, and professional-grade products." }},
                 { "@type": "Question", "name": "How long does a full detail take?", "acceptedAnswer": { "@type": "Answer", "text": "A standard Inside & Out detail takes 2\u20133 hours depending on vehicle size and condition. Paint correction and ceramic coating services may take 4\u20138 hours. We\u2019ll give you an accurate time estimate when you book." }}
               ]
@@ -227,7 +227,7 @@ export function BallantyneDetailingPage() {
               <div className="space-y-3 mb-6">
                 {[
                   { label: "1-Year Protection", price: "$499+", name: "GYEON Q\u00B2 One EVO" },
-                  { label: "3-Year Protection", price: "$899+", name: "GYEON Q\u00B2 Pure EVO" },
+                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q\u00B2 Pure EVO" },
                   { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
                   { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (
