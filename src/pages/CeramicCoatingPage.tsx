@@ -605,7 +605,7 @@ export function CeramicCoatingPage() {
             <source src="/videos/ceramic-hero-bg.mp4" type="video/mp4" />
             <track kind="captions" />
           </video>
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/70 md:bg-transparent md:bg-gradient-to-r md:from-black/85 md:via-black/60 md:to-black/25" />
         </div>
         <div className="container py-20 md:py-28">
           <div className="max-w-3xl">
@@ -632,10 +632,10 @@ export function CeramicCoatingPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-5">
               Professional <span className="text-gradient-gold">Ceramic Coating</span> in Charlotte, NC
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4">
-              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-foreground">up to a lifetime</strong>, backed by a GYEON manufacturer warranty. Applied personally by Tyler, a GYEON and IGL certified installer with 12+ years of experience.
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-4 [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]">
+              Not wax. Not sealant. Real ceramic protection that lasts <strong className="text-white">up to a lifetime</strong>, backed by a GYEON manufacturer warranty. Applied personally by Tyler, a GYEON and IGL certified installer with 12+ years of experience.
             </p>
-            <p className="text-base text-gold font-semibold mb-8">
+            <p className="text-base text-gold font-semibold mb-8 [text-shadow:0_1px_4px_rgba(0,0,0,0.9)]">
               Starting at $499 · Reserve with just 30% down
             </p>
 
@@ -661,7 +661,7 @@ export function CeramicCoatingPage() {
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-foreground/90">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]">
               <span className="inline-flex items-center gap-2">
                 <MapPin className="size-4 text-gold shrink-0" /> Drop-off only, at my Waxhaw garage
               </span>
