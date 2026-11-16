@@ -257,7 +257,7 @@ export function WaxhawPage() {
                 { q: "How does mobile detailing work?", a: "We arrive at your location with everything we need — water, power, professional-grade products, and equipment. You don't need to provide anything. Just give us access to your vehicle, and we handle the rest in your driveway or parking spot." },
                 { q: "Do I need to be home during the detail?", a: "Nope! Many of our Waxhaw customers leave their keys and go about their day. We'll text you before, during, and after so you always know what's happening." },
                 { q: "What areas around Waxhaw do you serve?", a: "We serve all of Waxhaw and surrounding communities including Marvin, Weddington, Wesley Chapel, Providence Country Club, Cureton, Indian Trail, Stallings, Matthews, Monroe, and all of Charlotte." },
-                { q: "Can you do ceramic coating at my home in Waxhaw?", a: "Ceramic coating and paint correction are drop-off only, done in our Waxhaw garage. Regular detailing and maintenance are still mobile, so we can come to your home for those. Give us a call!" },
+                { q: "Can you do ceramic coating at my home in Waxhaw?", a: "Ceramic coating and paint correction are drop-off only, done in our Waxhaw shop. Regular detailing and maintenance are still mobile, so we can come to your home for those. Give us a call!" },
               ].map((faq) => (
                 <div key={faq.q} className="rounded-xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-2">{faq.q}</h3>

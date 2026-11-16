@@ -57,7 +57,7 @@ export function CeramicCoatingSouthCharlottePage() {
             {
               "@type": "LocalBusiness",
               "name": "ProWorx Detailing",
-              "description": "GYEON Certified, owner-installed ceramic coating serving South Charlotte, NC. Ceramic coating and paint correction are drop-off only at our Waxhaw garage.",
+              "description": "GYEON Certified, owner-installed ceramic coating serving South Charlotte, NC. Ceramic coating and paint correction are drop-off only at our Waxhaw shop.",
               "url": "https://www.proworxdetailing.com/ceramic-coating-south-charlotte-nc",
               "telephone": "+19802721903",
               "address": { "@type": "PostalAddress", "streetAddress": "3008 Collaroy Rd", "addressLocality": "Waxhaw", "addressRegion": "NC", "postalCode": "28173", "addressCountry": "US" },
@@ -68,9 +68,9 @@ export function CeramicCoatingSouthCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "Is there a ceramic coating installer near South Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is ~18 min from South Charlotte. Ceramic coating is drop-off only at our Waxhaw garage, and the owner applies every coating. GYEON & IGL certified with 63+ five-star Google reviews." } },
+                { "@type": "Question", "name": "Is there a ceramic coating installer near South Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is ~18 min from South Charlotte. Ceramic coating is drop-off only at our Waxhaw shop, and the owner applies every coating. GYEON & IGL certified with 63+ five-star Google reviews." } },
                 { "@type": "Question", "name": "How much does ceramic coating cost in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $749 for 3-year (Q² Pure EVO), $1,149 for 5-year class (Q² Syncro EVO), $1,799 for lifetime (GYEON Infinite Base), and $2,199 for ultimate lifetime (Infinite Base + TopCoat). Price varies by vehicle size. All packages include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." } },
-                { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "No. Ceramic coating and paint correction are drop-off only, done in our Waxhaw garage about 18 minutes from South Charlotte. Regular detailing and maintenance are still available as mobile services. Call (980) 272-1903 to book." } }
+                { "@type": "Question", "name": "Does ProWorx offer mobile ceramic coating in South Charlotte?", "acceptedAnswer": { "@type": "Answer", "text": "No. Ceramic coating and paint correction are drop-off only, done in our Waxhaw shop about 18 minutes from South Charlotte. Regular detailing and maintenance are still available as mobile services. Call (980) 272-1903 to book." } }
               ]
             }
           ]
@@ -95,7 +95,7 @@ export function CeramicCoatingSouthCharlottePage() {
               <span className="text-gradient-gold">South Charlotte, NC</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-8">
-              Professional ceramic coating for South Charlotte residents. Applied personally by the owner, a GYEON &amp; IGL certified installer with 12+ years of experience and 63+ five-star reviews. Drop-off only at our Waxhaw garage, about 18 minutes away.
+              Professional ceramic coating for South Charlotte residents. Applied personally by the owner, a GYEON &amp; IGL certified installer with 12+ years of experience and 63+ five-star reviews. Drop-off only at our Waxhaw shop, about 18 minutes away.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -134,7 +134,7 @@ export function CeramicCoatingSouthCharlottePage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: <Shield className="size-5" />, label: "Certified Installers", sub: "GYEON & IGL" },
-                  { icon: <Warehouse className="size-5" />, label: "Waxhaw Garage", sub: "Drop-off, ~18 min away" },
+                  { icon: <Warehouse className="size-5" />, label: "Waxhaw Shop", sub: "Drop-off, ~18 min away" },
                   { icon: <Star className="size-5" />, label: "5.0 Stars", sub: "63+ Google Reviews" },
                   { icon: <Clock className="size-5" />, label: "12+ Years", sub: "Experience" },
                 ].map((item) => (
@@ -245,7 +245,7 @@ export function CeramicCoatingSouthCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Common Questions: South Charlotte</h2>
             <div className="space-y-6">
               {[
-                { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes. Ceramic coating is drop-off only at our Waxhaw garage, about 18 minutes from South Charlotte, and the owner applies every coating. We're GYEON & IGL certified with 63+ five-star Google reviews." },
+                { q: "Do you offer ceramic coating in South Charlotte?", a: "Yes. Ceramic coating is drop-off only at our Waxhaw shop, about 18 minutes from South Charlotte, and the owner applies every coating. We're GYEON & IGL certified with 63+ five-star Google reviews." },
                 { q: "How much does ceramic coating cost in South Charlotte?", a: "Professional ceramic coating in South Charlotte starts at $499 for 1-year protection (GYEON Q² One EVO), $749 for 3-year (Q² Pure EVO), $1,149 for 5-year class (Q² Syncro EVO), $1,799 for lifetime (GYEON Infinite Base), and $2,199 for ultimate lifetime (Infinite Base + TopCoat). Pricing varies by vehicle size. We require a 30% deposit to book." },
                 { q: "What's included in your ceramic coating service?", a: "Every package includes a thorough decontamination wash and dry and a dedicated prep spray before coating application. A clay bar treatment is not included by default (not every vehicle needs one), but it is available as an optional add-on when the paint is holding bonded contaminants. The coating is hand-applied panel by panel under LED inspection lighting. Higher-tier packages include annual inspections and maintenance." },
               ].map((item, i) => (
@@ -267,7 +267,7 @@ export function CeramicCoatingSouthCharlottePage() {
               Ready to <span className="text-gradient-gold">Protect Your Vehicle</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Book a ceramic coating consultation with Charlotte's certified specialist. Drop your car off at our Waxhaw garage, about 18 minutes from South Charlotte.
+              Book a ceramic coating consultation with Charlotte's certified specialist. Drop your car off at our Waxhaw shop, about 18 minutes from South Charlotte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>

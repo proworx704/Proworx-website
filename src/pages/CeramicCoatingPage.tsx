@@ -191,9 +191,9 @@ const CORRECTION_PRICES = [
 
 /* Garage photos (no readable plates). Admin can override each through its CMS slot. */
 const GARAGE_PHOTOS = {
-  meet: { slot: "ceramic-meet-tyler", src: "/images/garage-range-rover.jpg", alt: "Black Range Rover Sport with a fresh ceramic coating under hex lighting in Tyler's Waxhaw detailing garage" },
-  lift: { slot: "ceramic-garage-lift", src: "/images/garage-lotus-lift.jpg", alt: "Orange Lotus Elise raised on a lift in the ProWorx Waxhaw garage for wheel and lower panel work" },
-  bay: { slot: "ceramic-garage-bay", src: "/images/garage-aston-front.jpg", alt: "Satin blue Aston Martin Vantage inside the clean, organized ProWorx detailing garage in Waxhaw, NC" },
+  meet: { slot: "ceramic-meet-tyler", src: "/images/garage-range-rover.jpg", alt: "Black Range Rover Sport with a fresh ceramic coating under hex lighting in Tyler's Waxhaw detailing shop" },
+  lift: { slot: "ceramic-garage-lift", src: "/images/garage-lotus-lift.jpg", alt: "Orange Lotus Elise raised on a lift in the ProWorx Waxhaw shop for wheel and lower panel work" },
+  bay: { slot: "ceramic-garage-bay", src: "/images/garage-aston-front.jpg", alt: "Satin blue Aston Martin Vantage inside the clean, organized ProWorx detailing shop in Waxhaw, NC" },
   owner: { slot: "ceramic-owner-tyler", src: "/images/tyler-owner.jpg", alt: "Tyler York, owner of ProWorx Detailing, in a black ProWorx polo" },
 };
 
@@ -251,7 +251,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is this a drop-off or mobile service?",
-    a: "Drop-off only for ceramic coating and paint correction, done in my Waxhaw garage. Regular detailing and maintenance are still available as mobile services.",
+    a: "Drop-off only for ceramic coating and paint correction, done in my Waxhaw shop. Regular detailing and maintenance are still available as mobile services.",
   },
   {
     q: "Who applies the coating?",
@@ -539,7 +539,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="GYEON Certified Ceramic Coating Charlotte NC"
-        description="GYEON Certified, owner-installed ceramic coating in Charlotte, NC. 1-year, 3-year, 5-year and lifetime packages from $499. Drop-off at our Waxhaw garage. 30% down."
+        description="GYEON Certified, owner-installed ceramic coating in Charlotte, NC. 1-year, 3-year, 5-year and lifetime packages from $499. Drop-off at our Waxhaw shop. 30% down."
         keywords="ceramic coating Charlotte NC, GYEON Certified ceramic coating, owner-installed ceramic coating, 5-year ceramic coating, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
@@ -571,7 +571,7 @@ export function CeramicCoatingPage() {
                 },
               },
               areaServed: "Charlotte, NC",
-              description: "GYEON Certified, owner-installed ceramic coating with 1-year, 3-year, 5-year and lifetime protection packages. Drop-off only at our Waxhaw, NC garage.",
+              description: "GYEON Certified, owner-installed ceramic coating with 1-year, 3-year, 5-year and lifetime protection packages. Drop-off only at our Waxhaw, NC shop.",
               offers: {
                 "@type": "AggregateOffer",
                 lowPrice: "499",
@@ -663,7 +663,7 @@ export function CeramicCoatingPage() {
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]">
               <span className="inline-flex items-center gap-2">
-                <MapPin className="size-4 text-gold shrink-0" /> Drop-off only, at my Waxhaw garage
+                <MapPin className="size-4 text-gold shrink-0" /> Drop-off only, at my Waxhaw shop
               </span>
               <span className="inline-flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-gold shrink-0" /> Decontamination wash and prep wipe included
@@ -716,7 +716,7 @@ export function CeramicCoatingPage() {
                 I built ProWorx from the ground up, and I personally do every ceramic coating and every paint correction. No handoffs and no rotating crew.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Your car comes to my garage. I inspect the paint under proper lighting and tell you what I see before any work starts. Your car stays here, under my eyes, until it is done. When it is ready, you pick it up from the person who did it.
+                Your car comes to my shop. I inspect the paint under proper lighting and tell you what I see before any work starts. Your car stays here, under my eyes, until it is done. When it is ready, you pick it up from the person who did it.
               </p>
               <div className="flex items-center gap-4 mb-6">
                 <CmsImg
@@ -777,7 +777,7 @@ export function CeramicCoatingPage() {
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Professional-grade GYEON ceramic coatings applied by a certified installer. Every package includes a decontamination pre-wash & panel prep spray. Polishing is not included; paint correction is a separate service. Pricing varies by vehicle size.{" "}
-              <span className="text-foreground font-medium">Ceramic coating and paint correction are drop-off only, at my Waxhaw garage.</span>
+              <span className="text-foreground font-medium">Ceramic coating and paint correction are drop-off only, at my Waxhaw shop.</span>
             </p>
           </div>
 
@@ -839,7 +839,7 @@ export function CeramicCoatingPage() {
               <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Also available by request</p>
               <h3 className="font-bold text-sm mb-1">STEK paint protection film and ceramic</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Want rock chip protection on the front of your car? Ask about STEK film for front ends, or STEK ceramic coating, installed in my garage. Drop-off only.
+                Want rock chip protection on the front of your car? Ask about STEK film for front ends, or STEK ceramic coating, installed in my shop. Drop-off only.
               </p>
             </div>
             <Button variant="outline" className="shrink-0 font-semibold border-gold/30 text-gold hover:bg-gold/10" asChild>
@@ -957,7 +957,7 @@ export function CeramicCoatingPage() {
                   <h3 className="font-bold text-sm">Ceramic Coating Only</h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-foreground font-medium">Drop-off only</span> at my Waxhaw garage, so the coating is applied and cured in a controlled space.
+                  <span className="text-foreground font-medium">Drop-off only</span> at my Waxhaw shop, so the coating is applied and cured in a controlled space.
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-card p-5">
@@ -986,7 +986,7 @@ export function CeramicCoatingPage() {
                 Where your car <span className="text-gradient-gold">stays</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A dedicated detailing garage built for paint work: bright inspection lighting, a lift for wheels and lower panels, and a clean, organized workspace.
+                A dedicated detailing shop built for paint work: bright inspection lighting, a lift for wheels and lower panels, and a clean, organized workspace.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">

@@ -221,7 +221,7 @@ export function MatthewsDetailingPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Matthews</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. Ceramic coating is drop-off only at our Waxhaw garage.
+                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. Ceramic coating is drop-off only at our Waxhaw shop.
               </p>
               <div className="space-y-3 mb-6">
                 {[
