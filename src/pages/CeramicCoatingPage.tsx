@@ -105,8 +105,7 @@ const PACKAGES: CeramicPackage[] = [
     priceNum: 749,
     deposit: "$225",
     configKey: "ceramicDeposit3yr",
-    // NOTE: this Stripe link was created for the old $899 price. Replace with a $749 link before publishing.
-    financeUrl: "https://buy.stripe.com/fZu8wPaOB5NJgSY6l1bMQ0e",
+    // Old $899 Stripe/Affirm link (fZu8wPaOB5NJgSY6l1bMQ0e) removed; add a $749 link here when one exists.
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
