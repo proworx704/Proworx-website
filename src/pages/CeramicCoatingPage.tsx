@@ -267,7 +267,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is ProWorx a certified installer?",
-    a: "Yes. I am a GYEON Certified Detailer and IGL certified, with 12+ years of experience.",
+    a: "Yes. I am a GYEON Certified Detailer, IGL certified and STEK certified, with 12+ years of experience.",
   },
 ];
 
@@ -620,6 +620,10 @@ export function CeramicCoatingPage() {
                 IGL Certified
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold backdrop-blur-sm">
+                <Shield className="size-3" />
+                STEK Certified
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold backdrop-blur-sm">
                 <User className="size-3" />
                 Owner-installed
               </span>
@@ -680,7 +684,7 @@ export function CeramicCoatingPage() {
             {[
               { icon: <Award className="size-5 text-gold" />, label: "12+ Years", sub: "Professional Experience" },
               { icon: <Star className="size-5 text-amber-400 fill-amber-400" />, label: "5.0 Stars", sub: "63+ Verified Reviews" },
-              { icon: <ShieldCheck className="size-5 text-gold" />, label: "GYEON & IGL", sub: "Certified Installer" },
+              { icon: <ShieldCheck className="size-5 text-gold" />, label: "GYEON, IGL & STEK", sub: "Certified Installer" },
               { icon: <Calendar className="size-5 text-gold" />, label: "Up to Lifetime", sub: "Manufacturer Warranty" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-3">
