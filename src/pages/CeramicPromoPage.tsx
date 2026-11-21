@@ -62,8 +62,8 @@ const ADDON_UPSELLS = [
   { name: "Wheel Faces Ceramic", price: "$200", save: "$30" },
   { name: "Wheel Off — Faces, Barrel & Calipers", price: "$400", save: "$60" },
   { name: "Trim & Plastic Ceramic", price: "$80", save: "$12" },
-  { name: "Leather Shield", price: "$60", save: "$9" },
-  { name: "Fabric Coat", price: "$40", save: "$6" },
+  { name: "Leather Shield", price: "$175", save: "$26" },
+  { name: "Fabric Coat", price: "$125", save: "$19" },
 ];
 
 /* ── Service areas ── */

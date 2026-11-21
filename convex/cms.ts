@@ -401,9 +401,9 @@ export const checkAndSeed = mutation({
         items: [
           { name: "Ceramic Tire Dressing", description: "Long-lasting, deep black finish for tires with UV protection.", price: "$20", duration: "30 min" },
           { name: "Convertible Top Fabric Protection", description: "Hydrophobic treatment for convertible tops.", price: "$100", duration: "30 min" },
-          { name: "GYEON Leather Shield", description: "Ceramic coating for leather to resist dye transfer, staining, and UV fading.", price: "$60", duration: "20 min" },
+          { name: "GYEON Leather Shield", description: "Ceramic coating for leather to resist dye transfer, staining, and UV fading.", price: "$175", duration: "20 min" },
           { name: "GYEON View (Windshield Ceramic – 12+ mo)", description: "Long-lasting hydrophobic coating for superior rain visibility.", price: "$120", duration: "1 hr 30 min" },
-          { name: "GYEON Fabric Coat", description: "Hydrophobic fabric protection for seats and carpets.", price: "$40", duration: "30 min" },
+          { name: "GYEON Fabric Coat", description: "Hydrophobic fabric protection for seats and carpets.", price: "$125", duration: "30 min" },
           { name: "Rain Repellent Glass Treatment", description: "Water-beading layer for safer wet driving.", price: "$40", duration: "5 min" },
           { name: "Fabric Protection / Weather Guard", description: "Hydrophobic barrier for seats, carpets, and mats to resist spills and stains.", price: "$80", duration: "10 min" },
         ],

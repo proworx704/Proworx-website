@@ -343,8 +343,8 @@ export function MenuPage() {
             { name: "GYEON View — Windshield Ceramic", price: "$120" },
             { name: "Convertible Top Protection", price: "$100" },
             { name: "Fabric Protection / Weather Guard", price: "$80" },
-            { name: "GYEON Leather Shield", price: "$60" },
-            { name: "GYEON Fabric Coat", price: "$40" },
+            { name: "GYEON Leather Shield", price: "$175" },
+            { name: "GYEON Fabric Coat", price: "$125" },
             { name: "Rain Repellent Glass Treatment", price: "$40" },
             { name: "Ceramic Tire Dressing", price: "$20" },
           ]} />
