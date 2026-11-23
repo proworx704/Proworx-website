@@ -5,19 +5,12 @@ import { BookNowLink } from "@/components/BookNowLink";
 import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
-import {
-  BOAT_WASH_LINKS, BOAT_INTERIOR_LINKS, BOAT_EXTERIOR_LINKS,
-  BOAT_FULL_LINKS,
-  BOAT_1STEP_POLISH_LINKS, BOAT_2STEP_CORRECTION_LINKS,
-  BOAT_MULTISTAGE_CORRECTION_LINKS, BOAT_CERAMIC_GELCOAT_LINKS,
-} from "@/lib/paymentLinks";
 
 /* ── Boat service pricing by size bracket ── */
 const BOAT_SERVICES = [
   {
     name: "Basic Boat Wash",
     slug: "basic-boat-wash",
-    financeLinks: BOAT_WASH_LINKS,
     description: "Exterior hand wash, rinse, and dry. Ideal for routine upkeep between deep cleans.",
     tiers: [
       { label: "Up to 20 ft", price: "$206" },
@@ -29,7 +22,6 @@ const BOAT_SERVICES = [
   {
     name: "Interior Detail",
     slug: "interior-boat-detail",
-    financeLinks: BOAT_INTERIOR_LINKS,
     description: "Deep clean of all interior surfaces — seats, cushions, compartments, cup holders, dash, and floor. Restore your cabin to like-new condition.",
     tiers: [
       { label: "Up to 20 ft", price: "$309" },
@@ -41,7 +33,6 @@ const BOAT_SERVICES = [
   {
     name: "Exterior Detail + Wax",
     slug: "exterior-boat-detail",
-    financeLinks: BOAT_EXTERIOR_LINKS,
     description: "Full exterior wash, decontamination, and hand wax application for lasting shine and UV protection on the water.",
     tiers: [
       { label: "Up to 20 ft", price: "$412" },
@@ -53,7 +44,6 @@ const BOAT_SERVICES = [
   {
     name: "Full Boat Detail",
     slug: "full-boat-detail",
-    financeLinks: BOAT_FULL_LINKS,
     description: "The works — comprehensive interior deep clean plus exterior wash, decontamination, and wax. Top-to-bottom restoration.",
     tiers: [
       { label: "Up to 20 ft", price: "$618" },
@@ -70,7 +60,6 @@ const BOAT_CORRECTION_TIERS = [
   {
     title: "Boat 1-Step Enhancement Polish",
     slug: "boat-1step-polish",
-    financeLinks: BOAT_1STEP_POLISH_LINKS,
     description: "Removes light oxidation and restores gloss on well-maintained gelcoat. Ideal for boats that have been regularly waxed and just need a refresh.",
     ideal: "Well-maintained gelcoat with light oxidation",
     improvement: "~60-70% defect removal",
@@ -84,7 +73,6 @@ const BOAT_CORRECTION_TIERS = [
   {
     title: "Boat 2-Step Correction",
     slug: "boat-2step-correction",
-    financeLinks: BOAT_2STEP_CORRECTION_LINKS,
     description: "A compounding stage to cut through moderate oxidation and swirl marks, followed by a fine polish to restore a deep, glossy finish on gelcoat and fiberglass.",
     ideal: "Moderate oxidation, swirl marks, and surface wear",
     improvement: "~85-95% defect removal",
@@ -98,7 +86,6 @@ const BOAT_CORRECTION_TIERS = [
   {
     title: "Boat Multi-Stage Correction",
     slug: "boat-multistage-correction",
-    financeLinks: BOAT_MULTISTAGE_CORRECTION_LINKS,
     description: "Our most thorough gelcoat correction — multiple cutting and polishing stages to remove heavy oxidation, decal residue, deep scratches, and years of neglect. Restores severely weathered boats to like-new.",
     ideal: "Heavy oxidation, decal residue, deeply neglected gelcoat",
     improvement: "~95-99% defect removal",
@@ -277,21 +264,10 @@ export function BoatDetailingPage() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {svc.tiers.map((tier) => {
-                    const finUrl = svc.financeLinks?.[tier.label];
                     return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
                       <p className="font-bold text-gold text-lg">{tier.price}</p>
-                      {finUrl && (
-                        <a
-                          href={finUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 mt-1.5 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors"
-                        >
-                          💳 Finance
-                        </a>
-                      )}
                     </div>
                     );
                   })}
@@ -330,22 +306,11 @@ export function BoatDetailingPage() {
                   <div className="rounded-xl bg-muted/50 border border-border/50 p-4 mb-5 flex-1">
                     <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing by Boat Length</p>
                     {stage.tiers.map((t) => {
-                      const finUrl = stage.financeLinks?.[t.label];
                       return (
                         <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
                           <p className="text-sm font-medium">{t.label}</p>
                           <div className="flex items-center gap-2.5">
                             <p className="font-bold text-gold">{t.price}</p>
-                            {finUrl && (
-                              <a
-                                href={finUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
-                              >
-                                💳 Finance
-                              </a>
-                            )}
                           </div>
                         </div>
                       );
@@ -358,7 +323,7 @@ export function BoatDetailingPage() {
               );
             })}
           </div>
-          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available — pay over time with 0% APR monthly payments.</p>
+          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Pay over time with Affirm: choose Affirm at checkout when you pay your invoice. Subject to approval.</p>
         </div>
       </section>
 
@@ -379,21 +344,10 @@ export function BoatDetailingPage() {
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">{CERAMIC_PACKAGE.description}</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
                 {CERAMIC_PACKAGE.tiers.map((tier) => {
-                  const finUrl = BOAT_CERAMIC_GELCOAT_LINKS[tier.label];
                   return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
                       <p className="font-bold text-gold text-lg">{tier.price}</p>
-                      {finUrl && (
-                        <a
-                          href={finUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 mt-1.5 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors"
-                        >
-                          💳 Finance
-                        </a>
-                      )}
                     </div>
                   );
                 })}

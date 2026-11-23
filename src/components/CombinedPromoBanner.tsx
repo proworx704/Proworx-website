@@ -35,20 +35,20 @@ export function CombinedPromoBanner() {
 
       <div className="container relative">
         <div className="flex items-center justify-center gap-2 sm:gap-5 py-2 px-8 text-center">
-          {/* Financing side */}
+          {/* Financing side: Affirm is offered at checkout on QuickBooks invoices */}
           <Link
-            to="/ceramic-coating#packages"
+            to="/ceramic-coating#financing"
             className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity group"
           >
             <span className="text-blue-300">💳</span>
             <span className="hidden sm:inline text-white/90">
-              <span className="text-blue-300 font-bold">0% APR</span> Financing
-              · As low as <span className="text-blue-300 font-bold">$46/mo</span> with
+              <span className="text-blue-300 font-bold">Pay over time</span>: choose
             </span>
             <span className="sm:hidden text-white/90">
-              <span className="text-blue-300 font-bold">0% APR</span> from <span className="text-blue-300 font-bold">$46/mo</span> w/
+              <span className="text-blue-300 font-bold">Pay over time</span> w/
             </span>
             <AffirmLogo className="h-3.5 sm:h-4 text-white" />
+            <span className="hidden sm:inline text-white/90">at checkout</span>
           </Link>
 
           {/* Divider */}

@@ -5,7 +5,6 @@ import { BookNowLink } from "@/components/BookNowLink";
 import { BookingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
-import { PAINT_CORRECTION_LINKS } from "@/lib/paymentLinks";
 
 const STAGES = [
   {
@@ -134,22 +133,11 @@ export function PaintCorrectionPage() {
                   <div className="rounded-xl bg-muted/50 border border-border/50 p-4 mb-5 flex-1">
                     <p className="text-xs font-bold text-gold uppercase tracking-widest mb-3">Pricing by Vehicle Size</p>
                     {stage.tiers.map((t) => {
-                      const finUrl = PAINT_CORRECTION_LINKS[t.key];
                       return (
                         <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
                           <p className="text-sm font-medium">{t.label}</p>
                           <div className="flex items-center gap-2.5">
                             <p className="font-bold text-gold">{t.price}</p>
-                            {finUrl && (
-                              <a
-                                href={finUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-semibold hover:bg-blue-600/20 transition-colors whitespace-nowrap"
-                              >
-                                💳 Finance
-                              </a>
-                            )}
                           </div>
                         </div>
                       );
@@ -162,7 +150,7 @@ export function PaintCorrectionPage() {
               );
             })}
           </div>
-          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Affirm financing available — pay over time with 0% APR monthly payments.</p>
+          <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Pay over time with Affirm: choose Affirm at checkout when you pay your invoice. Subject to approval.</p>
         </div>
       </section>
 

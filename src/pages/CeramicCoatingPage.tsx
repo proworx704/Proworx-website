@@ -21,7 +21,6 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
-import { AffirmMonthlyEstimate } from "@/components/AffirmMonthlyEstimate";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion, trackViewContent } from "@/lib/tracking";
 
@@ -68,8 +67,6 @@ type CeramicPackage = {
   priceNum: number;
   deposit: string;
   configKey: string;
-  /** Stripe/Affirm checkout link. Missing = "Ask about Affirm" (call/text). */
-  financeUrl?: string;
   features: string[];
   chooseIf: string;
   popular?: boolean;
@@ -87,7 +84,6 @@ const PACKAGES: CeramicPackage[] = [
     priceNum: 499,
     deposit: "$150",
     configKey: "ceramicDeposit1yr",
-    financeUrl: "https://buy.stripe.com/5kQeVd4qd6RN7iogZFbMQ0d",
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
@@ -105,7 +101,6 @@ const PACKAGES: CeramicPackage[] = [
     priceNum: 749,
     deposit: "$225",
     configKey: "ceramicDeposit3yr",
-    // Old $899 Stripe/Affirm link (fZu8wPaOB5NJgSY6l1bMQ0e) removed; add a $749 link here when one exists.
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
@@ -143,7 +138,6 @@ const PACKAGES: CeramicPackage[] = [
     priceNum: 1799,
     deposit: "$540",
     configKey: "ceramicDepositInfinite1",
-    financeUrl: "https://buy.stripe.com/14A4gz2i5b839qw38PbMQ0f",
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
@@ -161,7 +155,6 @@ const PACKAGES: CeramicPackage[] = [
     priceNum: 2199,
     deposit: "$660",
     configKey: "ceramicDepositInfinite2",
-    financeUrl: "https://buy.stripe.com/aFabJ16yl0tp8ms8t9bMQ0g",
     features: [
       "Decontamination wash, dry & prep spray",
       "Panel prep spray for coating bond",
@@ -385,11 +378,9 @@ function ChoiceSelector({
 function PackageCard({
   pkg,
   depositUrl,
-  phoneLink,
 }: {
   pkg: CeramicPackage;
   depositUrl: string;
-  phoneLink: string;
 }) {
   const [base, setBase] = useState(BASE_OPTIONS[0].id);
   const [topcoat, setTopcoat] = useState(TOPCOAT_OPTIONS[0].id);
@@ -423,10 +414,6 @@ function PackageCard({
         <span className="text-3xl font-black">{pkg.priceFrom}</span>
         <span className="text-sm text-muted-foreground ml-1">starting</span>
         <p className="text-xs text-muted-foreground mt-1">30% deposit ({pkg.deposit}) to reserve</p>
-        <AffirmMonthlyEstimate
-          amount={pkg.priceNum}
-          className="text-xs mt-1.5 [&_a]:text-blue-400 [&_a]:no-underline"
-        />
       </div>
 
       {pkg.chooseBase && (
@@ -468,21 +455,9 @@ function PackageCard({
           Reserve Now <ArrowRight className="size-4" />
         </a>
       </Button>
-      <Button
-        variant="outline"
-        className="w-full font-bold border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 mt-2"
-        asChild
-      >
-        {pkg.financeUrl ? (
-          <a href={pkg.financeUrl} target="_blank" rel="noopener noreferrer">
-            💳 Finance with Affirm
-          </a>
-        ) : (
-          <a href={phoneLink} onClick={trackPhoneClick}>
-            💳 Ask about Affirm financing
-          </a>
-        )}
-      </Button>
+      <p className="mt-3 text-center text-xs text-blue-300">
+        💳 Pay over time: choose <span className="font-semibold text-white">Affirm</span> at checkout
+      </p>
     </div>
   );
 }
@@ -791,7 +766,6 @@ export function CeramicCoatingPage() {
                 key={pkg.name}
                 pkg={pkg}
                 depositUrl={getDepositUrl(pkg.configKey)}
-                phoneLink={config.phoneLink}
               />
             ))}
           </div>
@@ -801,8 +775,8 @@ export function CeramicCoatingPage() {
           </p>
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-lg mx-auto">
-            30% deposit is applied to your final service total. Finance with{" "}
-            <span className="font-semibold text-foreground">Affirm</span>: pay over time with easy monthly payments. Subject to eligibility.
+            30% deposit is applied to your final service total. Want to pay over time? Choose{" "}
+            <span className="font-semibold text-foreground">Affirm</span> at checkout when you pay your invoice. Subject to approval.
           </p>
 
           {/* Side by side */}
@@ -1184,23 +1158,23 @@ export function CeramicCoatingPage() {
       </section>
 
       {/* ═══════════ FINANCING ═══════════ */}
-      <section className="py-12 md:py-16 bg-card/50">
+      <section id="financing" className="py-12 md:py-16 bg-card/50 scroll-mt-24">
         <div className="container">
           <div className="max-w-3xl mx-auto rounded-2xl bg-blue-600/10 border border-blue-600/20 p-7 text-center">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">Buy Now, Pay Later</h2>
             <p className="text-muted-foreground mb-5 text-sm">
-              Flexible monthly payments on all ceramic coating and paint correction services.
-              Finance through <span className="font-semibold text-foreground">Affirm</span> and pay over time with easy monthly payments. No hidden fees.
+              Split any ceramic coating or paint correction into monthly payments. When you pay your invoice,
+              just choose <span className="font-semibold text-foreground">Affirm</span> at checkout. No separate application or link needed.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button className="bg-blue-600 text-white hover:bg-blue-700 font-bold" asChild>
                 <a href="#packages">
-                  View Packages & Finance <ArrowRight className="size-4" />
+                  View Packages <ArrowRight className="size-4" />
                 </a>
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-4">
-              Affirm financing available at checkout on all ceramic coating and paint correction services. Subject to eligibility.
+              Affirm is offered at checkout on your ProWorx invoice. Subject to approval by Affirm.
             </p>
           </div>
         </div>
