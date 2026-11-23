@@ -1,7 +1,6 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AffirmLogo } from "./AffirmBadge";
 
 /**
  * Single combined promo banner — financing + ceramic membership.
@@ -42,13 +41,13 @@ export function CombinedPromoBanner() {
           >
             <span className="text-blue-300">💳</span>
             <span className="hidden sm:inline text-white/90">
-              <span className="text-blue-300 font-bold">Pay over time</span>: choose
+              <span className="text-blue-300 font-bold">Pay over time</span>: choose{" "}
+              <span className="font-bold text-white">Affirm</span> at checkout
             </span>
             <span className="sm:hidden text-white/90">
-              <span className="text-blue-300 font-bold">Pay over time</span> w/
+              <span className="text-blue-300 font-bold">Pay over time</span> w/{" "}
+              <span className="font-bold text-white">Affirm</span>
             </span>
-            <AffirmLogo className="h-3.5 sm:h-4 text-white" />
-            <span className="hidden sm:inline text-white/90">at checkout</span>
           </Link>
 
           {/* Divider */}
