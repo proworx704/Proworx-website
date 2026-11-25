@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 /**
- * Single combined promo banner — financing + ceramic membership.
- * Replaces the old stacked AffirmFinancingBanner + SummerShieldBanner.
+ * Top promo banner: financing (Affirm at QuickBooks invoice checkout).
+ * Free-ceramic-with-membership promo removed 2026-11-24 per Tyler.
  * Dismissible per session. Shows above the header on all pages.
  */
 export function CombinedPromoBanner() {
@@ -47,27 +47,6 @@ export function CombinedPromoBanner() {
             <span className="sm:hidden text-white/90">
               <span className="text-blue-300 font-bold">Pay over time</span> w/{" "}
               <span className="font-bold text-white">Affirm</span>
-            </span>
-          </Link>
-
-          {/* Divider */}
-          <span className="text-white/20 text-xs sm:text-sm select-none">|</span>
-
-          {/* Ceramic promo side */}
-          <Link
-            to="/ceramic-promo"
-            className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity group"
-          >
-            <span className="text-amber-400">🛡️</span>
-            <span className="hidden sm:inline text-white/90">
-              FREE Ceramic Coating{" "}
-              <span className="text-amber-400 font-semibold">($749 value)</span>{" "}
-              w/ Membership
-            </span>
-            <span className="sm:hidden text-white/90">
-              FREE Ceramic{" "}
-              <span className="text-amber-400 font-semibold">$749</span>{" "}
-              w/ Membership
             </span>
           </Link>
         </div>
