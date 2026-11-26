@@ -215,6 +215,16 @@
       "source": "/landing-page",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/summer-shield",
+      "destination": "/ceramic-coating",
+      "permanent": true
+    },
+    {
+      "source": "/4thsummersale",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -329,14 +339,6 @@
     {
       "source": "/mobile-detailing-fort-mill-sc",
       "destination": "/mobile-detailing-fort-mill-sc.html"
-    },
-    {
-      "source": "/summer-shield",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/4thsummersale",
-      "destination": "/index.html"
     },
     {
       "source": "/ceramic-promo",
