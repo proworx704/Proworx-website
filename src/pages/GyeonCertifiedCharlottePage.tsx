@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
+import { PriceLabel } from "@/components/PricingDisclaimer";
 
 const GYEON_PRODUCTS = [
   {
     name: "GYEON Q² One EVO",
     protection: "1 Year",
-    price: "From $499",
+    price: "Starting at $499",
     description: "Entry-level professional ceramic coating. Perfect for daily drivers or those wanting to experience ceramic protection before committing to a longer term.",
     features: ["Single-layer application", "1-year manufacturer warranty", "Hydrophobic protection & UV shield", "Enhanced gloss & depth"],
     configKey: "ceramicDeposit1yr",
@@ -18,7 +19,7 @@ const GYEON_PRODUCTS = [
   {
     name: "GYEON Q² Pure EVO",
     protection: "3 Years",
-    price: "From $749",
+    price: "Starting at $749",
     popular: true,
     description: "Our most popular package. Professional-grade coating with superior chemical resistance and extreme hydrophobic properties. Best value for most vehicle owners.",
     features: ["Professional multi-layer coating", "3-year manufacturer warranty", "Superior chemical & UV resistance", "Extreme hydrophobic properties", "Annual inspection included"],
@@ -27,7 +28,7 @@ const GYEON_PRODUCTS = [
   {
     name: "GYEON Infinite Type 1",
     protection: "Lifetime*",
-    price: "From $1,799",
+    price: "Starting at $1,799",
     description: "World's first fluoro-modified polysilazane coating. Extreme chemical resistance, self-cleaning properties, and GYEON's Infinite Lifetime Warranty.",
     features: ["Advanced fluoro-modified polysilazane technology", "Lifetime manufacturer warranty*", "Extreme chemical resistance & UV protection", "Self-cleaning hydrophobic effect", "Biennial maintenance inspection included"],
     configKey: "ceramicDepositInfinite1",
@@ -35,7 +36,7 @@ const GYEON_PRODUCTS = [
   {
     name: "GYEON Infinite Type 1 + 2",
     protection: "Lifetime*",
-    price: "From $2,199",
+    price: "Starting at $2,199",
     description: "The ultimate dual-layer system — Type 1 base with Type 2 TopCoat for maximum gloss, depth, and watermark resistance. Ideal for NC's hot, humid climate.",
     features: ["Dual-layer base + topcoat system", "Lifetime manufacturer warranty*", "Maximum gloss, depth & color enhancement", "Outstanding watermark resistance", "Biennial maintenance inspection included"],
     configKey: "ceramicDepositInfinite2",
@@ -89,7 +90,7 @@ export function GyeonCertifiedCharlottePage() {
               "mainEntity": [
                 { "@type": "Question", "name": "Is ProWorx a certified GYEON installer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx Detailing is a GYEON and IGL certified ceramic coating installer in Charlotte, NC. Our installers are factory-trained and use only genuine professional-grade GYEON Q² EVO series coatings backed by manufacturer warranty." }},
                 { "@type": "Question", "name": "Why does GYEON certification matter?", "acceptedAnswer": { "@type": "Answer", "text": "Certified installers receive proper training, access to professional-grade products (not available to consumers), and can offer manufacturer warranties. Non-certified installers may use consumer-grade products, skip proper prep work, and cannot provide a GYEON warranty." }},
-                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON professional series: Q² One EVO (1-year, from $499), Q² Pure EVO (3-year, from $749), Q² Syncro EVO (5-year class, from $1,149), Infinite Type 1 (lifetime, from $1,799), and Infinite Type 1 + Type 2 (lifetime, from $2,199). All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
+                { "@type": "Question", "name": "What GYEON products does ProWorx use?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx installs the GYEON professional series: Q² One EVO (1-year, starting at $499), Q² Pure EVO (3-year, starting at $749), Q² Syncro EVO (5-year class, starting at $1,149), Infinite Type 1 (lifetime, starting at $1,799), and Infinite Type 1 + Type 2 (lifetime, starting at $2,199). All include a decontamination pre-wash and panel prep spray. Polishing is not included; paint correction is a separate service." }},
                 { "@type": "Question", "name": "Does GYEON ceramic coating come with a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when installed by a certified installer like ProWorx. GYEON provides manufacturer warranties: 1 year for Q² One EVO, 3 years for Q² Pure EVO, and a lifetime Infinite Warranty for the Infinite series (with biennial maintenance). The warranty covers coating performance." }}
               ]
             }
@@ -211,7 +212,7 @@ export function GyeonCertifiedCharlottePage() {
                   <span className="text-sm font-semibold text-gold">{pkg.protection} Protection</span>
                 </div>
                 <h3 className="text-xl font-bold mb-1">{pkg.name}</h3>
-                <p className="text-2xl font-black text-gold mb-3">{pkg.price}</p>
+                <p className="text-2xl font-black text-gold mb-3"><PriceLabel price={pkg.price} /></p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">{pkg.description}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.features.map((f, j) => (

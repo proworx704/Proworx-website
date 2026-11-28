@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
-  { name: "Standard Interior", price: "From $156", features: ["Full interior vacuum", "Dashboard & console wipe-down", "Door panels & jambs", "Glass cleaning inside", "Light stain treatment"], best: "Regular maintenance \u2014 keeps your cabin fresh and clean" },
-  { name: "Premium Interior", price: "From $268", features: ["Everything in Standard", "Leather conditioning & UV protection", "Steam cleaning all surfaces", "Air vent deep clean", "Odor elimination treatment", "Air freshener"], popular: true, best: "Deep clean \u2014 leather care, steam, and odor removal" },
-  { name: "Elite Interior", price: "From $349", features: ["Everything in Premium", "GYEON LeatherShield protection", "Fabric & carpet extraction", "Headliner spot cleaning", "Plastic & trim ceramic coating", "Pet hair removal"], best: "Total restoration \u2014 brings neglected interiors back to life" },
+  { name: "Standard Interior", price: "Starting at $156", features: ["Full interior vacuum", "Dashboard & console wipe-down", "Door panels & jambs", "Glass cleaning inside", "Light stain treatment"], best: "Regular maintenance \u2014 keeps your cabin fresh and clean" },
+  { name: "Premium Interior", price: "Starting at $268", features: ["Everything in Standard", "Leather conditioning & UV protection", "Steam cleaning all surfaces", "Air vent deep clean", "Odor elimination treatment", "Air freshener"], popular: true, best: "Deep clean \u2014 leather care, steam, and odor removal" },
+  { name: "Elite Interior", price: "Starting at $349", features: ["Everything in Premium", "GYEON LeatherShield protection", "Fabric & carpet extraction", "Headliner spot cleaning", "Plastic & trim ceramic coating", "Pet hair removal"], best: "Total restoration \u2014 brings neglected interiors back to life" },
 ];
 
 const INTERIOR_SERVICES = [
@@ -199,7 +199,7 @@ export function InteriorDetailingCharlottePage() {
               <div key={pkg.name} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${pkg.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {pkg.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <h3 className="font-bold text-xl mb-1">{pkg.name}</h3>
-                <p className="text-2xl font-black mb-2">{pkg.price}</p>
+                <p className="text-2xl font-black mb-2"><PriceLabel price={pkg.price} /></p>
                 <p className="text-xs text-muted-foreground mb-4"><strong>Best for:</strong> {pkg.best}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.features.map((f) => (
@@ -216,6 +216,7 @@ export function InteriorDetailingCharlottePage() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground text-center mt-4">Prices shown for sedans. SUVs, trucks, and larger vehicles priced individually. <Link to="/services" className="text-gold hover:underline">View all packages \u2192</Link></p>
+          <StartingPriceNote className="text-center" />
         </div>
       </section>
 

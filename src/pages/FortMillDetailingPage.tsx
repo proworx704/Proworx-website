@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
@@ -18,12 +18,12 @@ const NEIGHBORHOODS = [
 ];
 
 const SERVICES_OVERVIEW = [
-  { name: "Full Detail (Inside & Out)", price: "From $218", desc: "Complete interior + exterior detail with spray wax protection." },
-  { name: "Elite Ceramic Inside & Out", price: "From $596", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
-  { name: "Exterior Detail", price: "From $104", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
-  { name: "Interior Detail", price: "From $156", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
-  { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
-  { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
+  { name: "Full Detail (Inside & Out)", price: "Starting at $218", desc: "Complete interior + exterior detail with spray wax protection." },
+  { name: "Elite Ceramic Inside & Out", price: "Starting at $596", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
+  { name: "Exterior Detail", price: "Starting at $104", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
+  { name: "Interior Detail", price: "Starting at $156", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
+  { name: "Ceramic Coating", price: "Starting at $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
+  { name: "Paint Correction", price: "Starting at $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];
 
 export function FortMillDetailingPage() {
@@ -91,7 +91,7 @@ export function FortMillDetailingPage() {
                 { "@type": "Question", "name": "Does ProWorx serve Fort Mill, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! ProWorx Mobile Detailing serves all of Fort Mill and surrounding York County areas including Tega Cay, Indian Land, Baxter Village, Riverwalk, and Lake Wylie. We\u2019re based in Waxhaw, NC \u2014 just across the state line." }},
                 { "@type": "Question", "name": "How much does mobile detailing cost in Fort Mill?", "acceptedAnswer": { "@type": "Answer", "text": "Standard Inside & Out detailing starts at $218 for sedans. Elite Ceramic packages start at $596 with ceramic protection products bundled at 15% off. Exterior-only starts at $104. Ceramic coating packages range from $499 to $2,199+." }},
                 { "@type": "Question", "name": "Can I get ceramic coating in Fort Mill, SC?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ProWorx is a certified GYEON and IGL ceramic coating installer. We offer 1-year ($499+), 3-year ($749+), 5-year class ($1,149+), and lifetime GYEON Infinite packages ($1,799+/$2,199+) with manufacturer warranties." }},
-                { "@type": "Question", "name": "Do you charge extra for crossing into South Carolina?", "acceptedAnswer": { "@type": "Answer", "text": "No! Fort Mill and York County are part of our regular service area. There\u2019s no extra charge for crossing the state line \u2014 we\u2019re based in Waxhaw, NC, just minutes from Fort Mill." }}
+                { "@type": "Question", "name": "Does my price change in South Carolina?", "acceptedAnswer": { "@type": "Answer", "text": "Fort Mill and York County are part of our regular service area, just minutes from our base in Waxhaw, NC. Your final price is shown when you book and is based on your location, which covers the drive to you and the local sales tax." }}
               ]
             }
           ]
@@ -143,7 +143,7 @@ export function FortMillDetailingPage() {
             {[
               { icon: <Star className="size-5" />, title: "63+ Five-Star Reviews", desc: "Perfect 5.0 rating from real Charlotte-area customers on Google." },
               { icon: <Shield className="size-5" />, title: "Certified Installer", desc: "GYEON & IGL certified for professional ceramic coatings with warranties." },
-              { icon: <MapPin className="size-5" />, title: "Minutes from Fort Mill", desc: "Based in Waxhaw, NC \u2014 right across the state line, no extra charge." },
+              { icon: <MapPin className="size-5" />, title: "Minutes from Fort Mill", desc: "Based in Waxhaw, NC, right across the state line." },
               { icon: <CheckCircle2 className="size-5" />, title: "12+ Years Experience", desc: "Over a decade of professional auto detailing in the Charlotte metro." },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl bg-card border border-border p-6 text-center hover:border-gold/30 transition-colors">
@@ -170,11 +170,12 @@ export function FortMillDetailingPage() {
               {SERVICES_OVERVIEW.map((svc) => (
                 <div key={svc.name} className="rounded-2xl bg-card border border-border p-6 hover:border-gold/30 transition-colors">
                   <h3 className="font-bold text-base mb-1">{svc.name}</h3>
-                  <p className="text-gold font-bold text-lg mb-2">{svc.price}</p>
+                  <p className="text-gold font-bold text-lg mb-2"><PriceLabel price={svc.price} /></p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{svc.desc}</p>
                 </div>
               ))}
             </div>
+            <StartingPriceNote className="text-center" />
             <div className="mt-8 text-center">
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/services">View Full Pricing <ArrowRight className="size-4" /></Link>
@@ -221,21 +222,21 @@ export function FortMillDetailingPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Ceramic Coating in Fort Mill</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. No extra charge for Fort Mill {"\u2014"} we{"\u2019"}re right across the border.
+                Protect your vehicle with professional ceramic coating from a certified GYEON and IGL installer. Our coatings include a decontamination pre-wash, panel prep spray, and come with a manufacturer warranty. We{"\u2019"}re right across the border from Fort Mill.
               </p>
               <div className="space-y-3 mb-6">
                 {[
-                  { label: "1-Year Protection", price: "$499+", name: "GYEON Q\u00B2 One EVO" },
-                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q\u00B2 Pure EVO" },
-                  { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
-                  { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
+                  { label: "1-Year Protection", price: "Starting at $499", name: "GYEON Q\u00B2 One EVO" },
+                  { label: "3-Year Protection", price: "Starting at $749", name: "GYEON Q\u00B2 Pure EVO" },
+                  { label: "Lifetime Protection*", price: "Starting at $1,799", name: "GYEON Infinite Type 1" },
+                  { label: "Ultimate Lifetime*", price: "Starting at $2,199", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (
                   <div key={pkg.label} className="flex items-center justify-between rounded-xl bg-card border border-border p-4">
                     <div>
                       <p className="font-semibold text-sm">{pkg.label}</p>
                       <p className="text-xs text-muted-foreground">{pkg.name}</p>
                     </div>
-                    <p className="font-bold text-gold">{pkg.price}</p>
+                    <p className="font-bold text-gold"><PriceLabel price={pkg.price} /></p>
                   </div>
                 ))}
               </div>
@@ -255,7 +256,7 @@ export function FortMillDetailingPage() {
             <div className="space-y-6">
               {[
                 { q: "Does ProWorx serve Fort Mill, SC?", a: "Yes! We serve all of Fort Mill and surrounding York County areas including Tega Cay, Indian Land, Baxter Village, Riverwalk, and Lake Wylie. We\u2019re based in Waxhaw, NC \u2014 just minutes across the state line." },
-                { q: "Is there an extra charge for South Carolina?", a: "No! Fort Mill and York County are part of our regular service area. There\u2019s no extra charge for crossing the state line. We service Fort Mill just as frequently as our Waxhaw and Charlotte-area customers." },
+                { q: "Does my price change in South Carolina?", a: "Fort Mill and York County are part of our regular service area, and we service Fort Mill just as often as our Waxhaw and Charlotte-area customers. Like every booking, your final price is shown when you book and is based on your location, which covers the drive to you and the local sales tax." },
                 { q: "How does mobile detailing work?", a: "We arrive at your Fort Mill location with everything we need \u2014 water, power, professional-grade products, and equipment. You don\u2019t need to provide anything. Just give us access to your vehicle, and we handle the rest." },
                 { q: "Do I need to be home during the detail?", a: "Nope! Many of our Fort Mill customers leave their keys and go about their day. We\u2019ll text you before, during, and after so you always know what\u2019s happening." },
                 { q: "Can you detail my boat at Lake Wylie?", a: "Absolutely! We offer full boat detailing for Lake Wylie, Tega Cay, and the surrounding area. From hull washing and oxidation removal to waxing and interior cleaning \u2014 we handle it all." },

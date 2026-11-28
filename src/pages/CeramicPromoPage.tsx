@@ -17,6 +17,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { PageSEO } from "@/components/PageSEO";
 import { PHONE, PHONE_LINK } from "@/lib/constants";
 import { trackPhoneClick, trackSubscribeClick, trackViewContent } from "@/lib/tracking";
@@ -92,7 +93,7 @@ export function CeramicPromoPage() {
     <div className="min-h-screen bg-zinc-950 text-white">
       <PageSEO
         title="Free 3-Year Ceramic Coating — $0 Down | ProWorx"
-        description="Get a FREE $899 ceramic coating with your Inside & Out membership. $0 down, $0 extra — just stay 12 months. Charlotte's GYEON-certified detailer comes to you."
+        description="Get a FREE $899 ceramic coating with your Inside & Out membership. $0 down, coating included when you stay 12 months. Charlotte's GYEON-certified detailer comes to you."
         keywords="ceramic coating Charlotte NC, free ceramic coating, car detailing membership, GYEON certified, monthly detailing subscription, mobile detailing"
       />
 
@@ -109,7 +110,7 @@ export function CeramicPromoPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
-            $0 Down. $0 Extra.
+            $0 Down. Coating Included.
             <br /><span className="text-amber-400">FREE Ceramic Coating.</span>
           </h1>
 
@@ -118,7 +119,7 @@ export function CeramicPromoPage() {
           </p>
 
           <p className="text-lg text-amber-400 font-semibold mb-10">
-            Starting at $126/mo · We come to you · GYEON Certified
+            Starting at $126/month · We come to you · GYEON Certified
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -223,8 +224,8 @@ export function CeramicPromoPage() {
                 <div>
                   <h3 className="text-lg font-bold text-white">{v.size}</h3>
                   <div className="flex items-baseline gap-2 mt-1">
-                    <span className="text-2xl font-black text-amber-400">{v.monthly}</span>
-                    <span className="text-zinc-500">/mo</span>
+                    <span className="text-2xl font-black text-amber-400"><PriceLabel price={v.monthly} /></span>
+                    <span className="text-zinc-500">/month</span>
                   </div>
                 </div>
                 <a
@@ -245,6 +246,7 @@ export function CeramicPromoPage() {
               🛡️ Every plan includes a FREE $899 3-Year Ceramic Coating with 12-month agreement
             </p>
           </div>
+          <StartingPriceNote className="text-center text-zinc-400" />
         </div>
       </section>
 

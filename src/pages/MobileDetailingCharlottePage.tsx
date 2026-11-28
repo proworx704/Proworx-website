@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
-  { name: "Standard Detail", price: "From $218", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your car clean and fresh" },
-  { name: "Elite Ceramic Detail", price: "From $596", features: ["Everything in Standard", "Fabric protection & GYEON leather shield", "Ceramic tire dressing", "Plastic & trim ceramic coating", "12-month ceramic wax"], popular: true, best: "Ultimate protection — ceramic shield for the entire vehicle" },
+  { name: "Standard Detail", price: "Starting at $218", features: ["Exterior hand wash & dry", "Tire & wheel cleaning", "Interior vacuum & wipe-down", "Glass cleaning inside & out", "Dashboard & console detail"], best: "Regular maintenance — keeps your car clean and fresh" },
+  { name: "Elite Ceramic Detail", price: "Starting at $596", features: ["Everything in Standard", "Fabric protection & GYEON leather shield", "Ceramic tire dressing", "Plastic & trim ceramic coating", "12-month ceramic wax"], popular: true, best: "Ultimate protection — ceramic shield for the entire vehicle" },
 ];
 
 const SERVICE_AREAS = [
@@ -157,7 +157,7 @@ export function MobileDetailingCharlottePage() {
               <div key={pkg.name} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${pkg.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {pkg.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <h3 className="font-bold text-xl mb-1">{pkg.name}</h3>
-                <p className="text-2xl font-black mb-2">{pkg.price}</p>
+                <p className="text-2xl font-black mb-2"><PriceLabel price={pkg.price} /></p>
                 <p className="text-xs text-muted-foreground mb-4"><strong>Best for:</strong> {pkg.best}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.features.map((f) => (
@@ -174,6 +174,7 @@ export function MobileDetailingCharlottePage() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground text-center mt-4">Prices shown for sedans. SUVs, trucks, and larger vehicles priced individually.</p>
+          <StartingPriceNote className="text-center" />
         </div>
       </section>
 
@@ -188,7 +189,7 @@ export function MobileDetailingCharlottePage() {
               </p>
               <div className="space-y-4">
                 {[
-                  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime protection from $499", link: "/ceramic-coating" },
+                  { title: "Ceramic Coating", desc: "GYEON & IGL certified — 1-year to lifetime protection starting at $499", link: "/ceramic-coating" },
                   { title: "Paint Correction", desc: "Multi-stage machine polishing to remove swirls & scratches", link: "/paint-correction" },
                   { title: "Boat Detailing", desc: "Full boat detail for Lake Norman & Lake Wylie boats", link: "/boat-detailing" },
                   { title: "Maintenance Plans", desc: "Biweekly, monthly, or quarterly subscriptions", link: "/maintenance" },

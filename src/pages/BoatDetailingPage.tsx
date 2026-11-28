@@ -2,7 +2,7 @@ import { Anchor, ArrowRight, CheckCircle2, Droplets, Phone, Ruler, Shield, Spark
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
@@ -202,7 +202,7 @@ export function BoatDetailingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { icon: <Waves className="size-5" />, title: "We Come to You", desc: "Dockside, driveway, or storage lot — our fully self-contained mobile setup means zero hassle for you." },
-                { icon: <Ruler className="size-5" />, title: "Size-Based Pricing", desc: "Transparent pricing based on your boat's length. No hidden fees — you know the cost before we start." },
+                { icon: <Ruler className="size-5" />, title: "Size-Based Pricing", desc: "Starting prices based on your boat's length. You always see your exact price before you confirm your booking." },
                 { icon: <Shield className="size-5" />, title: "Marine-Grade Products", desc: "We use professional marine detailing products formulated for gelcoat, fiberglass, vinyl, and teak." },
                 { icon: <Sparkles className="size-5" />, title: "Gelcoat Correction", desc: "From light oxidation to full multi-stage restoration — we bring faded, chalky gelcoat back to a deep, glossy finish." },
                 { icon: <Droplets className="size-5" />, title: "GYEON Marine Ceramic", desc: "Purpose-built ceramic coating for gelcoat — not a repurposed automotive product. Long-lasting UV and oxidation protection." },
@@ -267,7 +267,7 @@ export function BoatDetailingPage() {
                     return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
-                      <p className="font-bold text-gold text-lg">{tier.price}</p>
+                      <p className="font-bold text-gold text-lg"><PriceLabel price={tier.price} /></p>
                     </div>
                     );
                   })}
@@ -275,7 +275,8 @@ export function BoatDetailingPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-muted-foreground mt-8 max-w-xl mx-auto">
+          <StartingPriceNote className="text-center max-w-2xl mx-auto mt-8" />
+          <p className="text-center text-sm text-muted-foreground mt-4 max-w-xl mx-auto">
             Boats over 35 ft? <a href={config.phoneLink} className="text-gold hover:underline">Call us</a> for a custom quote. Pricing may vary based on condition and accessibility.
           </p>
         </div>
@@ -310,7 +311,7 @@ export function BoatDetailingPage() {
                         <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
                           <p className="text-sm font-medium">{t.label}</p>
                           <div className="flex items-center gap-2.5">
-                            <p className="font-bold text-gold">{t.price}</p>
+                            <p className="font-bold text-gold"><PriceLabel price={t.price} /></p>
                           </div>
                         </div>
                       );
@@ -323,6 +324,7 @@ export function BoatDetailingPage() {
               );
             })}
           </div>
+          <StartingPriceNote className="text-center max-w-2xl mx-auto" />
           <p className="text-center text-xs text-gold/80 mt-5 font-medium">💳 Pay over time with Affirm: choose Affirm at checkout when you pay your invoice. Subject to approval.</p>
         </div>
       </section>
@@ -347,11 +349,12 @@ export function BoatDetailingPage() {
                   return (
                     <div key={tier.label} className="rounded-xl bg-background border border-border p-3 text-center">
                       <p className="text-xs text-muted-foreground mb-1">{tier.label}</p>
-                      <p className="font-bold text-gold text-lg">{tier.price}</p>
+                      <p className="font-bold text-gold text-lg"><PriceLabel price={tier.price} /></p>
                     </div>
                   );
                 })}
               </div>
+              <StartingPriceNote className="-mt-2 mb-5" />
               <ul className="space-y-2 mb-6">
                 {[
                   "Marine-specific formula — not an automotive coating",
@@ -410,7 +413,7 @@ export function BoatDetailingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { step: "1", title: "Call or Book", desc: "Tell us your boat's length, type, and what services you need." },
-                { step: "2", title: "Get Your Quote", desc: "We'll confirm pricing based on size and services — no surprises." },
+                { step: "2", title: "Get Your Quote", desc: "We'll confirm your price based on size, services and location before you book." },
                 { step: "3", title: "We Come to You", desc: "Our mobile team arrives at your dock, driveway, or storage lot with everything we need." },
                 { step: "4", title: "Enjoy the Results", desc: "Your boat is clean, protected, and ready for the water." },
               ].map((item) => (

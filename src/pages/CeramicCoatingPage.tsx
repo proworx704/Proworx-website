@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { trackPhoneClick, trackBookNowConversion, trackViewContent } from "@/lib/tracking";
+import { PriceLabel } from "@/components/PricingDisclaimer";
 
 /* ──────────────────────── DATA ──────────────────────── */
 
@@ -240,7 +241,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How much does ceramic coating cost in Charlotte?",
-    a: "1 Year from $499, 3 Year from $749, 5 Year Class from $1,149, Lifetime from $1,799, and Ultimate Lifetime from $2,199. These are starting prices. They assume standard paint condition, sales tax is added at the appointment, and a 30% deposit books your spot.",
+    a: "1 Year starting at $499, 3 Year starting at $749, 5 Year Class starting at $1,149, Lifetime starting at $1,799, and Ultimate Lifetime starting at $2,199. These starting prices assume standard paint condition. Your final price, including sales tax, is confirmed before we start, and a 30% deposit books your spot.",
   },
   {
     q: "Is this a drop-off or mobile service?",
@@ -411,8 +412,7 @@ function PackageCard({
         )}
       </div>
       <div className="mb-5">
-        <span className="text-3xl font-black">{pkg.priceFrom}</span>
-        <span className="text-sm text-muted-foreground ml-1">starting</span>
+        <span className="text-3xl font-black"><PriceLabel price={pkg.priceFrom} /></span>
         <p className="text-xs text-muted-foreground mt-1">30% deposit ({pkg.deposit}) to reserve</p>
       </div>
 
@@ -514,7 +514,7 @@ export function CeramicCoatingPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="GYEON Certified Ceramic Coating Charlotte NC"
-        description="GYEON Certified, owner-installed ceramic coating in Charlotte, NC. 1-year, 3-year, 5-year and lifetime packages from $499. Drop-off at our Waxhaw shop. 30% down."
+        description="GYEON Certified, owner-installed ceramic coating in Charlotte, NC. 1-year, 3-year, 5-year and lifetime packages starting at $499. Drop-off at our Waxhaw shop. 30% down."
         keywords="ceramic coating Charlotte NC, GYEON Certified ceramic coating, owner-installed ceramic coating, 5-year ceramic coating, Gyeon ceramic coating, IGL ceramic coating, paint protection Charlotte, ceramic coat near me, car ceramic coating cost, best ceramic coating Charlotte, professional ceramic coating"
         schema={{
           "@context": "https://schema.org",
@@ -798,7 +798,7 @@ export function CeramicCoatingPage() {
                     {COMPARE_ROWS.map((r) => (
                       <tr key={r.option} className="border-b border-border/50 last:border-0">
                         <td className="p-3 md:p-4 font-semibold">{r.option}</td>
-                        <td className="p-3 md:p-4 font-bold text-gold">{r.price}</td>
+                        <td className="p-3 md:p-4 font-bold text-gold"><PriceLabel price={r.price} /></td>
                         <td className="p-3 md:p-4 text-muted-foreground">{r.coating}</td>
                         <td className="p-3 md:p-4 text-muted-foreground">{r.protection}</td>
                         <td className="p-3 md:p-4 text-muted-foreground">{r.layers}</td>
@@ -900,16 +900,16 @@ export function CeramicCoatingPage() {
                       {CORRECTION_PRICES.map((r) => (
                         <tr key={r.level} className="border-b border-border/50 last:border-0">
                           <td className="p-3 font-semibold">{r.level}</td>
-                          <td className="p-3 text-muted-foreground">{r.compact}</td>
-                          <td className="p-3 text-muted-foreground">{r.sedan}</td>
-                          <td className="p-3 text-muted-foreground">{r.suv}</td>
+                          <td className="p-3 text-muted-foreground"><PriceLabel price={r.compact} /></td>
+                          <td className="p-3 text-muted-foreground"><PriceLabel price={r.sedan} /></td>
+                          <td className="p-3 text-muted-foreground"><PriceLabel price={r.suv} /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
                 <p className="text-xs text-muted-foreground px-3 py-2.5 border-t border-border">
-                  Add-ons: wheels and calipers ceramic coating $400 · GYEON View windshield coating $120
+                  Add-ons: wheels and calipers ceramic coating starting at $400 · GYEON View windshield coating starting at $120
                 </p>
               </div>
             </div>

@@ -4,13 +4,14 @@ import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
+import { PriceLabel } from "@/components/PricingDisclaimer";
 
 const PACKAGES = [
-  { name: "GYEON Q² One EVO", protection: "1-Year", price: "From $499", configKey: "ceramicDeposit1yr" },
-  { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "From $749", popular: true, configKey: "ceramicDeposit3yr" },
-  { name: "GYEON Q² Syncro EVO", protection: "5-Year Class", price: "From $1,149", configKey: "ceramicDeposit5yr" },
-  { name: "GYEON Infinite Base", protection: "Lifetime*", price: "From $1,799", configKey: "ceramicDepositInfinite1" },
-  { name: "GYEON Infinite Base + TopCoat", protection: "Ultimate Lifetime*", price: "From $2,199", configKey: "ceramicDepositInfinite2" },
+  { name: "GYEON Q² One EVO", protection: "1-Year", price: "Starting at $499", configKey: "ceramicDeposit1yr" },
+  { name: "GYEON Q² Pure EVO", protection: "3-Year", price: "Starting at $749", popular: true, configKey: "ceramicDeposit3yr" },
+  { name: "GYEON Q² Syncro EVO", protection: "5-Year Class", price: "Starting at $1,149", configKey: "ceramicDeposit5yr" },
+  { name: "GYEON Infinite Base", protection: "Lifetime*", price: "Starting at $1,799", configKey: "ceramicDepositInfinite1" },
+  { name: "GYEON Infinite Base + TopCoat", protection: "Ultimate Lifetime*", price: "Starting at $2,199", configKey: "ceramicDepositInfinite2" },
 ];
 
 const SERVICES = [
@@ -41,7 +42,7 @@ export function CeramicCoatingSouthCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating South Charlotte, NC"
-        description="GYEON Certified, owner-installed ceramic coating for South Charlotte, NC. 1-year, 3-year, 5-year and lifetime protection from $499. Drop-off in Waxhaw."
+        description="GYEON Certified, owner-installed ceramic coating for South Charlotte, NC. 1-year, 3-year, 5-year and lifetime protection starting at $499. Drop-off in Waxhaw."
         keywords="ceramic coating South Charlotte NC, auto detailing South Charlotte, paint correction South Charlotte, car detailing South Charlotte NC, mobile detailing South Charlotte, GYEON ceramic coating South Charlotte, luxury car detailing South Charlotte"
         schema={{
           "@context": "https://schema.org",
@@ -174,7 +175,7 @@ export function CeramicCoatingSouthCharlottePage() {
                 <Shield className="size-8 text-gold mx-auto mb-3" />
                 <p className="text-sm font-semibold text-gold mb-1">{pkg.protection} Protection</p>
                 <h3 className="text-lg font-bold mb-1">{pkg.name}</h3>
-                <p className="text-2xl font-black text-gold mb-4">{pkg.price}</p>
+                <p className="text-2xl font-black text-gold mb-4"><PriceLabel price={pkg.price} /></p>
                 <Button className={`w-full font-bold ${pkg.popular ? "bg-gold-dark text-gold-foreground hover:bg-gold-dark/90" : "bg-gold/10 text-gold hover:bg-gold/20"}`} asChild>
                   <a href={getDepositUrl(pkg.configKey)} target="_blank" rel="noopener noreferrer">
                     Book Now <ArrowRight className="size-4" />

@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const STAGES = [
-  { title: "1-Step Enhancement Polish", price: "From $618", improvement: "~60-70% defect removal", best: "Daily drivers with light swirl marks or minor hazing" },
-  { title: "2-Step Paint Correction", price: "From $1,030", improvement: "~85-95% defect removal", best: "Moderate swirls, water spots & scratches — our most popular option", popular: true },
-  { title: "Multi-Stage Correction", price: "From $1,700", improvement: "~95-99% defect removal", best: "Severely neglected paint, deep scratches, oxidation" },
+  { title: "1-Step Enhancement Polish", price: "Starting at $618", improvement: "~60-70% defect removal", best: "Daily drivers with light swirl marks or minor hazing" },
+  { title: "2-Step Paint Correction", price: "Starting at $1,030", improvement: "~85-95% defect removal", best: "Moderate swirls, water spots & scratches — our most popular option", popular: true },
+  { title: "Multi-Stage Correction", price: "Starting at $1,700", improvement: "~95-99% defect removal", best: "Severely neglected paint, deep scratches, oxidation" },
 ];
 
 const CHARLOTTE_AREAS = [
@@ -68,7 +68,7 @@ export function PaintCorrectionCharlottePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "How much does paint correction cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Paint correction in Charlotte typically costs $618–$1,030+ depending on the severity of defects and vehicle size. A 1-step enhancement polish starts at $618, 2-step correction from $1,030, and multi-stage correction from $1,700. ProWorx offers free paint assessments to recommend the right level." }},
+                { "@type": "Question", "name": "How much does paint correction cost in Charlotte, NC?", "acceptedAnswer": { "@type": "Answer", "text": "Paint correction in Charlotte typically costs $618–$1,030+ depending on the severity of defects and vehicle size. A 1-step enhancement polish starts at $618, 2-step correction starting at $1,030, and multi-stage correction starting at $1,700. ProWorx offers free paint assessments to recommend the right level." }},
                 { "@type": "Question", "name": "Is paint correction worth it before ceramic coating?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Ceramic coating locks in whatever condition your paint is in — so correcting swirls, scratches, and imperfections first means you're protecting a flawless finish. Most detailers recommend at least a 1-step polish before coating. ProWorx ceramic packages include a decontamination wash and prep wipe only, so correction is booked as a separate service." }},
                 { "@type": "Question", "name": "How long does paint correction last?", "acceptedAnswer": { "@type": "Answer", "text": "Paint correction results are permanent — the defects are physically removed from the clear coat. However, new swirls can develop over time from improper washing. To preserve results, we recommend ceramic coating after correction and using proper wash techniques. ProWorx offers maintenance plans to keep your paint looking perfect." }},
                 { "@type": "Question", "name": "Can you do paint correction on a new car?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it's surprisingly common. New cars often pick up swirl marks during dealer prep, transport, and PDI (pre-delivery inspection). A light 1-step polish followed by ceramic coating is the ideal new car treatment to lock in a perfect finish from day one." }},
@@ -155,7 +155,7 @@ export function PaintCorrectionCharlottePage() {
               <div key={stage.title} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${stage.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {stage.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <h3 className="font-bold text-lg mb-1 text-gold">{stage.title}</h3>
-                <p className="text-2xl font-black mb-1">{stage.price}</p>
+                <p className="text-2xl font-black mb-1"><PriceLabel price={stage.price} /></p>
                 <p className="text-sm text-muted-foreground mb-4">{stage.improvement}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                   <span className="font-semibold text-foreground">Best for:</span> {stage.best}
@@ -258,7 +258,7 @@ export function PaintCorrectionCharlottePage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Paint Correction FAQ — Charlotte, NC</h2>
             <div className="space-y-6">
               {[
-                { q: "How much does paint correction cost in Charlotte, NC?", a: "Paint correction in Charlotte typically costs $618–$1,030+ depending on the severity of defects and vehicle size. A 1-step enhancement polish starts at $618, 2-step correction from $1,030, and multi-stage correction from $1,700. We offer free paint assessments to recommend the right level for your vehicle." },
+                { q: "How much does paint correction cost in Charlotte, NC?", a: "Paint correction in Charlotte typically costs $618–$1,030+ depending on the severity of defects and vehicle size. A 1-step enhancement polish starts at $618, 2-step correction starting at $1,030, and multi-stage correction starting at $1,700. We offer free paint assessments to recommend the right level for your vehicle." },
                 { q: "Is paint correction worth it before ceramic coating?", a: "Absolutely. Ceramic coating locks in whatever condition your paint is in — so correcting swirls, scratches, and imperfections first means you're protecting a flawless finish. Every ProWorx ceramic coating package includes a light prep polish, but deeper correction may be needed for older or neglected paint." },
                 { q: "How long does paint correction last?", a: "Paint correction results are permanent — the defects are physically removed from the clear coat. However, new swirls can develop over time from improper washing. To preserve results, we recommend ceramic coating and proper wash techniques. ProWorx offers maintenance plans to keep your paint looking perfect." },
                 { q: "Can you remove deep scratches with paint correction?", a: "Paint correction removes defects within the clear coat layer. If a scratch has penetrated through the clear coat into the base coat or primer, it cannot be fully removed by polishing alone. During our free paint assessment, we'll identify which defects can be corrected and set realistic expectations." },

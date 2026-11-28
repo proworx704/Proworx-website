@@ -2,7 +2,7 @@ import { ArrowRight, CheckCircle2, Phone, Sparkles } from "lucide-react";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
@@ -137,7 +137,7 @@ export function PaintCorrectionPage() {
                         <div key={t.label} className="flex items-center justify-between py-2.5 border-b border-border/30 last:border-0">
                           <p className="text-sm font-medium">{t.label}</p>
                           <div className="flex items-center gap-2.5">
-                            <p className="font-bold text-gold">{t.price}</p>
+                            <p className="font-bold text-gold"><PriceLabel price={t.price} /></p>
                           </div>
                         </div>
                       );

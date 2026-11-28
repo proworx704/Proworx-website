@@ -124,7 +124,11 @@ const AREAS = [
 const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "How much does auto detailing cost in Charlotte NC?",
-    answer: "Professional auto detailing in Charlotte ranges from $95 for an Exterior Only to $378 for a full Inside & Out on a Van. Paint correction starts at $618–$1,030 for single-stage, and ceramic coating packages range from $499–$2,499. First-time customers save 10% on their first detail. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size.",
+    answer: "At ProWorx, an Exterior Only detail starts at $95 and a full Inside & Out on a Van starts at $378. Single-stage paint correction starts at $618 to $1,030 depending on vehicle size, and ceramic coating packages start at $499. These are starting prices: your final price is shown when you book and is based on your location, which covers the drive to you and the local sales tax. First-time customers save 10% on their first detail. <a href=\"/menu\" class=\"text-gold hover:underline\">View our complete pricing menu</a> for exact pricing by vehicle size.",
+  },
+  {
+    question: "Why does my final price depend on my location?",
+    answer: "We come to you, so your final price includes the drive time to your address and the sales tax for where the work is done. Most of South Charlotte, Waxhaw, Marvin, Weddington, Ballantyne and Monroe has no extra travel charge. Addresses farther out may include a travel fee. You always see your exact price before you confirm your booking.",
   },
   {
     question: "Is mobile detailing as good as a shop?",
@@ -171,7 +175,7 @@ export function HomePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="ProWorx — Mobile Auto Detailing & Ceramic Coating Charlotte"
-        description="Charlotte's top-rated auto detailing & ceramic coating. GYEON & IGL certified. Full detailing & coating from $499. 5.0★, 63+ reviews. Mobile or drop-off."
+        description="Charlotte's top-rated auto detailing & ceramic coating. GYEON & IGL certified. Full detailing & coating starting at $499. 5.0★, 63+ reviews. Mobile or drop-off."
         keywords="auto detailing Charlotte NC, ceramic coating Charlotte NC, car detailing Charlotte NC, paint correction Charlotte NC, mobile detailing Charlotte NC, ceramic coating near me, GYEON certified installer Charlotte, auto detailing near me, paint protection Charlotte, best auto detailing Charlotte"
         schema={{
           "@context": "https://schema.org",

@@ -3,7 +3,7 @@ import { PageSEO } from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig, useServices } from "@/hooks/useCms";
 
@@ -16,7 +16,7 @@ function ServiceRow({ service }: { service: { name: string; description: string;
         <p className="text-xs text-muted-foreground leading-relaxed">{service.description}</p>
       </div>
       <div className="text-right shrink-0">
-        <p className="font-bold text-gold text-sm">{service.price}</p>
+        <p className="font-bold text-gold text-sm"><PriceLabel price={service.price} /></p>
         <p className="text-xs text-muted-foreground flex items-center gap-1 justify-end">
           <Clock className="size-3" />{service.duration}
         </p>
@@ -411,9 +411,10 @@ export function ServicesPage() {
                               {t.duration}
                             </p>
                           </div>
-                          <p className="font-bold text-gold text-lg">{t.price}</p>
+                          <p className="font-bold text-gold text-lg"><PriceLabel price={t.price} /></p>
                         </div>
                       ))}
+                      <StartingPriceNote />
                     </div>
                   </div>
                 </div>
@@ -444,7 +445,7 @@ export function ServicesPage() {
               <p className="text-sm text-muted-foreground mb-2">
                 Deep clean seats & all carpeted areas with professional hot water extraction.
               </p>
-              <p className="font-bold text-gold text-xl">$100</p>
+              <p className="font-bold text-gold text-xl"><PriceLabel price="$100" /></p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -470,6 +471,7 @@ export function ServicesPage() {
                 ))}
               </div>
             </div>
+            <StartingPriceNote className="text-center" />
             <div className="mt-8 text-center">
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <BookNowLink href={config["widgetUrl:homepage-cta"] || config.bookingUrlAddOns || undefined}>

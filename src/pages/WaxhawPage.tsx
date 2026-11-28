@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
@@ -18,12 +18,12 @@ const NEIGHBORHOODS = [
 ];
 
 const SERVICES_OVERVIEW = [
-  { name: "Full Detail (Inside & Out)", price: "From $218", desc: "Complete interior + exterior detail with spray wax protection." },
-  { name: "Elite Ceramic Inside & Out", price: "From $596", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
-  { name: "Exterior Detail", price: "From $104", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
-  { name: "Interior Detail", price: "From $156", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
-  { name: "Ceramic Coating", price: "From $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
-  { name: "Paint Correction", price: "From $618", desc: "Swirl removal, scratch repair & oxidation correction." },
+  { name: "Full Detail (Inside & Out)", price: "Starting at $218", desc: "Complete interior + exterior detail with spray wax protection." },
+  { name: "Elite Ceramic Inside & Out", price: "Starting at $596", desc: "Standard detail plus ceramic protection products bundled at 15% off." },
+  { name: "Exterior Detail", price: "Starting at $104", desc: "Hand wash, wheel cleaning, tire dressing & spray wax." },
+  { name: "Interior Detail", price: "Starting at $156", desc: "Full vacuum, surface wipe-down, glass cleaning & stain treatment." },
+  { name: "Ceramic Coating", price: "Starting at $499", desc: "GYEON certified 1-year, 3-year & lifetime ceramic coating packages." },
+  { name: "Paint Correction", price: "Starting at $618", desc: "Swirl removal, scratch repair & oxidation correction." },
 ];
 
 export function WaxhawPage() {
@@ -169,11 +169,12 @@ export function WaxhawPage() {
               {SERVICES_OVERVIEW.map((svc) => (
                 <div key={svc.name} className="rounded-2xl bg-card border border-border p-6 hover:border-gold/30 transition-colors">
                   <h3 className="font-bold text-base mb-1">{svc.name}</h3>
-                  <p className="text-gold font-bold text-lg mb-2">{svc.price}</p>
+                  <p className="text-gold font-bold text-lg mb-2"><PriceLabel price={svc.price} /></p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{svc.desc}</p>
                 </div>
               ))}
             </div>
+            <StartingPriceNote className="text-center" />
             <div className="mt-8 text-center">
               <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
                 <Link to="/services">View Full Pricing <ArrowRight className="size-4" /></Link>
@@ -224,17 +225,17 @@ export function WaxhawPage() {
               </p>
               <div className="space-y-3 mb-6">
                 {[
-                  { label: "1-Year Protection", price: "$499+", name: "GYEON Q² One EVO" },
-                  { label: "3-Year Protection", price: "$749+", name: "GYEON Q² Pure EVO" },
-                  { label: "Lifetime Protection*", price: "$1,799+", name: "GYEON Infinite Type 1" },
-                  { label: "Ultimate Lifetime*", price: "$2,199+", name: "GYEON Infinite Type 1 + 2" },
+                  { label: "1-Year Protection", price: "Starting at $499", name: "GYEON Q² One EVO" },
+                  { label: "3-Year Protection", price: "Starting at $749", name: "GYEON Q² Pure EVO" },
+                  { label: "Lifetime Protection*", price: "Starting at $1,799", name: "GYEON Infinite Type 1" },
+                  { label: "Ultimate Lifetime*", price: "Starting at $2,199", name: "GYEON Infinite Type 1 + 2" },
                 ].map((pkg) => (
                   <div key={pkg.label} className="flex items-center justify-between rounded-xl bg-card border border-border p-4">
                     <div>
                       <p className="font-semibold text-sm">{pkg.label}</p>
                       <p className="text-xs text-muted-foreground">{pkg.name}</p>
                     </div>
-                    <p className="font-bold text-gold">{pkg.price}</p>
+                    <p className="font-bold text-gold"><PriceLabel price={pkg.price} /></p>
                   </div>
                 ))}
               </div>

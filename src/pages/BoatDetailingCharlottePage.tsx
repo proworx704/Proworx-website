@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
@@ -183,7 +183,7 @@ export function BoatDetailingCharlottePage() {
                   {pkg.tiers.map((tier) => (
                     <div key={tier.label} className="flex items-center justify-between text-sm py-1 border-b border-border/50 last:border-0">
                       <span className="text-muted-foreground">{tier.label}</span>
-                      <span className="font-bold">{tier.price}</span>
+                      <span className="font-bold"><PriceLabel price={tier.price} /></span>
                     </div>
                   ))}
                 </div>
@@ -193,6 +193,7 @@ export function BoatDetailingCharlottePage() {
               </div>
             ))}
           </div>
+          <StartingPriceNote className="text-center max-w-2xl mx-auto" />
           <p className="text-center mt-6 text-sm text-muted-foreground">
             Also available: <Link to="/boat-detailing" className="text-gold underline underline-offset-2">Interior Detail, Exterior Detail + Wax, 2-Step &amp; Multi-Stage Correction, and GYEON Ceramic Coating</Link>. See our full boat detailing page for all services.
           </p>

@@ -1,5 +1,6 @@
 import { ArrowRight, CalendarCheck, CheckCircle2, Clock, Phone, Shield, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import { PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
@@ -86,7 +87,7 @@ export function MaintenancePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Detailing Maintenance Plans — Charlotte, NC"
-        description="Monthly detailing plans in Charlotte, NC from $63/month. Exterior Only or Full Inside & Out. Mobile service, cancel anytime. Initial detail required to start."
+        description="Monthly detailing plans in Charlotte, NC starting at $63/month. Exterior Only or Full Inside & Out. Mobile service, cancel anytime. Initial detail required to start."
         keywords="monthly car detailing Charlotte NC, car maintenance plan, auto detailing subscription, mobile car wash membership, car detailing membership near me"
         schema={{
           "@context": "https://schema.org",
@@ -101,7 +102,7 @@ export function MaintenancePage() {
             {
               "@type": "FAQPage",
               "mainEntity": [
-                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (from $63/month) and Full Inside & Out (from $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
+                { "@type": "Question", "name": "What are ProWorx maintenance plans?", "acceptedAnswer": { "@type": "Answer", "text": "ProWorx offers two monthly maintenance plans: Exterior Only (starting at $63/month) and Full Inside & Out (starting at $126/month). Both include mobile service and can be canceled anytime. Ceramic-coated vehicles use the same plans — we simply use ceramic-safe products." }},
                 { "@type": "Question", "name": "Can I cancel my maintenance plan anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All ProWorx maintenance plans have no long-term contracts. Cancel anytime with no penalty. Billing starts the 1st of the month following signup, so you're never charged twice in your first month." }},
                 { "@type": "Question", "name": "Do I need an initial detail before starting a plan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An initial standard detail is required before you're eligible for a monthly maintenance plan — it gets the vehicle to a baseline we can maintain. In the same month as your initial cleaning you have the option to join the monthly membership, which is billed on the 1st of the following month. Initial detail results may vary based on vehicle condition; additional labor time can be added if more is needed." }},
                 { "@type": "Question", "name": "How often do you service my vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Maintenance plans are billed and serviced monthly. We come to your home or office in Charlotte, Waxhaw, and surrounding areas on a recurring monthly schedule." }}
@@ -112,7 +113,7 @@ export function MaintenancePage() {
               "name": "ProWorx Maintenance Plans",
               "provider": { "@type": "LocalBusiness", "name": "ProWorx Mobile Detailing", "url": "https://www.proworxdetailing.com" },
               "areaServed": { "@type": "City", "name": "Charlotte", "addressRegion": "NC" },
-              "description": "Monthly mobile detailing maintenance plans — 2 core services from $63/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
+              "description": "Monthly mobile detailing maintenance plans — 2 core services starting at $63/month. Professional hand wash or full inside & out. Ceramic vehicles welcome at the same price.",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Maintenance Plans",
@@ -302,8 +303,7 @@ export function MaintenancePage() {
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Billed Monthly</div>
               <h3 className="font-bold text-xl mb-1">{activeTier.label}</h3>
               <p className="text-3xl font-black mb-2">
-                ${activeTier.price}
-                <span className="text-sm font-normal text-muted-foreground">/month</span>
+                <PriceLabel price={`$${activeTier.price}`} suffix={<span className="text-sm font-normal text-muted-foreground">/month</span>} />
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">Requires a completed initial detail. Join in the same month as your initial cleaning — billing starts the 1st of the following month, so you're never charged twice in your first month.</p>
               <ul className="space-y-2.5 flex-1 mb-6">
@@ -335,7 +335,7 @@ export function MaintenancePage() {
                     {tiers.map((t) => (
                       <tr key={t.key} className="border-b border-border/50 last:border-0">
                         <td className="p-4 font-medium">{t.label}</td>
-                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5">${t.price}</td>
+                        <td className="p-4 text-center tabular-nums font-bold text-gold bg-gold/5"><PriceLabel price={`$${t.price}`} suffix="/month" /></td>
                       </tr>
                     ))}
                   </tbody>
@@ -343,6 +343,8 @@ export function MaintenancePage() {
               </div>
             </div>
           </div>
+
+          <StartingPriceNote className="text-center max-w-2xl mx-auto" />
 
           <p className="text-center text-sm text-muted-foreground mt-8">
             No long-term contracts — cancel anytime with no penalty.

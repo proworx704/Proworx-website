@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 
@@ -14,7 +14,7 @@ export function MobileDetailingCostPage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Mobile Detailing Cost in Charlotte, NC"
-        description="How much does mobile detailing cost in Charlotte, NC? Interior from $156, exterior from $104, full details from $218. See all packages & pricing."
+        description="How much does mobile detailing cost in Charlotte, NC? Interior starting at $156, exterior starting at $104, full details starting at $218. See all packages & pricing."
         keywords="how much does detailing cost Charlotte, mobile detailing cost Charlotte NC, car detailing prices Charlotte, auto detailing cost near me, mobile car wash pricing Charlotte, interior detailing cost, exterior detailing price"
         schema={{
           "@context": "https://schema.org",
@@ -34,8 +34,8 @@ export function MobileDetailingCostPage() {
                 { "@type": "Question", "name": "How much does an interior detail cost?", "acceptedAnswer": { "@type": "Answer", "text": "Interior detailing starts at $156 for a Standard Interior (sedan) which includes full vacuum, surface wipe-down, and interior glass cleaning. Ceramic Interior starts at $300 and adds fabric protection and GYEON leather shield at 15% off. Add-ons like shampooing, steam cleaning, and pet hair removal are available on any package." }},
                 { "@type": "Question", "name": "Is mobile detailing more expensive than going to a shop?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Mobile detailing saves you the time and hassle of driving to a shop and waiting. ProWorx brings professional-grade equipment and products directly to your location. Our pricing is competitive with Charlotte-area detail shops, plus you get the convenience of service at your home or office." }},
                 { "@type": "Question", "name": "Do I need to tip my mobile detailer?", "acceptedAnswer": { "@type": "Answer", "text": "Tipping is not required but always appreciated. If you're happy with the service, 15-20% is a common tip for auto detailing services. You can also leave a Google review — that helps us just as much!" }},
-                { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard or Ceramic. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction ($100), ceramic wax, or pet hair removal." }},
-                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out is $218 (sedan), $254 (small SUV/truck), $291 (large SUV/truck), and $327 (van). This reflects the additional time and materials needed for larger vehicles." }}
+                { "@type": "Question", "name": "What factors affect detailing cost?", "acceptedAnswer": { "@type": "Answer", "text": "The main factors are: (1) Vehicle size — sedans cost less than SUVs, trucks, and vans. (2) Service tier — Standard or Ceramic. (3) Vehicle condition — heavily soiled or neglected vehicles may require additional time. (4) Add-on services like hot water extraction (starting at $100), ceramic wax, or pet hair removal. (5) Your location: since we come to you, your final price includes the drive to your address and the local sales tax." }},
+                { "@type": "Question", "name": "Does ProWorx charge extra for large vehicles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, pricing scales by vehicle size. For example, Standard Inside & Out starts at $218 (sedan), $254 (small SUV/truck), $291 (large SUV/truck), and $327 (van). This reflects the additional time and materials needed for larger vehicles." }}
               ]
             }
           ]
@@ -56,7 +56,7 @@ export function MobileDetailingCostPage() {
               Cost?
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-              Transparent pricing for professional mobile detailing in Charlotte, NC. No hidden fees, no upselling — just honest pricing for quality work. Starting at $104 for exterior and $156 for interior.
+              Honest, upfront pricing for professional mobile detailing in Charlotte, NC. Exterior details start at $104 and interior details start at $156. You always see your exact price before you confirm your booking.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 h-13 px-8 text-base font-bold" asChild>
@@ -89,11 +89,12 @@ export function MobileDetailingCostPage() {
               <div key={item.label} className="rounded-2xl bg-card border border-border p-6 text-center hover:border-gold/30 transition-colors">
                 <p className="text-xs font-semibold text-gold uppercase tracking-widest mb-2">{item.tier}</p>
                 <h3 className="font-bold text-base mb-1">{item.label}</h3>
-                <p className="text-2xl font-black text-gold mb-1">{item.from}<span className="text-sm font-normal text-muted-foreground">+</span></p>
+                <p className="text-2xl font-black text-gold mb-1"><PriceLabel price={item.from} /></p>
                 <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center"><Clock className="size-3" /> {item.time}</p>
               </div>
             ))}
           </div>
+          <StartingPriceNote className="text-center max-w-2xl mx-auto" />
         </div>
       </section>
 
@@ -127,14 +128,15 @@ export function MobileDetailingCostPage() {
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
-                          <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
+                          <td className="p-4 text-muted-foreground"><PriceLabel price={row.standard} /></td>
+                          <td className="p-4 font-semibold text-gold"><PriceLabel price={row.ceramic} /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               </div>
+              <StartingPriceNote />
             </div>
 
             {/* Interior Only */}
@@ -161,14 +163,15 @@ export function MobileDetailingCostPage() {
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
-                          <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
+                          <td className="p-4 text-muted-foreground"><PriceLabel price={row.standard} /></td>
+                          <td className="p-4 font-semibold text-gold"><PriceLabel price={row.ceramic} /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               </div>
+              <StartingPriceNote />
             </div>
 
             {/* Exterior Only */}
@@ -194,14 +197,15 @@ export function MobileDetailingCostPage() {
                       ].map((row) => (
                         <tr key={row.size} className="border-b border-border/50">
                           <td className="p-4 font-medium">{row.size}</td>
-                          <td className="p-4 text-muted-foreground">{row.standard}</td>
-                          <td className="p-4 font-semibold text-gold">{row.ceramic}</td>
+                          <td className="p-4 text-muted-foreground"><PriceLabel price={row.standard} /></td>
+                          <td className="p-4 font-semibold text-gold"><PriceLabel price={row.ceramic} /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               </div>
+              <StartingPriceNote />
             </div>
 
             {/* Specialty */}
@@ -211,19 +215,20 @@ export function MobileDetailingCostPage() {
               </h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {[
-                  { name: "Ceramic Coating", price: "From $499", desc: "1-year, 3-year & lifetime GYEON packages", link: "/ceramic-coating" },
-                  { name: "Paint Correction", price: "From $618", desc: "Stage 1, 2 & 3 correction packages", link: "/paint-correction" },
+                  { name: "Ceramic Coating", price: "Starting at $499", desc: "1-year, 3-year & lifetime GYEON packages", link: "/ceramic-coating" },
+                  { name: "Paint Correction", price: "Starting at $618", desc: "Stage 1, 2 & 3 correction packages", link: "/paint-correction" },
                   { name: "Hot Water Extraction", price: "$100", desc: "Deep clean seats & carpeted areas", link: "/services" },
                 ].map((svc) => (
                   <Link key={svc.name} to={svc.link}>
                     <div className="rounded-2xl bg-card border border-border p-6 hover:border-gold/30 transition-colors h-full">
                       <h4 className="font-bold text-base mb-1">{svc.name}</h4>
-                      <p className="text-gold font-bold text-lg mb-2">{svc.price}</p>
+                      <p className="text-gold font-bold text-lg mb-2"><PriceLabel price={svc.price} /></p>
                       <p className="text-sm text-muted-foreground">{svc.desc}</p>
                     </div>
                   </Link>
                 ))}
               </div>
+              <StartingPriceNote />
             </div>
           </div>
         </div>
@@ -240,8 +245,8 @@ export function MobileDetailingCostPage() {
                   { title: "Vehicle Size", desc: "Sedans are the base price. SUVs, trucks, and vans require more time and materials, so pricing increases by $25–$115 depending on the service." },
                   { title: "Service Tier", desc: "Standard covers the essentials. Ceramic packages add ceramic protection products (fabric guard, leather shield, ceramic wax, trim ceramic) bundled at 15% off. Add-ons like shampooing, steam cleaning, and clay bar are available on any package." },
                   { title: "Vehicle Condition", desc: "Heavily soiled, pet hair, or neglected interiors may require extra time, charged at the base hourly rate. We'll always discuss this before starting." },
-                  { title: "Add-On Services", desc: "Hot water extraction ($100), ceramic add-ons, headlight restoration, and other enhancements can be added to any base package." },
-                  { title: "No Hidden Fees", desc: "Our pricing is transparent — what you see is what you pay. No trip charges, no surprise upcharges. We quote before we start." },
+                  { title: "Add-On Services", desc: "Hot water extraction (starting at $100), ceramic add-ons, headlight restoration, and other enhancements can be added to any base package." },
+                  { title: "Your Location", desc: "We come to you, so your final price includes the drive time to your address and the sales tax for where the work is done. You always see your exact price before you confirm your booking." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <CheckCircle2 className="size-5 text-gold mt-0.5 shrink-0" />
@@ -268,17 +273,18 @@ export function MobileDetailingCostPage() {
             </p>
             <div className="grid sm:grid-cols-3 gap-5 mb-8">
               {[
-                { name: "Exterior Only", price: "$59/mo", desc: "Monthly hand wash, wheels, tires & exterior windows" },
-                { name: "Interior Only", price: "$99/mo", desc: "Monthly full interior detail with conditioning" },
-                { name: "Full Inside & Out", price: "$159/mo", desc: "Complete detail + ceramic wet-coat protection" },
+                { name: "Exterior Only", price: "$59", desc: "Monthly hand wash, wheels, tires & exterior windows" },
+                { name: "Interior Only", price: "$99", desc: "Monthly full interior detail with conditioning" },
+                { name: "Full Inside & Out", price: "$159", desc: "Complete detail + ceramic wet-coat protection" },
               ].map((plan) => (
                 <div key={plan.name} className="rounded-2xl bg-card border border-border p-6">
                   <h3 className="font-bold text-base mb-1">{plan.name}</h3>
-                  <p className="text-2xl font-black text-gold mb-2">{plan.price}</p>
+                  <p className="text-2xl font-black text-gold mb-2"><PriceLabel price={plan.price} suffix={<span className="text-sm font-normal text-muted-foreground">/month</span>} /></p>
                   <p className="text-xs text-muted-foreground">{plan.desc}</p>
                 </div>
               ))}
             </div>
+            <StartingPriceNote className="text-center mb-8 -mt-4" />
             <Button className="bg-gold-dark text-gold-foreground hover:bg-gold-dark/90 font-bold" asChild>
               <Link to="/maintenance">View Membership Plans <ArrowRight className="size-4" /></Link>
             </Button>
@@ -293,7 +299,7 @@ export function MobileDetailingCostPage() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Pricing FAQs</h2>
             <div className="space-y-6">
               {[
-                { q: "Is there a trip fee for mobile detailing?", a: "No trip fee for locations within our standard service area (Charlotte metro, Waxhaw, Matthews, Indian Trail, Ballantyne, etc.). For locations outside our area, give us a call — we may still be able to accommodate." },
+                { q: "Why does my final price depend on my location?", a: "We come to you, so your final price includes the drive time to your address and the sales tax for where the work is done. Most of South Charlotte, Waxhaw, Marvin, Weddington, Ballantyne and Monroe has no extra travel charge. Addresses farther out may include a travel fee. You always see your exact price before you confirm your booking." },
                 { q: "Do I need to provide water or electricity?", a: "Nope! We're fully self-reliant. Our mobile setup includes our own water supply, power, and professional-grade equipment. All you need is a parking spot." },
                 { q: "How do I pay?", a: "We accept all major credit/debit cards, Apple Pay, Google Pay, and cash. Payment is collected at the end of service with an invoice. For larger services like ceramic coating and paint correction, you can also choose Affirm at checkout to pay over time." },
                 { q: "Can I combine services for a discount?", a: "Our Inside & Out packages already bundle interior and exterior at a better value than booking separately. For additional savings, check out our monthly membership plans starting at $59/mo." },

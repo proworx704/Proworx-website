@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
+import { PriceLabel } from "@/components/PricingDisclaimer";
 
 const COST_BREAKDOWN = [
-  { tier: "1-Year Protection", product: "GYEON Q² One EVO", price: "$499+", deposit: "~$150", best: "Daily drivers, lease vehicles, budget-conscious owners" },
-  { tier: "3-Year Protection", product: "GYEON Q² Pure EVO", price: "$749+", deposit: "~$225", best: "Most popular — ideal balance of protection and value" },
-  { tier: "Lifetime Protection*", product: "GYEON Infinite Type 1", price: "$1,799+", deposit: "~$540", best: "Enthusiasts seeking lifetime certified protection" },
-  { tier: "Ultimate Lifetime*", product: "GYEON Infinite Type 1 + 2", price: "$2,199+", deposit: "~$660", best: "Luxury vehicles, maximum gloss & dual-layer protection" },
+  { tier: "1-Year Protection", product: "GYEON Q² One EVO", price: "Starting at $499", deposit: "~$150", best: "Daily drivers, lease vehicles, budget-conscious owners" },
+  { tier: "3-Year Protection", product: "GYEON Q² Pure EVO", price: "Starting at $749", deposit: "~$225", best: "Most popular — ideal balance of protection and value" },
+  { tier: "Lifetime Protection*", product: "GYEON Infinite Type 1", price: "Starting at $1,799", deposit: "~$540", best: "Enthusiasts seeking lifetime certified protection" },
+  { tier: "Ultimate Lifetime*", product: "GYEON Infinite Type 1 + 2", price: "Starting at $2,199", deposit: "~$660", best: "Luxury vehicles, maximum gloss & dual-layer protection" },
 ];
 
 export function CeramicCoatingCharlottePage() {
@@ -20,7 +21,7 @@ export function CeramicCoatingCharlottePage() {
     <div className="flex-1 flex flex-col">
       <PageSEO
         title="Ceramic Coating Cost in Charlotte, NC"
-        description="How much does ceramic coating cost in Charlotte, NC? GYEON certified from $499–$2,199+, up to lifetime warranty. See pricing & what's included."
+        description="How much does ceramic coating cost in Charlotte, NC? GYEON certified, starting at $499, up to lifetime warranty. See pricing & what's included."
         keywords="ceramic coating cost Charlotte NC, how much is ceramic coating Charlotte, ceramic coating price Charlotte NC, GYEON ceramic coating Charlotte, professional ceramic coating near me, ceramic coating Charlotte reviews"
         schema={{
           "@context": "https://schema.org",
@@ -94,7 +95,7 @@ export function CeramicCoatingCharlottePage() {
                   {i === 1 && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                   <h3 className="font-bold text-xl mb-1">{pkg.tier}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{pkg.product}</p>
-                  <p className="text-3xl font-black mb-1">{pkg.price}</p>
+                  <p className="text-3xl font-black mb-1"><PriceLabel price={pkg.price} /></p>
                   <p className="text-xs text-muted-foreground mb-4">30% deposit ({pkg.deposit}) to reserve</p>
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                     <span className="font-semibold text-foreground">Best for:</span> {pkg.best}
@@ -166,19 +167,19 @@ export function CeramicCoatingCharlottePage() {
                     <tr className="border-b border-border/50">
                       <td className="p-4 text-muted-foreground">Entry-level professional</td>
                       <td className="p-4 text-muted-foreground">$300–$600</td>
-                      <td className="p-4 font-semibold text-gold">$499+</td>
+                      <td className="p-4 font-semibold text-gold"><PriceLabel price="$499" /></td>
                       <td className="p-4 text-muted-foreground flex items-center gap-1"><Clock className="size-3" /> 1 year</td>
                     </tr>
                     <tr className="border-b border-border/50 bg-gold/5">
                       <td className="p-4 font-semibold">Mid-tier professional</td>
                       <td className="p-4 text-muted-foreground">$700–$1,200</td>
-                      <td className="p-4 font-bold text-gold">$749+</td>
+                      <td className="p-4 font-bold text-gold"><PriceLabel price="$749" /></td>
                       <td className="p-4 text-muted-foreground flex items-center gap-1"><Clock className="size-3" /> 3 years</td>
                     </tr>
                     <tr>
                       <td className="p-4 text-muted-foreground">Premium lifetime</td>
                       <td className="p-4 text-muted-foreground">$1,500–$3,000</td>
-                      <td className="p-4 font-semibold text-gold">$1,799+</td>
+                      <td className="p-4 font-semibold text-gold"><PriceLabel price="$1,799" /></td>
                       <td className="p-4 text-muted-foreground flex items-center gap-1"><Clock className="size-3" /> Lifetime*</td>
                     </tr>
                   </tbody>

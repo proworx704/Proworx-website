@@ -9,6 +9,7 @@ import {
   getCheckoutUrl,
   type SubscriptionPlanType,
 } from "@/lib/subscriptionUrls";
+import { PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 
 /* ── helpers ─────────────────────────────────────────────────────────── */
 function BookBtn({ href, children, variant = "gold", onClick }: { href: string; children: React.ReactNode; variant?: "gold" | "outline"; onClick?: () => void }) {
@@ -103,7 +104,7 @@ function TierCard({
             <span className="text-muted-foreground">{p.label}</span>
             <div className="flex items-center gap-3">
               <span className="text-[10px] text-muted-foreground/60">{p.duration}</span>
-              <span className="font-bold tabular-nums">{p.price}</span>
+              <span className="font-bold tabular-nums"><PriceLabel price={p.price} /></span>
             </div>
           </div>
         ))}
@@ -244,6 +245,7 @@ export function MenuPage() {
 
           </div>
           <p className="text-[10px] text-muted-foreground/60 mt-3">Pet Hair Fee: Additional time charged at base rate. Condition surcharge may apply for neglected vehicles.</p>
+          <StartingPriceNote />
         </Section>
 
         <div className="border-t border-border" />
@@ -277,6 +279,7 @@ export function MenuPage() {
             />
 
           </div>
+          <StartingPriceNote />
         </Section>
 
         <div className="border-t border-border" />
@@ -308,6 +311,7 @@ export function MenuPage() {
             />
 
           </div>
+          <StartingPriceNote />
         </Section>
 
         <div className="border-t border-border" />
@@ -353,6 +357,7 @@ export function MenuPage() {
             { name: "Paint Sealant (~6 months)", price: "$80" },
             { name: "Carnauba Wax (~3 months)", price: "$60" },
           ]} />
+          <StartingPriceNote />
           <div className="mt-4">
             <BookBtn href={bookMain}>Build Your Package <ArrowRight className="size-4" /></BookBtn>
           </div>
@@ -409,7 +414,7 @@ export function MenuPage() {
                   {pkg.prices.map((p) => (
                     <div key={p.label} className="flex justify-between text-sm">
                       <span className="text-muted-foreground">{p.label}</span>
-                      <span className="font-bold">{p.price}</span>
+                      <span className="font-bold"><PriceLabel price={p.price} /></span>
                     </div>
                   ))}
                 </div>
@@ -502,7 +507,7 @@ export function MenuPage() {
                   <h3 className="font-bold text-base">{pkg.name}</h3>
                 </div>
                 <p className="text-xs font-semibold text-gold mb-2">{pkg.protection} Protection</p>
-                <p className="text-2xl font-black mb-0.5">{pkg.price}<span className="text-sm font-normal text-muted-foreground">+</span></p>
+                <p className="text-2xl font-black mb-0.5"><PriceLabel price={pkg.price} /></p>
                 <p className="text-[10px] text-muted-foreground mb-4">30% deposit ({pkg.deposit}) to reserve</p>
                 <ul className="space-y-1.5 mb-4">
                   {pkg.features.map((f) => (
@@ -591,10 +596,11 @@ export function MenuPage() {
                 <div className="max-w-sm rounded-2xl bg-card border-2 border-gold shadow-lg shadow-gold/10 p-5 relative">
                   <div className="absolute -top-2.5 left-4 px-3 py-0.5 bg-gold text-gold-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">Billed Monthly</div>
                   <h3 className="font-bold text-base mt-1 mb-1">{activeTier.label}</h3>
-                  <p className="text-2xl font-black mb-1">${activeTier.price}<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                  <p className="text-2xl font-black mb-1"><PriceLabel price={`$${activeTier.price}`} suffix={<span className="text-sm font-normal text-muted-foreground">/month</span>} /></p>
                   <p className="text-xs text-muted-foreground leading-relaxed mb-4">Billing starts the 1st of the month following signup — you're never charged twice in your first month.</p>
                   <BookBtn href={checkoutUrl} onClick={() => trackSubscribeClick(`${currentMenuPlan.shortName} Monthly`, checkoutUrl)}>Subscribe <ArrowRight className="size-4" /></BookBtn>
                 </div>
+                <StartingPriceNote />
               </div>
             );
           })()}
@@ -643,7 +649,7 @@ function AddOnGroup({ title, items }: { title: string; items: { name: string; pr
           {items.map((item) => (
             <div key={item.name} className="flex items-center justify-between rounded-lg bg-card/50 border border-border px-3 py-2">
               <span className="text-xs font-medium">{item.name}</span>
-              <span className="text-sm font-bold text-gold ml-2 shrink-0">{item.price}</span>
+              <span className="text-sm font-bold text-gold ml-2 shrink-0"><PriceLabel price={item.price} /></span>
             </div>
           ))}
         </div>

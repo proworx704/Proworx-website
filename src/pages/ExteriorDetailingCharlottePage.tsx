@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { PageSEO } from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { BookNowLink } from "@/components/BookNowLink";
-import { BookingPriceNote } from "@/components/PricingDisclaimer";
+import { BookingPriceNote, PriceLabel, StartingPriceNote } from "@/components/PricingDisclaimer";
 import { CmsImg } from "@/components/CmsImg";
 import { useSiteConfig } from "@/hooks/useCms";
 import { RelatedCharlotteServices } from "@/components/RelatedCharlotteServices";
 
 const PACKAGES = [
-  { name: "Standard Exterior", price: "From $104", features: ["Hand wash & dry", "Tire & wheel cleaning", "Tire dressing", "Exterior glass cleaning", "Door jamb wipe-down"], best: "Quick refresh \u2014 removes dirt, grime, and road film" },
-  { name: "Premium Exterior", price: "From $210", features: ["Everything in Standard", "Clay bar decontamination", "1-step polish", "Paint sealant application", "Plastic & trim dressing", "Exhaust tip polishing"], popular: true, best: "Deep clean & protect \u2014 removes contaminants and seals paint" },
-  { name: "Elite Exterior", price: "From $499", features: ["Everything in Premium", "Multi-step paint correction", "12-month ceramic wax", "Ceramic tire dressing", "Trim ceramic coating", "Water spot removal"], best: "Show-car finish \u2014 correction, ceramic, and long-term protection" },
+  { name: "Standard Exterior", price: "Starting at $104", features: ["Hand wash & dry", "Tire & wheel cleaning", "Tire dressing", "Exterior glass cleaning", "Door jamb wipe-down"], best: "Quick refresh \u2014 removes dirt, grime, and road film" },
+  { name: "Premium Exterior", price: "Starting at $210", features: ["Everything in Standard", "Clay bar decontamination", "1-step polish", "Paint sealant application", "Plastic & trim dressing", "Exhaust tip polishing"], popular: true, best: "Deep clean & protect \u2014 removes contaminants and seals paint" },
+  { name: "Elite Exterior", price: "Starting at $499", features: ["Everything in Premium", "Multi-step paint correction", "12-month ceramic wax", "Ceramic tire dressing", "Trim ceramic coating", "Water spot removal"], best: "Show-car finish \u2014 correction, ceramic, and long-term protection" },
 ];
 
 const EXTERIOR_SERVICES = [
@@ -199,7 +199,7 @@ export function ExteriorDetailingCharlottePage() {
               <div key={pkg.name} className={`rounded-2xl bg-card border p-7 flex flex-col relative ${pkg.popular ? "border-gold shadow-lg shadow-gold/10" : "border-border"}`}>
                 {pkg.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold text-gold-foreground text-xs font-bold rounded-full">Most Popular</div>}
                 <h3 className="font-bold text-xl mb-1">{pkg.name}</h3>
-                <p className="text-2xl font-black mb-2">{pkg.price}</p>
+                <p className="text-2xl font-black mb-2"><PriceLabel price={pkg.price} /></p>
                 <p className="text-xs text-muted-foreground mb-4"><strong>Best for:</strong> {pkg.best}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.features.map((f) => (
@@ -216,6 +216,7 @@ export function ExteriorDetailingCharlottePage() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground text-center mt-4">Prices shown for sedans. SUVs, trucks, and larger vehicles priced individually. <Link to="/services" className="text-gold hover:underline">View all packages \u2192</Link></p>
+          <StartingPriceNote className="text-center" />
         </div>
       </section>
 
